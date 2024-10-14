@@ -4,9 +4,9 @@
     "href": "index.html",
     "title": "Python Course",
     "section": "",
-    "text": "Preface\nThis is a short introduction to the Python programming language.\nThe main goal is to be productive right away, so we will emphasize practical over theoretical aspects with a focus on data-related tasks, a great target for the Python language!\nAfter the course, you will have practical tools under your belt to tackle daily data-related and common automation tasks with Python as well as enough knowledge to bootstrap yourself in your own learning path.\nOff we go! 🚀",
+    "text": "About the Course\nThis is a short introduction to the Python programming language.\nThe main goal is to be productive right away, so we will emphasize practical over theoretical aspects with a focus on data-related tasks, a great target for the Python language!\nAfter the course, you will have practical tools under your belt to tackle daily data-related and common automation tasks with Python as well as enough knowledge to bootstrap yourself in your own learning path.\nOff we go! 🚀\n\n\nAbout the Author\nFabrizio Damicelli (PhD, Computational Neuroscience) is a self-taught coder who prefers simple words and solid intuitions to unnecessary sophistication and fancy jargon.\nOpen source advocate, creator and maintainer of a few of Python packages.\nLearn more here",
     "crumbs": [
-      "Preface"
+      "About the Course"
     ]
   },
   {
