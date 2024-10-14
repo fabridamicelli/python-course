@@ -4,9 +4,21 @@ project:
 
 book:
   title: "Python Course"
-  description: "A hands-on introduction to Python to get you quickly off the ground"
+  subtitle: "A friendly, hands-on introduction to Python"
   author: "Fabrizio Damicelli"
-  date: "2024-10-14"
+  site-url: "https://fabridamicelli.github.io/python-course"
+  sharing:
+    - "twitter"
+    - "linkedin"
+    - "facebook"
+  navbar:
+    right:
+      - href: https://github.com/fabridamicelli
+        icon: github
+      - href: https://x.com/fabridamicelli
+        icon: twitter-x
+      - href: https://linkedin.com/in/fabridamicelli
+        icon: linkedin
   chapters:
     - index.qmd
     - 01_getting_started.ipynb
@@ -38,6 +50,6 @@ bibliography: references.bib
 
 format:
   html:
-    theme: flatly
+    theme: cosmo
     highlight-style: breeze
     include-in-header: ../plausible.html

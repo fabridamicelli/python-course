@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Python Course - 20&nbsp; Useful Tools and Patterns</title>
+<title>Python Course - 2&nbsp; Executing Code</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -64,8 +64,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./lab_explore_data_exercises.html" rel="next">
-<link href="./12_oop.html" rel="prev">
+<link href="./02_types_data_structures.html" rel="next">
+<link href="./01_getting_started.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -144,8 +144,25 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           </div> <!-- /navcollapse -->
           <div class="quarto-navbar-tools">
     <div class="dropdown">
-      <a href="" title="Share" id="quarto-navigation-tool-dropdown-0" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Share"><i class="bi bi-share"></i></a>
+      <a href="" title="Download" id="quarto-navigation-tool-dropdown-0" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download"><i class="bi bi-download"></i></a>
       <ul class="dropdown-menu" aria-labelledby="quarto-navigation-tool-dropdown-0">
+          <li>
+            <a class="dropdown-item quarto-navbar-tools-item" href="./Python-Course.pdf">
+              <i class="bi bi-bi-file-pdf pe-1"></i>
+            Download PDF
+            </a>
+          </li>
+          <li>
+            <a class="dropdown-item quarto-navbar-tools-item" href="./Python-Course.epub">
+              <i class="bi bi-bi-journal pe-1"></i>
+            Download ePub
+            </a>
+          </li>
+      </ul>
+    </div>
+    <div class="dropdown">
+      <a href="" title="Share" id="quarto-navigation-tool-dropdown-1" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Share"><i class="bi bi-share"></i></a>
+      <ul class="dropdown-menu" aria-labelledby="quarto-navigation-tool-dropdown-1">
           <li>
             <a class="dropdown-item quarto-navbar-tools-item" href="https://twitter.com/intent/tweet?url=|url|">
               <i class="bi bi-bi-twitter pe-1"></i>
@@ -174,7 +191,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./13_tools.html"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Useful Tools and Patterns</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./010_executing_code.html"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Executing Code</span></a></li></ol></nav>
         <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -200,7 +217,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./010_executing_code.html" class="sidebar-item-text sidebar-link">
+  <a href="./010_executing_code.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Executing Code</span></span></a>
   </div>
 </li>
@@ -308,7 +325,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./13_tools.html" class="sidebar-item-text sidebar-link active">
+  <a href="./13_tools.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Useful Tools and Patterns</span></span></a>
   </div>
 </li>
@@ -346,11 +363,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#generators" id="toc-generators" class="nav-link active" data-scroll-target="#generators"><span class="header-section-number">20.1</span> Generators</a></li>
-  <li><a href="#decorators" id="toc-decorators" class="nav-link" data-scroll-target="#decorators"><span class="header-section-number">20.2</span> Decorators</a></li>
-  <li><a href="#the-functools-module" id="toc-the-functools-module" class="nav-link" data-scroll-target="#the-functools-module"><span class="header-section-number">20.3</span> The <code>functools</code> module</a></li>
-  <li><a href="#the-itertools-module" id="toc-the-itertools-module" class="nav-link" data-scroll-target="#the-itertools-module"><span class="header-section-number">20.4</span> The <code>itertools</code> module</a></li>
-  <li><a href="#modules-for-scientific-computing" id="toc-modules-for-scientific-computing" class="nav-link" data-scroll-target="#modules-for-scientific-computing"><span class="header-section-number">20.5</span> Modules for Scientific Computing</a></li>
+  <li><a href="#executing-files" id="toc-executing-files" class="nav-link active" data-scroll-target="#executing-files"><span class="header-section-number">2.1</span> Executing files</a></li>
+  <li><a href="#built-in-repl" id="toc-built-in-repl" class="nav-link" data-scroll-target="#built-in-repl"><span class="header-section-number">2.2</span> Built-in REPL</a></li>
+  <li><a href="#ipython-repl" id="toc-ipython-repl" class="nav-link" data-scroll-target="#ipython-repl"><span class="header-section-number">2.3</span> IPython REPL</a>
+  <ul class="collapse">
+  <li><a href="#exercises" id="toc-exercises" class="nav-link" data-scroll-target="#exercises"><span class="header-section-number">2.3.1</span> Exercises</a></li>
+  </ul></li>
+  <li><a href="#code-editor" id="toc-code-editor" class="nav-link" data-scroll-target="#code-editor"><span class="header-section-number">2.4</span> Code Editor</a></li>
+  <li><a href="#jupyter-notebook" id="toc-jupyter-notebook" class="nav-link" data-scroll-target="#jupyter-notebook"><span class="header-section-number">2.5</span> Jupyter Notebook</a></li>
   </ul>
 </nav>
     </div>
@@ -359,7 +379,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Useful Tools and Patterns</span></h1>
+<h1 class="title"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Executing Code</span></h1>
 </div>
 
 
@@ -376,38 +396,119 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<div id="0d50c85a-da56-4c2e-93b0-6d671c40a94f" class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>🚧</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>Material under construction</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>🚧</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>There are several ways to execute code.</p>
+<section id="executing-files" class="level2" data-number="2.1">
+<h2 data-number="2.1" class="anchored" data-anchor-id="executing-files"><span class="header-section-number">2.1</span> Executing files</h2>
+<p>When working with <code>uv</code> we can do this (inside of the working project directory):</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">uv</span> run your-file.py</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Or this:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">uv</span> run python your-file.py</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Alternatively, we could manually activate the virtual environment and run the script:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="bu">source</span> .venv/bin/activate</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="ex">python</span> your-file.py</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
 </div>
-<section id="generators" class="level2" data-number="20.1">
-<h2 data-number="20.1" class="anchored" data-anchor-id="generators"><span class="header-section-number">20.1</span> Generators</h2>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Prefer <code>uv run</code> in order to let <code>uv</code> take care of several useful things for us under the hood, such as syncing our dependencies.</p>
+</div>
+</div>
 </section>
-<section id="decorators" class="level2" data-number="20.2">
-<h2 data-number="20.2" class="anchored" data-anchor-id="decorators"><span class="header-section-number">20.2</span> Decorators</h2>
-<p>aka, closure</p>
+<section id="built-in-repl" class="level2" data-number="2.2">
+<h2 data-number="2.2" class="anchored" data-anchor-id="built-in-repl"><span class="header-section-number">2.2</span> Built-in REPL</h2>
+<p>As per Wikipedia:</p>
+<blockquote class="blockquote">
+<p>A read–eval–print loop (REPL) is a simple interactive computer programming environment that takes single user inputs, executes them, and returns the result to the user.</p>
+</blockquote>
+<p>If type <code>uv run python</code> in our terminal and hit enter, we get into the built-in python REPL.</p>
+<p>The built-in python REPL is fine, but as of today (October 2024) it has some limitations.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Python core developers are putting a lot of effort into improving the REPL and Python 3.13 has already a number of great improvements, give it a try!</p>
+</div>
+</div>
 </section>
-<section id="the-functools-module" class="level2" data-number="20.3">
-<h2 data-number="20.3" class="anchored" data-anchor-id="the-functools-module"><span class="header-section-number">20.3</span> The <code>functools</code> module</h2>
+<section id="ipython-repl" class="level2" data-number="2.3">
+<h2 data-number="2.3" class="anchored" data-anchor-id="ipython-repl"><span class="header-section-number">2.3</span> IPython REPL</h2>
+<p>An alternative to that is the IPython REPL. <a href="https://ipython.org/">IPython</a> is a whole different open source project that builds on top of python itself, but it is independent, thus we need to install IPython.</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="ex">uv</span> add ipython</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Take a look at the content of <code>pyproject.toml</code> to see how <code>uv</code> added ipython as a project dependency. We’ll take a closer look at that later.</p>
+</div>
+</div>
+<p>We can fire up the IPython REPL:</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="ex">uv</span> run ipython</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>The IPython REPL brings some nice features that make this interactive coding environment much powerful and handy to interact with, such as <a href="https://ipython.readthedocs.io/en/stable/interactive/magics.html#built-in-magic-commands">magic commands</a>. These are some magic commands I recommend checking out:</p>
 <ul>
-<li>partial</li>
-<li>cache</li>
-<li>operator?</li>
+<li><code>! &lt;COMMAND&gt;</code>: Call the system COMMAND, eg <code>!ls</code> to list contents.</li>
+<li><code>%run</code>: Run a file inside IPython as a program.</li>
+<li><code>%time</code>: Time execution of a Python statement or expression.</li>
+<li><code>%timeit</code>: Time execution of a Python statement or expression.</li>
 </ul>
+<section id="exercises" class="level3" data-number="2.3.1">
+<h3 data-number="2.3.1" class="anchored" data-anchor-id="exercises"><span class="header-section-number">2.3.1</span> Exercises</h3>
+<p>Get familiar with the REPL:</p>
+<ol type="1">
+<li>Add two or more numbers (try with and without decimals)</li>
+<li>Multiply two or more numbers</li>
+<li>Multiply 3 twenty two times</li>
+<li>Print your name using the <code>print</code> function</li>
+<li>Add two strings, e.g.&nbsp;“hello” + “world”</li>
+<li>Run the file <code>hello.py</code> inside the REPL</li>
+<li>Same but print it’s execution time</li>
+</ol>
 </section>
-<section id="the-itertools-module" class="level2" data-number="20.4">
-<h2 data-number="20.4" class="anchored" data-anchor-id="the-itertools-module"><span class="header-section-number">20.4</span> The <code>itertools</code> module</h2>
-<ul>
-<li>product</li>
-</ul>
 </section>
-<section id="modules-for-scientific-computing" class="level2" data-number="20.5">
-<h2 data-number="20.5" class="anchored" data-anchor-id="modules-for-scientific-computing"><span class="header-section-number">20.5</span> Modules for Scientific Computing</h2>
-<ul>
-<li>math</li>
-<li>decimal</li>
-</ul>
+<section id="code-editor" class="level2" data-number="2.4">
+<h2 data-number="2.4" class="anchored" data-anchor-id="code-editor"><span class="header-section-number">2.4</span> Code Editor</h2>
+<p>When editing code more extensively we also want to have a so called integrated development environment (IDE). There are many options out there. Do not spend too much time deciding which to pick, you can always change your choice later.<br>
+<a href="https://code.visualstudio.com/">VS-Code</a> is a reasonable general choice as of today, it is free and widely adopted. For a user experience more similar to matlab and oriented to scientific computing you can check out <a href="https://www.spyder-ide.org">Spyder</a>.</p>
+</section>
+<section id="jupyter-notebook" class="level2" data-number="2.5">
+<h2 data-number="2.5" class="anchored" data-anchor-id="jupyter-notebook"><span class="header-section-number">2.5</span> Jupyter Notebook</h2>
+<p>Notebooks run on the browser and are a way to mix code with other kinds of data, such as images, videos or widgets. They are a very useful tool for explorative analysis. If you ever used something like Mathematica you’ll be already familiar with them.</p>
+<p>There are several versions of notebooks, we are going to use <a href="https://jupyterlab.readthedocs.io/en/latest/">JupyterLab</a>. Let’s install it:</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="ex">uv</span> add jupyterlab</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Let’s create a directory for notebooks in our project:</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mkdir</span> noteboooks</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Launch a jupyterlab session:</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="ex">uv</span> run jupyter lab</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Some people have strong opinions on editors and coding workflows. Don’t waste time getting into that, just use whatever editor/workflow makes you productive.</p>
+</div>
+</div>
 
 
 </section>
@@ -824,13 +925,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./12_oop.html" class="pagination-link" aria-label="Object Oriented Programming">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Object Oriented Programming</span></span>
+      <a href="./01_getting_started.html" class="pagination-link" aria-label="Getting Started">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Getting Started</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./lab_explore_data_exercises.html" class="pagination-link" aria-label="Lab: Exploring a Dataset">
-        <span class="nav-page-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Lab: Exploring a Dataset</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./02_types_data_structures.html" class="pagination-link" aria-label="Syntax Basics">
+        <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Syntax Basics</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
