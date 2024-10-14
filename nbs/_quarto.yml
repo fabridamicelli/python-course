@@ -1,0 +1,49 @@
+project:
+  type: book
+  output-dir: ../docs
+
+book:
+  title: "Python Course"
+  description: "A hands-on introduction to Python to get you quickly off the ground"
+  author: "Fabrizio Damicelli"
+  date: "2024-10-14"
+  chapters:
+    - index.qmd
+    - 01_getting_started.ipynb
+    - 010_executing_code.ipynb
+    - 02_types_data_structures.ipynb
+    - 03_flow_control.ipynb
+    - 031_error_handling.ipynb
+    - 04_functions.ipynb
+    - 041_scope.ipynb
+    - 05_comprehensions.ipynb
+    - 06_imports.ipynb
+    - 061_dependencies.ipynb
+    - 062_read_and_write.ipynb
+    - 063_common_data_formats.ipynb
+    - 08_numpy.ipynb
+    - 081_pandas.ipynb
+    - 09_plotting.ipynb
+    - 10_tests.ipynb
+    - 11_cli.ipynb
+    - 111_debugging.ipynb
+    - 12_oop.ipynb
+    - 13_tools.ipynb
+    - lab_explore_data_exercises.ipynb
+    - notebook_workflow.ipynb
+    - 999_glossary.ipynb
+    - readability.ipynb
+    - code_repositories.ipynb
+    - summary.qmd
+    - references.qmd
+
+bibliography: references.bib
+
+format:
+  html:
+    theme: flatly
+    highlight-style: breeze
+    include-after-body: ../plausible.html
+
+execute:
+  freeze: auto

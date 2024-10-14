@@ -1,0 +1,7 @@
+# Preface {.unnumbered}
+This is a short introduction to the Python programming language.   
+The main goal is to be productive right away, so we will emphasize **practical** over theoretical aspects with a focus on data-related tasks, a great target for the Python language!
+
+After the course, you will have practical tools under your belt to tackle daily data-related and common automation tasks with Python as well as enough knowledge to bootstrap yourself in your own learning path.
+
+Off we go! 🚀
