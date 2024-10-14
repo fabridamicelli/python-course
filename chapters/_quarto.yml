@@ -29,6 +29,7 @@ book:
     - 04_functions.ipynb
     - 041_scope.ipynb
     - 05_comprehensions.ipynb
+    - 051_oop.ipynb
     - 06_imports.ipynb
     - 061_dependencies.ipynb
     - 062_read_and_write.ipynb
@@ -39,7 +40,6 @@ book:
     - 10_tests.ipynb
     - 11_cli.ipynb
     - 111_debugging.ipynb
-    - 12_oop.ipynb
     - 13_tools.ipynb
     - lab_explore_data_exercises.ipynb
     - notebook_workflow.ipynb
