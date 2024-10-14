@@ -40,4 +40,4 @@ format:
   html:
     theme: flatly
     highlight-style: breeze
-    include-after-body: ../plausible.html
+    include-in-header: ../plausible.html

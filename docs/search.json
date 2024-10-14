@@ -848,35 +848,5 @@
     "crumbs": [
       "<span class='chapter-number'>23</span>  <span class='chapter-title'>Glossary</span>"
     ]
-  },
-  {
-    "objectID": "readability.html",
-    "href": "readability.html",
-    "title": "Python Course",
-    "section": "",
-    "text": "namedtuple enums\nobligatory kwargs\nadd parameters only as you need them (don’t start too general) (refactor!)\n“documentation oriented” design: start with the usage, then write the API\ndon’t split too early\ncareful with with mutable arguments in functions\nActionable items to make code more readable and easier to maintain: NamedTuple. dataclass. defaultdict. itertools, more_itertools.\nRefactoring and structuring code (Modules/Packages).",
-    "crumbs": [
-      "<span class='chapter-number'>24</span>  <span class='chapter-title'>readability.html</span>"
-    ]
-  },
-  {
-    "objectID": "code_repositories.html",
-    "href": "code_repositories.html",
-    "title": "Python Course",
-    "section": "",
-    "text": "PyPI conda-forge",
-    "crumbs": [
-      "<span class='chapter-number'>25</span>  <span class='chapter-title'>code_repositories.html</span>"
-    ]
-  },
-  {
-    "objectID": "summary.html",
-    "href": "summary.html",
-    "title": "26  Summary",
-    "section": "",
-    "text": "In summary, this book has no content whatsoever.",
-    "crumbs": [
-      "<span class='chapter-number'>26</span>  <span class='chapter-title'>Summary</span>"
-    ]
   }
 ]
