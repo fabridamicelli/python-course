@@ -84,7 +84,7 @@
     "href": "010_executing_code.html#ipython-repl",
     "title": "2  Executing Code",
     "section": "2.3 IPython REPL",
-    "text": "2.3 IPython REPL\nAn alternative to that is the IPython REPL. IPython is a whole different open source project that builds on top of python itself, but it is independent, thus we need to install IPython.\nuv add ipython\n\n\n\n\n\n\nTip\n\n\n\nTake a look at the content of pyproject.toml to see how uv added ipython as a project dependency. We’ll take a closer look at that later.\n\n\nWe can fire up the IPython REPL:\nuv run ipython\nThe IPython REPL brings some nice features that make this interactive coding environment much powerful and handy to interact with, such as magic commands. These are some magic commands I recommend checking out:\n\n! &lt;COMMAND&gt;: Call the system COMMAND, eg !ls to list contents.\n%run: Run a file inside IPython as a program.\n%time: Time execution of a Python statement or expression.\n%timeit: Time execution of a Python statement or expression.\n\n\n2.3.1 Exercises\nGet familiar with the REPL:\n\nAdd two or more numbers (try with and without decimals)\nMultiply two or more numbers\nMultiply 3 twenty two times\nPrint your name using the print function\nAdd two strings, e.g. “hello” + “world”\nRun the file hello.py inside the REPL\nSame but print it’s execution time",
+    "text": "2.3 IPython REPL\nAn alternative to that is the IPython REPL. IPython is a whole different open source project that builds on top of python itself, but it is independent, thus we need to install IPython.\nuv add ipython\n\n\n\n\n\n\nTip\n\n\n\nTake a look at the content of pyproject.toml to see how uv added ipython as a project dependency. We’ll take a closer look at that later.\n\n\nWe can fire up the IPython REPL:\nuv run ipython\nThe IPython REPL brings some nice features that make this interactive coding environment much powerful and handy to interact with, such as magic commands. These are some commands I recommend checking out:\n\n?\n! &lt;COMMAND&gt;: Call the system COMMAND, eg !ls to list contents.\n%run: Run a file inside IPython as a program.\n%time: Time execution of a Python statement or expression.\n%timeit: Time execution of a Python statement or expression.\n\n\n2.3.1 Exercises\nGet familiar with the REPL:\n\nAdd two or more numbers (try with and without decimals)\nMultiply two or more numbers\nMultiply 3 twenty two times\nPrint your name using the print function\nAdd two strings, e.g. “hello” + “world”\nRun the file hello.py inside the REPL\nSame but print it’s execution time",
     "crumbs": [
       "<span class='chapter-number'>2</span>  <span class='chapter-title'>Executing Code</span>"
     ]
@@ -234,7 +234,7 @@
     "href": "031_error_handling.html#exceptions",
     "title": "5  Error Handling",
     "section": "",
-    "text": "try:\n    # do something\nexcept SomeException:\n    # handle the error\nfinally:\n    # Optionally to something (always executed)\n\n\n\n\n\n\n\n\n\n\nGood practice Tip\n\n\n\nBe as explicit as possible with your exceptions to avoid letting unexpected errors slip through.",
+    "text": "try:\n    # do something\nexcept SomeException:\n    # handle the error\nfinally:\n    # Optionally to something (always executed)\n\n\n\n\n\n\n\n\nGood practice Tip\n\n\n\nBe as explicit as possible with your exceptions to avoid letting unexpected errors slip through.\n\n\n\n\n\n\n\n\n\n\nNote\n\n\n\nExceptions are also used beyond errors as a more general kind of means of communication in the python language, for example, to signal that a generator has been used up.",
     "crumbs": [
       "<span class='chapter-number'>5</span>  <span class='chapter-title'>Error Handling</span>"
     ]
@@ -304,7 +304,7 @@
     "href": "04_functions.html#anonymous-functions",
     "title": "6  Functions",
     "section": "6.4 Anonymous functions",
-    "text": "6.4 Anonymous functions\nThere is a shorthand to define functions with this syntax:\nlambda [optional-args]: [return-values]\n\nlambda: \"say hello\"\n\n&lt;function __main__.&lt;lambda&gt;()&gt;\n\n\n\nprinter(lambda: \"hello course\")\n\nhello course\n\n\nIt can also take arguments:\n\nf = lambda x: x+1\n\n\nf(1)\n\n2",
+    "text": "6.4 Anonymous functions\nThere is a shorthand to define functions with this syntax:\nlambda [optional-args]: [return-values]\n\nlambda: \"say hello\"\n\n&lt;function __main__.&lt;lambda&gt;()&gt;\n\n\n\nprinter(lambda: \"hello course\")\n\nhello course\n\n\nIt can also take arguments:\n\nf = lambda x: x+1\n\n\nf(1)\n\n2\n\n\nA typical use case of anonymous functions:\n\nnames = [\"anna\", \"lui\", \"marco\", \"ramiro\", \"tim\"]\n\n\nsorted(names, key=lambda name: name[-1])\n\n['anna', 'lui', 'tim', 'marco', 'ramiro']\n\n\n\nsorted(names, key=lambda name: len(name))\n\n['lui', 'tim', 'anna', 'marco', 'ramiro']\n\n\n\nages = [(\"anna\", 93), (\"lui\", 19), (\"marco\", 11), (\"ramiro\", 83)]\n\n\nsorted(ages, key=lambda name_age: name_age[1])  # name_age is a tuple\n\n[('marco', 11), ('lui', 19), ('ramiro', 83), ('anna', 93)]",
     "crumbs": [
       "<span class='chapter-number'>6</span>  <span class='chapter-title'>Functions</span>"
     ]
@@ -410,333 +410,343 @@
     ]
   },
   {
+    "objectID": "051_oop.html",
+    "href": "051_oop.html",
+    "title": "9  Object Oriented Programming",
+    "section": "",
+    "text": "9.1 Classes and Objects\nIn python we deal with so-called objects. An object is an instance, that is a particular realization, of a class.\nHere’s an analogy: You can think of a class as the instructions to build a car, say a FiatUno:\nclass FiatUno:\n    def __init__(self, color=\"white\", radio=False):\n        self.color = color\n        self.radio = radio\n        self.radio_is_on = False\n    def turn_on_radio(self):\n        self.radio_is_on = True\n        print(f\"Radio is on!\")\n    def turn_off_radio(self):\n        self.radio_is_on = False\n        print(f\"Radio is off!\")\nEach actual car is an object, i.e. an instance of a class:\ncar1 = FiatUno()\nWe can make another car:\ncar2 = FiatUno()\nLike two cars can be the same model and color, they always have different license plates.\nThe same happens in python:\nid(car1)\n\n139856081602784\nid(car2)\n\n139856081603648\nEach object has attributes:\ncar1.color, car1.radio\n\n('white', False)",
+    "crumbs": [
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Object Oriented Programming</span>"
+    ]
+  },
+  {
+    "objectID": "051_oop.html#classes-and-objects",
+    "href": "051_oop.html#classes-and-objects",
+    "title": "9  Object Oriented Programming",
+    "section": "",
+    "text": "Note\n\n\n\nBy convention, we use CamelCase to name classes.",
+    "crumbs": [
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Object Oriented Programming</span>"
+    ]
+  },
+  {
+    "objectID": "051_oop.html#methods",
+    "href": "051_oop.html#methods",
+    "title": "9  Object Oriented Programming",
+    "section": "9.2 Methods",
+    "text": "9.2 Methods\nDifferent car models have different functionalities, like turning the radio on.\nIn python it’s the same, the functions attached to an object are called methods and we call them with this dot notation:\n\ncar1.turn_on_radio()  # it's just a function, so we call it with ()\n\nRadio is on!\n\n\n\ncar1.turn_off_radio()\n\nRadio is off!\n\n\nWhere is the self argument of the functions?\nThe first argument of a method will be always passed to the method in the call and it is the object itself!\nThat’s a bit meta an a bit confusing, but don’t worry, you’ll get a feel of it by using the classes/objects.",
+    "crumbs": [
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Object Oriented Programming</span>"
+    ]
+  },
+  {
+    "objectID": "051_oop.html#dunder-methods",
+    "href": "051_oop.html#dunder-methods",
+    "title": "9  Object Oriented Programming",
+    "section": "9.3 Dunder Methods",
+    "text": "9.3 Dunder Methods\nWe saw above the __init__ method. This methods are special and there is a bunch of them already present on all classes:\n\ndir(FiatUno)\n\n['__class__',\n '__delattr__',\n '__dict__',\n '__dir__',\n '__doc__',\n '__eq__',\n '__format__',\n '__ge__',\n '__getattribute__',\n '__gt__',\n '__hash__',\n '__init__',\n '__init_subclass__',\n '__le__',\n '__lt__',\n '__module__',\n '__ne__',\n '__new__',\n '__reduce__',\n '__reduce_ex__',\n '__repr__',\n '__setattr__',\n '__sizeof__',\n '__str__',\n '__subclasshook__',\n '__weakref__',\n 'turn_off_radio',\n 'turn_on_radio']\n\n\nThese “dunder” methods define the behavior of the object in several ways. For example, the __str__ method defines the string representation of the object, which is used when we call print on an object. When we do print(something), python actually goes to the method __str__ of something and calls that one. Let’s see it in action:\n\nclass A:\n    def __init__(self, msg=\"hello\"):\n        self.msg = msg\n    def __str__(self):\n        return self.msg + \", nice to meet you\"\n\n\na = A()\n\n\nprint(a)\n\nhello, nice to meet you\n\n\nIt’s good to know that these dunder methods exist and some libraries will require the user changing them. But in general, you should not worry about them.\n\n\n\n\n\n\nTip\n\n\n\nDon’t overwrite dunder methods unless you really, really need it and you’re sure what you’re doing – it is pretty easy to make mistakes that lead to difficult to debug bugs.",
+    "crumbs": [
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Object Oriented Programming</span>"
+    ]
+  },
+  {
+    "objectID": "051_oop.html#inheritance",
+    "href": "051_oop.html#inheritance",
+    "title": "9  Object Oriented Programming",
+    "section": "9.4 Inheritance",
+    "text": "9.4 Inheritance\n\n\n\n\n\n\nTip\n\n\n\nAvoid using inheritance. We show it here just for you to know it exists and that some libraries use it. You can totally live without it.\n\n\nClasses can be organized in a hierarchy:\n\nclass Car:\n    def __init__(self):\n        self.n_wheels = 4 \n        \nclass FiatPalio(Car):\n    def turn_on_radio(self):\n        print(\"Radio is on\")\n        \nclass FiatTipo(Car):\n    def turn_on_ac(self):\n        print(\"Pretty hot in here\")\n\ncar3 = FiatPalio()\ncar4 = FiatTipo()\n\n\ncar3.turn_on_radio()\n\nRadio is on\n\n\n\ncar3.n_wheels\n\n4\n\n\n\ncar4.turn_on_ac()\n\nPretty hot here\n\n\n\ncar4.n_wheels\n\n4\n\n\nIn that case Car is called the “parent” class and the FiatPalio the “child” or “subclass”.\nNotice that both car3 and car4 inherited the attribute n_wheels from Car.\nA class can have more than one parent:\n\nclass Parent1:\n    n_arms = 2\n        \nclass Parent2:\n    n_legs = 2\n        \nclass Parent3:\n    n_eyes = 2\n\nclass Child(Parent1, Parent2, Parent3):\n    def list_body_parts(self):\n        print(\"arms: \", self.n_arms)\n        print(\"legs: \", self.n_legs)\n        print(\"eyes: \", self.n_eyes)\n\n\nchild = Child()\n\n\nchild.list_body_parts()\n\narms:  2\nlegs:  2\neyes:  2\n\n\nMultiple inheritance is also tricky and you should avoid it. It’s just good to know it exists to understand code from out there, for example, the popular scikit-learn library uses this a lot to propagate methods and avoid code duplication.",
+    "crumbs": [
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Object Oriented Programming</span>"
+    ]
+  },
+  {
     "objectID": "06_imports.html",
     "href": "06_imports.html",
-    "title": "9  Importing Code",
+    "title": "10  Importing Code",
     "section": "",
-    "text": "9.1 Script vs. exportable code\nA Python module (any .py file) might contain code that we want to run (for example as a one-off script) along code that we only want to use somewhere else.\nFor example, we might have a bunch of code like this in a file:\nWe can isolate the part of the code that we want to run as a script with this trick.",
+    "text": "10.1 Script vs. exportable code\nA Python module (any .py file) might contain code that we want to run (for example as a one-off script) along code that we only want to use somewhere else.\nFor example, we might have a bunch of code like this in a file:\nWe can isolate the part of the code that we want to run as a script with this trick.",
     "crumbs": [
-      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Importing Code</span>"
+      "<span class='chapter-number'>10</span>  <span class='chapter-title'>Importing Code</span>"
     ]
   },
   {
     "objectID": "06_imports.html#script-vs.-exportable-code",
     "href": "06_imports.html#script-vs.-exportable-code",
-    "title": "9  Importing Code",
+    "title": "10  Importing Code",
     "section": "",
     "text": "# data.py\n\ndef download(url):\n    ...\ndef process(data):\n    ... \ndef plot(data):\n    ...\n     \nif __name__ == \"__main__\":\n    print(\"I am running as a script\")    \n    def script_func():\n        ...",
     "crumbs": [
-      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Importing Code</span>"
+      "<span class='chapter-number'>10</span>  <span class='chapter-title'>Importing Code</span>"
     ]
   },
   {
     "objectID": "06_imports.html#exercises",
     "href": "06_imports.html#exercises",
-    "title": "9  Importing Code",
-    "section": "9.2 Exercises",
-    "text": "9.2 Exercises\n\nCopy the content of the code above into a file data.py and run it\nCreate another file called analysis.py right next to data.py (in the same directory)\nInside analysis.py import download from data.py and run analysis.py\nInside analysis.py import script_func from data.py and run analysis.py. Do you understand what happens?",
+    "title": "10  Importing Code",
+    "section": "10.2 Exercises",
+    "text": "10.2 Exercises\n\nCopy the content of the code above into a file data.py and run it\nCreate another file called analysis.py right next to data.py (in the same directory)\nInside analysis.py import download from data.py and run analysis.py\nInside analysis.py import script_func from data.py and run analysis.py. Do you understand what happens?",
     "crumbs": [
-      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Importing Code</span>"
+      "<span class='chapter-number'>10</span>  <span class='chapter-title'>Importing Code</span>"
     ]
   },
   {
     "objectID": "061_dependencies.html",
     "href": "061_dependencies.html",
-    "title": "10  Dependencies",
+    "title": "11  Dependencies",
     "section": "",
-    "text": "10.1 Managing dependencies\nThe current convention to specify dependencies (and other things) in python projects is to use a file called pyproject.toml that looks like this:\nThe “dependencies” section is the one we care about here. There we list all the third-party libraries that our project requires. Notice that we can specify both exact versions (with “==”) as well as constraints (with “&lt;,&gt;,&gt;=,&lt;=”). In general we don’t want to deal manually with those aspects – that’s the job of a package manager.\nWe will use here the package manager uv. You can read the docs for more details, which I strongly recommend since the documentation is pretty good and constantly being updated. To add a dependency we type:\nFor example:\nThat will add the dependency to our list as well as updating the “lock” file. Read more about this workflow and managing dependencies here.\nTo remove a package from the dependencies of our project we do:\nFor example:",
+    "text": "11.1 Managing dependencies\nThe current convention to specify dependencies (and other things) in python projects is to use a file called pyproject.toml that looks like this:\nThe “dependencies” section is the one we care about here. There we list all the third-party libraries that our project requires. Notice that we can specify both exact versions (with “==”) as well as constraints (with “&lt;,&gt;,&gt;=,&lt;=”). In general we don’t want to deal manually with those aspects – that’s the job of a package manager.\nWe will use here the package manager uv. You can read the docs for more details, which I strongly recommend since the documentation is pretty good and constantly being updated. To add a dependency we type:\nFor example:\nThat will add the dependency to our list as well as updating the “lock” file. Read more about this workflow and managing dependencies here.\nTo remove a package from the dependencies of our project we do:\nFor example:",
     "crumbs": [
-      "<span class='chapter-number'>10</span>  <span class='chapter-title'>Dependencies</span>"
+      "<span class='chapter-number'>11</span>  <span class='chapter-title'>Dependencies</span>"
     ]
   },
   {
     "objectID": "061_dependencies.html#managing-dependencies",
     "href": "061_dependencies.html#managing-dependencies",
-    "title": "10  Dependencies",
+    "title": "11  Dependencies",
     "section": "",
     "text": "[project]\nname = \"example_package_name\"\nversion = \"0.0.1\"\nauthors = [\n  { name=\"Example Author\", email=\"author@example.com\" },\n]\ndescription = \"A small example package\"\nreadme = \"README.md\"\nrequires-python = \"&gt;=3.10,&lt;3.12\"\ndependencies = [\n    \"numpy==1.2.0\",\n    \"pandas&lt;2.0.0\",\n    \"scikit-learn&gt;=1.0,&lt;2.0\"\n]\n\n\n\n\n\n\n\nNote\n\n\n\nThe packages usually follow a so-called “Semantic versioning” convention on how to name the versions of the package to avoid compatibility problems. In short: Given a version number MAJOR.MINOR.PATCH.\n\nMAJOR version when you make incompatible API changes\nMINOR version when you add functionality in a backward compatible manner\nPATCH version when you make backward compatible bug fixes\n\nRead more about that here.\n\n\n\nuv add PACKAGE-NAME\n\nuv add numpy\n\n\nuv remove PACKAGE-NAME\n\nuv remove numpy",
     "crumbs": [
-      "<span class='chapter-number'>10</span>  <span class='chapter-title'>Dependencies</span>"
+      "<span class='chapter-number'>11</span>  <span class='chapter-title'>Dependencies</span>"
     ]
   },
   {
     "objectID": "062_read_and_write.html",
     "href": "062_read_and_write.html",
-    "title": "11  Read/Write Files",
+    "title": "12  Read/Write Files",
     "section": "",
-    "text": "11.1 Pathlib\nWe often deal with files stored in our computer (or someone else’s, a.k.a. “the Cloud”). The built-in pathlib is very a useful module. In particular, the Path class simplifies a lot the operations we typically do when working with files.\nfrom pathlib import Path\ndirname = \"./a-new-dir\"  # Note: This folder does not yet exist\npath = Path(dirname)\npath.exists()\n\nFalse\nLet’s create it:\npath.mkdir()\npath.exists()\n\nTrue\nOut Path instance composes very nicely with the rest of the language. For example, it will automatically concatenate the path with this syntax:\nfilepath = path/\"a-great-file.txt\"\nfilepath\n\nPosixPath('a-new-dir/a-great-file.txt')\nfilepath.exists()\n\nFalse\nLet’s create it:\nfilepath.touch()\nfilepath.exists()\n\nTrue\nThis file is still empty, let’s write a message into it:\nfilepath.write_text(\"Hello world, this is so much fun!\")\n\n33\nA lot just happened:\nSo the Path class is abstracting away a lot of work. Pretty handy, I think.\nNow let’s read in the content of the file:\nfilepath.read_text()\n\n'Hello world, this is so much fun!'\nWe can also delete files/directories:\nfilepath\n\nPosixPath('a-new-dir/a-great-file.txt')\nfilepath.unlink()  # unlink means remove in this context\nfilepath.exists()\n\nFalse",
+    "text": "12.1 Pathlib\nWe often deal with files stored in our computer (or someone else’s, a.k.a. “the Cloud”). The built-in pathlib is very a useful module. In particular, the Path class simplifies a lot the operations we typically do when working with files.\nfrom pathlib import Path\ndirname = \"./a-new-dir\"  # Note: This folder does not yet exist\npath = Path(dirname)\npath.exists()\n\nFalse\nLet’s create it:\npath.mkdir()\npath.exists()\n\nTrue\nNotice how the Path instance composes very nicely with the rest of the language. For example, it will automatically concatenate the path with this syntax:\nfilepath = path/\"a-great-file.txt\"\nfilepath\n\nPosixPath('a-new-dir/a-great-file.txt')\nfilepath.exists()\n\nFalse\nLet’s create it:\nfilepath.touch()\nfilepath.exists()\n\nTrue\nThis file is still empty, let’s write a message into it:\nfilepath.write_text(\"Hello world, this is so much fun!\")\n\n33\nA lot just happened:\nSo the Path class is abstracting away a lot of work. Pretty handy, I think.\nNow let’s read in the content of the file:\nfilepath.read_text()\n\n'Hello world, this is so much fun!'\nWe can also delete files/directories:\nfilepath\n\nPosixPath('a-new-dir/a-great-file.txt')\nfilepath.unlink()  # unlink means remove in this context\nfilepath.exists()\n\nFalse",
     "crumbs": [
-      "<span class='chapter-number'>11</span>  <span class='chapter-title'>Read/Write Files</span>"
+      "<span class='chapter-number'>12</span>  <span class='chapter-title'>Read/Write Files</span>"
     ]
   },
   {
     "objectID": "062_read_and_write.html#pathlib",
     "href": "062_read_and_write.html#pathlib",
-    "title": "11  Read/Write Files",
+    "title": "12  Read/Write Files",
     "section": "",
     "text": "the file was created\nwe opened the file\nwe wrote the text into it\nwe closed the file\nwe got back the number of bytes written (33)\n\n\n\n\n\n\n\n\n\n\nNote\n\n\n\nThe classical way to open/close files is actually using the open function. You can google it if you’re curious, but, for now, let’s run with pathlib.Path.",
     "crumbs": [
-      "<span class='chapter-number'>11</span>  <span class='chapter-title'>Read/Write Files</span>"
+      "<span class='chapter-number'>12</span>  <span class='chapter-title'>Read/Write Files</span>"
     ]
   },
   {
     "objectID": "062_read_and_write.html#files-directories",
     "href": "062_read_and_write.html#files-directories",
-    "title": "11  Read/Write Files",
-    "section": "11.2 Files & Directories",
-    "text": "11.2 Files & Directories\nWhen manipulating files we sometimes we want to explicitly distinguish between files and directories. pathlib.Path has a few methods that make our life easier:\n\ncurrent = Path(\".\")  # dot means current dir\n\n\ncurrent.is_file()\n\nFalse\n\n\n\ncurrent.is_dir()\n\nTrue\n\n\n\n\n\n\n\n\nTip\n\n\n\nExplore the methods of the Path class by creating and object and hitting the Tab key, there are several handy functionalities included.",
+    "title": "12  Read/Write Files",
+    "section": "12.2 Files & Directories",
+    "text": "12.2 Files & Directories\nWhen manipulating files we sometimes we want to explicitly distinguish between files and directories. pathlib.Path has a few methods that make our life easier:\n\ncurrent = Path(\".\")  # dot means current dir\n\n\ncurrent.is_file()\n\nFalse\n\n\n\ncurrent.is_dir()\n\nTrue\n\n\n\n\n\n\n\n\nTip\n\n\n\nExplore the methods of the Path class by creating and object and hitting the Tab key, there are several handy functionalities included.",
     "crumbs": [
-      "<span class='chapter-number'>11</span>  <span class='chapter-title'>Read/Write Files</span>"
+      "<span class='chapter-number'>12</span>  <span class='chapter-title'>Read/Write Files</span>"
     ]
   },
   {
     "objectID": "062_read_and_write.html#shutil",
     "href": "062_read_and_write.html#shutil",
-    "title": "11  Read/Write Files",
-    "section": "11.3 Shutil",
-    "text": "11.3 Shutil\n🚧 Material under construction 🚧",
+    "title": "12  Read/Write Files",
+    "section": "12.3 Shutil",
+    "text": "12.3 Shutil\n🚧 Material under construction 🚧",
     "crumbs": [
-      "<span class='chapter-number'>11</span>  <span class='chapter-title'>Read/Write Files</span>"
+      "<span class='chapter-number'>12</span>  <span class='chapter-title'>Read/Write Files</span>"
     ]
   },
   {
     "objectID": "063_common_data_formats.html",
     "href": "063_common_data_formats.html",
-    "title": "12  Common Data Formats",
+    "title": "13  Common Data Formats",
     "section": "",
-    "text": "12.1 CSV\nComma Separated Values\nCode\ndata = \"\"\"\\\ndate,id,age\n2020-01-01,x12,19\n2020-01-02,x11,23\n2020-01-02,x3,22\n2020-01-03,x19,28\n\"\"\"\nprint(data)\n\n\ndate,id,age\n2020-01-01,x12,19\n2020-01-02,x11,23\n2020-01-02,x3,22\n2020-01-03,x19,28\nCode\nfrom pathlib import Path\nfilepath = \"/tmp/data.csv\"\nPath(filepath).write_text(data)\nLoading data into a dataframe is not the only but one the most common ways to to load this data:\nimport pandas as pd\n\ndf = pd.read_csv(filepath)\ndf\n\n\n\n\n\n\n\n\n\ndate\nid\nage\n\n\n\n\n0\n2020-01-01\nx12\n19\n\n\n1\n2020-01-02\nx11\n23\n\n\n2\n2020-01-02\nx3\n22\n\n\n3\n2020-01-03\nx19\n28\nWe can also save a dataframe as csv:\ndf.to_csv(\"/tmp/data.csv\", index=None)\n!cat /tmp/data.csv\n\ndate,id,age\n2020-01-01,x12,19\n2020-01-02,x11,23\n2020-01-02,x3,22\n2020-01-03,x19,28",
+    "text": "13.1 CSV\nComma Separated Values\nCode\ndata = \"\"\"\\\ndate,id,age\n2020-01-01,x12,19\n2020-01-02,x11,23\n2020-01-02,x3,22\n2020-01-03,x19,28\n\"\"\"\nprint(data)\n\n\ndate,id,age\n2020-01-01,x12,19\n2020-01-02,x11,23\n2020-01-02,x3,22\n2020-01-03,x19,28\nCode\nfrom pathlib import Path\nfilepath = \"/tmp/data.csv\"\nPath(filepath).write_text(data)\nLoading data into a dataframe is not the only but one the most common ways to to load this data. We will use here pandas, a very popular library for data wrangling in python.\nInstall pandas:\nimport pandas as pd\n\ndf = pd.read_csv(filepath)\ndf\n\n\n\n\n\n\n\n\n\ndate\nid\nage\n\n\n\n\n0\n2020-01-01\nx12\n19\n\n\n1\n2020-01-02\nx11\n23\n\n\n2\n2020-01-02\nx3\n22\n\n\n3\n2020-01-03\nx19\n28\nWe can also save a dataframe as csv:\ndf.to_csv(\"/tmp/data.csv\", index=None)\n!cat /tmp/data.csv\n\ndate,id,age\n2020-01-01,x12,19\n2020-01-02,x11,23\n2020-01-02,x3,22\n2020-01-03,x19,28",
     "crumbs": [
-      "<span class='chapter-number'>12</span>  <span class='chapter-title'>Common Data Formats</span>"
+      "<span class='chapter-number'>13</span>  <span class='chapter-title'>Common Data Formats</span>"
+    ]
+  },
+  {
+    "objectID": "063_common_data_formats.html#csv",
+    "href": "063_common_data_formats.html#csv",
+    "title": "13  Common Data Formats",
+    "section": "",
+    "text": "uv add pandas",
+    "crumbs": [
+      "<span class='chapter-number'>13</span>  <span class='chapter-title'>Common Data Formats</span>"
     ]
   },
   {
     "objectID": "063_common_data_formats.html#excel",
     "href": "063_common_data_formats.html#excel",
-    "title": "12  Common Data Formats",
-    "section": "12.2 Excel",
-    "text": "12.2 Excel\nWe can also read in data coming from an excel spreadsheet.\n\ndf.to_excel(\"/tmp/data.xlsx\", index=None)\n\n\npd.read_excel(\"/tmp/data.xlsx\")\n\n\n\n\n\n\n\n\n\ndate\nid\nage\n\n\n\n\n0\n2020-01-01\nx12\n19\n\n\n1\n2020-01-02\nx11\n23\n\n\n2\n2020-01-02\nx3\n22\n\n\n3\n2020-01-03\nx19\n28",
+    "title": "13  Common Data Formats",
+    "section": "13.2 Excel",
+    "text": "13.2 Excel\nWe can also read in data coming from an excel spreadsheet.\n\ndf.to_excel(\"/tmp/data.xlsx\", index=None)\n\n\npd.read_excel(\"/tmp/data.xlsx\")\n\n\n\n\n\n\n\n\n\ndate\nid\nage\n\n\n\n\n0\n2020-01-01\nx12\n19\n\n\n1\n2020-01-02\nx11\n23\n\n\n2\n2020-01-02\nx3\n22\n\n\n3\n2020-01-03\nx19\n28",
     "crumbs": [
-      "<span class='chapter-number'>12</span>  <span class='chapter-title'>Common Data Formats</span>"
+      "<span class='chapter-number'>13</span>  <span class='chapter-title'>Common Data Formats</span>"
     ]
   },
   {
     "objectID": "063_common_data_formats.html#json",
     "href": "063_common_data_formats.html#json",
-    "title": "12  Common Data Formats",
-    "section": "12.3 JSON",
-    "text": "12.3 JSON\nJSON (JavaScript Object Notation) is by far one of the most used data formats, nowadays the default format to transfer data over the internet. It is also very commonly used for configuration files and logging.\n\nflat = {\n  \"name\": \"John Doe\",\n  \"age\": 25\n}\n\nnested = {\n  \"name\": {\n    \"firstName\": \"John\",\n    \"lastName\": \"Doe\",\n    \"middleName\": \"Smith\"\n  },\n  \"age\": 25,\n  \"hobbies\": [\"reading\", \"writing\"]\n}\n\n\n12.3.1 Encoding\nAlso called “serialization”.\n\nimport json\n\nflat_str = json.dumps(flat)\nflat_str\n\n'{\"name\": \"John Doe\", \"age\": 25}'\n\n\n\nnested_str = json.dumps(nested)\nnested_str\n\n'{\"name\": {\"firstName\": \"John\", \"lastName\": \"Doe\", \"middleName\": \"Smith\"}, \"age\": 25, \"hobbies\": [\"reading\", \"writing\"]}'\n\n\n\narr_str = json.dumps(arr)\narr_str\n\n'{\"name\": \"John Doe\", \"age\": 25, \"hobbies\": [\"reading\", \"writing\"]}'\n\n\n\nPath(\"/tmp/flat.json\").write_text(flat_str)\nPath(\"/tmp/nested.json\").write_text(nested_str)\n\n\n\n12.3.2 Decoding\nAlso called “deserialization”.\n\njson.load(\n    Path(\"/tmp/flat.json\").open()\n)\n\n{'name': 'John Doe', 'age': 25}\n\n\n\njson.loads(\n    Path(\"/tmp/flat.json\").read_text()\n)\n\n{'name': 'John Doe', 'age': 25}\n\n\n\njson.load(\n    Path(\"/tmp/nested.json\").open()\n)\n\n{'name': {'firstName': 'John', 'lastName': 'Doe', 'middleName': 'Smith'},\n 'age': 25,\n 'hobbies': ['reading', 'writing']}\n\n\n\njson.loads(\n    Path(\"/tmp/nested.json\").read_text()\n)\n\n{'name': {'firstName': 'John', 'lastName': 'Doe', 'middleName': 'Smith'},\n 'age': 25,\n 'hobbies': ['reading', 'writing']}\n\n\nNotice we load the data into a python dictionary:\n\nout = json.loads(\n    Path(\"/tmp/nested.json\").read_text()\n)\ntype(out)\n\ndict\n\n\nWe can also store a list as JSON array:\n\nPath(\"/tmp/arr.json\").write_text(\n    json.dumps([\n        {\"a\": 1},\n        {\"b\": 2},\n    ])\n)\n\n\nout = json.load(Path(\"/tmp/arr.json\").open())\nprint(type(out))\nout\n\n&lt;class 'list'&gt;\n\n\n[{'a': 1}, {'b': 2}]",
+    "title": "13  Common Data Formats",
+    "section": "13.3 JSON",
+    "text": "13.3 JSON\nJSON (JavaScript Object Notation) is by far one of the most used data formats, nowadays the default format to transfer data over the internet. It is also very commonly used for configuration files and logging.\n\nflat = {\n  \"name\": \"John Doe\",\n  \"age\": 25\n}\n\nnested = {\n  \"name\": {\n    \"firstName\": \"John\",\n    \"lastName\": \"Doe\",\n    \"middleName\": \"Smith\"\n  },\n  \"age\": 25,\n  \"hobbies\": [\"reading\", \"writing\"]\n}\n\n\n13.3.1 Encoding\nAlso called “serialization”.\n\nimport json\n\nflat_str = json.dumps(flat)\nflat_str\n\n'{\"name\": \"John Doe\", \"age\": 25}'\n\n\n\nnested_str = json.dumps(nested)\nnested_str\n\n'{\"name\": {\"firstName\": \"John\", \"lastName\": \"Doe\", \"middleName\": \"Smith\"}, \"age\": 25, \"hobbies\": [\"reading\", \"writing\"]}'\n\n\n\narr_str = json.dumps(arr)\narr_str\n\n'{\"name\": \"John Doe\", \"age\": 25, \"hobbies\": [\"reading\", \"writing\"]}'\n\n\n\nPath(\"/tmp/flat.json\").write_text(flat_str)\nPath(\"/tmp/nested.json\").write_text(nested_str)\n\n\n\n13.3.2 Decoding\nAlso called “deserialization”.\n\njson.load(\n    Path(\"/tmp/flat.json\").open()\n)\n\n{'name': 'John Doe', 'age': 25}\n\n\n\njson.loads(\n    Path(\"/tmp/flat.json\").read_text()\n)\n\n{'name': 'John Doe', 'age': 25}\n\n\n\njson.load(\n    Path(\"/tmp/nested.json\").open()\n)\n\n{'name': {'firstName': 'John', 'lastName': 'Doe', 'middleName': 'Smith'},\n 'age': 25,\n 'hobbies': ['reading', 'writing']}\n\n\n\njson.loads(\n    Path(\"/tmp/nested.json\").read_text()\n)\n\n{'name': {'firstName': 'John', 'lastName': 'Doe', 'middleName': 'Smith'},\n 'age': 25,\n 'hobbies': ['reading', 'writing']}\n\n\nNotice we load the data into a python dictionary:\n\nout = json.loads(\n    Path(\"/tmp/nested.json\").read_text()\n)\ntype(out)\n\ndict\n\n\nWe can also store a list as JSON array:\n\nPath(\"/tmp/arr.json\").write_text(\n    json.dumps([\n        {\"a\": 1},\n        {\"b\": 2},\n    ])\n)\n\n\nout = json.load(Path(\"/tmp/arr.json\").open())\nprint(type(out))\nout\n\n&lt;class 'list'&gt;\n\n\n[{'a': 1}, {'b': 2}]",
     "crumbs": [
-      "<span class='chapter-number'>12</span>  <span class='chapter-title'>Common Data Formats</span>"
+      "<span class='chapter-number'>13</span>  <span class='chapter-title'>Common Data Formats</span>"
     ]
   },
   {
     "objectID": "063_common_data_formats.html#parquet",
     "href": "063_common_data_formats.html#parquet",
-    "title": "12  Common Data Formats",
-    "section": "12.4 Parquet",
-    "text": "12.4 Parquet\nParquet is a column oriented format. For a number of reasons, this format is much more efficient than csv and other formats.\n\ndf\n\n\n\n\n\n\n\n\n\ndate\nid\nage\n\n\n\n\n0\n2020-01-01\nx12\n19\n\n\n1\n2020-01-02\nx11\n23\n\n\n2\n2020-01-02\nx3\n22\n\n\n3\n2020-01-03\nx19\n28\n\n\n\n\n\n\n\n\nWith pandas we can save data to a parquet file:\n\ndf.to_parquet(\"/tmp/data.parquet\")\n\nAnd read in:\n\npd.read_parquet(\"/tmp/data.parquet\")\n\n\n\n\n\n\n\n\n\ndate\nid\nage\n\n\n\n\n0\n2020-01-01\nx12\n19\n\n\n1\n2020-01-02\nx11\n23\n\n\n2\n2020-01-02\nx3\n22\n\n\n3\n2020-01-03\nx19\n28\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTip\n\n\n\nPrefer parquet format when possible. It is faster to read and it stores metadata that can be used by libraries for optimization, for example, applying some filters.",
+    "title": "13  Common Data Formats",
+    "section": "13.4 Parquet",
+    "text": "13.4 Parquet\nParquet is a column oriented format. For a number of reasons, this format is much more efficient than csv and other formats.\n\ndf\n\n\n\n\n\n\n\n\n\ndate\nid\nage\n\n\n\n\n0\n2020-01-01\nx12\n19\n\n\n1\n2020-01-02\nx11\n23\n\n\n2\n2020-01-02\nx3\n22\n\n\n3\n2020-01-03\nx19\n28\n\n\n\n\n\n\n\n\nWith pandas we can save data to a parquet file:\n\ndf.to_parquet(\"/tmp/data.parquet\")\n\nAnd read in:\n\npd.read_parquet(\"/tmp/data.parquet\")\n\n\n\n\n\n\n\n\n\ndate\nid\nage\n\n\n\n\n0\n2020-01-01\nx12\n19\n\n\n1\n2020-01-02\nx11\n23\n\n\n2\n2020-01-02\nx3\n22\n\n\n3\n2020-01-03\nx19\n28\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTip\n\n\n\nPrefer parquet format when possible. It is faster to read and it stores metadata that can be used by libraries for optimization, for example, applying some filters.",
     "crumbs": [
-      "<span class='chapter-number'>12</span>  <span class='chapter-title'>Common Data Formats</span>"
+      "<span class='chapter-number'>13</span>  <span class='chapter-title'>Common Data Formats</span>"
     ]
   },
   {
     "objectID": "08_numpy.html",
     "href": "08_numpy.html",
-    "title": "13  Numpy",
+    "title": "14  Numpy",
     "section": "",
-    "text": "13.1 Slicing Arrays\nSlicing works as with, for example, range, with systax (start, [stop], [step]). We treat each dimension separately with ,.\nLet’s see:\nimport numpy as np\narr = np.arange(12).reshape(3,4)\narr\n\narray([[ 0,  1,  2,  3],\n       [ 4,  5,  6,  7],\n       [ 8,  9, 10, 11]])\n# Take first row\narr[0]\n\narray([0, 1, 2, 3])\n# Take first column\narr[:, 0]\n\narray([0, 4, 8])\n# Take every second element of second row\narr[1, ::2]\n\narray([4, 6])\n# Take every second element of third column\narr[::2, 2]\n\narray([ 2, 10])\nOne special thing about numpy slices: We can use lists to index. Each element of the list is interpreted as an index to get:\n# Take second and third columns\narr[:, [1, 2]]\n\narray([[ 1,  2],\n       [ 5,  6],\n       [ 9, 10]])\n# Take first and third rows\narr[[0, 2], :]\n\narray([[ 0,  1,  2,  3],\n       [ 8,  9, 10, 11]])",
+    "text": "14.1 Slicing Arrays\nSlicing works as with, for example, range, with systax (start, [stop], [step]). We treat each dimension separately with ,.\nLet’s see:\nimport numpy as np\narr = np.arange(12).reshape(3,4)\narr\n\narray([[ 0,  1,  2,  3],\n       [ 4,  5,  6,  7],\n       [ 8,  9, 10, 11]])\n# Take first row\narr[0]\n\narray([0, 1, 2, 3])\n# Take first column\narr[:, 0]\n\narray([0, 4, 8])\n# Take every second element of second row\narr[1, ::2]\n\narray([4, 6])\n# Take every second element of third column\narr[::2, 2]\n\narray([ 2, 10])\nOne special thing about numpy slices: We can use lists to index. Each element of the list is interpreted as an index to get:\n# Take second and third columns\narr[:, [1, 2]]\n\narray([[ 1,  2],\n       [ 5,  6],\n       [ 9, 10]])\n# Take first and third rows\narr[[0, 2], :]\n\narray([[ 0,  1,  2,  3],\n       [ 8,  9, 10, 11]])",
     "crumbs": [
-      "<span class='chapter-number'>13</span>  <span class='chapter-title'>Numpy</span>"
+      "<span class='chapter-number'>14</span>  <span class='chapter-title'>Numpy</span>"
     ]
   },
   {
     "objectID": "08_numpy.html#numpy-built-in-functions",
     "href": "08_numpy.html#numpy-built-in-functions",
-    "title": "13  Numpy",
-    "section": "13.2 Numpy Built-in Functions",
-    "text": "13.2 Numpy Built-in Functions\nNumpy implements many useful functions often used when working with numerical/scientific data. For example the random submodule exposes several useful functions for stochastic modelling and statistical analysis.\n\n\nCode\nimport matplotlib.pyplot as plt\n\n\n\nplt.hist(\n    # Draw samples from normal distribution \n    np.random.normal(size=10_000),\n    bins=100\n);\n\n\n\n\n\n\n\n\n\nplt.hist(\n    # Draw samples from uniform distribution \n    np.random.uniform(size=10_000),\n    bins=100\n);",
+    "title": "14  Numpy",
+    "section": "14.2 Numpy Built-in Functions",
+    "text": "14.2 Numpy Built-in Functions\nNumpy implements many useful functions often used when working with numerical/scientific data. For example the random submodule exposes several useful functions for stochastic modelling and statistical analysis.\n\n\nCode\nimport matplotlib.pyplot as plt\n\n\n\nplt.hist(\n    # Draw samples from normal distribution \n    np.random.normal(size=10_000),\n    bins=100\n);",
     "crumbs": [
-      "<span class='chapter-number'>13</span>  <span class='chapter-title'>Numpy</span>"
+      "<span class='chapter-number'>14</span>  <span class='chapter-title'>Numpy</span>"
     ]
   },
   {
     "objectID": "081_pandas.html",
     "href": "081_pandas.html",
-    "title": "14  Pandas",
+    "title": "15  Pandas",
     "section": "",
-    "text": "Check out the pandas getting-started documentation here\nHere’s short introduction by the very author of the library:",
+    "text": "Here’s the introductory chapter of the book, by the original author of the library pandas.\nThese are useful cheatsheets.\nCheck out the pandas getting-started documentation here\nHere’s short introduction by the very author of the library:",
     "crumbs": [
-      "<span class='chapter-number'>14</span>  <span class='chapter-title'>Pandas</span>"
+      "<span class='chapter-number'>15</span>  <span class='chapter-title'>Pandas</span>"
     ]
   },
   {
     "objectID": "09_plotting.html",
     "href": "09_plotting.html",
-    "title": "15  Plotting",
+    "title": "16  Plotting",
     "section": "",
-    "text": "15.1 Matplotlib",
+    "text": "16.1 Matplotlib",
     "crumbs": [
-      "<span class='chapter-number'>15</span>  <span class='chapter-title'>Plotting</span>"
+      "<span class='chapter-number'>16</span>  <span class='chapter-title'>Plotting</span>"
     ]
   },
   {
     "objectID": "09_plotting.html#matplotlib",
     "href": "09_plotting.html#matplotlib",
-    "title": "15  Plotting",
+    "title": "16  Plotting",
     "section": "",
-    "text": "15.1.1 Anatomy of a Figure\nThe most common plotting library in python is matplotlib. matplotlib is very comprehensive and brings many idiomatic choices that sometimes can make it a bit cumbersome to wrap our heads around, so don’t worry if you struggle with it a bit at first.\nWe will look at the most basic forms of plotting to try to understand the basic building blocks. To go beyond that you will for sure need to look up more things, but the good news is that matplotlib is a decently old and very mature project, which facilitates searching for information on the internet and its official documentation is pretty good too. To discover functionalities and for searching information, it is useful to take a look at the components of a plot:\n\n\n\n\n\nHere’s the code behind this figure in the matplotlib documentation.\n\n\n\n\n\n\nTip\n\n\n\nTake a look at the examples gallery to reach for inspiration and guidance to plot your data.\nAlso, even free Large Language Models (LLMs) such as (bing.com’s or brave’s built-in copilots) are pretty good at generating plotting instructions, especially when given the precise terminology regarding the plot – give them a try if you feel stuck making a figure.\n\n\n\n\n15.1.2 Install matplotlib\nuv add matplotlib\n\n\n15.1.3 Basic Plotting\nThe official documentation has a nice quick intro to matplotlib concepts, let’s take a look at that here.\nYou can find some nice cheatsheets here.\nOne quick way to plot is calling functions from the pyplot module.\nThese are some of the most of the commonly used functions:\n\nimport matplotlib.pyplot as plt\nimport numpy as np\n\n\nx = np.linspace(0, 10)\ny = x * 2 + 1\nz = x * 3 + 1\n\n\nplt.plot(x, y)\n\n\n\n\n\n\n\n\n\nplt.scatter(x, z)\n\n\n\n\n\n\n\n\n\nplt.hist(x, bins=15);\n\n\n\n\n\n\n\n\nThat is fine and can take us far, especially for rapid exploration. But it has some limitations. There is a more powerful and extensive API way to plot:\n\n\n\n\n\n\nNote\n\n\n\nAPI means Application Programming Interface. More details in the glossary.\n\n\n\nfig, ax = plt.subplots()  # Create a figure containing a single Axes\nax.plot(x, y)             # Plot on that Axes\n\n\n\n\n\n\n\n\n\nplt.polar(x, y)\n\n\n\n\n\n\n\n\n\nfig, (ax1, ax2) = plt.subplots(ncols=2, figsize=(8, 3.5))  # Create a figure containing 2 Axes\nax1.plot(x, y)\nax2.scatter(x, y)\nfig.tight_layout()\n\n\n\n\n\n\n\n\nNotice that fig also contains the axes and that axes are a numpy array!\n\nfig, axes = plt.subplots(ncols=2);\nfig.delaxes(axes[0])\nfig.delaxes(axes[1])\ntype(axes)\n\nnumpy.ndarray\n\n\n&lt;Figure size 640x480 with 0 Axes&gt;\n\n\nThis numpy array grid generalizes and indeed how this objects compose nicely with the python language in general:\n\nfig, axes = plt.subplots(ncols=2, nrows=2)\n((ax1, ax2), (ax3, ax4)) = axes\nax1.plot(x, y, color=\"red\")\nax2.scatter(x, y, color=\"red\", marker=\".\")\nax3.plot(x, y)\nax4.scatter(x, y, marker=\".\")\n\nfor i, ax in enumerate(axes.flatten(), start=1):\n    ax.set_title(f\"This is plot number {i}\")\n    ax.set_xlabel(\"x-variable\")\n    ax.set_ylabel(\"y-variable\")\nfig.suptitle(\"What a Figure!\")  # Yeah, set_suptitle would be nicer\nfig.tight_layout()\n\n\n\n\n\n\n\n\n\ndata = np.outer(x, x)\n\ndef plot_images(data):\n    fig, (ax1, ax2) = plt.subplots(ncols=2, figsize=(8, 5))\n    img1 = ax1.imshow(data)\n    img2 = ax2.imshow(data, origin=\"lower\", cmap=\"Oranges\")\n    ax2.set_xticks([])\n    ax2.set_yticks([])\n    plt.colorbar(img1, shrink=.5)\n    plt.colorbar(img2, shrink=.5)\n    fig.tight_layout()\n\nplot_images(data)\n\n\n\n\n\n\n\n\n\n\n15.1.4 Saving Figures\nWe can save the figure in different formats (the file extensions serves as guide):\n\nfig.savefig(\"fig.png\")\nfig.savefig(\"fig.svg\")  # Vector graphics are supported out of the box!\n\nIf you want a more in-depth introduction to the matplotlib library, take a look at this talk.",
+    "text": "16.1.1 Anatomy of a Figure\nThe most common plotting library in python is matplotlib. matplotlib is very comprehensive and brings many idiomatic choices that sometimes can make it a bit cumbersome to wrap our heads around, so don’t worry if you struggle with it a bit at first.\nWe will look at the most basic forms of plotting to try to understand the basic building blocks. To go beyond that you will for sure need to look up more things, but the good news is that matplotlib is a decently old and very mature project, which facilitates searching for information on the internet and its official documentation is pretty good too. To discover functionalities and for searching information, it is useful to take a look at the components of a plot:\n\n\n\n\n\nHere’s the code behind this figure in the matplotlib documentation.\n\n\n\n\n\n\nTip\n\n\n\nTake a look at the examples gallery to reach for inspiration and guidance to plot your data.\nAlso, even free Large Language Models (LLMs) such as (bing.com’s or brave’s built-in copilots) are pretty good at generating plotting instructions, especially when given the precise terminology regarding the plot – give them a try if you feel stuck making a figure.\n\n\n\n\n16.1.2 Install matplotlib\nuv add matplotlib\n\n\n16.1.3 Basic Plotting\nThe official documentation has a nice quick intro to matplotlib concepts, let’s take a look at that here.\nYou can find some nice cheatsheets here.\nOne quick way to plot is calling functions from the pyplot module.\nThese are some of the most of the commonly used functions:\n\nimport matplotlib.pyplot as plt\nimport numpy as np\n\n\nx = np.linspace(0, 10)\ny = x * 2 + 1\nz = x * 3 + 1\n\n\nplt.plot(x, y)\n\n\n\n\n\n\n\n\n\nplt.scatter(x, z)\n\n\n\n\n\n\n\n\n\nplt.hist(x, bins=15);\n\n\n\n\n\n\n\n\nThat is fine and can take us far, especially for rapid exploration. But it has some limitations. There is a more powerful and extensive API way to plot:\n\n\n\n\n\n\nNote\n\n\n\nAPI means Application Programming Interface. More details in the glossary.\n\n\n\nfig, ax = plt.subplots()  # Create a figure containing a single Axes\nax.plot(x, y)             # Plot on that Axes\n\n\n\n\n\n\n\n\n\nplt.polar(x, y)\n\n\n\n\n\n\n\n\n\nfig, (ax1, ax2) = plt.subplots(ncols=2, figsize=(8, 3.5))  # Create a figure containing 2 Axes\nax1.plot(x, y)\nax2.scatter(x, y)\nfig.tight_layout()\n\n\n\n\n\n\n\n\nNotice that fig also contains the axes and that axes are a numpy array!\n\nfig, axes = plt.subplots(ncols=2);\nfig.delaxes(axes[0])\nfig.delaxes(axes[1])\ntype(axes)\n\nnumpy.ndarray\n\n\n&lt;Figure size 640x480 with 0 Axes&gt;\n\n\nThis numpy array grid generalizes and indeed how this objects compose nicely with the python language in general:\n\nfig, axes = plt.subplots(ncols=2, nrows=2)\n((ax1, ax2), (ax3, ax4)) = axes\nax1.plot(x, y, color=\"red\")\nax2.scatter(x, y, color=\"red\", marker=\".\")\nax3.plot(x, y)\nax4.scatter(x, y, marker=\".\")\n\nfor i, ax in enumerate(axes.flatten(), start=1):\n    ax.set_title(f\"This is plot number {i}\")\n    ax.set_xlabel(\"x-variable\")\n    ax.set_ylabel(\"y-variable\")\nfig.suptitle(\"What a Figure!\")  # Yeah, set_suptitle would be nicer\nfig.tight_layout()\n\n\n\n\n\n\n\n\n\ndata = np.outer(x, x)\n\ndef plot_images(data):\n    fig, (ax1, ax2) = plt.subplots(ncols=2, figsize=(8, 5))\n    img1 = ax1.imshow(data)\n    img2 = ax2.imshow(data, origin=\"lower\", cmap=\"Oranges\")\n    ax2.set_xticks([])\n    ax2.set_yticks([])\n    plt.colorbar(img1, shrink=.5)\n    plt.colorbar(img2, shrink=.5)\n    fig.tight_layout()\n\nplot_images(data)\n\n\n\n\n\n\n\n\n\n\n16.1.4 Saving Figures\nWe can save the figure in different formats (the file extensions serves as guide):\n\nfig.savefig(\"fig.png\")\nfig.savefig(\"fig.svg\")  # Vector graphics are supported out of the box!\n\nIf you want a more in-depth introduction to the matplotlib library, take a look at this talk.",
     "crumbs": [
-      "<span class='chapter-number'>15</span>  <span class='chapter-title'>Plotting</span>"
+      "<span class='chapter-number'>16</span>  <span class='chapter-title'>Plotting</span>"
     ]
   },
   {
     "objectID": "09_plotting.html#seaborn",
     "href": "09_plotting.html#seaborn",
-    "title": "15  Plotting",
-    "section": "15.2 Seaborn",
-    "text": "15.2 Seaborn\n\n\n\n\n\nseaborn is a data visualization library built on top of matplotlib.\nIt implements a high-level interface for plotting statistical graphics. Seaborn integrates very well with pandas dataframes as input data and abstracts away some of the common data pre-processing steps.\nInstall seaborn:\nuv add seaborn\n\nimport seaborn as sns\n\nFor the sake of the example we can repeat the figure from above, but we will execute this one line of code that sets up some defaults for us:\n\nsns.set_theme(style=\"dark\", font_scale=1.4)  # this has global effects\n\n\nplot_images(data)\n\n\n\n\n\n\n\n\nThere are many great plot examples in the example gallery.\nHere are a few interesting ones – click on figure to open documentation website with code.\n\n\nMultiple Regression\n\n\n\n\n\n\nTime Series\n\n\n\n\n\n\n\n\n\nHeat Scatter of Brain Networks Correlations\n\n\n\n\n\n\nAnnotated Heatmap\n\n\n\n\n\n\n\n\n\nSmall multiple time series\n\n\n\n\n\n\nScatterplot with categorical variables\n\n\n\n\n\n\n\n\n\nViolin Plot",
+    "title": "16  Plotting",
+    "section": "16.2 Seaborn",
+    "text": "16.2 Seaborn\n\n\n\n\n\nseaborn is a data visualization library built on top of matplotlib.\nIt implements a high-level interface for plotting statistical graphics. Seaborn integrates very well with pandas dataframes as input data and abstracts away some of the common data pre-processing steps.\nInstall seaborn:\nuv add seaborn\n\nimport seaborn as sns\n\nFor the sake of the example we can repeat the figure from above, but we will execute this one line of code that sets up some defaults for us:\n\nsns.set_theme(style=\"dark\", font_scale=1.4)  # this has global effects\n\n\nplot_images(data)\n\n\n\n\n\n\n\n\nThere are many great plot examples in the example gallery.\nHere are a few interesting ones – click on figure to open documentation website with code.\n\n\nMultiple Regression\n\n\n\n\n\n\nTime Series\n\n\n\n\n\n\n\n\n\nHeat Scatter of Brain Networks Correlations\n\n\n\n\n\n\nAnnotated Heatmap\n\n\n\n\n\n\n\n\n\nSmall multiple time series\n\n\n\n\n\n\nScatterplot with categorical variables\n\n\n\n\n\n\n\n\n\nViolin Plot",
     "crumbs": [
-      "<span class='chapter-number'>15</span>  <span class='chapter-title'>Plotting</span>"
+      "<span class='chapter-number'>16</span>  <span class='chapter-title'>Plotting</span>"
     ]
   },
   {
     "objectID": "09_plotting.html#exercises",
     "href": "09_plotting.html#exercises",
-    "title": "15  Plotting",
-    "section": "15.3 Exercises",
-    "text": "15.3 Exercises\n\nUse numpy to create 4 arrays of numbers drawn from 4 different distributions: uniform, normal, lognormal and exponential. Each array should have of 100000 samples. Use matplotlib to plot a grid of 2x2 subplots, with one histogram on each subplot. Hint: Look at numpy’s submodule random.\nPick one interesting example of the Seaborn gallery and reproduce it on your computer. Change 1 or 2 parameters of the plot, for example, some color or order of variables, remove/add a variable. If you have own data with a similar shape, plot those!",
+    "title": "16  Plotting",
+    "section": "16.3 Exercises",
+    "text": "16.3 Exercises\n\nUse numpy to create 4 arrays of numbers drawn from 4 different distributions: uniform, normal, lognormal and exponential. Each array should have of 100000 samples. Use matplotlib to plot a grid of 2x2 subplots, with one histogram on each subplot. Hint: Look at numpy’s submodule random.\nPick one interesting example of the Seaborn gallery and reproduce it on your computer. Change 1 or 2 parameters of the plot, for example, some color or order of variables, remove/add a variable. If you have own data with a similar shape, plot those!",
     "crumbs": [
-      "<span class='chapter-number'>15</span>  <span class='chapter-title'>Plotting</span>"
+      "<span class='chapter-number'>16</span>  <span class='chapter-title'>Plotting</span>"
     ]
   },
   {
     "objectID": "10_tests.html",
     "href": "10_tests.html",
-    "title": "16  Testing",
+    "title": "17  Testing",
     "section": "",
-    "text": "16.1 Why bother writing tests?\nCorrectness: This is our goal number one when writing code, since incorrect code is arguably useless. By incorrect we do not mean proper business logic nor being statistically sound. We mean something much simpler: The code does what we think it is doing.\nOne way to build some confidence about the correctness of code is to write tests. We are going to deal here with so-called unit tests. As the name suggests, these tests target pieces, blocks (units) of code that we can test isolated. For example, here’s a simple function that computes the square of a number and a little test:\ndef square(value):\n    return value * value\n\ndef test_square():\n    assert square(-1) == 1\n    assert square(1) == 1\n    assert square(2) == 4\n    assert square(5) == 25\n\ntest_square()\nRefactoring: Having tests in place can be also useful when we want to modify working code, since they will give us at least some degree of confidence that we are not breaking the functionality when we refactor the code, for example, while optimizing running time.\nAs we saw above we can write the assertions about our code in a function that we then call. Calling each test manually is a bit cumbersome and error prone. We will use instead a testing framework that will do this automatically for us (plus, it’s going to provide us with a whole bunch of handy functionalities out of the box).",
+    "text": "17.1 Why bother writing tests?\nCorrectness: This is our goal number one when writing code, since incorrect code is arguably useless. By incorrect we do not mean proper business logic nor being statistically sound. We mean something much simpler: The code does what we think it is doing.\nOne way to build some confidence about the correctness of code is to write tests. We are going to deal here with so-called unit tests. As the name suggests, these tests target pieces, blocks (units) of code that we can test isolated. For example, here’s a simple function that computes the square of a number and a little test:\ndef square(value):\n    return value * value\n\ndef test_square():\n    assert square(-1) == 1\n    assert square(1) == 1\n    assert square(2) == 4\n    assert square(5) == 25\n\ntest_square()\nRefactoring: Having tests in place can be also useful when we want to modify working code, since they will give us at least some degree of confidence that we are not breaking the functionality when we refactor the code, for example, while optimizing running time.\nAs we saw above we can write the assertions about our code in a function that we then call. Calling each test manually is a bit cumbersome and error prone. We will use instead a testing framework that will do this automatically for us (plus, it’s going to provide us with a whole bunch of handy functionalities out of the box).",
     "crumbs": [
-      "<span class='chapter-number'>16</span>  <span class='chapter-title'>Testing</span>"
+      "<span class='chapter-number'>17</span>  <span class='chapter-title'>Testing</span>"
     ]
   },
   {
     "objectID": "10_tests.html#what-to-test",
     "href": "10_tests.html#what-to-test",
-    "title": "16  Testing",
-    "section": "16.2 What to test",
-    "text": "16.2 What to test\nIn a way writing tests is the easy part. The much more challenging questions are what to test and how. Those are of course questions that depend on the context and the system we are testing.\nWe will focus on two aspects that are important in the context of working with data: Verifying assumptions about the data (content, shape, etc.) and checking that transformations in a data processing pipeline are doing the right thing. Further examples of aspects to be tested include: Verifying responses from an API, check that a machine learning model can deal with a given input, etc. Testing software is in itself a whole field, there are even dedicated testing conferences!\n\n\n\n\n\n\nTip\n\n\n\nTake a look at the test suite of popular open source libraries to learn how testing looks like in the “real world”.",
+    "title": "17  Testing",
+    "section": "17.2 What to test",
+    "text": "17.2 What to test\nIn a way writing tests is the easy part. The much more challenging questions are what to test and how. Those are of course questions that depend on the context and the system we are testing.\nWe will focus on two aspects that are important in the context of working with data: Verifying assumptions about the data (content, shape, etc.) and checking that transformations in a data processing pipeline are doing the right thing. Further examples of aspects to be tested include: Verifying responses from an API, check that a machine learning model can deal with a given input, etc. Testing software is in itself a whole field, there are even dedicated testing conferences!\n\n\n\n\n\n\nTip\n\n\n\nTake a look at the test suite of popular open source libraries to learn how testing looks like in the “real world”.",
     "crumbs": [
-      "<span class='chapter-number'>16</span>  <span class='chapter-title'>Testing</span>"
+      "<span class='chapter-number'>17</span>  <span class='chapter-title'>Testing</span>"
     ]
   },
   {
     "objectID": "10_tests.html#pytest",
     "href": "10_tests.html#pytest",
-    "title": "16  Testing",
-    "section": "16.3 Pytest",
-    "text": "16.3 Pytest\nAlthough python has a built-in module for unit tests, we will use pytest, a third-party library which is much more convenient and very well developed and maintained.\nLet’s add that dependency to our project. Testing dependencies are usually included under “development” dependencies. That means, dependencies that will be used during development but not later on (for example when running the application code in production).\nWe can also do that with our package manager uv passing the --dev flag:\nuv add --dev pytest\nAfter executing that line, you can verify that the dependency where the dependency is listed by looking into the pyproject.toml file, which should look like this:\n[tool.uv]\ndev-dependencies = [\n    \"pytest&gt;=8.3.3\",\n]\n\n16.3.1 Basic Testing\nIn the python ecosystem it is rather common to have a separated directory for tests, but that is just an implicit convention and no hard requirement at all. But to keep things tidy we’ll follow that.\nFirst we will put the source code that has our functionality in a file under src/pycourse/square.py\ndef square(value):\n    return value * value\nSo let’s create a directory (next to src) called tests and make a file called tests/test_square.py including our previous test_square code:\nfrom pycourse.square import square  # Import function from source code test\n\ndef test_square():\n    assert square(-1) == 1\n    assert square(1) == 1\n    assert square(2) == 4\n    assert square(5) == 25\nNotice that we do not call the function, we just define it.\n\n\n\n\n\n\nImportant\n\n\n\nThe file must be called test_*.py or *_test.py for pytest to discover it and the unit tests must start with test_.\n\n\nWe can now run our tests (pytest will discover files and tests following the pattern above mentioned):\nuv run pytest tests\nYou should see something like this:\ntests/test_square.py .                          [100%]\n\n================== 1 passed in 0.01s =================\nThat’s our first test, we’re cruising! :D\n\n\n16.3.2 Make sure something fails\nSometimes we want to make sure our program fails given a certain input. For example, let’s say we want to check the input of our square function is a float or integer. We could add that logic to the function and handle the case:\n\ndef square(value):\n    if not isinstance(value, (float, int)):\n        raise ValueError(f\"Invalid input. Expected float, got {type(value)}\")\n    return value * value\n\n\n\nCode\nimport ipytest\nipytest.autoconfig()\n\n\n\n%%ipytest\n\nimport pytest\n\ndef test_square():\n    assert square(-1) == 1\n    assert square(1) == 1\n    assert square(2) == 4\n    assert square(5) == 25  \n    with pytest.raises(ValueError):\n        square(\"foo\")\n    with pytest.raises(ValueError):\n        square(None)\n\n.                                                                                            [100%]\n1 passed in 0.01s\n\n\n\n\n\n\n\n\nNote\n\n\n\nChecking the types of the functions explicitly like in the example is not a very “pythonic” thing to do, as we tend to care more about the behaviour than about the types (duck typing). Also it is a relatively inefficient way to do it. But sometimes we do trade some purity and efficiency for correctness, for example in data pipelines where errors can go unattended because they do not lead to syntax errors.",
+    "title": "17  Testing",
+    "section": "17.3 Pytest",
+    "text": "17.3 Pytest\nAlthough python has a built-in module for unit tests, we will use pytest, a third-party library which is much more convenient and very well developed and maintained.\nLet’s add that dependency to our project. Testing dependencies are usually included under “development” dependencies. That means, dependencies that will be used during development but not later on (for example when running the application code in production).\nWe can also do that with our package manager uv passing the --dev flag:\nuv add --dev pytest\nAfter executing that line, you can verify that the dependency where the dependency is listed by looking into the pyproject.toml file, which should look like this:\n[tool.uv]\ndev-dependencies = [\n    \"pytest&gt;=8.3.3\",\n]\n\n17.3.1 Basic Testing\nIn the python ecosystem it is rather common to have a separated directory for tests, but that is just an implicit convention and no hard requirement at all. But to keep things tidy we’ll follow that.\nFirst we will put the source code that has our functionality in a file under src/pycourse/square.py\ndef square(value):\n    return value * value\nSo let’s create a directory (next to src) called tests and make a file called tests/test_square.py including our previous test_square code:\nfrom pycourse.square import square  # Import function from source code test\n\ndef test_square():\n    assert square(-1) == 1\n    assert square(1) == 1\n    assert square(2) == 4\n    assert square(5) == 25\nNotice that we do not call the function, we just define it.\n\n\n\n\n\n\nImportant\n\n\n\nThe file must be called test_*.py or *_test.py for pytest to discover it and the unit tests must start with test_.\n\n\nWe can now run our tests (pytest will discover files and tests following the pattern above mentioned):\nuv run pytest tests\nYou should see something like this:\ntests/test_square.py .                          [100%]\n\n================== 1 passed in 0.01s =================\nThat’s our first test, we’re cruising! :D\n\n\n17.3.2 Make sure something fails\nSometimes we want to make sure our program fails given a certain input. For example, let’s say we want to check the input of our square function is a float or integer. We could add that logic to the function and handle the case:\n\ndef square(value):\n    if not isinstance(value, (float, int)):\n        raise ValueError(f\"Invalid input. Expected float, got {type(value)}\")\n    return value * value\n\n\n\nCode\nimport ipytest\nipytest.autoconfig()\n\n\n\n%%ipytest\n\nimport pytest\n\ndef test_square():\n    assert square(-1) == 1\n    assert square(1) == 1\n    assert square(2) == 4\n    assert square(5) == 25  \n    with pytest.raises(ValueError):\n        square(\"foo\")\n    with pytest.raises(ValueError):\n        square(None)\n\n.                                                                                            [100%]\n1 passed in 0.01s\n\n\n\n\n\n\n\n\nNote\n\n\n\nChecking the types of the functions explicitly like in the example is not a very “pythonic” thing to do, as we tend to care more about the behaviour than about the types (duck typing). Also it is a relatively inefficient way to do it. But sometimes we do trade some purity and efficiency for correctness, for example in data pipelines where errors can go unattended because they do not lead to syntax errors.",
     "crumbs": [
-      "<span class='chapter-number'>16</span>  <span class='chapter-title'>Testing</span>"
+      "<span class='chapter-number'>17</span>  <span class='chapter-title'>Testing</span>"
     ]
   },
   {
     "objectID": "10_tests.html#exercises",
     "href": "10_tests.html#exercises",
-    "title": "16  Testing",
-    "section": "16.4 Exercises",
-    "text": "16.4 Exercises\n\nModify the function square in square.py so that it returns value * value * 2 and run the test again. Pay close attention to the error messages and the diffs!\nWrite a function called reverse_str that takes a string and returns the reversed version, eg “hola” -&gt; “aloh”. Write a unit test and make sure the tests pass. Think about covering corner cases in your tests.S\nMake the function reverse_str strict to only accept strings as input and throw an error if another type is passed. Write a unit test that covers both the “happy path” and the “error path”.",
+    "title": "17  Testing",
+    "section": "17.4 Exercises",
+    "text": "17.4 Exercises\n\nModify the function square in square.py so that it returns value * value * 2 and run the test again. Pay close attention to the error messages and the diffs!\nWrite a function called reverse_str that takes a string and returns the reversed version, eg “hola” -&gt; “aloh”. Write a unit test and make sure the tests pass. Think about covering corner cases in your tests.S\nMake the function reverse_str strict to only accept strings as input and throw an error if another type is passed. Write a unit test that covers both the “happy path” and the “error path”.",
     "crumbs": [
-      "<span class='chapter-number'>16</span>  <span class='chapter-title'>Testing</span>"
+      "<span class='chapter-number'>17</span>  <span class='chapter-title'>Testing</span>"
     ]
   },
   {
     "objectID": "11_cli.html",
     "href": "11_cli.html",
-    "title": "17  Command Line Interfaces (CLI)",
+    "title": "18  Command Line Interfaces (CLI)",
     "section": "",
     "text": "🚧 Material under construction 🚧",
     "crumbs": [
-      "<span class='chapter-number'>17</span>  <span class='chapter-title'>Command Line Interfaces (CLI)</span>"
+      "<span class='chapter-number'>18</span>  <span class='chapter-title'>Command Line Interfaces (CLI)</span>"
     ]
   },
   {
     "objectID": "111_debugging.html",
     "href": "111_debugging.html",
-    "title": "18  Debugging",
+    "title": "19  Debugging",
     "section": "",
-    "text": "18.1 Python debugger, breakpoints",
+    "text": "19.1 Python debugger, breakpoints",
     "crumbs": [
-      "<span class='chapter-number'>18</span>  <span class='chapter-title'>Debugging</span>"
+      "<span class='chapter-number'>19</span>  <span class='chapter-title'>Debugging</span>"
     ]
   },
   {
     "objectID": "111_debugging.html#ipython-debugger",
     "href": "111_debugging.html#ipython-debugger",
-    "title": "18  Debugging",
-    "section": "18.2 IPython debugger",
-    "text": "18.2 IPython debugger",
+    "title": "19  Debugging",
+    "section": "19.2 IPython debugger",
+    "text": "19.2 IPython debugger",
     "crumbs": [
-      "<span class='chapter-number'>18</span>  <span class='chapter-title'>Debugging</span>"
+      "<span class='chapter-number'>19</span>  <span class='chapter-title'>Debugging</span>"
     ]
   },
   {
     "objectID": "111_debugging.html#notebook-debug",
     "href": "111_debugging.html#notebook-debug",
-    "title": "18  Debugging",
-    "section": "18.3 Notebook %%debug",
-    "text": "18.3 Notebook %%debug",
+    "title": "19  Debugging",
+    "section": "19.3 Notebook %%debug",
+    "text": "19.3 Notebook %%debug",
     "crumbs": [
-      "<span class='chapter-number'>18</span>  <span class='chapter-title'>Debugging</span>"
-    ]
-  },
-  {
-    "objectID": "12_oop.html",
-    "href": "12_oop.html",
-    "title": "19  Object Oriented Programming",
-    "section": "",
-    "text": "19.1 Classes and Objects\nIn python we deal with so-called objects. An object is an instance, that is a particular realization, of a class.\nHere’s an analogy: You can think of a class as the instructions to build a car, say a FiatUno:\nclass FiatUno:\n    def __init__(self, color=\"white\", radio=False):\n        self.color = color\n        self.radio = radio\n        self.radio_is_on = False\n    def turn_on_radio(self):\n        self.radio_is_on = True\n        print(f\"Radio is on!\")\n    def turn_off_radio(self):\n        self.radio_is_on = False\n        print(f\"Radio is off!\")\nEach actual car is an object, i.e. an instance of a class:\ncar1 = FiatUno()\nWe can make another car:\ncar2 = FiatUno()\nLike two cars can be the same model and color, they always have different license plates.\nThe same happens in python:\nid(car1)\n\n139856081602784\nid(car2)\n\n139856081603648\nEach object has attributes:\ncar1.color, car1.radio\n\n('white', False)",
-    "crumbs": [
-      "<span class='chapter-number'>19</span>  <span class='chapter-title'>Object Oriented Programming</span>"
-    ]
-  },
-  {
-    "objectID": "12_oop.html#classes-and-objects",
-    "href": "12_oop.html#classes-and-objects",
-    "title": "19  Object Oriented Programming",
-    "section": "",
-    "text": "Note\n\n\n\nBy convention, we use CamelCase to name classes.",
-    "crumbs": [
-      "<span class='chapter-number'>19</span>  <span class='chapter-title'>Object Oriented Programming</span>"
-    ]
-  },
-  {
-    "objectID": "12_oop.html#methods",
-    "href": "12_oop.html#methods",
-    "title": "19  Object Oriented Programming",
-    "section": "19.2 Methods",
-    "text": "19.2 Methods\nDifferent car models have different functionalities, like turning the radio on.\nIn python it’s the same, the functions attached to an object are called methods and we call them with this dot notation:\n\ncar1.turn_on_radio()  # it's just a function, so we call it with ()\n\nRadio is on!\n\n\n\ncar1.turn_off_radio()\n\nRadio is off!\n\n\nWhere is the self argument of the functions?\nThe first argument of a method will be always passed to the method in the call and it is the object itself!\nThat’s a bit meta an a bit confusing, but don’t worry, you’ll get a feel of it by using the classes/objects.",
-    "crumbs": [
-      "<span class='chapter-number'>19</span>  <span class='chapter-title'>Object Oriented Programming</span>"
-    ]
-  },
-  {
-    "objectID": "12_oop.html#dunder-methods",
-    "href": "12_oop.html#dunder-methods",
-    "title": "19  Object Oriented Programming",
-    "section": "19.3 Dunder Methods",
-    "text": "19.3 Dunder Methods\nWe saw above the __init__ method. This methods are special and there is a bunch of them already present on all classes:\n\ndir(FiatUno)\n\n['__class__',\n '__delattr__',\n '__dict__',\n '__dir__',\n '__doc__',\n '__eq__',\n '__format__',\n '__ge__',\n '__getattribute__',\n '__gt__',\n '__hash__',\n '__init__',\n '__init_subclass__',\n '__le__',\n '__lt__',\n '__module__',\n '__ne__',\n '__new__',\n '__reduce__',\n '__reduce_ex__',\n '__repr__',\n '__setattr__',\n '__sizeof__',\n '__str__',\n '__subclasshook__',\n '__weakref__',\n 'turn_off_radio',\n 'turn_on_radio']\n\n\nThese “dunder” methods define the behavior of the object in several ways. For example, the __str__ method defines the string representation of the object, which is used when we call print on an object. When we do print(something), python actually goes to the method __str__ of something and calls that one. Let’s see it in action:\n\nclass A:\n    def __init__(self, msg=\"hello\"):\n        self.msg = msg\n    def __str__(self):\n        return self.msg + \", nice to meet you\"\n\n\na = A()\n\n\nprint(a)\n\nhello, nice to meet you\n\n\nIt’s good to know that these dunder methods exist and some libraries will require the user changing them. But in general, you should not worry about them.\n\n\n\n\n\n\nTip\n\n\n\nDon’t overwrite dunder methods unless you really, really need it and you’re sure what you’re doing – it is pretty easy to make mistakes that lead to difficult to debug bugs.",
-    "crumbs": [
-      "<span class='chapter-number'>19</span>  <span class='chapter-title'>Object Oriented Programming</span>"
-    ]
-  },
-  {
-    "objectID": "12_oop.html#inheritance",
-    "href": "12_oop.html#inheritance",
-    "title": "19  Object Oriented Programming",
-    "section": "19.4 Inheritance",
-    "text": "19.4 Inheritance\n\n\n\n\n\n\nTip\n\n\n\nAvoid using inheritance. We show it here just for you to know it exists and that some libraries use it. You can totally live without it.\n\n\nClasses can be organized in a hierarchy:\n\nclass Car:\n    def __init__(self):\n        self.n_wheels = 4 \n        \nclass FiatPalio(Car):\n    def turn_on_radio(self):\n        print(\"Radio is on\")\n        \nclass FiatTipo(Car):\n    def turn_on_ac(self):\n        print(\"Pretty hot in here\")\n\ncar3 = FiatPalio()\ncar4 = FiatTipo()\n\n\ncar3.turn_on_radio()\n\nRadio is on\n\n\n\ncar3.n_wheels\n\n4\n\n\n\ncar4.turn_on_ac()\n\nPretty hot here\n\n\n\ncar4.n_wheels\n\n4\n\n\nIn that case Car is called the “parent” class and the FiatPalio the “child” or “subclass”.\nNotice that both car3 and car4 inherited the attribute n_wheels from Car.\nA class can have more than one parent:\n\nclass Parent1:\n    n_arms = 2\n        \nclass Parent2:\n    n_legs = 2\n        \nclass Parent3:\n    n_eyes = 2\n\nclass Child(Parent1, Parent2, Parent3):\n    def list_body_parts(self):\n        print(\"arms: \", self.n_arms)\n        print(\"legs: \", self.n_legs)\n        print(\"eyes: \", self.n_eyes)\n\n\nchild = Child()\n\n\nchild.list_body_parts()\n\narms:  2\nlegs:  2\neyes:  2\n\n\nMultiple inheritance is also tricky and you should avoid it. It’s just good to know it exists to understand code from out there, for example, the popular scikit-learn library uses this a lot to propagate methods and avoid code duplication.",
-    "crumbs": [
-      "<span class='chapter-number'>19</span>  <span class='chapter-title'>Object Oriented Programming</span>"
+      "<span class='chapter-number'>19</span>  <span class='chapter-title'>Debugging</span>"
     ]
   },
   {
