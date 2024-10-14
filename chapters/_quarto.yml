@@ -32,9 +32,6 @@ book:
     - lab_explore_data_exercises.ipynb
     - notebook_workflow.ipynb
     - 999_glossary.ipynb
-    - readability.ipynb
-    - code_repositories.ipynb
-    - summary.qmd
     - references.qmd
 
 bibliography: references.bib
@@ -44,6 +41,3 @@ format:
     theme: flatly
     highlight-style: breeze
     include-after-body: ../plausible.html
-
-execute:
-  freeze: auto
