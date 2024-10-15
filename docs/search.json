@@ -14,7 +14,7 @@
     "href": "01_getting_started.html",
     "title": "1  Getting Started",
     "section": "",
-    "text": "1.1 Introduction\nHistorical and technical reasons that we will not address here installing Python and third party libraries is a little bit more cumbersome than it should be. There are way too many ways to install Python and libraries. My recommendation here is: Pick one system that works for you and stick to it.\nWe essentially need to carry out 3 tasks:\nWe we’ll use here uv which is a high level tool that does all 3 for us.",
+    "text": "1.1 Introduction\nHistorical and technical reasons that we will not address here installing Python and third party libraries is a little bit more cumbersome than it should be. There are way too many ways to install Python and libraries. My recommendation here is: Pick one system that works for you and stick to it.\nWe essentially need to carry out 3 tasks:\nWe will use here uv which is a high level tool that does all 3 for us.",
     "crumbs": [
       "<span class='chapter-number'>1</span>  <span class='chapter-title'>Getting Started</span>"
     ]
@@ -614,7 +614,17 @@
     "href": "08_numpy.html#numpy-built-in-functions",
     "title": "14  Numpy",
     "section": "14.2 Numpy Built-in Functions",
-    "text": "14.2 Numpy Built-in Functions\nNumpy implements many useful functions often used when working with numerical/scientific data. For example the random submodule exposes several useful functions for stochastic modelling and statistical analysis.\n\n\nCode\nimport matplotlib.pyplot as plt\n\n\n\nplt.hist(\n    # Draw samples from normal distribution \n    np.random.normal(size=10_000),\n    bins=100\n);",
+    "text": "14.2 Numpy Built-in Functions\nNumpy implements many useful functions often used when working with numerical/scientific data. For example the random submodule exposes several useful functions for stochastic modelling and statistical analysis.",
+    "crumbs": [
+      "<span class='chapter-number'>14</span>  <span class='chapter-title'>Numpy</span>"
+    ]
+  },
+  {
+    "objectID": "08_numpy.html#exercises",
+    "href": "08_numpy.html#exercises",
+    "title": "14  Numpy",
+    "section": "14.3 Exercises",
+    "text": "14.3 Exercises\n\narr = np.arange(25)\narr\n\narray([ 0,  1,  2,  3,  4,  5,  6,  7,  8,  9, 10, 11, 12, 13, 14, 15, 16,\n       17, 18, 19, 20, 21, 22, 23, 24])\n\n\n\narr.reshape(5,5)\n\narray([[ 0,  1,  2,  3,  4],\n       [ 5,  6,  7,  8,  9],\n       [10, 11, 12, 13, 14],\n       [15, 16, 17, 18, 19],\n       [20, 21, 22, 23, 24]])\n\n\n\nReshape arr to be a square matrix, call it arr_sq.\nExtract the values at this coordinates [(0, 3), (2, 4), (3, 2)].\nExtract one index operation the elements 1, 4, 9, 11, 21.\nCreate a boolean mask that will extract the odd numbers from the arr_sq.\nFind the indices of the even elements off arr_sq.\nFlatten arr_sq into 1 dimension.\nGet the third column of arr_sq.\nGet the second and the fourth rows of arr_sq.\nCompute the dot product between arr_sq and arr_sq transposed.\nExtract the upper right triangle values (including the diagonal.\nCreate a square matrix of 25 elements filled only with the value 100 along the main diagonal\nCreate a square matrix of 25 elements filled only with the value 1 the counter-diagonal.",
     "crumbs": [
       "<span class='chapter-number'>14</span>  <span class='chapter-title'>Numpy</span>"
     ]
@@ -624,7 +634,7 @@
     "href": "081_pandas.html",
     "title": "15  Pandas",
     "section": "",
-    "text": "Here’s the introductory chapter of the book, by the original author of the library pandas.\nThese are useful cheatsheets.\nCheck out the pandas getting-started documentation here\nHere’s short introduction by the very author of the library:",
+    "text": "15.1 Exercises\nSeries from dict Missing values\nSeries from dict Display first 7 elements Display last 7 elements Read in data, assign column names Read in only X rows Compute mean of 1 column Add two columns (numbers) Add two columns (strings) Add a column to existing dataframe Add an indicator column to existing dataframe\nFind an interesting dataset, download and explore a bit.\nDiscard rows with missing values Fill missing values Drop entire rows (by index) Drop entire cols Sort elements (index, values)\nSummary metric on specific cols Substract mean of a col from other columns",
     "crumbs": [
       "<span class='chapter-number'>15</span>  <span class='chapter-title'>Pandas</span>"
     ]

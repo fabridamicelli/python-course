@@ -348,6 +348,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <ul>
   <li><a href="#slicing-arrays" id="toc-slicing-arrays" class="nav-link active" data-scroll-target="#slicing-arrays"><span class="header-section-number">14.1</span> Slicing Arrays</a></li>
   <li><a href="#numpy-built-in-functions" id="toc-numpy-built-in-functions" class="nav-link" data-scroll-target="#numpy-built-in-functions"><span class="header-section-number">14.2</span> Numpy Built-in Functions</a></li>
+  <li><a href="#exercises" id="toc-exercises" class="nav-link" data-scroll-target="#exercises"><span class="header-section-number">14.3</span> Exercises</a></li>
   </ul>
 </nav>
     </div>
@@ -373,7 +374,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<p>Take a look at this intro in <a href="https://wesmckinney.com/book/numpy-basics">Wes MacKinney’s book</a></p>
+<p>We will follow here this excellent chapter from <a href="https://wesmckinney.com/book/numpy-basics">Wes MacKinney’s book</a>.</p>
+<p>In particular the subtitles:</p>
+<ul>
+<li>Creating ndarray</li>
+<li>Arithmetic with numpy arrays</li>
+<li>Basic indexing and slicing</li>
+<li>Boolean indexing</li>
+</ul>
 <section id="slicing-arrays" class="level2" data-number="14.1">
 <h2 data-number="14.1" class="anchored" data-anchor-id="slicing-arrays"><span class="header-section-number">14.1</span> Slicing Arrays</h2>
 <p>Slicing works as with, for example, <code>range</code>, with systax <code>(start, [stop], [step])</code>. We treat each dimension separately with <code>,</code>.</p>
@@ -440,26 +448,41 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="numpy-built-in-functions" class="level2" data-number="14.2">
 <h2 data-number="14.2" class="anchored" data-anchor-id="numpy-built-in-functions"><span class="header-section-number">14.2</span> Numpy Built-in Functions</h2>
 <p>Numpy implements many useful functions often used when working with numerical/scientific data. For example the <code>random</code> submodule exposes several useful functions for stochastic modelling and statistical analysis.</p>
-<div id="3f77af0d-4398-404f-b379-214220dddbdd" class="cell" data-execution_count="2">
-<details class="code-fold">
-<summary>Code</summary>
-<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
-</div>
-<div id="832538ec-db42-4f9f-befc-aee257286bd8" class="cell" data-execution_count="14">
-<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>plt.hist(</span>
-<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Draw samples from normal distribution </span></span>
-<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>    np.random.normal(size<span class="op">=</span><span class="dv">10_000</span>),</span>
-<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>    bins<span class="op">=</span><span class="dv">100</span></span>
-<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>)<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="08_numpy_files/figure-html/cell-11-output-1.png" class="img-fluid figure-img"></p>
-</figure>
+</section>
+<section id="exercises" class="level2" data-number="14.3">
+<h2 data-number="14.3" class="anchored" data-anchor-id="exercises"><span class="header-section-number">14.3</span> Exercises</h2>
+<div id="123df306-ae3f-4ebf-b283-7e7d9f7705d9" class="cell" data-execution_count="2">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>arr <span class="op">=</span> np.arange(<span class="dv">25</span>)</span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>arr</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="2">
+<pre><code>array([ 0,  1,  2,  3,  4,  5,  6,  7,  8,  9, 10, 11, 12, 13, 14, 15, 16,
+       17, 18, 19, 20, 21, 22, 23, 24])</code></pre>
 </div>
 </div>
+<div id="a0840103-6335-4077-afa0-3c843a4d3aec" class="cell" data-execution_count="6">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>arr.reshape(<span class="dv">5</span>,<span class="dv">5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="6">
+<pre><code>array([[ 0,  1,  2,  3,  4],
+       [ 5,  6,  7,  8,  9],
+       [10, 11, 12, 13, 14],
+       [15, 16, 17, 18, 19],
+       [20, 21, 22, 23, 24]])</code></pre>
 </div>
+</div>
+<ol type="1">
+<li>Reshape <code>arr</code> to be a square matrix, call it <code>arr_sq</code>.</li>
+<li>Extract the values at this coordinates [(0, 3), (2, 4), (3, 2)].</li>
+<li>Extract one index operation the elements 1, 4, 9, 11, 21.</li>
+<li>Create a boolean mask that will extract the odd numbers from the <code>arr_sq</code>.</li>
+<li>Find the indices of the even elements off <code>arr_sq</code>.</li>
+<li>Flatten <code>arr_sq</code> into 1 dimension.</li>
+<li>Get the third column of <code>arr_sq</code>.</li>
+<li>Get the second and the fourth rows of <code>arr_sq</code>.</li>
+<li>Compute the dot product between <code>arr_sq</code> and <code>arr_sq</code> transposed.</li>
+<li>Extract the upper right triangle values (including the diagonal.</li>
+<li>Create a square matrix of 25 elements filled only with the value 100 along the main diagonal</li>
+<li>Create a square matrix of 25 elements filled only with the value 1 the <em>counter-diagonal</em>.</li>
+</ol>
 
 
 </section>
