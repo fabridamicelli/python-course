@@ -4,7 +4,7 @@
     "href": "index.html",
     "title": "Python Course",
     "section": "",
-    "text": "About the Course\nThis is a short introduction to the Python programming language.\nThe main goal is to be productive right away, so we will emphasize practical over theoretical aspects with a focus on data-related tasks, a great target for the Python language!\nAfter the course, you will have practical tools under your belt to tackle daily data-related and common automation tasks with Python as well as enough knowledge to bootstrap yourself in your own learning path.\nOff we go! 🚀\n\n\nAbout the Author\nFabrizio Damicelli (PhD, Computational Neuroscience) is a self-taught coder who prefers simple words and solid intuitions to unnecessary sophistication and fancy jargon.\nOpen source advocate, creator and maintainer of a few of Python packages.\nLearn more here",
+    "text": "About the Course\nThis is a short introduction to the Python programming language.\nWe will emphasize practical over theoretical aspects with a focus on data-related tasks, a great target for the Python language!\nAfter the course, you will have practical tools under your belt to tackle daily data-related and common automation tasks with Python as well as enough knowledge to bootstrap yourself in your own learning path.\nYou can check out the code notebooks and report any problems on this GitHub repository.\nOff we go! 🚀\n\n\nAbout the Author\nFabrizio Damicelli (PhD, Computational Neuroscience) is a self-taught coder who prefers simple words and solid intuitions to unnecessary sophistication and fancy jargon.\nOpen source advocate, creator and maintainer of a few of Python packages.\nLearn more about him here.",
     "crumbs": [
       "About the Course"
     ]
@@ -634,7 +634,7 @@
     "href": "081_pandas.html",
     "title": "15  Pandas",
     "section": "",
-    "text": "15.1 Exercises\nSeries from dict Missing values\nSeries from dict Display first 7 elements Display last 7 elements Read in data, assign column names Read in only X rows Compute mean of 1 column Add two columns (numbers) Add two columns (strings) Add a column to existing dataframe Add an indicator column to existing dataframe\nFind an interesting dataset, download and explore a bit.\nDiscard rows with missing values Fill missing values Drop entire rows (by index) Drop entire cols Sort elements (index, values)\nSummary metric on specific cols Substract mean of a col from other columns",
+    "text": "15.1 Exercises\nSeries from dict Missing values\nSeries from dict Display first 7 elements Display last 7 elements Read in data, assign column names Read in only X rows Compute mean of 1 column Add two columns (numbers) Add two columns (strings) Add a column to existing dataframe Add an indicator column to existing dataframe\nFind an interesting dataset, download and explore it.\nDiscard rows with missing values Fill missing values Drop entire rows (by index) Drop entire cols Sort elements (index, values)\nSummary metric on specific cols Substract mean of a col from other columns\nSelect a couple of columns of DF (list of str) Select with boolean mask Select with loc Select with iloc",
     "crumbs": [
       "<span class='chapter-number'>15</span>  <span class='chapter-title'>Pandas</span>"
     ]
@@ -834,7 +834,7 @@
     "href": "lab_explore_data_exercises.html#exercises-2",
     "title": "21  Lab: Exploring a Dataset",
     "section": "21.2 Exercises 2",
-    "text": "21.2 Exercises 2\n\nVerify that all subject directories have a eeg sub-directory.\n\nVerify that all data in a subject directories matches with the subject number.\n\nAssert that EEG data for all subjects was taken using 20 channels and sampling frequency 500.\n\nWrite a file (discarded_subjects.txt) with the subject numbers that do not match that criterion.\n\nNow we want to look at the data. We find that the data is in a particular format .edf that we cannot directly read in python.\nWe need to install third-party library.\nWe will take here a little detour to look at the chapter “Dependencies” to learn how we deal with them.",
+    "text": "21.2 Exercises 2\nWe will start by making sure our data/metadata contains the information we expect at a high level.\n\nVerify that all subject directories have a eeg sub-directory.\n\nVerify that all data in a subject directories matches with the subject number.\n\nAssert that EEG data for all subjects was taken using 20 channels and sampling frequency 500.\n\n(Optional) Write a file (discarded_subjects.txt) with the subject numbers that do not match that criterion.",
     "crumbs": [
       "<span class='chapter-number'>21</span>  <span class='chapter-title'>Lab: Exploring a Dataset</span>"
     ]
@@ -844,7 +844,17 @@
     "href": "lab_explore_data_exercises.html#exercises-3",
     "title": "21  Lab: Exploring a Dataset",
     "section": "21.3 Exercises 3",
-    "text": "21.3 Exercises 3\n\nPlot a histogram of RecordingDuration across all subjects.\n\nPlot one time series. (Hint: use the library “mne” to read the .edf file)\nPlot all time series with labels according to channel name.\n\nPlot the T* and O* channels.",
+    "text": "21.3 Exercises 3\nNow we want to look at the data. We find that the data is in a particular format .edf that we cannot directly read in python.\nHint: We need to install a third-party library mne to read .edf files.\n\nPlot a histogram of RecordingDuration across all subjects.\n\nPlot one time series.\nPlot all time series with labels according to channel name.\n\nPlot the T* and O* channels.",
+    "crumbs": [
+      "<span class='chapter-number'>21</span>  <span class='chapter-title'>Lab: Exploring a Dataset</span>"
+    ]
+  },
+  {
+    "objectID": "lab_explore_data_exercises.html#exercises-4",
+    "href": "lab_explore_data_exercises.html#exercises-4",
+    "title": "21  Lab: Exploring a Dataset",
+    "section": "21.4 Exercises 4",
+    "text": "21.4 Exercises 4\nAfter having taken this quick look at the data, we want to start processing the data.\n\nAdd a column called channel_mean that\nSubstract the mean from each channel\nPlot correlation matrix of all-vs-all channels",
     "crumbs": [
       "<span class='chapter-number'>21</span>  <span class='chapter-title'>Lab: Exploring a Dataset</span>"
     ]

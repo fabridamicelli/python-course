@@ -349,6 +349,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#exercises-1" id="toc-exercises-1" class="nav-link active" data-scroll-target="#exercises-1"><span class="header-section-number">21.1</span> Exercises 1</a></li>
   <li><a href="#exercises-2" id="toc-exercises-2" class="nav-link" data-scroll-target="#exercises-2"><span class="header-section-number">21.2</span> Exercises 2</a></li>
   <li><a href="#exercises-3" id="toc-exercises-3" class="nav-link" data-scroll-target="#exercises-3"><span class="header-section-number">21.3</span> Exercises 3</a></li>
+  <li><a href="#exercises-4" id="toc-exercises-4" class="nav-link" data-scroll-target="#exercises-4"><span class="header-section-number">21.4</span> Exercises 4</a></li>
   </ul>
 </nav>
     </div>
@@ -413,6 +414,7 @@ https://github.com/OpenNeuroDatasets/ds005420</p>
 </section>
 <section id="exercises-2" class="level2" data-number="21.2">
 <h2 data-number="21.2" class="anchored" data-anchor-id="exercises-2"><span class="header-section-number">21.2</span> Exercises 2</h2>
+<p>We will start by making sure our data/metadata contains the information we expect at a high level.</p>
 <ol type="a">
 <li>Verify that all subject directories have a eeg sub-directory.<br>
 </li>
@@ -420,21 +422,29 @@ https://github.com/OpenNeuroDatasets/ds005420</p>
 </li>
 <li>Assert that EEG data for all subjects was taken using 20 channels and sampling frequency 500.<br>
 </li>
-<li>Write a file (<code>discarded_subjects.txt</code>) with the subject numbers that do not match that criterion.</li>
+<li>(Optional) Write a file (<code>discarded_subjects.txt</code>) with the subject numbers that do not match that criterion.</li>
 </ol>
-<p>Now we want to look at the data. We find that the data is in a particular format <code>.edf</code> that we cannot directly read in python.<br>
-We need to install third-party library.<br>
-We will take here a little detour to look at the chapter “Dependencies” to learn how we deal with them.</p>
 </section>
 <section id="exercises-3" class="level2" data-number="21.3">
 <h2 data-number="21.3" class="anchored" data-anchor-id="exercises-3"><span class="header-section-number">21.3</span> Exercises 3</h2>
+<p>Now we want to look at the data. We find that the data is in a particular format <code>.edf</code> that we cannot directly read in python.<br>
+Hint: We need to install a third-party library <code>mne</code> to read <code>.edf</code> files.</p>
 <ol type="a">
 <li>Plot a histogram of RecordingDuration across all subjects.<br>
 </li>
-<li>Plot one time series. (Hint: use the library “mne” to read the .edf file)</li>
+<li>Plot one time series.</li>
 <li>Plot all time series with labels according to channel name.<br>
 </li>
 <li>Plot the T* and O* channels.</li>
+</ol>
+</section>
+<section id="exercises-4" class="level2" data-number="21.4">
+<h2 data-number="21.4" class="anchored" data-anchor-id="exercises-4"><span class="header-section-number">21.4</span> Exercises 4</h2>
+<p>After having taken this quick look at the data, we want to start processing the data.</p>
+<ol type="a">
+<li>Add a column called <code>channel_mean</code> that</li>
+<li>Substract the mean from each channel</li>
+<li>Plot correlation matrix of all-vs-all channels</li>
 </ol>
 
 
