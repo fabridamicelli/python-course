@@ -434,7 +434,7 @@
     "href": "051_oop.html#methods",
     "title": "9  Object Oriented Programming",
     "section": "9.2 Methods",
-    "text": "9.2 Methods\nDifferent car models have different functionalities, like turning the radio on.\nIn python it’s the same, the functions attached to an object are called methods and we call them with this dot notation:\n\ncar1.turn_on_radio()  # it's just a function, so we call it with ()\n\nRadio is on!\n\n\n\ncar1.turn_off_radio()\n\nRadio is off!\n\n\nWhere is the self argument of the functions?\nThe first argument of a method will be always passed to the method in the call and it is the object itself!\nThat’s a bit meta an a bit confusing, but don’t worry, you’ll get a feel of it by using the classes/objects.",
+    "text": "9.2 Methods\nDifferent car models have different functionalities, like turning the radio on.\nIn python it’s the same, the functions attached to an object are called methods and we call them with this dot notation:\n\ncar1.turn_on_radio()  # it's just a function, so we call it with ()\n\nRadio is on!\n\n\n\ncar1.turn_off_radio()\n\nRadio is off!\n\n\nWhere is the self argument of the functions?\nThe first argument of a method will be always passed to the method in the call and it is the object itself (thus the convention to call it self).\nThat’s a bit meta an a bit confusing, but don’t worry, you’ll get a feel of it by using the classes/objects.",
     "crumbs": [
       "<span class='chapter-number'>9</span>  <span class='chapter-title'>Object Oriented Programming</span>"
     ]
@@ -634,7 +634,17 @@
     "href": "081_pandas.html",
     "title": "15  Pandas",
     "section": "",
-    "text": "15.1 Exercises\nSeries from dict Missing values\nSeries from dict Display first 7 elements Display last 7 elements Read in data, assign column names Read in only X rows Compute mean of 1 column Add two columns (numbers) Add two columns (strings) Add a column to existing dataframe Add an indicator column to existing dataframe\nFind an interesting dataset, download and explore it.\nDiscard rows with missing values Fill missing values Drop entire rows (by index) Drop entire cols Sort elements (index, values)\nSummary metric on specific cols Substract mean of a col from other columns\nSelect a couple of columns of DF (list of str) Select with boolean mask Select with loc Select with iloc",
+    "text": "15.1 Exercises",
+    "crumbs": [
+      "<span class='chapter-number'>15</span>  <span class='chapter-title'>Pandas</span>"
+    ]
+  },
+  {
+    "objectID": "081_pandas.html#exercises",
+    "href": "081_pandas.html#exercises",
+    "title": "15  Pandas",
+    "section": "",
+    "text": "Series from dict\nDF from dict\nDF from matrix (columns)\nread_csv\nDiscard Missing values\nFill Missing values\nDisplay first 7 elements\nDisplay last 7 elements\nRead in data, assign column names\nRead in only X rows\nCompute mean of 1 column\nAdd two columns (numbers)\nAdd two columns (strings)\nAdd a column to existing dataframe\nAdd an indicator column to existing dataframe\nFind an interesting dataset, download and explore it.\n\nDiscard rows with missing values\nFill missing values\nDrop entire rows (by index)\nDrop entire cols\nSort elements (index, values)\nSort 2 columns\n\nSummary metric on specific cols\nSubstract mean of a col from other columns\nSubstract rolling mean of a col from other columns\nSelect a couple of columns of DF (list of str)\nSelect with boolean mask\nSelect with loc\nSelect with iloc\nSample 20% of the rows\npd.to_datetime\nfmri:\n\nunique brain regions\nunique subjects\nplot subject “s13” time series of “parietal” region",
     "crumbs": [
       "<span class='chapter-number'>15</span>  <span class='chapter-title'>Pandas</span>"
     ]

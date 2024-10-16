@@ -20,10 +20,44 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script><script src="site_libs/quarto-nav/quarto-nav.js"></script>
 <script src="site_libs/quarto-nav/headroom.min.js"></script>
 <script src="site_libs/clipboard/clipboard.min.js"></script>
 <script src="site_libs/quarto-search/autocomplete.umd.js"></script>
@@ -70,6 +104,9 @@ ul.task-list li input[type="checkbox"] {
 }</script>
 <!-- plausible -->
 <script defer="" data-domain="fabridamicelli.github.io/python-course" src="https://plausible.io/js/script.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
+
+<script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
 
 
 </head>
@@ -341,20 +378,144 @@ ul.task-list li input[type="checkbox"] {
 <p>Here’s the introductory <a href="https://wesmckinney.com/book/pandas-basics">chapter of the book</a>, by the original author of the library pandas Wes McKinney. In particular, we’ll look at subtitles:</p>
 <ul>
 <li><a href="https://wesmckinney.com/book/pandas-basics#pandas_construction">5.1. Introduction to pandas Data Structures</a></li>
-<li><a href="https://wesmckinney.com/book/pandas-basics#pandas_series">5.2 Essential Functionality</a></li>
+<li><a href="https://wesmckinney.com/book/pandas-basics#pandas_series">5.2. Essential Functionality</a>
+<ul>
+<li>Indexing, selection and filtering</li>
+<li>Function application and mapping</li>
+<li>Sorting and ranking</li>
+</ul></li>
+<li><a href="https://wesmckinney.com/book/data-cleaning">7.1. Handling missing data</a></li>
+<li><a href="https://wesmckinney.com/book/data-cleaning#prep_replace">7.2. Replacing values</a></li>
+<li><a href="https://wesmckinney.com/book/data-cleaning#text_string_manip_vectorized">7.4. String functions in pandas</a></li>
+<li><a href="https://wesmckinney.com/book/data-aggregation#groupby_fundamentals">10.1. How to think about group operations</a></li>
 </ul>
 <p>These are useful <a href="https://pandas.pydata.org/Pandas_Cheat_Sheet.pdf">cheatsheets</a>.</p>
 <p>Check out the pandas getting-started documentation <a href="https://pandas.pydata.org/docs/getting_started/index.html#getting-started">here</a></p>
 <p>Here’s short introduction by the very author of the library:</p>
 <div class="quarto-video ratio ratio-16x9"><iframe data-external="1" src="https://www.youtube.com/embed/_T8LGqJtuGc" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div>
+<div id="7617b9b8-455a-44f0-9856-8b2e248d11a0" class="cell" data-execution_count="1">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="91cfdd53-1b65-4b02-b0f8-5bd227b6da4e" class="cell" data-execution_count="2">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> sns.load_dataset(<span class="st">"fmri"</span>)</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>df.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="2">
+<div>
+<div>
+
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">subject</th>
+<th data-quarto-table-cell-role="th">timepoint</th>
+<th data-quarto-table-cell-role="th">event</th>
+<th data-quarto-table-cell-role="th">region</th>
+<th data-quarto-table-cell-role="th">signal</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>s13</td>
+<td>18</td>
+<td>stim</td>
+<td>parietal</td>
+<td>-0.017552</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>s5</td>
+<td>14</td>
+<td>stim</td>
+<td>parietal</td>
+<td>-0.080883</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>s12</td>
+<td>18</td>
+<td>stim</td>
+<td>parietal</td>
+<td>-0.081033</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>s11</td>
+<td>18</td>
+<td>stim</td>
+<td>parietal</td>
+<td>-0.046134</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>s10</td>
+<td>18</td>
+<td>stim</td>
+<td>parietal</td>
+<td>-0.037970</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+</div>
+<div id="97350317-64f0-48cf-b73d-b14e2364ce87" class="cell" data-execution_count="35">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>sns.lineplot(df, x<span class="op">=</span><span class="st">"timepoint"</span>, y<span class="op">=</span><span class="st">"signal"</span>, marker<span class="op">=</span><span class="st">"."</span>, hue<span class="op">=</span><span class="st">"region"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="081_pandas_files/figure-html/cell-4-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
 <section id="exercises" class="level2" data-number="15.1">
 <h2 data-number="15.1" class="anchored" data-anchor-id="exercises"><span class="header-section-number">15.1</span> Exercises</h2>
-<p>Series from dict Missing values</p>
-<p>Series from dict Display first 7 elements Display last 7 elements Read in data, assign column names Read in only X rows Compute mean of 1 column Add two columns (numbers) Add two columns (strings) Add a column to existing dataframe Add an indicator column to existing dataframe</p>
-<p>Find an interesting dataset, download and explore it.</p>
-<p>Discard rows with missing values Fill missing values Drop entire rows (by index) Drop entire cols Sort elements (index, values)</p>
-<p>Summary metric on specific cols Substract mean of a col from other columns</p>
-<p>Select a couple of columns of DF (list of str) Select with boolean mask Select with loc Select with iloc</p>
+<ul>
+<li>Series from dict</li>
+<li>DF from dict</li>
+<li>DF from matrix (columns)</li>
+<li>read_csv</li>
+<li>Discard Missing values</li>
+<li>Fill Missing values</li>
+<li>Display first 7 elements</li>
+<li>Display last 7 elements</li>
+<li>Read in data, assign column names</li>
+<li>Read in only X rows</li>
+<li>Compute mean of 1 column</li>
+<li>Add two columns (numbers)</li>
+<li>Add two columns (strings)</li>
+<li>Add a column to existing dataframe</li>
+<li>Add an indicator column to existing dataframe</li>
+<li>Find an interesting dataset, download and explore it.<br>
+</li>
+<li>Discard rows with missing values</li>
+<li>Fill missing values</li>
+<li>Drop entire rows (by index)</li>
+<li>Drop entire cols</li>
+<li>Sort elements (index, values)</li>
+<li>Sort 2 columns<br>
+</li>
+<li>Summary metric on specific cols</li>
+<li>Substract mean of a col from other columns</li>
+<li>Substract rolling mean of a col from other columns</li>
+<li>Select a couple of columns of DF (list of str)</li>
+<li>Select with boolean mask</li>
+<li>Select with loc</li>
+<li>Select with iloc</li>
+<li>Sample 20% of the rows</li>
+<li>pd.to_datetime</li>
+<li>fmri:
+<ul>
+<li>unique brain regions</li>
+<li>unique subjects</li>
+<li>plot subject “s13” time series of “parietal” region</li>
+</ul></li>
+</ul>
 
 
 </section>
