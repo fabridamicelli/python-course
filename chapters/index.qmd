@@ -1,8 +1,10 @@
 # About the Course {.unnumbered}
 This is a short introduction to the Python programming language.   
-The main goal is to be productive right away, so we will emphasize **practical** over theoretical aspects with a focus on data-related tasks, a great target for the Python language!
+We will emphasize practical over theoretical aspects with a focus on data-related tasks, a great target for the Python language!
 
 After the course, you will have practical tools under your belt to tackle daily data-related and common automation tasks with Python as well as enough knowledge to bootstrap yourself in your own learning path.
+
+You can check out the code notebooks and report any problems on [this GitHub repository](https://www.github.com/fabridamicelli/python-course).
 
 Off we go! 🚀
 
@@ -10,5 +12,5 @@ Off we go! 🚀
 # About the Author
 Fabrizio Damicelli (PhD, Computational Neuroscience) is a self-taught coder who prefers simple words and solid intuitions to unnecessary sophistication and fancy jargon.  
 Open source advocate, creator and maintainer of a few of Python packages.  
-Learn more [here](https://fabridamicelli.github.io/)
+Learn more about him [here](https://fabridamicelli.github.io/).
 
