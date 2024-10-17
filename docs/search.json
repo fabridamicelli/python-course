@@ -34,7 +34,7 @@
     "href": "01_getting_started.html#install-uv",
     "title": "1  Getting Started",
     "section": "1.2 Install uv",
-    "text": "1.2 Install uv\nRun only one of these commands in your terminal - pick according to your operating system:\nLinux and macOS\ncurl -LsSf https://astral.sh/uv/install.sh | sh\nWindows\npowershell -ExecutionPolicy ByPass -c \"irm https://astral.sh/uv/install.ps1 | iex\"\nThat should be enough, but for more details you can follow detailed instructions here.",
+    "text": "1.2 Install uv\nRun only one of these commands in your terminal - pick according to your operating system:\nLinux and macOS\ncurl -LsSf https://astral.sh/uv/install.sh | sh\nWindows\npowershell -ExecutionPolicy ByPass -c \"irm https://astral.sh/uv/install.ps1 | iex\"\nWarning: Maybe you need to have administrator permission to get this working. Try that out if the plain run does not work.\nThat should be enough, but for more details you can follow detailed instructions here.",
     "crumbs": [
       "<span class='chapter-number'>1</span>  <span class='chapter-title'>Getting Started</span>"
     ]
