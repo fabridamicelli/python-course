@@ -397,7 +397,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="working-on-a-project" class="level2" data-number="1.3">
 <h2 data-number="1.3" class="anchored" data-anchor-id="working-on-a-project"><span class="header-section-number">1.3</span> Working on a project</h2>
 <p>To start a new project run in your terminal:</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">uv</span> init pycourse <span class="at">--lib</span> <span class="at">--python</span> 3.13</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">uv</span> init pycourse <span class="at">--lib</span> <span class="at">--python</span> 3.12</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p><code>pycourse</code> is the name of the project, you can choose anything you want.<br>
 The <code>--lib</code> flag tells <code>uv</code> to install the current code as a “library” (don’t worry about this yet, it’s just something we need to get things working for now).<br>
 The <code>--python</code> flags specifies the specific python version we want to work with in this project. If the version is already installed in our machine <code>uv</code> will just use it, otherwise <code>uv</code> will download it and keep it for future usage.</p>
@@ -413,10 +413,9 @@ For more details on <code>uv</code> and projects see the documentation <a href="
     └── pycourse
         └── __init__.py</code></pre>
 <p>If everything worked fine you should be able to run this:</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="ex">uv</span> run pycourse</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>and see this output:</p>
-<pre><code>Hello from pycourse!</code></pre>
-<p>Contratulations, you just run your first Python program – we’re ready to go 🚀!</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="ex">uv</span> run python</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>and see a python REPL.</p>
+<p>We’re ready to go 🚀!</p>
 
 
 </section>
