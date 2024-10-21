@@ -4,7 +4,7 @@
     "href": "index.html",
     "title": "Python Course",
     "section": "",
-    "text": "About the Course\nThis is a short introduction to the Python programming language, emphasizing practical over theoretical aspects and with a focus on data-related tasks.\nThe goal is to get you just enough tools under your belt to enable you on pursuing your own learning path according to your interests.\nWhat’s in for you:\n✅ Core concepts of the language explained with simple words\n✅ Bootstrapping and keeping a project tidy using modern tools, such as uv\n✅ Exercises accompanying the chapters\n✅ Integrative “Labs” with real-world datasets to put all concepts together\n✅ References to open and free material to deepen your knowledge\nCode notebooks and report any problems on this GitHub repository.\nOff we go! 🚀\n\n\nAbout the Author\nFabrizio Damicelli (PhD, Computational Neuroscience) is a self-taught coder who prefers simple words and solid intuitions to unnecessary sophistication and fancy jargon.\nOpen source advocate, creator and maintainer of a few of Python packages.\nLearn more about him here.",
+    "text": "About the Course\nThis is a short introduction to the Python programming language, emphasizing practical over theoretical aspects and with a focus on data-related tasks.\nThe goal is to get you just enough tools under your belt to enable you on pursuing your own learning path according to your interests. What’s in for you:\n✅ Core concepts of the language explained with simple words\n✅ Bootstrapping and keeping a project tidy using modern tools, such as uv\n✅ Exercises accompanying the chapters\n✅ Integrative “Labs” with real-world datasets to put all concepts together\n✅ References to open and free material to deepen your knowledge\nCode notebooks and report any problems on this GitHub repository.\nOff we go! 🚀\n\n\nAbout the Author\nFabrizio Damicelli (PhD, Computational Neuroscience) is a self-taught coder who prefers solid intuitions to unnecessary sophistication and fancy jargon.\nOpen source advocate, creator and maintainer of a few of Python packages.\nLearn more about him here.",
     "crumbs": [
       "About the Course"
     ]
@@ -14,7 +14,7 @@
     "href": "01_getting_started.html",
     "title": "1  Getting Started",
     "section": "",
-    "text": "1.1 Introduction\nFor historical and technical reasons installing Python and managing dependencies is more cumbersome than it should be and as of today (October 2024) there are way too many ways to deal with those problems. My recommendation here is: Pick one system that works for you and stick to it.\nWe essentially need to carry out 3 tasks:\nWe will use here uv which is a high level tool that does all 3 for us.",
+    "text": "1.1 Introduction\nFor historical and technical reasons installing Python and managing dependencies is more cumbersome than it should be and as of today (October 2024) there are way too many ways to deal with those problems. My recommendation here is: Pick one system that works for you and stick to it.\nWe essentially need to carry out three tasks:\nWe will use here uv which is a high level tool that does all three for us.",
     "crumbs": [
       "<span class='chapter-number'>1</span>  <span class='chapter-title'>Getting Started</span>"
     ]
@@ -34,7 +34,7 @@
     "href": "01_getting_started.html#install-uv",
     "title": "1  Getting Started",
     "section": "1.2 Install uv",
-    "text": "1.2 Install uv\nRun only one of these commands in your terminal - pick according to your operating system:\nLinux and macOS\ncurl -LsSf https://astral.sh/uv/install.sh | sh\nWindows Make sure you are using powershell!\npowershell -ExecutionPolicy ByPass -c \"irm https://astral.sh/uv/install.ps1 | iex\"\nThat should be enough, but for more details you can follow detailed instructions here.",
+    "text": "1.2 Install uv\nRun only one of these commands in your terminal - pick according to your operating system:\nLinux and macOS\ncurl -LsSf https://astral.sh/uv/install.sh | sh\nWindows\nMake sure you are using powershell!\npowershell -ExecutionPolicy ByPass -c \"irm https://astral.sh/uv/install.ps1 | iex\"\nThat should be enough, but for more details you can follow detailed instructions here.",
     "crumbs": [
       "<span class='chapter-number'>1</span>  <span class='chapter-title'>Getting Started</span>"
     ]
@@ -844,7 +844,7 @@
     "href": "lab_explore_data_exercises.html#exercises-3",
     "title": "21  Lab: Exploring a Dataset",
     "section": "21.3 Exercises 3",
-    "text": "21.3 Exercises 3\nNow we want to look at the data. We find that the data is in a particular format .edf that we cannot directly read in python.\nHint: We need to install a third-party library mne to read .edf files.\n\nPlot a histogram of RecordingDuration across all subjects.\n\nPlot one time series.\nPlot all time series with labels according to channel name.\n\nPlot the T* and O* channels.",
+    "text": "21.3 Exercises 3\nNow we want to look at the data. We find that the data is in a particular format .edf that we cannot directly read in python.\nHint: We need to install a third-party library mne to read .edf files.\n\nPlot a histogram of RecordingDuration across all subjects.\n\nPlot one time series.\n\nPlot all time series with labels according to channel name.\n\nPlot the channels that start with “T” and “O”.\n\nPlot a correlation plot of the “T” and “O” channels as a heatmap.",
     "crumbs": [
       "<span class='chapter-number'>21</span>  <span class='chapter-title'>Lab: Exploring a Dataset</span>"
     ]
@@ -854,7 +854,7 @@
     "href": "lab_explore_data_exercises.html#exercises-4",
     "title": "21  Lab: Exploring a Dataset",
     "section": "21.4 Exercises 4",
-    "text": "21.4 Exercises 4\nAfter having taken this quick look at the data, we want to start processing the data.\n\nAdd a column called channel_mean that\nSubstract the mean from each channel\nPlot correlation matrix of all-vs-all channels",
+    "text": "21.4 Exercises 4\nAfter having taken this quick look at the data, we want to start processing the data.\n\nAdd a column called channel_mean that\n\nSubstract the mean from each channel\n\nPlot correlation matrix of all-vs-all channels",
     "crumbs": [
       "<span class='chapter-number'>21</span>  <span class='chapter-title'>Lab: Exploring a Dataset</span>"
     ]

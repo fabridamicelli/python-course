@@ -1,7 +1,8 @@
 # About the Course {.unnumbered}
-This is a short introduction to the Python programming language, emphasizing practical over theoretical aspects and with a focus on data-related tasks.  
-The goal is to get you just enough tools under your belt to enable you on pursuing your own learning path according to your interests.  
+This is a **short introduction** to the Python programming language, emphasizing practical over theoretical aspects and with a focus on data-related tasks.  
+The goal is to get you just enough tools under your belt to enable you on pursuing your own learning path according to your interests. 
 What's in for you:
+
 
 ✅ Core concepts of the language explained with _simple words_  
 ✅ Bootstrapping and keeping a project tidy using modern tools, such as [`uv`](https://docs.astral.sh/uv/)  
@@ -15,7 +16,7 @@ Off we go! 🚀
 
 
 # About the Author
-Fabrizio Damicelli (PhD, Computational Neuroscience) is a self-taught coder who prefers simple words and solid intuitions to unnecessary sophistication and fancy jargon.  
+Fabrizio Damicelli (PhD, Computational Neuroscience) is a self-taught coder who prefers solid intuitions to unnecessary sophistication and fancy jargon.  
 Open source advocate, creator and maintainer of a few of Python packages.  
 Learn more about him [here](https://fabridamicelli.github.io/).
 
