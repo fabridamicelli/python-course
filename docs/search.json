@@ -4,7 +4,7 @@
     "href": "index.html",
     "title": "Python Course",
     "section": "",
-    "text": "About the Course\nThis is a short introduction to the Python programming language.\nWe will emphasize practical over theoretical aspects with a focus on data-related tasks, a great target for the Python language!\nAfter the course, you will have practical tools under your belt to tackle daily data-related and common automation tasks with Python as well as enough knowledge to bootstrap yourself in your own learning path.\nYou can check out the code notebooks and report any problems on this GitHub repository.\nOff we go! 🚀\n\n\nAbout the Author\nFabrizio Damicelli (PhD, Computational Neuroscience) is a self-taught coder who prefers simple words and solid intuitions to unnecessary sophistication and fancy jargon.\nOpen source advocate, creator and maintainer of a few of Python packages.\nLearn more about him here.",
+    "text": "About the Course\nThis is a short introduction to the Python programming language, emphasizing practical over theoretical aspects and with a focus on data-related tasks.\nThe goal is to get you just enough tools under your belt to enable you on pursuing your own learning path according to your interests.\nWhat’s in for you:\n✅ Core concepts of the language explained with simple words\n✅ Bootstrapping and keeping a project tidy using modern tools, such as uv\n✅ Exercises accompanying the chapters\n✅ Integrative “Labs” with real-world datasets to put all concepts together\n✅ References to open and free material to deepen your knowledge\nCode notebooks and report any problems on this GitHub repository.\nOff we go! 🚀\n\n\nAbout the Author\nFabrizio Damicelli (PhD, Computational Neuroscience) is a self-taught coder who prefers simple words and solid intuitions to unnecessary sophistication and fancy jargon.\nOpen source advocate, creator and maintainer of a few of Python packages.\nLearn more about him here.",
     "crumbs": [
       "About the Course"
     ]
@@ -14,7 +14,7 @@
     "href": "01_getting_started.html",
     "title": "1  Getting Started",
     "section": "",
-    "text": "1.1 Introduction\nHistorical and technical reasons that we will not address here installing Python and third party libraries is a little bit more cumbersome than it should be. There are way too many ways to install Python and libraries. My recommendation here is: Pick one system that works for you and stick to it.\nWe essentially need to carry out 3 tasks:\nWe will use here uv which is a high level tool that does all 3 for us.",
+    "text": "1.1 Introduction\nFor historical and technical reasons installing Python and managing dependencies is more cumbersome than it should be and as of today (October 2024) there are way too many ways to deal with those problems. My recommendation here is: Pick one system that works for you and stick to it.\nWe essentially need to carry out 3 tasks:\nWe will use here uv which is a high level tool that does all 3 for us.",
     "crumbs": [
       "<span class='chapter-number'>1</span>  <span class='chapter-title'>Getting Started</span>"
     ]
@@ -634,17 +634,7 @@
     "href": "081_pandas.html",
     "title": "15  Pandas",
     "section": "",
-    "text": "15.1 Exercises",
-    "crumbs": [
-      "<span class='chapter-number'>15</span>  <span class='chapter-title'>Pandas</span>"
-    ]
-  },
-  {
-    "objectID": "081_pandas.html#exercises",
-    "href": "081_pandas.html#exercises",
-    "title": "15  Pandas",
-    "section": "",
-    "text": "Series from dict\nDF from dict\nDF from matrix (columns)\nread_csv\nDiscard Missing values\nFill Missing values\nDisplay first 7 elements\nDisplay last 7 elements\nRead in data, assign column names\nRead in only X rows\nCompute mean of 1 column\nAdd two columns (numbers)\nAdd two columns (strings)\nAdd a column to existing dataframe\nAdd an indicator column to existing dataframe\nFind an interesting dataset, download and explore it.\n\nDiscard rows with missing values\nFill missing values\nDrop entire rows (by index)\nDrop entire cols\nSort elements (index, values)\nSort 2 columns\n\nSummary metric on specific cols\nSubstract mean of a col from other columns\nSubstract rolling mean of a col from other columns\nSelect a couple of columns of DF (list of str)\nSelect with boolean mask\nSelect with loc\nSelect with iloc\nSample 20% of the rows\npd.to_datetime\nfmri:\n\nunique brain regions\nunique subjects\nplot subject “s13” time series of “parietal” region",
+    "text": "Here’s the introductory chapter of the book, by the original author of the library pandas Wes McKinney. In particular, we’ll look at subtitles:\n\n5.1. Introduction to pandas Data Structures\n5.2. Essential Functionality\n\nIndexing, selection and filtering\nFunction application and mapping\nSorting and ranking\n\n7.1. Handling missing data\n7.2. Replacing values\n7.4. String functions in pandas\n10.1. How to think about group operations\n\nThese are useful cheatsheets.\nCheck out the pandas getting-started documentation here\nHere’s short introduction by the very author of the library:",
     "crumbs": [
       "<span class='chapter-number'>15</span>  <span class='chapter-title'>Pandas</span>"
     ]

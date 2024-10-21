@@ -1,10 +1,15 @@
 # About the Course {.unnumbered}
-This is a short introduction to the Python programming language.   
-We will emphasize practical over theoretical aspects with a focus on data-related tasks, a great target for the Python language!
+This is a short introduction to the Python programming language, emphasizing practical over theoretical aspects and with a focus on data-related tasks.  
+The goal is to get you just enough tools under your belt to enable you on pursuing your own learning path according to your interests.  
+What's in for you:
 
-After the course, you will have practical tools under your belt to tackle daily data-related and common automation tasks with Python as well as enough knowledge to bootstrap yourself in your own learning path.
+✅ Core concepts of the language explained with _simple words_  
+✅ Bootstrapping and keeping a project tidy using modern tools, such as [`uv`](https://docs.astral.sh/uv/)  
+✅ Exercises accompanying the chapters  
+✅ Integrative "Labs" with real-world datasets to put all concepts together  
+✅ References to open and free material to deepen your knowledge  
 
-You can check out the code notebooks and report any problems on [this GitHub repository](https://www.github.com/fabridamicelli/python-course).
+Code notebooks and report any problems on [this GitHub repository](https://www.github.com/fabridamicelli/python-course).
 
 Off we go! 🚀
 
