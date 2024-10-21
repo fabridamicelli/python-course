@@ -1,14 +1,15 @@
 # About the Course {.unnumbered}
-This is a **short introduction** to the Python programming language, emphasizing practical over theoretical aspects and with a focus on data-related tasks.  
+This is an open, free **short introduction** to the Python programming language, emphasizing practical over theoretical aspects and with a focus on data-related tasks.  
 The goal is to get you just enough tools under your belt to enable you on pursuing your own learning path according to your interests. 
 What's in for you:
 
 
 ✅ Core concepts of the language explained with _simple words_  
-✅ Bootstrapping and keeping a project tidy using modern tools, such as [`uv`](https://docs.astral.sh/uv/)  
+✅ Focused intro to data-tools ([numpy](https://numpy.org), [pandas](https://pandas.pydata.org/), [matplotlib](https://matplotlib.org/))  
+✅ Software engineering best-practices (project and dependency management with [`uv`](https://docs.astral.sh/uv/), testing with [pytest](https://docs.pytest.org/en/stable/), error handling, etc.)  
 ✅ Exercises accompanying the chapters  
 ✅ Integrative "Labs" with real-world datasets to put all concepts together  
-✅ References to open and free material to deepen your knowledge  
+✅ References to open and free material to deepen your knowledge (talks, book chapters, cheatsheets, etc.)  
 
 Code notebooks and report any problems on [this GitHub repository](https://www.github.com/fabridamicelli/python-course).
 
@@ -18,5 +19,5 @@ Off we go! 🚀
 # About the Author
 Fabrizio Damicelli (PhD, Computational Neuroscience) is a self-taught coder who prefers solid intuitions to unnecessary sophistication and fancy jargon.  
 Open source advocate, creator and maintainer of a few of Python packages.  
-Learn more about him [here](https://fabridamicelli.github.io/).
+Learn more about him [here](https://fabridamicelli.github.io).
 
