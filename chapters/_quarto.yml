@@ -12,13 +12,21 @@ book:
     - "linkedin"
     - "facebook"
   navbar:
+    left:
+      - href: https://fabridamicelli.github.io/python-course
+        text: Author's Website
+        icon: person-video
     right:
+      - href: https://github.com/fabridamicelli/python-course?tab=readme-ov-file#support
+        text: Support this Course
+        icon: person-raised-hand
       - href: https://github.com/fabridamicelli
         icon: github
       - href: https://x.com/fabridamicelli
         icon: twitter-x
       - href: https://linkedin.com/in/fabridamicelli
         icon: linkedin
+
   chapters:
     - index.qmd
     - 01_getting_started.ipynb
