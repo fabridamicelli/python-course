@@ -19,7 +19,7 @@ book:
     right:
       - href: https://github.com/fabridamicelli/python-course?tab=readme-ov-file#support
         text: Support this Course
-        icon: person-raised-hand
+        icon: star-fill
       - href: https://github.com/fabridamicelli
         icon: github
       - href: https://x.com/fabridamicelli
