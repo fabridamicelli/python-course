@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Python Course - 18&nbsp; Command Line Interfaces (CLI)</title>
+<title>Python Course - 9&nbsp; Object Oriented Programming</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,6 +20,40 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -30,8 +64,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./111_debugging.html" rel="next">
-<link href="./10_tests.html" rel="prev">
+<link href="./06_imports.html" rel="next">
+<link href="./05_comprehensions.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -103,10 +137,10 @@ ul.task-list li input[type="checkbox"] {
 </i> 
 <span class="menu-text">Star this Course</span></a>
   </li>  
-  <li class="nav-item">
+  <li class="nav-item compact">
     <a class="nav-link" href="https://www.youtube.com/@fabridamicelli"> <i class="bi bi-youtube" role="img">
 </i> 
-<span class="menu-text">Python Videos</span></a>
+<span class="menu-text"></span></a>
   </li>  
   <li class="nav-item compact">
     <a class="nav-link" href="https://github.com/fabridamicelli"> <i class="bi bi-github" role="img">
@@ -157,7 +191,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./11_cli.html"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Command Line Interfaces (CLI)</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./051_oop.html"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Object Oriented Programming</span></a></li></ol></nav>
         <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -225,7 +259,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./051_oop.html" class="sidebar-item-text sidebar-link">
+  <a href="./051_oop.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Object Oriented Programming</span></span></a>
   </div>
 </li>
@@ -279,7 +313,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./11_cli.html" class="sidebar-item-text sidebar-link active">
+  <a href="./11_cli.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Command Line Interfaces (CLI)</span></span></a>
   </div>
 </li>
@@ -325,14 +359,23 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#classes-and-objects" id="toc-classes-and-objects" class="nav-link active" data-scroll-target="#classes-and-objects"><span class="header-section-number">9.1</span> Classes and Objects</a></li>
+  <li><a href="#methods" id="toc-methods" class="nav-link" data-scroll-target="#methods"><span class="header-section-number">9.2</span> Methods</a></li>
+  <li><a href="#dunder-methods" id="toc-dunder-methods" class="nav-link" data-scroll-target="#dunder-methods"><span class="header-section-number">9.3</span> Dunder Methods</a></li>
+  <li><a href="#inheritance" id="toc-inheritance" class="nav-link" data-scroll-target="#inheritance"><span class="header-section-number">9.4</span> Inheritance</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Command Line Interfaces (CLI)</span></h1>
+<h1 class="title"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Object Oriented Programming</span></h1>
 </div>
 
 
@@ -349,9 +392,244 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>🚧 Material under construction 🚧</p>
+<section id="classes-and-objects" class="level2" data-number="9.1">
+<h2 data-number="9.1" class="anchored" data-anchor-id="classes-and-objects"><span class="header-section-number">9.1</span> Classes and Objects</h2>
+<p>In python we deal with so-called objects. An object is an instance, that is a particular realization, of a class.<br>
+Here’s an analogy: You can think of a class as the instructions to build a car, say a <a href="https://en.wikipedia.org/wiki/Fiat_Uno">FiatUno</a>:</p>
+<div id="17ca16df-859e-4e4e-9170-480618bec110" class="cell" data-execution_count="21">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> FiatUno:</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, color<span class="op">=</span><span class="st">"white"</span>, radio<span class="op">=</span><span class="va">False</span>):</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.color <span class="op">=</span> color</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.radio <span class="op">=</span> radio</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.radio_is_on <span class="op">=</span> <span class="va">False</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> turn_on_radio(<span class="va">self</span>):</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.radio_is_on <span class="op">=</span> <span class="va">True</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="ss">f"Radio is on!"</span>)</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> turn_off_radio(<span class="va">self</span>):</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.radio_is_on <span class="op">=</span> <span class="va">False</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="ss">f"Radio is off!"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>By convention, we use CamelCase to name classes.</p>
+</div>
+</div>
+<p>Each actual car is an object, i.e.&nbsp;an instance of a class:</p>
+<div id="2a178a72-3e1e-4515-b0b5-c20dd7adee9f" class="cell" data-execution_count="22">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>car1 <span class="op">=</span> FiatUno()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>We can make another car:</p>
+<div id="cd633c3c-b95d-4bc1-852a-e29acbfee467" class="cell" data-execution_count="23">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>car2 <span class="op">=</span> FiatUno()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Like two cars can be the same model and color, they always have different license plates.<br>
+The same happens in python:</p>
+<div id="56739cef-2666-44d2-b491-d7e4794d8cbf" class="cell" data-execution_count="24">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="bu">id</span>(car1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="24">
+<pre><code>139856081602784</code></pre>
+</div>
+</div>
+<div id="b186ef1f-3c5a-47a2-8a4c-e5ae2d271d45" class="cell" data-execution_count="25">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="bu">id</span>(car2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="25">
+<pre><code>139856081603648</code></pre>
+</div>
+</div>
+<p>Each object has <em>attributes</em>:</p>
+<div id="e9b1cd7e-a6ef-46ba-a7e6-4526453f86c7" class="cell" data-execution_count="26">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>car1.color, car1.radio</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="26">
+<pre><code>('white', False)</code></pre>
+</div>
+</div>
+</section>
+<section id="methods" class="level2" data-number="9.2">
+<h2 data-number="9.2" class="anchored" data-anchor-id="methods"><span class="header-section-number">9.2</span> Methods</h2>
+<p>Different car models have different functionalities, like turning the radio on.<br>
+In python it’s the same, the functions attached to an object are called <em>methods</em> and we call them with this dot notation:</p>
+<div id="68b82e0e-3c91-428c-a698-edc98f0bcf3e" class="cell" data-execution_count="27">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>car1.turn_on_radio()  <span class="co"># it's just a function, so we call it with ()</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Radio is on!</code></pre>
+</div>
+</div>
+<div id="f1201876-fe5a-48d1-8055-1c4facfcc74b" class="cell" data-execution_count="28">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>car1.turn_off_radio()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Radio is off!</code></pre>
+</div>
+</div>
+<p>Where is the <em>self</em> argument of the functions?<br>
+The first argument of a method will be <em>always passed</em> to the method in the call and it is the object itself (thus the convention to call it <em>self</em>).<br>
+That’s a bit meta an a bit confusing, but don’t worry, you’ll get a feel of it by using the classes/objects.</p>
+</section>
+<section id="dunder-methods" class="level2" data-number="9.3">
+<h2 data-number="9.3" class="anchored" data-anchor-id="dunder-methods"><span class="header-section-number">9.3</span> Dunder Methods</h2>
+<p>We saw above the <code>__init__</code> method. This methods are special and there is a bunch of them already present on all classes:</p>
+<div id="5b3f6981-ed88-4dd1-b1a0-b0e263ab502d" class="cell" data-execution_count="50">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="bu">dir</span>(FiatUno)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="50">
+<pre><code>['__class__',
+ '__delattr__',
+ '__dict__',
+ '__dir__',
+ '__doc__',
+ '__eq__',
+ '__format__',
+ '__ge__',
+ '__getattribute__',
+ '__gt__',
+ '__hash__',
+ '__init__',
+ '__init_subclass__',
+ '__le__',
+ '__lt__',
+ '__module__',
+ '__ne__',
+ '__new__',
+ '__reduce__',
+ '__reduce_ex__',
+ '__repr__',
+ '__setattr__',
+ '__sizeof__',
+ '__str__',
+ '__subclasshook__',
+ '__weakref__',
+ 'turn_off_radio',
+ 'turn_on_radio']</code></pre>
+</div>
+</div>
+<p>These “dunder” methods define the behavior of the object in several ways. For example, the <code>__str__</code> method defines the string representation of the object, which is used when we call <code>print</code> on an object. When we do <code>print(something)</code>, python actually goes to the method <code>__str__</code> of something and calls that one. Let’s see it in action:</p>
+<div id="d891d971-e22a-46d4-a3aa-4c1b114dc1c8" class="cell" data-execution_count="51">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> A:</span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, msg<span class="op">=</span><span class="st">"hello"</span>):</span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.msg <span class="op">=</span> msg</span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__str__</span>(<span class="va">self</span>):</span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="va">self</span>.msg <span class="op">+</span> <span class="st">", nice to meet you"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="70ee067f-b443-4424-aecd-04c6ee9ef874" class="cell" data-execution_count="52">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>a <span class="op">=</span> A()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="372d5ab0-3c0b-4031-aa49-812f87e03b53" class="cell" data-execution_count="53">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(a)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>hello, nice to meet you</code></pre>
+</div>
+</div>
+<p>It’s good to know that these dunder methods exist and some libraries will require the user changing them. But in general, you should not worry about them.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Don’t overwrite dunder methods unless you really, really need it and you’re sure what you’re doing – it is pretty easy to make mistakes that lead to difficult to debug bugs.</p>
+</div>
+</div>
+</section>
+<section id="inheritance" class="level2" data-number="9.4">
+<h2 data-number="9.4" class="anchored" data-anchor-id="inheritance"><span class="header-section-number">9.4</span> Inheritance</h2>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Avoid using inheritance. We show it here just for you to know it exists and that some libraries use it. You can totally live without it.</p>
+</div>
+</div>
+<p>Classes can be organized in a hierarchy:</p>
+<div id="d206dc92-eae0-402e-9dcd-9fafb94e18cf" class="cell" data-execution_count="63">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> Car:</span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>):</span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.n_wheels <span class="op">=</span> <span class="dv">4</span> </span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> FiatPalio(Car):</span>
+<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> turn_on_radio(<span class="va">self</span>):</span>
+<span id="cb20-7"><a href="#cb20-7" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="st">"Radio is on"</span>)</span>
+<span id="cb20-8"><a href="#cb20-8" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb20-9"><a href="#cb20-9" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> FiatTipo(Car):</span>
+<span id="cb20-10"><a href="#cb20-10" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> turn_on_ac(<span class="va">self</span>):</span>
+<span id="cb20-11"><a href="#cb20-11" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="st">"Pretty hot in here"</span>)</span>
+<span id="cb20-12"><a href="#cb20-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-13"><a href="#cb20-13" aria-hidden="true" tabindex="-1"></a>car3 <span class="op">=</span> FiatPalio()</span>
+<span id="cb20-14"><a href="#cb20-14" aria-hidden="true" tabindex="-1"></a>car4 <span class="op">=</span> FiatTipo()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="813834f4-4819-4958-9bdc-dba3bc140ec5" class="cell" data-execution_count="66">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>car3.turn_on_radio()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Radio is on</code></pre>
+</div>
+</div>
+<div id="c2188ea0-9c33-40b9-8ed3-496eb1f38974" class="cell" data-execution_count="64">
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>car3.n_wheels</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="64">
+<pre><code>4</code></pre>
+</div>
+</div>
+<div id="80e11a36-1074-4c84-bbd0-01300443d109" class="cell" data-execution_count="67">
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>car4.turn_on_ac()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Pretty hot here</code></pre>
+</div>
+</div>
+<div id="7a20d638-ccad-4219-be9a-8b7a43a5e39d" class="cell" data-execution_count="65">
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>car4.n_wheels</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="65">
+<pre><code>4</code></pre>
+</div>
+</div>
+<p>In that case <code>Car</code> is called the “parent” class and the <code>FiatPalio</code> the “child” or “subclass”.</p>
+<p>Notice that both <code>car3</code> and <code>car4</code> inherited the attribute <code>n_wheels</code> from <code>Car</code>.</p>
+<p>A class can have more than one parent:</p>
+<div id="5e24066e-ba2b-4c6e-8b9f-024f7bcd9875" class="cell" data-execution_count="78">
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> Parent1:</span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>    n_arms <span class="op">=</span> <span class="dv">2</span></span>
+<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb29-4"><a href="#cb29-4" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> Parent2:</span>
+<span id="cb29-5"><a href="#cb29-5" aria-hidden="true" tabindex="-1"></a>    n_legs <span class="op">=</span> <span class="dv">2</span></span>
+<span id="cb29-6"><a href="#cb29-6" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb29-7"><a href="#cb29-7" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> Parent3:</span>
+<span id="cb29-8"><a href="#cb29-8" aria-hidden="true" tabindex="-1"></a>    n_eyes <span class="op">=</span> <span class="dv">2</span></span>
+<span id="cb29-9"><a href="#cb29-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-10"><a href="#cb29-10" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> Child(Parent1, Parent2, Parent3):</span>
+<span id="cb29-11"><a href="#cb29-11" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> list_body_parts(<span class="va">self</span>):</span>
+<span id="cb29-12"><a href="#cb29-12" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="st">"arms: "</span>, <span class="va">self</span>.n_arms)</span>
+<span id="cb29-13"><a href="#cb29-13" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="st">"legs: "</span>, <span class="va">self</span>.n_legs)</span>
+<span id="cb29-14"><a href="#cb29-14" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="st">"eyes: "</span>, <span class="va">self</span>.n_eyes)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="a77d4c6b-a2b3-4052-8095-a5978a788d2f" class="cell" data-execution_count="79">
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>child <span class="op">=</span> Child()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="19bbd22d-715d-4249-a4ff-33d17d1fc515" class="cell" data-execution_count="80">
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>child.list_body_parts()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>arms:  2
+legs:  2
+eyes:  2</code></pre>
+</div>
+</div>
+<p>Multiple inheritance is also tricky and you should avoid it. It’s just good to know it exists to understand code from out there, for example, the popular <code>scikit-learn</code> library uses this a lot to propagate methods and avoid code duplication.</p>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -765,13 +1043,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./10_tests.html" class="pagination-link" aria-label="Testing">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Testing</span></span>
+      <a href="./05_comprehensions.html" class="pagination-link" aria-label="Comprehensions">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Comprehensions</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./111_debugging.html" class="pagination-link" aria-label="Debugging">
-        <span class="nav-page-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Debugging</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./06_imports.html" class="pagination-link" aria-label="Importing Code">
+        <span class="nav-page-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Importing Code</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

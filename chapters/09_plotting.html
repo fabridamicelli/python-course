@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Python Course - 2&nbsp; Executing Code</title>
+<title>Python Course - 16&nbsp; Plotting</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -57,15 +57,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script><script src="site_libs/quarto-nav/quarto-nav.js"></script>
 <script src="site_libs/quarto-nav/headroom.min.js"></script>
 <script src="site_libs/clipboard/clipboard.min.js"></script>
 <script src="site_libs/quarto-search/autocomplete.umd.js"></script>
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./02_types_data_structures.html" rel="next">
-<link href="./01_getting_started.html" rel="prev">
+<link href="./10_tests.html" rel="next">
+<link href="./081_pandas.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -104,6 +104,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 }</script>
 <!-- plausible -->
 <script defer="" data-domain="fabridamicelli.github.io/python-course" src="https://plausible.io/js/script.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
+
+<script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
 
 
 </head>
@@ -137,10 +140,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </i> 
 <span class="menu-text">Star this Course</span></a>
   </li>  
-  <li class="nav-item">
+  <li class="nav-item compact">
     <a class="nav-link" href="https://www.youtube.com/@fabridamicelli"> <i class="bi bi-youtube" role="img">
 </i> 
-<span class="menu-text">Python Videos</span></a>
+<span class="menu-text"></span></a>
   </li>  
   <li class="nav-item compact">
     <a class="nav-link" href="https://github.com/fabridamicelli"> <i class="bi bi-github" role="img">
@@ -191,7 +194,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./010_executing_code.html"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Executing Code</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./09_plotting.html"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Plotting</span></a></li></ol></nav>
         <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -217,7 +220,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./010_executing_code.html" class="sidebar-item-text sidebar-link active">
+  <a href="./010_executing_code.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Executing Code</span></span></a>
   </div>
 </li>
@@ -301,7 +304,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./09_plotting.html" class="sidebar-item-text sidebar-link">
+  <a href="./09_plotting.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Plotting</span></span></a>
   </div>
 </li>
@@ -363,14 +366,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#executing-files" id="toc-executing-files" class="nav-link active" data-scroll-target="#executing-files"><span class="header-section-number">2.1</span> Executing files</a></li>
-  <li><a href="#built-in-repl" id="toc-built-in-repl" class="nav-link" data-scroll-target="#built-in-repl"><span class="header-section-number">2.2</span> Built-in REPL</a></li>
-  <li><a href="#ipython-repl" id="toc-ipython-repl" class="nav-link" data-scroll-target="#ipython-repl"><span class="header-section-number">2.3</span> IPython REPL</a>
+  <li><a href="#matplotlib" id="toc-matplotlib" class="nav-link active" data-scroll-target="#matplotlib"><span class="header-section-number">16.1</span> Matplotlib</a>
   <ul class="collapse">
-  <li><a href="#exercises" id="toc-exercises" class="nav-link" data-scroll-target="#exercises"><span class="header-section-number">2.3.1</span> Exercises</a></li>
+  <li><a href="#anatomy-of-a-figure" id="toc-anatomy-of-a-figure" class="nav-link" data-scroll-target="#anatomy-of-a-figure"><span class="header-section-number">16.1.1</span> Anatomy of a Figure</a></li>
+  <li><a href="#install-matplotlib" id="toc-install-matplotlib" class="nav-link" data-scroll-target="#install-matplotlib"><span class="header-section-number">16.1.2</span> Install matplotlib</a></li>
+  <li><a href="#basic-plotting" id="toc-basic-plotting" class="nav-link" data-scroll-target="#basic-plotting"><span class="header-section-number">16.1.3</span> Basic Plotting</a></li>
+  <li><a href="#saving-figures" id="toc-saving-figures" class="nav-link" data-scroll-target="#saving-figures"><span class="header-section-number">16.1.4</span> Saving Figures</a></li>
   </ul></li>
-  <li><a href="#code-editor" id="toc-code-editor" class="nav-link" data-scroll-target="#code-editor"><span class="header-section-number">2.4</span> Code Editor</a></li>
-  <li><a href="#jupyter-notebook" id="toc-jupyter-notebook" class="nav-link" data-scroll-target="#jupyter-notebook"><span class="header-section-number">2.5</span> Jupyter Notebook</a></li>
+  <li><a href="#seaborn" id="toc-seaborn" class="nav-link" data-scroll-target="#seaborn"><span class="header-section-number">16.2</span> Seaborn</a></li>
+  <li><a href="#exercises" id="toc-exercises" class="nav-link" data-scroll-target="#exercises"><span class="header-section-number">16.3</span> Exercises</a></li>
   </ul>
 </nav>
     </div>
@@ -379,7 +383,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Executing Code</span></h1>
+<h1 class="title"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Plotting</span></h1>
 </div>
 
 
@@ -396,16 +400,23 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<p>There are several ways to execute code.</p>
-<section id="executing-files" class="level2" data-number="2.1">
-<h2 data-number="2.1" class="anchored" data-anchor-id="executing-files"><span class="header-section-number">2.1</span> Executing files</h2>
-<p>When working with <code>uv</code> we can do this (inside of the working project directory):</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">uv</span> run your-file.py</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Or this:</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">uv</span> run python your-file.py</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Alternatively, we could manually activate the virtual environment and run the script:</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="bu">source</span> .venv/bin/activate</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="ex">python</span> your-file.py</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<section id="matplotlib" class="level2" data-number="16.1">
+<h2 data-number="16.1" class="anchored" data-anchor-id="matplotlib"><span class="header-section-number">16.1</span> Matplotlib</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://matplotlib.org/cheatsheets/_images/cheatsheets-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="350"></p>
+</figure>
+</div>
+<section id="anatomy-of-a-figure" class="level3" data-number="16.1.1">
+<h3 data-number="16.1.1" class="anchored" data-anchor-id="anatomy-of-a-figure"><span class="header-section-number">16.1.1</span> Anatomy of a Figure</h3>
+<p>The most common plotting library in python is <a href="https://matplotlib.org/">matplotlib</a>. matplotlib is very comprehensive and brings many idiomatic choices that sometimes can make it a bit cumbersome to wrap our heads around, so don’t worry if you struggle with it a bit at first.</p>
+<p>We will look at the most basic forms of plotting to try to understand the basic building blocks. To go beyond that you will for sure need to look up more things, but the good news is that matplotlib is a decently old and very mature project, which facilitates searching for information on the internet and its official documentation is pretty good too. To discover functionalities and for searching information, it is useful to take a look at the components of a plot:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://matplotlib.org/stable/_images/sphx_glr_anatomy_001.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="400"></p>
+</figure>
+</div>
+<p>Here’s the code behind this figure in the <a href="https://matplotlib.org/stable/gallery/showcase/anatomy.html#anatomy-of-a-figure">matplotlib documentation</a>.</p>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -416,18 +427,61 @@ Tip
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Prefer <code>uv run</code> in order to let <code>uv</code> take care of several useful things for us under the hood, such as syncing our dependencies.</p>
+<p>Take a look at the <a href="https://matplotlib.org/stable/gallery/index.html">examples gallery</a> to reach for inspiration and guidance to plot your data.<br>
+Also, even free Large Language Models (LLMs) such as (bing.com’s or brave’s built-in copilots) are pretty good at generating plotting instructions, especially when given the precise terminology regarding the plot – give them a try if you feel stuck making a figure.</p>
 </div>
 </div>
 </section>
-<section id="built-in-repl" class="level2" data-number="2.2">
-<h2 data-number="2.2" class="anchored" data-anchor-id="built-in-repl"><span class="header-section-number">2.2</span> Built-in REPL</h2>
-<p>As per Wikipedia:</p>
-<blockquote class="blockquote">
-<p>A read–eval–print loop (REPL) is a simple interactive computer programming environment that takes single user inputs, executes them, and returns the result to the user.</p>
-</blockquote>
-<p>If type <code>uv run python</code> in our terminal and hit enter, we get into the built-in python REPL.</p>
-<p>The built-in python REPL is fine, but as of today (October 2024) it has some limitations.</p>
+<section id="install-matplotlib" class="level3" data-number="16.1.2">
+<h3 data-number="16.1.2" class="anchored" data-anchor-id="install-matplotlib"><span class="header-section-number">16.1.2</span> Install matplotlib</h3>
+<div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">uv</span> add matplotlib</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="basic-plotting" class="level3" data-number="16.1.3">
+<h3 data-number="16.1.3" class="anchored" data-anchor-id="basic-plotting"><span class="header-section-number">16.1.3</span> Basic Plotting</h3>
+<p>The official documentation has a nice quick intro to matplotlib concepts, let’s take a look at that <a href="https://matplotlib.org/stable/users/explain/quick_start.html#quick-start">here</a>.</p>
+<p>You can find some nice cheatsheets <a href="https://matplotlib.org/cheatsheets/">here</a>.</p>
+<p>One quick way to plot is calling functions from the <code>pyplot</code> module.<br>
+These are some of the most of the commonly used functions:</p>
+<div id="5f4097cd-4259-43d3-94b6-e6d53412ee85" class="cell" data-execution_count="1">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="f1ff65b9-686e-465d-9c52-6f3a75c39a05" class="cell" data-execution_count="2">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> np.linspace(<span class="dv">0</span>, <span class="dv">10</span>)</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> x <span class="op">*</span> <span class="dv">2</span> <span class="op">+</span> <span class="dv">1</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>z <span class="op">=</span> x <span class="op">*</span> <span class="dv">3</span> <span class="op">+</span> <span class="dv">1</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="221d22a9-8ea1-419e-96ba-25980ce86a67" class="cell" data-execution_count="3">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>plt.plot(x, y)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="09_plotting_files/figure-html/cell-4-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<div id="e3f549be-395d-4261-afab-dde69f4d5d90" class="cell" data-execution_count="4">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>plt.scatter(x, z)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="09_plotting_files/figure-html/cell-5-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<div id="ad711dc3-133d-4ab4-9d10-0e15c742ea42" class="cell" data-execution_count="5">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>plt.hist(x, bins<span class="op">=</span><span class="dv">15</span>)<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="09_plotting_files/figure-html/cell-6-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>That is fine and can take us far, especially for rapid exploration. But it has some limitations. There is a more powerful and extensive API way to plot:</p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -438,78 +492,286 @@ Note
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Python core developers are putting a lot of effort into improving the REPL and Python 3.13 has already a number of great improvements, give it a try!</p>
+<p>API means Application Programming Interface. More details in the glossary.</p>
+</div>
+</div>
+<div id="16b558ac-499c-452c-9d9f-6a1079cd782b" class="cell" data-execution_count="6">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots()  <span class="co"># Create a figure containing a single Axes</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>ax.plot(x, y)             <span class="co"># Plot on that Axes</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="09_plotting_files/figure-html/cell-7-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<div id="36ccad5e-c302-441b-b908-2ce51f829ec3" class="cell" data-execution_count="7">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>plt.polar(x, y)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="09_plotting_files/figure-html/cell-8-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<div id="6a384438-133d-473a-a743-6cfd001afb98" class="cell" data-execution_count="8">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>fig, (ax1, ax2) <span class="op">=</span> plt.subplots(ncols<span class="op">=</span><span class="dv">2</span>, figsize<span class="op">=</span>(<span class="dv">8</span>, <span class="fl">3.5</span>))  <span class="co"># Create a figure containing 2 Axes</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>ax1.plot(x, y)</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>ax2.scatter(x, y)</span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>fig.tight_layout()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="09_plotting_files/figure-html/cell-9-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Notice that fig also contains the axes and that axes are a numpy array!</p>
+<div id="7fbd5e0b-08fb-4fb0-97d2-17be9e202259" class="cell" data-execution_count="9">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>fig, axes <span class="op">=</span> plt.subplots(ncols<span class="op">=</span><span class="dv">2</span>)<span class="op">;</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>fig.delaxes(axes[<span class="dv">0</span>])</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>fig.delaxes(axes[<span class="dv">1</span>])</span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a><span class="bu">type</span>(axes)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="9">
+<pre><code>numpy.ndarray</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<pre><code>&lt;Figure size 640x480 with 0 Axes&gt;</code></pre>
+</div>
+</div>
+<p>This numpy array grid generalizes and indeed how this objects compose nicely with the python language in general:</p>
+<div id="a667b904-5c95-4a6d-8afa-66cdf6583fb4" class="cell" data-execution_count="10">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>fig, axes <span class="op">=</span> plt.subplots(ncols<span class="op">=</span><span class="dv">2</span>, nrows<span class="op">=</span><span class="dv">2</span>)</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>((ax1, ax2), (ax3, ax4)) <span class="op">=</span> axes</span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>ax1.plot(x, y, color<span class="op">=</span><span class="st">"red"</span>)</span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>ax2.scatter(x, y, color<span class="op">=</span><span class="st">"red"</span>, marker<span class="op">=</span><span class="st">"."</span>)</span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>ax3.plot(x, y)</span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>ax4.scatter(x, y, marker<span class="op">=</span><span class="st">"."</span>)</span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i, ax <span class="kw">in</span> <span class="bu">enumerate</span>(axes.flatten(), start<span class="op">=</span><span class="dv">1</span>):</span>
+<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a>    ax.set_title(<span class="ss">f"This is plot number </span><span class="sc">{</span>i<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a>    ax.set_xlabel(<span class="st">"x-variable"</span>)</span>
+<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a>    ax.set_ylabel(<span class="st">"y-variable"</span>)</span>
+<span id="cb13-12"><a href="#cb13-12" aria-hidden="true" tabindex="-1"></a>fig.suptitle(<span class="st">"What a Figure!"</span>)  <span class="co"># Yeah, set_suptitle would be nicer</span></span>
+<span id="cb13-13"><a href="#cb13-13" aria-hidden="true" tabindex="-1"></a>fig.tight_layout()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="09_plotting_files/figure-html/cell-11-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<div id="259fefc3-25c1-4a76-887c-dcc5ffa966a7" class="cell" data-execution_count="11">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>data <span class="op">=</span> np.outer(x, x)</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> plot_images(data):</span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>    fig, (ax1, ax2) <span class="op">=</span> plt.subplots(ncols<span class="op">=</span><span class="dv">2</span>, figsize<span class="op">=</span>(<span class="dv">8</span>, <span class="dv">5</span>))</span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>    img1 <span class="op">=</span> ax1.imshow(data)</span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>    img2 <span class="op">=</span> ax2.imshow(data, origin<span class="op">=</span><span class="st">"lower"</span>, cmap<span class="op">=</span><span class="st">"Oranges"</span>)</span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a>    ax2.set_xticks([])</span>
+<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a>    ax2.set_yticks([])</span>
+<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a>    plt.colorbar(img1, shrink<span class="op">=</span><span class="fl">.5</span>)</span>
+<span id="cb14-10"><a href="#cb14-10" aria-hidden="true" tabindex="-1"></a>    plt.colorbar(img2, shrink<span class="op">=</span><span class="fl">.5</span>)</span>
+<span id="cb14-11"><a href="#cb14-11" aria-hidden="true" tabindex="-1"></a>    fig.tight_layout()</span>
+<span id="cb14-12"><a href="#cb14-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-13"><a href="#cb14-13" aria-hidden="true" tabindex="-1"></a>plot_images(data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="09_plotting_files/figure-html/cell-12-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
 </div>
 </div>
 </section>
-<section id="ipython-repl" class="level2" data-number="2.3">
-<h2 data-number="2.3" class="anchored" data-anchor-id="ipython-repl"><span class="header-section-number">2.3</span> IPython REPL</h2>
-<p>An alternative to that is the IPython REPL. <a href="https://ipython.org/">IPython</a> is a whole different open source project that builds on top of python itself, but it is independent, thus we need to install IPython.</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="ex">uv</span> add ipython</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
+<section id="saving-figures" class="level3" data-number="16.1.4">
+<h3 data-number="16.1.4" class="anchored" data-anchor-id="saving-figures"><span class="header-section-number">16.1.4</span> Saving Figures</h3>
+<p>We can save the figure in different formats (the file extensions serves as guide):</p>
+<div id="c8dbe72c-80b7-4132-b280-148016612443" class="cell" data-execution_count="12">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>fig.savefig(<span class="st">"fig.png"</span>)</span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>fig.savefig(<span class="st">"fig.svg"</span>)  <span class="co"># Vector graphics are supported out of the box!</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="callout-title-container flex-fill">
-Tip
+<p>If you want a more in-depth introduction to the matplotlib library, take a look at this talk.</p>
+<div class="quarto-video ratio ratio-16x9"><iframe data-external="1" src="https://www.youtube.com/embed/6gdNUDs6QPc" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div>
+</section>
+</section>
+<section id="seaborn" class="level2" data-number="16.2">
+<h2 data-number="16.2" class="anchored" data-anchor-id="seaborn"><span class="header-section-number">16.2</span> Seaborn</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="http://seaborn.pydata.org/_images/kde_ridgeplot.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="300"></p>
+</figure>
+</div>
+<p><a href="https://seaborn.pydata.org">seaborn</a> is a data visualization library built on top of matplotlib.<br>
+It implements a high-level interface for plotting statistical graphics. Seaborn integrates very well with <code>pandas</code> dataframes as input data and abstracts away some of the common data pre-processing steps.</p>
+<p>Install seaborn:</p>
+<div class="sourceCode" id="cb16"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="ex">uv</span> add seaborn</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="a512606e-9766-4ae3-ac19-ff022bc9f299" class="cell" data-execution_count="13">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>For the sake of the example we can repeat the figure from above, but we will execute this one line of code that sets up some defaults for us:</p>
+<div id="e1873ded-3509-41f8-9426-2f91ac2bc468" class="cell" data-execution_count="14">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>sns.set_theme(style<span class="op">=</span><span class="st">"dark"</span>, font_scale<span class="op">=</span><span class="fl">1.4</span>)  <span class="co"># this has global effects</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="c35acd2a-ca30-4bbd-8a01-79cbc19b8e02" class="cell" data-execution_count="1">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="7f36da8e-2f9e-45ae-ae58-471f2e2f1572" class="cell" data-execution_count="2">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> sns.load_dataset(<span class="st">"fmri"</span>)</span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>df.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="2">
+<div>
+<div>
+
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">subject</th>
+<th data-quarto-table-cell-role="th">timepoint</th>
+<th data-quarto-table-cell-role="th">event</th>
+<th data-quarto-table-cell-role="th">region</th>
+<th data-quarto-table-cell-role="th">signal</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>s13</td>
+<td>18</td>
+<td>stim</td>
+<td>parietal</td>
+<td>-0.017552</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>s5</td>
+<td>14</td>
+<td>stim</td>
+<td>parietal</td>
+<td>-0.080883</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>s12</td>
+<td>18</td>
+<td>stim</td>
+<td>parietal</td>
+<td>-0.081033</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>s11</td>
+<td>18</td>
+<td>stim</td>
+<td>parietal</td>
+<td>-0.046134</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>s10</td>
+<td>18</td>
+<td>stim</td>
+<td>parietal</td>
+<td>-0.037970</td>
+</tr>
+</tbody>
+</table>
+
 </div>
 </div>
-<div class="callout-body-container callout-body">
-<p>Take a look at the content of <code>pyproject.toml</code> to see how <code>uv</code> added ipython as a project dependency. We’ll take a closer look at that later.</p>
 </div>
 </div>
-<p>We can fire up the IPython REPL:</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="ex">uv</span> run ipython</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>The IPython REPL brings some nice features that make this interactive coding environment much powerful and handy to interact with, such as <a href="https://ipython.readthedocs.io/en/stable/interactive/magics.html#built-in-magic-commands">magic commands</a>. These are some commands I recommend checking out:</p>
-<ul>
-<li><code>?</code></li>
-<li><code>! &lt;COMMAND&gt;</code>: Call the system COMMAND, eg <code>!ls</code> to list contents.</li>
-<li><code>%run</code>: Run a file inside IPython as a program.</li>
-<li><code>%time</code>: Time execution of a Python statement or expression.</li>
-<li><code>%timeit</code>: Time execution of a Python statement or expression.</li>
-</ul>
-<section id="exercises" class="level3" data-number="2.3.1">
-<h3 data-number="2.3.1" class="anchored" data-anchor-id="exercises"><span class="header-section-number">2.3.1</span> Exercises</h3>
-<p>Get familiar with the REPL:</p>
+<div id="135ed828-dd1e-48ad-b77e-70b801ab3400" class="cell" data-execution_count="35">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>sns.lineplot(df, x<span class="op">=</span><span class="st">"timepoint"</span>, y<span class="op">=</span><span class="st">"signal"</span>, marker<span class="op">=</span><span class="st">"."</span>, hue<span class="op">=</span><span class="st">"region"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="09_plotting_files/figure-html/cell-18-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<div id="8926774e-e0bc-4f87-974b-d3059636adb6" class="cell" data-execution_count="15">
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>plot_images(data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="09_plotting_files/figure-html/cell-21-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>There are many great plot examples in the <a href="https://seaborn.pydata.org/examples/index.html">example gallery</a>.</p>
+<p>Here are a few interesting ones – <strong>click on figure to open</strong> documentation website with code.</p>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p><strong>Multiple Regression</strong></p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="http://seaborn.pydata.org/examples/multiple_regression.html"><img src="http://seaborn.pydata.org/_images/multiple_regression.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></a></p>
+</figure>
+</div>
+</div><div class="column" style="width:50%;">
+<p><strong>Time Series</strong></p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="http://seaborn.pydata.org/examples/wide_data_lineplot.html"><img src="http://seaborn.pydata.org/_images/wide_data_lineplot.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></a></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p><strong>Heat Scatter of Brain Networks Correlations</strong></p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="http://seaborn.pydata.org/examples/heat_scatter.html"><img src="http://seaborn.pydata.org/_images/heat_scatter.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="250"></a></p>
+</figure>
+</div>
+</div><div class="column" style="width:50%;">
+<p><strong>Annotated Heatmap</strong></p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="http://seaborn.pydata.org/examples/spreadsheet_heatmap.html"><img src="http://seaborn.pydata.org/_images/spreadsheet_heatmap.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="400"></a></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p><strong>Small multiple time series</strong></p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="http://seaborn.pydata.org/examples/timeseries_facets.html#small-multiple-time-series"><img src="http://seaborn.pydata.org/_images/timeseries_facets.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="400"></a></p>
+</figure>
+</div>
+</div><div class="column" style="width:50%;">
+<p><strong>Scatterplot with categorical variables</strong></p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="http://seaborn.pydata.org/examples/scatterplot_categorical.html"><img src="http://seaborn.pydata.org/_images/scatterplot_categorical.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="400"></a></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p><strong>Violin Plot</strong> <a href="http://seaborn.pydata.org/examples/wide_form_violinplot.html"><img src="http://seaborn.pydata.org/_images/wide_form_violinplot.png" class="img-fluid quarto-figure quarto-figure-center" width="400"></a></p>
+</div>
+</div>
+</section>
+<section id="exercises" class="level2" data-number="16.3">
+<h2 data-number="16.3" class="anchored" data-anchor-id="exercises"><span class="header-section-number">16.3</span> Exercises</h2>
 <ol type="1">
-<li>Add two or more numbers (try with and without decimals)</li>
-<li>Multiply two or more numbers</li>
-<li>Multiply 3 twenty two times</li>
-<li>Print your name using the <code>print</code> function</li>
-<li>Add two strings, e.g.&nbsp;“hello” + “world”</li>
-<li>Run the file <code>hello.py</code> inside the REPL</li>
-<li>Same but print it’s execution time</li>
+<li><p>Use numpy to create 4 arrays of numbers drawn from 4 different distributions: uniform, normal, lognormal and exponential. Each array should have of 100000 samples. Use matplotlib to plot a grid of 2x2 subplots, with one histogram on each subplot. Each histogram should have a different color. Hint: Look at numpy’s submodule <code>random</code>.</p></li>
+<li><p>Pick one interesting example of the <a href="http://seaborn.pydata.org/examples/index.html">Seaborn gallery</a> and reproduce it on your computer. Change 1 or 2 parameters of the plot, for example, some color or order of variables, remove/add a variable. If you have own data with a similar shape, plot those!</p></li>
 </ol>
-</section>
-</section>
-<section id="code-editor" class="level2" data-number="2.4">
-<h2 data-number="2.4" class="anchored" data-anchor-id="code-editor"><span class="header-section-number">2.4</span> Code Editor</h2>
-<p>When editing code more extensively we also want to have a so called integrated development environment (IDE). There are many options out there. Do not spend too much time deciding which to pick, you can always change your choice later.<br>
-<a href="https://code.visualstudio.com/">VS-Code</a> is a reasonable general choice as of today, it is free and widely adopted. For a user experience more similar to matlab and oriented to scientific computing you can check out <a href="https://www.spyder-ide.org">Spyder</a>.</p>
-</section>
-<section id="jupyter-notebook" class="level2" data-number="2.5">
-<h2 data-number="2.5" class="anchored" data-anchor-id="jupyter-notebook"><span class="header-section-number">2.5</span> Jupyter Notebook</h2>
-<p>Notebooks run on the browser and are a way to mix code with other kinds of data, such as images, videos or widgets. They are a very useful tool for explorative analysis. If you ever used something like Mathematica you’ll be already familiar with them.</p>
-<p>There are several versions of notebooks, we are going to use <a href="https://jupyterlab.readthedocs.io/en/latest/">JupyterLab</a>. Let’s install it:</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="ex">uv</span> add jupyterlab</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Let’s create a directory for notebooks in our project:</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mkdir</span> noteboooks</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Launch a jupyterlab session:</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="ex">uv</span> run jupyter lab</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Tip
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Some people have strong opinions on editors and coding workflows. Don’t waste time getting into that, just use whatever editor/workflow makes you productive.</p>
-</div>
-</div>
 
 
 </section>
@@ -926,13 +1188,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./01_getting_started.html" class="pagination-link" aria-label="Getting Started">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Getting Started</span></span>
+      <a href="./081_pandas.html" class="pagination-link" aria-label="Pandas">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Pandas</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./02_types_data_structures.html" class="pagination-link" aria-label="Syntax Basics">
-        <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Syntax Basics</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./10_tests.html" class="pagination-link" aria-label="Testing">
+        <span class="nav-page-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Testing</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

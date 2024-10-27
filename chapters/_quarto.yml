@@ -20,6 +20,9 @@ book:
       - href: https://github.com/fabridamicelli/python-course?tab=readme-ov-file#support
         text: Star this Course
         icon: star-fill
+      - href: https://www.youtube.com/@fabridamicelli
+        text: Python Videos
+        icon: youtube
       - href: https://github.com/fabridamicelli
         icon: github
       - href: https://x.com/fabridamicelli

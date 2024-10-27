@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Python Course - 18&nbsp; Command Line Interfaces (CLI)</title>
+<title>Python Course - 15&nbsp; Pandas</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -30,8 +30,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./111_debugging.html" rel="next">
-<link href="./10_tests.html" rel="prev">
+<link href="./09_plotting.html" rel="next">
+<link href="./08_numpy.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -103,10 +103,10 @@ ul.task-list li input[type="checkbox"] {
 </i> 
 <span class="menu-text">Star this Course</span></a>
   </li>  
-  <li class="nav-item">
+  <li class="nav-item compact">
     <a class="nav-link" href="https://www.youtube.com/@fabridamicelli"> <i class="bi bi-youtube" role="img">
 </i> 
-<span class="menu-text">Python Videos</span></a>
+<span class="menu-text"></span></a>
   </li>  
   <li class="nav-item compact">
     <a class="nav-link" href="https://github.com/fabridamicelli"> <i class="bi bi-github" role="img">
@@ -157,7 +157,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./11_cli.html"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Command Line Interfaces (CLI)</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./081_pandas.html"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Pandas</span></a></li></ol></nav>
         <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -261,7 +261,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./081_pandas.html" class="sidebar-item-text sidebar-link">
+  <a href="./081_pandas.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Pandas</span></span></a>
   </div>
 </li>
@@ -279,7 +279,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./11_cli.html" class="sidebar-item-text sidebar-link active">
+  <a href="./11_cli.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Command Line Interfaces (CLI)</span></span></a>
   </div>
 </li>
@@ -332,7 +332,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Command Line Interfaces (CLI)</span></h1>
+<h1 class="title"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Pandas</span></h1>
 </div>
 
 
@@ -349,7 +349,24 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>🚧 Material under construction 🚧</p>
+<p>Here’s the introductory <a href="https://wesmckinney.com/book/pandas-basics">chapter of the book</a>, by the original author of the library pandas Wes McKinney. In particular, we’ll look at subtitles:</p>
+<ul>
+<li><a href="https://wesmckinney.com/book/pandas-basics#pandas_construction">5.1. Introduction to pandas Data Structures</a></li>
+<li><a href="https://wesmckinney.com/book/pandas-basics#pandas_series">5.2. Essential Functionality</a>
+<ul>
+<li>Indexing, selection and filtering</li>
+<li>Function application and mapping</li>
+<li>Sorting and ranking</li>
+</ul></li>
+<li><a href="https://wesmckinney.com/book/data-cleaning">7.1. Handling missing data</a></li>
+<li><a href="https://wesmckinney.com/book/data-cleaning#prep_replace">7.2. Replacing values</a></li>
+<li><a href="https://wesmckinney.com/book/data-cleaning#text_string_manip_vectorized">7.4. String functions in pandas</a></li>
+<li><a href="https://wesmckinney.com/book/data-aggregation#groupby_fundamentals">10.1. How to think about group operations</a></li>
+</ul>
+<p>These are useful <a href="https://pandas.pydata.org/Pandas_Cheat_Sheet.pdf">cheatsheets</a>.</p>
+<p>Check out the pandas getting-started documentation <a href="https://pandas.pydata.org/docs/getting_started/index.html#getting-started">here</a></p>
+<p>Here’s short introduction by the very author of the library:</p>
+<div class="quarto-video ratio ratio-16x9"><iframe data-external="1" src="https://www.youtube.com/embed/_T8LGqJtuGc" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div>
 
 
 
@@ -765,13 +782,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./10_tests.html" class="pagination-link" aria-label="Testing">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Testing</span></span>
+      <a href="./08_numpy.html" class="pagination-link" aria-label="Numpy">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Numpy</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./111_debugging.html" class="pagination-link" aria-label="Debugging">
-        <span class="nav-page-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Debugging</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./09_plotting.html" class="pagination-link" aria-label="Plotting">
+        <span class="nav-page-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Plotting</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
