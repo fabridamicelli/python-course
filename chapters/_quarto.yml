@@ -13,7 +13,7 @@ book:
     - "facebook"
   navbar:
     left:
-      - href: https://fabridamicelli.github.io/python-course
+      - href: https://fabridamicelli.github.io
         text: Author's Website
         icon: person-video
     right:
