@@ -32,8 +32,8 @@ book:
 
   chapters:
     - index.qmd
-    - 01_getting_started.ipynb
-    - 010_executing_code.ipynb
+    - 01_1_getting_started.ipynb
+    - 01_2_executing_code.ipynb
     - 02_types_data_structures.ipynb
     - 03_flow_control.ipynb
     - 031_error_handling.ipynb
