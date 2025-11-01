@@ -66,7 +66,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
 <link href="./02_types_data_structures.html" rel="next">
-<link href="./01_getting_started.html" rel="prev">
+<link href="./01_1_getting_started.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
@@ -196,7 +196,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./010_executing_code.html"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Executing Code</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./01_2_executing_code.html"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Executing Code</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -220,13 +220,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./01_getting_started.html" class="sidebar-item-text sidebar-link">
+  <a href="./01_1_getting_started.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Getting Started</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./010_executing_code.html" class="sidebar-item-text sidebar-link active">
+  <a href="./01_2_executing_code.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Executing Code</span></span></a>
   </div>
 </li>
@@ -405,7 +405,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<p>There are several ways to execute code.</p>
+<p>There are several ways to execute (also called “run”) Python code.</p>
 <section id="executing-files" class="level2" data-number="2.1">
 <h2 data-number="2.1" class="anchored" data-anchor-id="executing-files"><span class="header-section-number">2.1</span> Executing files</h2>
 <p>When working with <code>uv</code> we can do this (inside of the working project directory):</p>
@@ -435,7 +435,7 @@ Tip
 <blockquote class="blockquote">
 <p>A read–eval–print loop (REPL) is a simple interactive computer programming environment that takes single user inputs, executes them, and returns the result to the user.</p>
 </blockquote>
-<p>If type <code>uv run python</code> in our terminal and hit enter, we get into the built-in python REPL.</p>
+<p>If we type <code>uv run python</code> in our terminal and hit enter, we get into the built-in python REPL.</p>
 <p>The built-in python REPL is fine, but as of today (October 2024) it has some limitations.</p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -473,7 +473,7 @@ Tip
 <p>The IPython REPL brings some nice features that make this interactive coding environment much powerful and handy to interact with, such as <a href="https://ipython.readthedocs.io/en/stable/interactive/magics.html#built-in-magic-commands">magic commands</a>. These are some commands I recommend checking out:</p>
 <ul>
 <li><code>?</code></li>
-<li><code>! &lt;COMMAND&gt;</code>: Call the system COMMAND, eg <code>!ls</code> to list contents.</li>
+<li><code>! &lt;COMMAND&gt;</code>: Call the system COMMAND, eg <code>!ls</code> to list contents of current directory.</li>
 <li><code>%run</code>: Run a file inside IPython as a program.</li>
 <li><code>%time</code>: Time execution of a Python statement or expression.</li>
 <li><code>%timeit</code>: Time execution of a Python statement or expression.</li>
@@ -487,7 +487,7 @@ Tip
 <li>Multiply 3 twenty two times</li>
 <li>Print your name using the <code>print</code> function</li>
 <li>Add two strings, e.g.&nbsp;“hello” + “world”</li>
-<li>Run the file <code>hello.py</code> inside the REPL</li>
+<li>Create the file <code>src/pycourse/main.py</code> that prints your name and run it inside the IPython REPL</li>
 <li>Same but print it’s execution time</li>
 </ol>
 </section>
@@ -495,15 +495,17 @@ Tip
 <section id="code-editor" class="level2" data-number="2.4">
 <h2 data-number="2.4" class="anchored" data-anchor-id="code-editor"><span class="header-section-number">2.4</span> Code Editor</h2>
 <p>When editing code more extensively we also want to have a so called integrated development environment (IDE). There are many options out there. Do not spend too much time deciding which to pick, you can always change your choice later.<br>
-<a href="https://code.visualstudio.com/">VS-Code</a> is a reasonable general choice as of today, it is free and widely adopted. For a user experience more similar to matlab and oriented to scientific computing you can check out <a href="https://www.spyder-ide.org">Spyder</a>.</p>
+<a href="https://code.visualstudio.com/">VS-Code</a> is a reasonable general choice as of today, it is free and widely adopted. For a user experience more similar to matlab or R-studio and oriented to scientific computing you can check out <a href="https://www.spyder-ide.org">Spyder</a>.</p>
 </section>
 <section id="jupyter-notebook" class="level2" data-number="2.5">
 <h2 data-number="2.5" class="anchored" data-anchor-id="jupyter-notebook"><span class="header-section-number">2.5</span> Jupyter Notebook</h2>
-<p>Notebooks run on the browser and are a way to mix code with other kinds of data, such as images, videos or widgets. They are a very useful tool for explorative analysis. If you ever used something like Mathematica you’ll be already familiar with them.</p>
+<p>Notebooks run on the browser and are a way to mix code with other kinds of data, such as images, videos or widgets. They are a very useful tool for explorative analysis. If you ever used something like <a href="https://www.wolfram.com/mathematica/">Mathematica</a> you’ll be already familiar with them.</p>
 <p>There are several versions of notebooks, we are going to use <a href="https://jupyterlab.readthedocs.io/en/latest/">JupyterLab</a>. Let’s install it:</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="ex">uv</span> add jupyterlab</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Let’s create a directory for notebooks in our project:</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mkdir</span> noteboooks</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>So far your project should look like this:</p>
+<p><img src="./images/tree.png" class="img-fluid"></p>
 <p>Launch a jupyterlab session:</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="ex">uv</span> run jupyter lab</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="callout callout-style-default callout-tip callout-titled">
@@ -926,7 +928,7 @@ Tip
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./01_getting_started.html" class="pagination-link" aria-label="Getting Started">
+      <a href="./01_1_getting_started.html" class="pagination-link" aria-label="Getting Started">
         <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Getting Started</span></span>
       </a>          
   </div>
