@@ -204,7 +204,7 @@
     "href": "03_flow_control.html#loops",
     "title": "4  Flow Control",
     "section": "",
-    "text": "Tip: Use while loops sparingly\n\n\n\nIt’s very easy to make mistakes and run into infinite loops.",
+    "text": "TipTip: Use while loops sparingly\n\n\n\nIt’s very easy to make mistakes and run into infinite loops.",
     "crumbs": [
       "<span class='chapter-number'>4</span>  <span class='chapter-title'>Flow Control</span>"
     ]
@@ -234,7 +234,7 @@
     "href": "031_error_handling.html#exceptions",
     "title": "5  Error Handling",
     "section": "",
-    "text": "try:\n    # do something\nexcept SomeException:\n    # handle the error\nfinally:\n    # Optionally to something (always executed)\n\n\n\n\n\n\n\n\nGood practice Tip\n\n\n\nBe as explicit as possible with your exceptions to avoid letting unexpected errors slip through.\n\n\n\n\n\n\n\n\n\n\nNote\n\n\n\nExceptions are also used beyond errors as a more general kind of means of communication in the python language, for example, to signal that a generator has been used up.",
+    "text": "try:\n    # do something\nexcept SomeException:\n    # handle the error\nfinally:\n    # Optionally to something (always executed)\n\n\n\n\n\n\n\n\nTipGood practice Tip\n\n\n\nBe as explicit as possible with your exceptions to avoid letting unexpected errors slip through.\n\n\n\n\n\n\n\n\n\n\nNote\n\n\n\nExceptions are also used beyond errors as a more general kind of means of communication in the python language, for example, to signal that a generator has been used up.",
     "crumbs": [
       "<span class='chapter-number'>5</span>  <span class='chapter-title'>Error Handling</span>"
     ]
