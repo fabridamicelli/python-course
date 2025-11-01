@@ -1,15 +1,15 @@
 # About the Course {.unnumbered}
-This is an open, free **short introduction** to the Python programming language, emphasizing practical over theoretical aspects and with a focus on data-related tasks.  
-The goal is to get you just enough tools under your belt to enable you on pursuing your own learning path according to your interests. 
+This is a free, **short introduction** to the Python programming language, emphasizing practical over theoretical aspects and with a focus on data-related tasks.  
+The goal is to get you just enough tools under your belt for you to pursue your own learning path according to your interests. 
 What's in for you:
 
 
-✅ Core concepts of the language explained with _simple words_  
-✅ Focused intro to data-tools ([numpy](https://numpy.org), [pandas](https://pandas.pydata.org/), [matplotlib](https://matplotlib.org/))  
-✅ Software engineering best-practices (project and dependency management with [`uv`](https://docs.astral.sh/uv/), testing with [pytest](https://docs.pytest.org/en/stable/), error handling, etc.)  
-✅ Exercises accompanying the chapters  
+✅ Core concepts of the language explained in _simple words_  
+✅ Focus on "data-stack" ([numpy](https://numpy.org), [pandas](https://pandas.pydata.org/), [matplotlib](https://matplotlib.org/), etc.)  
+✅ Software engineering best-practices (project/dependency management, [`uv`](https://docs.astral.sh/uv/), testing with [pytest](https://docs.pytest.org/en/stable/), error handling, etc.)  
+✅ Exercises on each chapter to get comfortable with the new concepts   
 ✅ Integrative "Labs" with real-world datasets to put all concepts together  
-✅ References to open and free material to deepen your knowledge (talks, book chapters, cheatsheets, etc.)  
+✅ Useful references to deepen your knowledge (talks, books, cheatsheets, etc.)  
 
 Code notebooks and report any problems on [this GitHub repository](https://www.github.com/fabridamicelli/python-course).
 

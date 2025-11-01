@@ -1,0 +1,10 @@
+[project]
+name = "python-course"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "jupyterlab>=4.4.10",
+    "jupyterlab-vim>=4.1.4",
+]
