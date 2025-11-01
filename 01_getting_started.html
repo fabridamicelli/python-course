@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.7.31">
+<meta name="generator" content="quarto-1.7.30">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -73,10 +73,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-52a0159e1581fd4d72d8415155fb0da6.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-82d7c92e6dd9441483e496b14b812ba9.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-6c14506c95f50da6546de62d4f474564.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-378a9e929b76e306574896faf77f55a6.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -412,19 +412,23 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p><strong>Windows</strong><br>
 Make sure you are using <strong>powershell</strong>!</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">powershell</span> <span class="at">-ExecutionPolicy</span> ByPass <span class="at">-c</span> <span class="st">"irm https://astral.sh/uv/install.ps1 | iex"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>That should be enough, but for more details you can follow detailed instructions <a href="https://docs.astral.sh/uv/getting-started/installation/">here</a>.</p>
+<p>That should be enough, but for more details you can follow detailed instructions <a href="https://docs.astral.sh/uv/#installation">here</a>.</p>
+<p>If everything worked fine you should be able to open a terminal and run this:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">uv</span> run python</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>and see a python REPL similar to this (it’s OK if you see something slightly different):</p>
+<p><img src="./images/repl.png" class="img-fluid"></p>
 </section>
 <section id="working-on-a-project" class="level2" data-number="1.3">
 <h2 data-number="1.3" class="anchored" data-anchor-id="working-on-a-project"><span class="header-section-number">1.3</span> Working on a project</h2>
 <p>To start a new project run in your terminal:</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">uv</span> init pycourse <span class="at">--lib</span> <span class="at">--python</span> 3.12</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="ex">uv</span> init pycourse <span class="at">--lib</span> <span class="at">--python</span> 3.12</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p><code>pycourse</code> is the name of the project, you can choose anything you want.<br>
 The <code>--lib</code> flag tells <code>uv</code> to install the current code as a “library” (don’t worry about this yet, it’s just something we need to get things working for now).<br>
 The <code>--python</code> flags specifies the specific python version we want to work with in this project. If the version is already installed in our machine <code>uv</code> will just use it, otherwise <code>uv</code> will download it and keep it for future usage.</p>
 <p><code>uv</code> will create a new directory with all the necessary boilerplate to get python running, including a virtual environment (by default, under the hidden directory <code>.venv</code>) and a <code>pyproject.toml</code> file (we’ll look at those later when dealing with dependencies).<br>
 For more details on <code>uv</code> and projects see the documentation <a href="">here</a>.</p>
 <p>Change your directory into the newly created folder:</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> pycourse</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> pycourse</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>You should see a structure like this:</p>
 <pre><code>pycourse
 ├── pyproject.toml
@@ -432,9 +436,6 @@ For more details on <code>uv</code> and projects see the documentation <a href="
 └── src
     └── pycourse
         └── __init__.py</code></pre>
-<p>If everything worked fine you should be able to run this:</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="ex">uv</span> run python</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>and see a python REPL.</p>
 <p>We’re ready to go 🚀!</p>
 
 
