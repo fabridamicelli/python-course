@@ -7,6 +7,7 @@ book:
   subtitle: "A friendly, hands-on introduction to Python"
   author: "Fabrizio Damicelli"
   site-url: "https://fabridamicelli.github.io/python-course"
+  favicon: ./favicon.svg
   sharing:
     - "twitter"
     - "linkedin"
