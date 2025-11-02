@@ -38,9 +38,9 @@ book:
     - 03_1_flow_control.ipynb
     - 03_2_error_handling.ipynb
     - 04_functions.ipynb
-    - 041_scope.ipynb
+    # - 041_scope.ipynb
     - 05_comprehensions.ipynb
-    - lab_syntax.ipynb
+    - lab_builtin_for_the_win.ipynb
     - 06_imports.ipynb
     - 061_dependencies.ipynb
     - 062_read_and_write.ipynb
