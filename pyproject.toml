@@ -8,4 +8,5 @@ dependencies = [
     "jupyterlab>=4.4.10",
     "jupyterlab-spellchecker>=0.8.4",
     "jupyterlab-vim>=4.1.4",
+    "pandas>=2.3.3",
 ]
