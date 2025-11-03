@@ -424,69 +424,79 @@
     "href": "06_imports.html#exercises",
     "title": "9  Importing Code",
     "section": "9.2 Exercises",
-    "text": "9.2 Exercises\nCreate 2 files like these in our working project /pycourse/src/pycourse/data.py, /pycourse/src/pycourse/preprocessing.py:\n# data.py\nRAWDATA = ...  # 3 dots are called \"Ellipsis\" and act as placeholder\n\ndef fetch_data(raw_data):\n    ... \n\nif __name__ == \"__main__\":\n    print(\"Fetching data\")    \n    data = fetch_data(RAWDATA)\n    print(data)\n# preprocessing.py\n\ndef cleanup(data):\n    ... \n    \ndef preprocess_pipeline(raw_data):\n    data = fetch_data(raw_data)\n    return cleanup(data)\n     \nif __name__ == \"__main__\":\n    print(\"Running preprocessing\")    \n    raw_data = ...\n    preprocess_pipeline(raw_data)\n\nCopy the RAWDATA from the previous lab exercises into a file data.py\nCreate another file called preprocessing.py in the same directory.\nImport the RAWDATA string inside preprocessing.py\nRun data.py as a script with uv run src/pycourse/data.py. Pay attention to the printed output\nRun preprocessing as a script with uv run src/pycourse/preprocessing.py. Pay attention to the printed output. What difference do you see compared to the previous point?\n\nCongratulations! You just ran your first python scripts 🚀",
+    "text": "9.2 Exercises\nCreate 2 files like these in our working project /pycourse/src/pycourse/data.py, /pycourse/src/pycourse/preprocessing.py:\n# data.py\nRAWDATA = ...  # 3 dots are called \"Ellipsis\" and act as placeholder\n\ndef fetch_data(raw_data):\n    ... \n\nif __name__ == \"__main__\":\n    print(\"Fetching data\")    \n    data = fetch_data(RAWDATA)\n    print(data)\n# preprocessing.py\n\n\n# TODO: add missing imports to make it work\n\ndef cleanup(data):\n    ... \n    \ndef preprocess_pipeline(raw_data):\n    data = fetch_data(raw_data)\n    return cleanup(data)\n     \nif __name__ == \"__main__\":\n    print(\"Running preprocessing\")    \n    raw_data = ...\n    preprocess_pipeline(raw_data)\n\nCopy the RAWDATA from the previous lab exercises into a file data.py\nCreate another file called preprocessing.py in the same directory.\nImport the RAWDATA string inside preprocessing.py\nRun data.py as a script with uv run src/pycourse/data.py. Pay attention to the printed output\nRun preprocessing as a script with uv run src/pycourse/preprocessing.py. Pay attention to the printed output. What difference do you see compared to the previous point?\n\nCongratulations! You just ran your first python scripts 🚀",
     "crumbs": [
       "<span class='chapter-number'>9</span>  <span class='chapter-title'>Importing Code</span>"
     ]
   },
   {
-    "objectID": "061_dependencies.html",
-    "href": "061_dependencies.html",
-    "title": "10  Dependencies",
-    "section": "",
-    "text": "10.1 Managing dependencies\nIn contrast to the code that we ourselves write and can import or to some built-in modules such as pathlib and json that we can import directly after installing python, there are third-party libraries that we want to use but need to be first installed, such as numpy and pandas.\nThis libraries are also called “packages”. There are several repositories where people publish python packages and from which we can download them, but the official one is PyPI (Python Package Index).\nThese are open-source libraries maintained mostly by voluntary contributions of people of the community – and you can also contribute to them!\nThey are being actively developed and thus in permanent evolution. In order to avoid compatibility problems and to ensure reproducibility, we might want to specify the exact versions of the packages we use. It turns out that is not an easy problem and the reason why need a package manager.\nThe good news is that uv does that for us too.\nThe standard to specify dependencies (and other things) in python projects is to use a file called pyproject.toml that looks like this:\nThe “dependencies” section is the one we care about here. There we list all the third-party libraries that our project requires. Notice that we can specify both exact versions (with “==”) as well as constraints (with “&lt;,&gt;,&gt;=,&lt;=”).\nIn general we don’t want to deal manually with those aspects – that’s the job of a package manager.\nWe will use here the package manager uv. You can read the docs for more details, which I strongly recommend since the documentation is pretty good and constantly being updated. To add a dependency we type:\nFor example:\nThat will add the dependency to our list as well as updating the “lock” file. Read more about this workflow and managing dependencies here.\nTo remove a package from the dependencies of our project we do:\nFor example:",
-    "crumbs": [
-      "<span class='chapter-number'>10</span>  <span class='chapter-title'>Dependencies</span>"
-    ]
-  },
-  {
-    "objectID": "061_dependencies.html#managing-dependencies",
-    "href": "061_dependencies.html#managing-dependencies",
-    "title": "10  Dependencies",
-    "section": "",
-    "text": "[project]\nname = \"example_package_name\"\nversion = \"0.0.1\"\nauthors = [\n  { name=\"Example Author\", email=\"author@example.com\" },\n]\ndescription = \"A small example package\"\nreadme = \"README.md\"\nrequires-python = \"&gt;=3.10,&lt;3.12\"\ndependencies = [\n    \"numpy==1.2.0\",\n    \"pandas&lt;2.0.0\",\n    \"scikit-learn&gt;=1.0,&lt;2.0\"\n]\n\n\n\n\n\n\nNote\n\n\n\nTake a look at the pyproject.toml file in you project, we already have one that uv automatically created for us!\n\n\n\n\n\n\n\n\n\n\nNote\n\n\n\nThe packages usually follow a so-called “Semantic versioning” convention on how to name the versions of the package to avoid compatibility problems. In short: Given a version number MAJOR.MINOR.PATCH.\n\nMAJOR version when you make incompatible API changes\nMINOR version when you add functionality in a backward compatible manner\nPATCH version when you make backward compatible bug fixes\n\nRead more about that here.\n\n\n\nuv add PACKAGE-NAME\n\nuv add numpy\n\n\nuv remove PACKAGE-NAME\n\nuv remove numpy",
-    "crumbs": [
-      "<span class='chapter-number'>10</span>  <span class='chapter-title'>Dependencies</span>"
-    ]
-  },
-  {
     "objectID": "062_read_and_write.html",
     "href": "062_read_and_write.html",
-    "title": "11  Read/Write Files",
+    "title": "10  Read/Write Files",
     "section": "",
-    "text": "11.1 Pathlib\nWe often deal with files stored in our computer (or someone else’s, a.k.a. “the Cloud”). The built-in pathlib is very a useful module. In particular, the Path class simplifies a lot the operations we typically do when working with files.\nfrom pathlib import Path\ndirname = \"./a-new-dir\"  # Note: This folder does not yet exist\npath = Path(dirname)\npath.exists()\n\nFalse\nLet’s create it:\npath.mkdir()\npath.exists()\n\nTrue\nNotice how the Path instance composes very nicely with the rest of the language. For example, it will automatically concatenate the path with this syntax:\nfilepath = path/\"a-great-file.txt\"\nfilepath\n\nPosixPath('a-new-dir/a-great-file.txt')\nfilepath.exists()\n\nFalse\nLet’s create it:\nfilepath.touch()\nfilepath.exists()\n\nTrue\nThis file is still empty, let’s write a message into it:\nfilepath.write_text(\"Hello world, this is so much fun!\")\n\n33\nA lot just happened:\nSo the Path class is abstracting away a lot of work. Pretty handy, I think.\nNow let’s read in the content of the file:\nfilepath.read_text()\n\n'Hello world, this is so much fun!'\nWe can also delete files/directories:\nfilepath\n\nPosixPath('a-new-dir/a-great-file.txt')\nfilepath.unlink()  # unlink means remove in this context\nfilepath.exists()\n\nFalse",
+    "text": "10.1 Pathlib\nWe often deal with files stored in our computer (or someone else’s, a.k.a. “the Cloud”). The built-in pathlib is very a useful module. In particular, the Path class simplifies a lot the operations we typically do when working with files.\nfrom pathlib import Path\ndirname = \"./a-new-dir\"  # Note: This folder does not yet exist\npath = Path(dirname)\npath.exists()\n\nFalse\nLet’s create it:\npath.mkdir()\npath.exists()\n\nTrue\nNotice how the Path instance composes very nicely with the rest of the language. For example, it will automatically concatenate the path with this syntax:\nfilepath = path/\"a-great-file.txt\"\nfilepath\n\nPosixPath('a-new-dir/a-great-file.txt')\nfilepath.exists()\n\nFalse\nLet’s create it:\nfilepath.touch()\nfilepath.exists()\n\nTrue\nThis file is still empty, let’s write a message into it:\nfilepath.write_text(\"Hello world, this is so much fun!\")\n\n33\nA lot just happened:\nSo the Path class is abstracting away a lot of work. Pretty handy, I think.\nNow let’s read in the content of the file:\nfilepath.read_text()\n\n'Hello world, this is so much fun!'\nWe can also delete files/directories:\nfilepath\n\nPosixPath('a-new-dir/a-great-file.txt')\nfilepath.unlink()  # unlink means remove in this context\nfilepath.exists()\n\nFalse",
     "crumbs": [
-      "<span class='chapter-number'>11</span>  <span class='chapter-title'>Read/Write Files</span>"
+      "<span class='chapter-number'>10</span>  <span class='chapter-title'>Read/Write Files</span>"
     ]
   },
   {
     "objectID": "062_read_and_write.html#pathlib",
     "href": "062_read_and_write.html#pathlib",
-    "title": "11  Read/Write Files",
+    "title": "10  Read/Write Files",
     "section": "",
     "text": "the file was created\nwe opened the file\nwe wrote the text into it\nwe closed the file\nwe got back the number of bytes written (33)\n\n\n\n\n\n\n\n\n\n\nNote\n\n\n\nThe classical way to open/close files is actually using the open function. You can google it if you’re curious, but, for now, let’s run with pathlib.Path.",
     "crumbs": [
-      "<span class='chapter-number'>11</span>  <span class='chapter-title'>Read/Write Files</span>"
+      "<span class='chapter-number'>10</span>  <span class='chapter-title'>Read/Write Files</span>"
     ]
   },
   {
     "objectID": "062_read_and_write.html#files-directories",
     "href": "062_read_and_write.html#files-directories",
-    "title": "11  Read/Write Files",
-    "section": "11.2 Files & Directories",
-    "text": "11.2 Files & Directories\nWhen manipulating files we sometimes we want to explicitly distinguish between files and directories. pathlib.Path has a few methods that make our life easier:\n\ncurrent = Path(\".\")  # dot means current dir\n\n\ncurrent.is_file()\n\nFalse\n\n\n\ncurrent.is_dir()\n\nTrue\n\n\n\n\n\n\n\n\nTip\n\n\n\nExplore the methods of the Path class by creating and object and hitting the Tab key, there are several handy functionalities included.",
+    "title": "10  Read/Write Files",
+    "section": "10.2 Files & Directories",
+    "text": "10.2 Files & Directories\nWhen manipulating files we sometimes we want to explicitly distinguish between files and directories. pathlib.Path has a few methods that make our life easier:\n\ncurrent = Path(\".\")  # dot means current dir\n\n\ncurrent.is_file()\n\nFalse\n\n\n\ncurrent.is_dir()\n\nTrue\n\n\n\n\n\n\n\n\nTip\n\n\n\nExplore the methods of the Path class by creating and object and hitting the Tab key, there are several handy functionalities included.",
     "crumbs": [
-      "<span class='chapter-number'>11</span>  <span class='chapter-title'>Read/Write Files</span>"
+      "<span class='chapter-number'>10</span>  <span class='chapter-title'>Read/Write Files</span>"
     ]
   },
   {
     "objectID": "062_read_and_write.html#shutil",
     "href": "062_read_and_write.html#shutil",
-    "title": "11  Read/Write Files",
-    "section": "11.3 Shutil",
-    "text": "11.3 Shutil\n🚧 Material under construction 🚧",
+    "title": "10  Read/Write Files",
+    "section": "10.3 Shutil",
+    "text": "10.3 Shutil\n🚧 Material under construction 🚧",
     "crumbs": [
-      "<span class='chapter-number'>11</span>  <span class='chapter-title'>Read/Write Files</span>"
+      "<span class='chapter-number'>10</span>  <span class='chapter-title'>Read/Write Files</span>"
+    ]
+  },
+  {
+    "objectID": "062_read_and_write.html#exercises",
+    "href": "062_read_and_write.html#exercises",
+    "title": "10  Read/Write Files",
+    "section": "10.4 Exercises",
+    "text": "10.4 Exercises\nNow that we now how to read files from within python, we can tidy up things a bit from previous chapter.\n\nDownload the data from the repository here into a local file on your computer.\nWrite a function that takes a path and returns the list of dictionaries from exercise 8.5. Read the file content using pathlib.",
+    "crumbs": [
+      "<span class='chapter-number'>10</span>  <span class='chapter-title'>Read/Write Files</span>"
+    ]
+  },
+  {
+    "objectID": "061_dependencies.html",
+    "href": "061_dependencies.html",
+    "title": "11  Dependencies",
+    "section": "",
+    "text": "11.1 Managing dependencies\nIn contrast to the code that we ourselves write and can import or to some built-in modules such as pathlib and json that we can import directly after installing python, there are third-party libraries that we want to use but need to be first installed, such as numpy and pandas.\nThis libraries are also called “packages”. There are several repositories where people publish python packages and from which we can download them, but the official one is PyPI (Python Package Index).\nThese are open-source libraries maintained mostly by voluntary contributions of people of the community – and you can also contribute to them!\nThey are being actively developed and thus in permanent evolution. In order to avoid compatibility problems and to ensure reproducibility, we might want to specify the exact versions of the packages we use. It turns out that is not an easy problem and the reason why need a package manager.\nThe good news is that uv does that for us too.\nThe standard to specify dependencies (and other things) in python projects is to use a file called pyproject.toml that looks like this:\nThe “dependencies” section is the one we care about here. There we list all the third-party libraries that our project requires. Notice that we can specify both exact versions (with “==”) as well as constraints (with “&lt;,&gt;,&gt;=,&lt;=”).\nIn general we don’t want to deal manually with those aspects – that’s the job of a package manager.\nWe will use here the package manager uv. You can read the docs for more details, which I strongly recommend since the documentation is pretty good and constantly being updated. To add a dependency we type:\nFor example:\nThat will add the dependency to our list as well as updating the “lock” file. Read more about this workflow and managing dependencies here.\nTo remove a package from the dependencies of our project we do:\nFor example:",
+    "crumbs": [
+      "<span class='chapter-number'>11</span>  <span class='chapter-title'>Dependencies</span>"
+    ]
+  },
+  {
+    "objectID": "061_dependencies.html#managing-dependencies",
+    "href": "061_dependencies.html#managing-dependencies",
+    "title": "11  Dependencies",
+    "section": "",
+    "text": "[project]\nname = \"example_package_name\"\nversion = \"0.0.1\"\nauthors = [\n  { name=\"Example Author\", email=\"author@example.com\" },\n]\ndescription = \"A small example package\"\nreadme = \"README.md\"\nrequires-python = \"&gt;=3.10,&lt;3.12\"\ndependencies = [\n    \"numpy==1.2.0\",\n    \"pandas&lt;2.0.0\",\n    \"scikit-learn&gt;=1.0,&lt;2.0\"\n]\n\n\n\n\n\n\nNote\n\n\n\nTake a look at the pyproject.toml file in you project, we already have one that uv automatically created for us!\n\n\n\n\n\n\n\n\n\n\nNote\n\n\n\nThe packages usually follow a so-called “Semantic versioning” convention on how to name the versions of the package to avoid compatibility problems. In short: Given a version number MAJOR.MINOR.PATCH.\n\nMAJOR version when you make incompatible API changes\nMINOR version when you add functionality in a backward compatible manner\nPATCH version when you make backward compatible bug fixes\n\nRead more about that here.\n\n\n\nuv add PACKAGE-NAME\n\nuv add numpy\n\n\nuv remove PACKAGE-NAME\n\nuv remove numpy",
+    "crumbs": [
+      "<span class='chapter-number'>11</span>  <span class='chapter-title'>Dependencies</span>"
     ]
   },
   {
@@ -494,7 +504,7 @@
     "href": "063_common_data_formats.html",
     "title": "12  Common Data Formats",
     "section": "",
-    "text": "12.1 CSV\nComma Separated Values\nCode\ndata = \"\"\"\\\ndate,id,age\n2020-01-01,x12,19\n2020-01-02,x11,23\n2020-01-02,x3,22\n2020-01-03,x19,28\n\"\"\"\nprint(data)\n\n\ndate,id,age\n2020-01-01,x12,19\n2020-01-02,x11,23\n2020-01-02,x3,22\n2020-01-03,x19,28\nCode\nfrom pathlib import Path\nfilepath = \"/tmp/data.csv\"\nPath(filepath).write_text(data)\nLoading data into a dataframe is not the only but one the most common ways to to load this data. We will use here pandas, a very popular library for data wrangling in python.\nInstall pandas:\nimport pandas as pd\n\ndf = pd.read_csv(filepath)\ndf\n\n\n\n\n\n\n\n\ndate\nid\nage\n\n\n\n\n0\n2020-01-01\nx12\n19\n\n\n1\n2020-01-02\nx11\n23\n\n\n2\n2020-01-02\nx3\n22\n\n\n3\n2020-01-03\nx19\n28\nWe can also save a dataframe as csv:\ndf.to_csv(\"/tmp/data.csv\", index=None)\n!cat /tmp/data.csv\n\ndate,id,age\n2020-01-01,x12,19\n2020-01-02,x11,23\n2020-01-02,x3,22\n2020-01-03,x19,28",
+    "text": "12.1 CSV\nComma Separated Values\nCode\ndata = \"\"\"\\\ndate,id,age\n2020-01-01,x12,19\n2020-01-02,x11,23\n2020-01-02,x3,22\n2020-01-03,x19,28\n\"\"\"\nprint(data)\n\n\ndate,id,age\n2020-01-01,x12,19\n2020-01-02,x11,23\n2020-01-02,x3,22\n2020-01-03,x19,28\nCode\nfrom pathlib import Path\nfilepath = \"/tmp/data.csv\"\nPath(filepath).write_text(data)\nLoading data into a dataframe is not the only but one the most common ways to to load this data. We will use here pandas, a very popular library for data wrangling in python.\nInstall pandas:\nimport pandas as pd\n\ndf = pd.read_csv(filepath)\ndf\n\n\n\n\n\n\n\n\ndate\nid\nage\n\n\n\n\n0\n2020-01-01\nx12\n19\n\n\n1\n2020-01-02\nx11\n23\n\n\n2\n2020-01-02\nx3\n22\n\n\n3\n2020-01-03\nx19\n28\nWe can also save a dataframe as csv:\ndf.to_csv(\"/tmp/data.csv\", index=None)\n!cat /tmp/data.csv\n\ndate,id,age\n2020-01-01,x12,19\n2020-01-02,x11,23\n2020-01-02,x3,22\n2020-01-03,x19,28\nCode\ndf.to_csv(\"/tmp/data.tsv\", sep=\"\\t\", index=None)",
     "crumbs": [
       "<span class='chapter-number'>12</span>  <span class='chapter-title'>Common Data Formats</span>"
     ]
@@ -510,11 +520,21 @@
     ]
   },
   {
+    "objectID": "063_common_data_formats.html#tsv",
+    "href": "063_common_data_formats.html#tsv",
+    "title": "12  Common Data Formats",
+    "section": "12.2 TSV",
+    "text": "12.2 TSV\nSimilar to CSV, Tab Separated Values format uses Tabs instead of comma to separate values of each line.\n\n!cat /tmp/data.tsv\n\ndate    id  age\n2020-01-01  x12 19\n2020-01-02  x11 23\n2020-01-02  x3  22\n2020-01-03  x19 28\n\n\nLuckily pandas can handle that too.\n\ndf = pd.read_csv(\"/tmp/data.tsv\", sep=\"\\t\")\ndf\n\n\n\n\n\n\n\n\ndate\nid\nage\n\n\n\n\n0\n2020-01-01\nx12\n19\n\n\n1\n2020-01-02\nx11\n23\n\n\n2\n2020-01-02\nx3\n22\n\n\n3\n2020-01-03\nx19\n28",
+    "crumbs": [
+      "<span class='chapter-number'>12</span>  <span class='chapter-title'>Common Data Formats</span>"
+    ]
+  },
+  {
     "objectID": "063_common_data_formats.html#excel",
     "href": "063_common_data_formats.html#excel",
     "title": "12  Common Data Formats",
-    "section": "12.2 Excel",
-    "text": "12.2 Excel\nWe can also read in data coming from an excel spreadsheet.\n\ndf.to_excel(\"/tmp/data.xlsx\", index=None)\n\n\npd.read_excel(\"/tmp/data.xlsx\")\n\n\n\n\n\n\n\n\ndate\nid\nage\n\n\n\n\n0\n2020-01-01\nx12\n19\n\n\n1\n2020-01-02\nx11\n23\n\n\n2\n2020-01-02\nx3\n22\n\n\n3\n2020-01-03\nx19\n28",
+    "section": "12.3 Excel",
+    "text": "12.3 Excel\nWe can also read in data coming from an excel spreadsheet.\n\ndf.to_excel(\"/tmp/data.xlsx\", index=None)\n\n\npd.read_excel(\"/tmp/data.xlsx\")\n\n\n\n\n\n\n\n\ndate\nid\nage\n\n\n\n\n0\n2020-01-01\nx12\n19\n\n\n1\n2020-01-02\nx11\n23\n\n\n2\n2020-01-02\nx3\n22\n\n\n3\n2020-01-03\nx19\n28",
     "crumbs": [
       "<span class='chapter-number'>12</span>  <span class='chapter-title'>Common Data Formats</span>"
     ]
@@ -523,8 +543,8 @@
     "objectID": "063_common_data_formats.html#json",
     "href": "063_common_data_formats.html#json",
     "title": "12  Common Data Formats",
-    "section": "12.3 JSON",
-    "text": "12.3 JSON\nJSON (JavaScript Object Notation) is by far one of the most used data formats, nowadays the default format to transfer data over the internet. It is also very commonly used for configuration files and logging.\n\nflat = {\n  \"name\": \"John Doe\",\n  \"age\": 25\n}\n\nnested = {\n  \"name\": {\n    \"firstName\": \"John\",\n    \"lastName\": \"Doe\",\n    \"middleName\": \"Smith\"\n  },\n  \"age\": 25,\n  \"hobbies\": [\"reading\", \"writing\"]\n}\n\n\n12.3.1 Encoding\nAlso called “serialization”.\n\nimport json\n\nflat_str = json.dumps(flat)\nflat_str\n\n'{\"name\": \"John Doe\", \"age\": 25}'\n\n\n\nnested_str = json.dumps(nested)\nnested_str\n\n'{\"name\": {\"firstName\": \"John\", \"lastName\": \"Doe\", \"middleName\": \"Smith\"}, \"age\": 25, \"hobbies\": [\"reading\", \"writing\"]}'\n\n\n\narr_str = json.dumps(arr)\narr_str\n\n'{\"name\": \"John Doe\", \"age\": 25, \"hobbies\": [\"reading\", \"writing\"]}'\n\n\n\nPath(\"/tmp/flat.json\").write_text(flat_str)\nPath(\"/tmp/nested.json\").write_text(nested_str)\n\n\n\n12.3.2 Decoding\nAlso called “deserialization”.\n\njson.load(\n    Path(\"/tmp/flat.json\").open()\n)\n\n{'name': 'John Doe', 'age': 25}\n\n\n\njson.loads(\n    Path(\"/tmp/flat.json\").read_text()\n)\n\n{'name': 'John Doe', 'age': 25}\n\n\n\njson.load(\n    Path(\"/tmp/nested.json\").open()\n)\n\n{'name': {'firstName': 'John', 'lastName': 'Doe', 'middleName': 'Smith'},\n 'age': 25,\n 'hobbies': ['reading', 'writing']}\n\n\n\njson.loads(\n    Path(\"/tmp/nested.json\").read_text()\n)\n\n{'name': {'firstName': 'John', 'lastName': 'Doe', 'middleName': 'Smith'},\n 'age': 25,\n 'hobbies': ['reading', 'writing']}\n\n\nNotice we load the data into a python dictionary:\n\nout = json.loads(\n    Path(\"/tmp/nested.json\").read_text()\n)\ntype(out)\n\ndict\n\n\nWe can also store a list as JSON array:\n\nPath(\"/tmp/arr.json\").write_text(\n    json.dumps([\n        {\"a\": 1},\n        {\"b\": 2},\n    ])\n)\n\n\nout = json.load(Path(\"/tmp/arr.json\").open())\nprint(type(out))\nout\n\n&lt;class 'list'&gt;\n\n\n[{'a': 1}, {'b': 2}]",
+    "section": "12.4 JSON",
+    "text": "12.4 JSON\nJSON (JavaScript Object Notation) is by far one of the most used data formats, nowadays the default format to transfer data over the internet. It is also very commonly used for configuration files and logging.\n\nflat = {\n  \"name\": \"John Doe\",\n  \"age\": 25\n}\n\nnested = {\n  \"name\": {\n    \"firstName\": \"John\",\n    \"lastName\": \"Doe\",\n    \"middleName\": \"Smith\"\n  },\n  \"age\": 25,\n  \"hobbies\": [\"reading\", \"writing\"]\n}\n\n\n12.4.1 Encoding\nAlso called “serialization”.\n\nimport json\n\nflat_str = json.dumps(flat)\nflat_str\n\n'{\"name\": \"John Doe\", \"age\": 25}'\n\n\n\nnested_str = json.dumps(nested)\nnested_str\n\n'{\"name\": {\"firstName\": \"John\", \"lastName\": \"Doe\", \"middleName\": \"Smith\"}, \"age\": 25, \"hobbies\": [\"reading\", \"writing\"]}'\n\n\n\narr_str = json.dumps(arr)\narr_str\n\n'{\"name\": \"John Doe\", \"age\": 25, \"hobbies\": [\"reading\", \"writing\"]}'\n\n\n\nPath(\"/tmp/flat.json\").write_text(flat_str)\nPath(\"/tmp/nested.json\").write_text(nested_str)\n\n\n\n12.4.2 Decoding\nAlso called “deserialization”.\n\njson.load(\n    Path(\"/tmp/flat.json\").open()\n)\n\n{'name': 'John Doe', 'age': 25}\n\n\n\njson.loads(\n    Path(\"/tmp/flat.json\").read_text()\n)\n\n{'name': 'John Doe', 'age': 25}\n\n\n\njson.load(\n    Path(\"/tmp/nested.json\").open()\n)\n\n{'name': {'firstName': 'John', 'lastName': 'Doe', 'middleName': 'Smith'},\n 'age': 25,\n 'hobbies': ['reading', 'writing']}\n\n\n\njson.loads(\n    Path(\"/tmp/nested.json\").read_text()\n)\n\n{'name': {'firstName': 'John', 'lastName': 'Doe', 'middleName': 'Smith'},\n 'age': 25,\n 'hobbies': ['reading', 'writing']}\n\n\nNotice we load the data into a python dictionary:\n\nout = json.loads(\n    Path(\"/tmp/nested.json\").read_text()\n)\ntype(out)\n\ndict\n\n\nWe can also store a list as JSON array:\n\nPath(\"/tmp/arr.json\").write_text(\n    json.dumps([\n        {\"a\": 1},\n        {\"b\": 2},\n    ])\n)\n\n\nout = json.load(Path(\"/tmp/arr.json\").open())\nprint(type(out))\nout\n\n&lt;class 'list'&gt;\n\n\n[{'a': 1}, {'b': 2}]",
     "crumbs": [
       "<span class='chapter-number'>12</span>  <span class='chapter-title'>Common Data Formats</span>"
     ]
@@ -533,8 +553,18 @@
     "objectID": "063_common_data_formats.html#parquet",
     "href": "063_common_data_formats.html#parquet",
     "title": "12  Common Data Formats",
-    "section": "12.4 Parquet",
-    "text": "12.4 Parquet\nParquet is a column oriented format. For a number of reasons, this format is much more efficient than csv and other formats.\n\ndf\n\n\n\n\n\n\n\n\ndate\nid\nage\n\n\n\n\n0\n2020-01-01\nx12\n19\n\n\n1\n2020-01-02\nx11\n23\n\n\n2\n2020-01-02\nx3\n22\n\n\n3\n2020-01-03\nx19\n28\n\n\n\n\n\n\n\nWith pandas we can save data to a parquet file:\n\ndf.to_parquet(\"/tmp/data.parquet\")\n\nAnd read in:\n\npd.read_parquet(\"/tmp/data.parquet\")\n\n\n\n\n\n\n\n\ndate\nid\nage\n\n\n\n\n0\n2020-01-01\nx12\n19\n\n\n1\n2020-01-02\nx11\n23\n\n\n2\n2020-01-02\nx3\n22\n\n\n3\n2020-01-03\nx19\n28\n\n\n\n\n\n\n\n\n\n\n\n\n\nTip\n\n\n\nPrefer parquet format when possible. It is faster to read and it stores metadata that can be used by libraries for optimization, for example, applying some filters.",
+    "section": "12.5 Parquet",
+    "text": "12.5 Parquet\nParquet is a column oriented format. For a number of reasons, this format is much more efficient than csv and other formats.\n\ndf\n\n\n\n\n\n\n\n\ndate\nid\nage\n\n\n\n\n0\n2020-01-01\nx12\n19\n\n\n1\n2020-01-02\nx11\n23\n\n\n2\n2020-01-02\nx3\n22\n\n\n3\n2020-01-03\nx19\n28\n\n\n\n\n\n\n\nWith pandas we can save data to a parquet file:\n\ndf.to_parquet(\"/tmp/data.parquet\")\n\nAnd read in:\n\npd.read_parquet(\"/tmp/data.parquet\")\n\n\n\n\n\n\n\n\ndate\nid\nage\n\n\n\n\n0\n2020-01-01\nx12\n19\n\n\n1\n2020-01-02\nx11\n23\n\n\n2\n2020-01-02\nx3\n22\n\n\n3\n2020-01-03\nx19\n28\n\n\n\n\n\n\n\n\n\n\n\n\n\nTip\n\n\n\nPrefer parquet format when possible. It is faster to read and it stores metadata that can be used by libraries for optimization, for example, applying some filters.",
+    "crumbs": [
+      "<span class='chapter-number'>12</span>  <span class='chapter-title'>Common Data Formats</span>"
+    ]
+  },
+  {
+    "objectID": "063_common_data_formats.html#exercises",
+    "href": "063_common_data_formats.html#exercises",
+    "title": "12  Common Data Formats",
+    "section": "12.6 Exercises",
+    "text": "12.6 Exercises\nDownload from this public repo the files dataset_description.json, participants.tsv.\n\nRead in the file dataset_description.json and print the field Description.\nRead in the file participants.tsv and print the mean of all the values of the column age.",
     "crumbs": [
       "<span class='chapter-number'>12</span>  <span class='chapter-title'>Common Data Formats</span>"
     ]

@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>11&nbsp; Read/Write Files – Python Course</title>
+<title>10&nbsp; Read/Write Files – Python Course</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -65,8 +65,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./063_common_data_formats.html" rel="next">
-<link href="./061_dependencies.html" rel="prev">
+<link href="./061_dependencies.html" rel="next">
+<link href="./06_imports.html" rel="prev">
 <link href="././favicon.svg" rel="icon" type="image/svg+xml">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
@@ -197,7 +197,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./062_read_and_write.html"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Read/Write Files</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./062_read_and_write.html"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Read/Write Files</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -275,14 +275,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./061_dependencies.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Dependencies</span></span></a>
+  <a href="./062_read_and_write.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Read/Write Files</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./062_read_and_write.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Read/Write Files</span></span></a>
+  <a href="./061_dependencies.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Dependencies</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -373,9 +373,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#pathlib" id="toc-pathlib" class="nav-link active" data-scroll-target="#pathlib"><span class="header-section-number">11.1</span> Pathlib</a></li>
-  <li><a href="#files-directories" id="toc-files-directories" class="nav-link" data-scroll-target="#files-directories"><span class="header-section-number">11.2</span> Files &amp; Directories</a></li>
-  <li><a href="#shutil" id="toc-shutil" class="nav-link" data-scroll-target="#shutil"><span class="header-section-number">11.3</span> Shutil</a></li>
+  <li><a href="#pathlib" id="toc-pathlib" class="nav-link active" data-scroll-target="#pathlib"><span class="header-section-number">10.1</span> Pathlib</a></li>
+  <li><a href="#files-directories" id="toc-files-directories" class="nav-link" data-scroll-target="#files-directories"><span class="header-section-number">10.2</span> Files &amp; Directories</a></li>
+  <li><a href="#shutil" id="toc-shutil" class="nav-link" data-scroll-target="#shutil"><span class="header-section-number">10.3</span> Shutil</a></li>
+  <li><a href="#exercises" id="toc-exercises" class="nav-link" data-scroll-target="#exercises"><span class="header-section-number">10.4</span> Exercises</a></li>
   </ul>
 </nav>
     </div>
@@ -384,7 +385,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Read/Write Files</span></h1>
+<h1 class="title"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Read/Write Files</span></h1>
 </div>
 
 
@@ -401,8 +402,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<section id="pathlib" class="level2" data-number="11.1">
-<h2 data-number="11.1" class="anchored" data-anchor-id="pathlib"><span class="header-section-number">11.1</span> Pathlib</h2>
+<section id="pathlib" class="level2" data-number="10.1">
+<h2 data-number="10.1" class="anchored" data-anchor-id="pathlib"><span class="header-section-number">10.1</span> Pathlib</h2>
 <p>We often deal with files stored in our computer (or someone else’s, a.k.a. “the Cloud”). The built-in <code>pathlib</code> is very a useful module. In particular, the <code>Path</code> class simplifies a lot the operations we typically do when working with files.</p>
 <div id="9f389b0e-5eb8-4f48-a277-7da3956d4715" class="cell" data-execution_count="8">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> pathlib <span class="im">import</span> Path</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
@@ -506,8 +507,8 @@ Note
 </div>
 </div>
 </section>
-<section id="files-directories" class="level2" data-number="11.2">
-<h2 data-number="11.2" class="anchored" data-anchor-id="files-directories"><span class="header-section-number">11.2</span> Files &amp; Directories</h2>
+<section id="files-directories" class="level2" data-number="10.2">
+<h2 data-number="10.2" class="anchored" data-anchor-id="files-directories"><span class="header-section-number">10.2</span> Files &amp; Directories</h2>
 <p>When manipulating files we sometimes we want to explicitly distinguish between files and directories. <code>pathlib.Path</code> has a few methods that make our life easier:</p>
 <div id="bee451f1-7c97-46f6-9472-70baa6dc80cd" class="cell" data-execution_count="4">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb25"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>current <span class="op">=</span> Path(<span class="st">"."</span>)  <span class="co"># dot means current dir</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
@@ -538,9 +539,17 @@ Tip
 </div>
 </div>
 </section>
-<section id="shutil" class="level2" data-number="11.3">
-<h2 data-number="11.3" class="anchored" data-anchor-id="shutil"><span class="header-section-number">11.3</span> Shutil</h2>
+<section id="shutil" class="level2" data-number="10.3">
+<h2 data-number="10.3" class="anchored" data-anchor-id="shutil"><span class="header-section-number">10.3</span> Shutil</h2>
 <p>🚧 Material under construction 🚧</p>
+</section>
+<section id="exercises" class="level2" data-number="10.4">
+<h2 data-number="10.4" class="anchored" data-anchor-id="exercises"><span class="header-section-number">10.4</span> Exercises</h2>
+<p>Now that we now how to read files from within python, we can tidy up things a bit from previous chapter.</p>
+<ol type="1">
+<li>Download the data from the repository <a href="https://github.com/OpenNeuroDatasets/ds005588/blob/main/sub-336/func/sub-336_task-respo_run-2_events.tsv">here</a> into a local file on your computer.</li>
+<li>Write a function that takes a path and returns the list of dictionaries from exercise 8.5. Read the file content using <code>pathlib</code>.</li>
+</ol>
 
 
 </section>
@@ -948,13 +957,13 @@ Tip
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./061_dependencies.html" class="pagination-link" aria-label="Dependencies">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Dependencies</span></span>
+      <a href="./06_imports.html" class="pagination-link" aria-label="Importing Code">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Importing Code</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./063_common_data_formats.html" class="pagination-link" aria-label="Common Data Formats">
-        <span class="nav-page-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Common Data Formats</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./061_dependencies.html" class="pagination-link" aria-label="Dependencies">
+        <span class="nav-page-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Dependencies</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

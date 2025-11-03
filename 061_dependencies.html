@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>10&nbsp; Dependencies – Python Course</title>
+<title>11&nbsp; Dependencies – Python Course</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -65,8 +65,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./062_read_and_write.html" rel="next">
-<link href="./06_imports.html" rel="prev">
+<link href="./063_common_data_formats.html" rel="next">
+<link href="./062_read_and_write.html" rel="prev">
 <link href="././favicon.svg" rel="icon" type="image/svg+xml">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
@@ -197,7 +197,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./061_dependencies.html"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Dependencies</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./061_dependencies.html"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Dependencies</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -275,14 +275,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./061_dependencies.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Dependencies</span></span></a>
+  <a href="./062_read_and_write.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Read/Write Files</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./062_read_and_write.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Read/Write Files</span></span></a>
+  <a href="./061_dependencies.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Dependencies</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -373,7 +373,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#managing-dependencies" id="toc-managing-dependencies" class="nav-link active" data-scroll-target="#managing-dependencies"><span class="header-section-number">10.1</span> Managing dependencies</a></li>
+  <li><a href="#managing-dependencies" id="toc-managing-dependencies" class="nav-link active" data-scroll-target="#managing-dependencies"><span class="header-section-number">11.1</span> Managing dependencies</a></li>
   </ul>
 </nav>
     </div>
@@ -382,7 +382,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Dependencies</span></h1>
+<h1 class="title"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Dependencies</span></h1>
 </div>
 
 
@@ -404,8 +404,8 @@ This libraries are also called “packages”. There are several repositories wh
 <p>These are open-source libraries maintained mostly by voluntary contributions of people of the community – and you can also contribute to them!</p>
 <p>They are being actively developed and thus in permanent evolution. In order to avoid compatibility problems and to ensure reproducibility, we might want to specify the exact versions of the packages we use. It turns out that is not an easy problem and the reason why need a <strong>package manager</strong>.</p>
 <p>The good news is that <code>uv</code> does that for us too.</p>
-<section id="managing-dependencies" class="level2" data-number="10.1">
-<h2 data-number="10.1" class="anchored" data-anchor-id="managing-dependencies"><span class="header-section-number">10.1</span> Managing dependencies</h2>
+<section id="managing-dependencies" class="level2" data-number="11.1">
+<h2 data-number="11.1" class="anchored" data-anchor-id="managing-dependencies"><span class="header-section-number">11.1</span> Managing dependencies</h2>
 <p>The standard to specify dependencies (and other things) in python projects is to use a file called <a href="https://packaging.python.org/en/latest/guides/writing-pyproject-toml/"><code>pyproject.toml</code></a> that looks like this:</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">[</span><span class="at">project</span><span class="kw">]</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="at">name = "example_package_name"</span></span>
@@ -871,13 +871,13 @@ PATCH version when you make backward compatible bug fixes</p>
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./06_imports.html" class="pagination-link" aria-label="Importing Code">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Importing Code</span></span>
+      <a href="./062_read_and_write.html" class="pagination-link" aria-label="Read/Write Files">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Read/Write Files</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./062_read_and_write.html" class="pagination-link" aria-label="Read/Write Files">
-        <span class="nav-page-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Read/Write Files</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./063_common_data_formats.html" class="pagination-link" aria-label="Common Data Formats">
+        <span class="nav-page-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Common Data Formats</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
