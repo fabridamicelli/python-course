@@ -293,8 +293,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./051_oop.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Object Oriented Programming</span></span></a>
+  <a href="./111_debugging.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Debugging</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -329,14 +329,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./111_debugging.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Debugging</span></span></a>
+  <a href="./13_tools.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Useful Tools and Patterns</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./13_tools.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Useful Tools and Patterns</span></span></a>
+  <a href="./051_oop.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Object Oriented Programming</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -399,10 +399,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<p>In contrast to the code that we ourselves write and can import or to some built-in modules such as <code>pathlib</code> and <code>json</code> that we can import directly after installing python, there are third-party libraries that we want to use but need to be first installed, such as <code>numpy</code> and <code>pandas</code>.<br>
-This libraries are also called “packages”. There are several repositories where people publish python packages and from which we can download them, but the official one is <a href="https://pypi.org">PyPI</a> (Python Package Index).</p>
+<p>In contrast to our own code that we can import or to some built-in modules such as <code>pathlib</code> that we can import directly after installing python, there are third-party libraries that we want to use but need to be first installed, such as <code>numpy</code> and <code>pandas</code>. This libraries are also called “packages”.</p>
+<p>There are several repositories (also called “indexes”) where people publish python packages and from which we can download them. The official one is <a href="https://pypi.org">PyPI</a> (Python Package Index).</p>
 <p>These are open-source libraries maintained mostly by voluntary contributions of people of the community – and you can also contribute to them!</p>
-<p>They are being actively developed and thus in permanent evolution. In order to avoid compatibility problems and to ensure reproducibility, we might want to specify the exact versions of the packages we use. It turns out that is not an easy problem and the reason why need a <strong>package manager</strong>.</p>
+<p>These packages are being actively developed and thus in permanent evolution. In order to avoid compatibility problems and to ensure reproducibility, we might want to specify the exact versions of the packages we use. It turns out that is not an easy problem and the reason why need a <strong>package manager</strong>.</p>
 <p>The good news is that <code>uv</code> does that for us too.</p>
 <section id="managing-dependencies" class="level2" data-number="11.1">
 <h2 data-number="11.1" class="anchored" data-anchor-id="managing-dependencies"><span class="header-section-number">11.1</span> Managing dependencies</h2>
@@ -460,6 +460,7 @@ PATCH version when you make backward compatible bug fixes</p>
 <p>For example:</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">uv</span> add numpy</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>That will add the dependency to our list as well as updating the “lock” file. Read more about this workflow and managing dependencies <a href="https://docs.astral.sh/uv/guides/projects/#working-on-projects">here</a>.</p>
+<p>The point is that after installing the dependency we can just import it like any other module.</p>
 <p>To remove a package from the dependencies of our project we do:</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="ex">uv</span> remove PACKAGE-NAME</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>For example:</p>

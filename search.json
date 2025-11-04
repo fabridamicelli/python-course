@@ -4,7 +4,7 @@
     "href": "index.html",
     "title": "Python Course",
     "section": "",
-    "text": "About the Course\nThis is a free, short introduction to the Python programming language, emphasizing practical over theoretical aspects and with a focus on data-related tasks.\nThe goal is to get you just enough tools under your belt for you to pursue your own learning path according to your interests. What’s in for you:\n✅ Core concepts of the language explained in simple words\n✅ Focus on “data-stack” (numpy, pandas, matplotlib, etc.)\n✅ Software engineering best-practices (project/dependency management, uv, testing with pytest, error handling, etc.)\n✅ Exercises on each chapter to get comfortable with the new concepts\n✅ Integrative “Labs” with real-world datasets to put all concepts together\n✅ Useful references to deepen your knowledge (talks, books, cheatsheets, etc.)\nCode notebooks and report any problems on this GitHub repository.\nOff we go! 🚀\n\n\nAbout the Author\nFabrizio Damicelli (PhD, Computational Neuroscience) is a self-taught coder who prefers solid intuitions to unnecessary sophistication and fancy jargon.\nOpen source advocate, creator and maintainer of a few of Python packages.\nLearn more about him here.",
+    "text": "About the Course\nThis is a free, short introduction to the Python programming language, emphasizing practical over theoretical aspects and with a focus on data-related tasks.\nThe goal is to get you just enough tools under your belt for you to pursue your own learning path according to your interests. What’s in for you:\n✅ Core concepts of the language explained in simple words\n✅ Software engineering best-practices (project/dependency management, uv, testing with pytest, error handling, etc.)\n✅ Useful references to deepen your knowledge (talks, books, cheatsheets, etc.)\n✅ Exercises for each chapter to ramp up your skills with deliberate practice\n✅ Integrative “Labs” with real-world datasets\nCode notebooks and report any problems on this GitHub repository.\nOff we go! 🚀\n\n\nAbout the Author\nFabrizio Damicelli (PhD, Computational Neuroscience) is a self-taught coder who prefers solid intuitions to unnecessary sophistication and fancy jargon.\nOpen source advocate, creator and maintainer of a few of Python packages and Open Source projects.\nLearn more about him here.",
     "crumbs": [
       "About the Course"
     ]
@@ -404,17 +404,17 @@
     "href": "06_imports.html",
     "title": "9  Importing Code",
     "section": "",
-    "text": "9.1 Script vs. Importable Code\nEvery Python installation includes a number of modules by default. They are called collectively the “Python Standard Library” or “built-in” modules.\nEven though these modules are available in our computer, we cannot directly use them, we need to import them into our current namespace to actually use them.\nFor example, if we try to use the module pathlib, we get this NameError\nThat means that the word pathlib is unknown in this context (namespace).\nLet’s bring it in:\nNow we can use it:\nWe can also import only specific parts of the module (submodules):\nIt is also possible to alias these imported names using the keyword as:\nWe can also import code that we wrote ourselves with the same syntax. For example, if we have a python file called mymodule.py we can import it from another file with:\nA Python module (any .py file) might contain code that we want to run as a script alongside code that we only want to use somewhere else (importing parts of it).\nWe can isolate part of the code that we want to run as a script with a trick that’s easier to show than to explain, so let’s do some exercises.",
+    "text": "9.1 Importable Code vs. Scripting\nEvery Python installation includes a number of modules by default. They are called collectively the “Python Standard Library” or “built-in” modules.\nEven though these modules are available in our computer, we cannot directly use them, we need to import them into our current namespace to actually use them.\nFor example, if we try to use the module pathlib, we get this NameError\nThat means that the word pathlib is unknown in this context (namespace).\nLet’s bring it in:\nNow we can use it:\nWe can also import only specific parts of the module (submodules):\nIt is also possible to alias these imported names using the keyword as:\nWe can also import our own code. For example, if we have a python file called mymodule.py we can use it in another file:\nSometimes we have a Python module (any .py file) that contain code that we only want to run as a script alongside code that we only want to use somewhere else (importing parts of it).\nWe can isolate part of the code that we want to run as a script with a special syntax, let’s do some exercises to show it.",
     "crumbs": [
       "<span class='chapter-number'>9</span>  <span class='chapter-title'>Importing Code</span>"
     ]
   },
   {
-    "objectID": "06_imports.html#script-vs.-importable-code",
-    "href": "06_imports.html#script-vs.-importable-code",
+    "objectID": "06_imports.html#importable-code-vs.-scripting",
+    "href": "06_imports.html#importable-code-vs.-scripting",
     "title": "9  Importing Code",
     "section": "",
-    "text": "import mymodule",
+    "text": "# anotherfile.py\n\nimport mymodule",
     "crumbs": [
       "<span class='chapter-number'>9</span>  <span class='chapter-title'>Importing Code</span>"
     ]
@@ -424,7 +424,7 @@
     "href": "06_imports.html#exercises",
     "title": "9  Importing Code",
     "section": "9.2 Exercises",
-    "text": "9.2 Exercises\nCreate 2 files like these in our working project /pycourse/src/pycourse/data.py, /pycourse/src/pycourse/preprocessing.py:\n# data.py\nRAWDATA = ...  # 3 dots are called \"Ellipsis\" and act as placeholder\n\ndef fetch_data(raw_data):\n    ... \n\nif __name__ == \"__main__\":\n    print(\"Fetching data\")    \n    data = fetch_data(RAWDATA)\n    print(data)\n# preprocessing.py\n\n\n# TODO: add missing imports to make it work\n\ndef cleanup(data):\n    ... \n    \ndef preprocess_pipeline(raw_data):\n    data = fetch_data(raw_data)\n    return cleanup(data)\n     \nif __name__ == \"__main__\":\n    print(\"Running preprocessing\")    \n    raw_data = ...\n    preprocess_pipeline(raw_data)\n\nCopy the RAWDATA from the previous lab exercises into a file data.py\nCreate another file called preprocessing.py in the same directory.\nImport the RAWDATA string inside preprocessing.py\nRun data.py as a script with uv run src/pycourse/data.py. Pay attention to the printed output\nRun preprocessing as a script with uv run src/pycourse/preprocessing.py. Pay attention to the printed output. What difference do you see compared to the previous point?\n\nCongratulations! You just ran your first python scripts 🚀",
+    "text": "9.2 Exercises\nCreate 2 files like these in our working project /pycourse/src/pycourse/data.py, /pycourse/src/pycourse/preprocessing.py:\n# data.py\n\nRAWDATA = ...  # 3 dots are called \"Ellipsis\" and act as placeholder\n\ndef fetch_data(raw_data):\n    ... \n\n# This block will only run when calling `python data.py`\nif __name__ == \"__main__\":\n    print(\"Fetching data\")    \n    data = fetch_data(RAWDATA)\n    print(data)\n# preprocessing.py\n\n\n# TODO: add missing imports to make it work\n\ndef cleanup(data):\n    ... \n    \ndef preprocess_pipeline(raw_data):\n    data = fetch_data(raw_data)\n    return cleanup(data)\n     \nif __name__ == \"__main__\":\n    print(\"Running preprocessing\")    \n    raw_data = ...\n    preprocess_pipeline(raw_data)\n\nCopy the RAWDATA from the previous lab exercises into a file data.py\nCreate another file called preprocessing.py in the same directory.\nImport the RAWDATA string inside preprocessing.py\nRun data.py as a script with uv run src/pycourse/data.py. Pay attention to the printed output\nRun preprocessing as a script with uv run src/pycourse/preprocessing.py. Pay attention to the printed output. What difference do you see compared to the previous point?\n\nCongratulations! You just ran your first python scripts 🚀",
     "crumbs": [
       "<span class='chapter-number'>9</span>  <span class='chapter-title'>Importing Code</span>"
     ]
@@ -484,7 +484,7 @@
     "href": "061_dependencies.html",
     "title": "11  Dependencies",
     "section": "",
-    "text": "11.1 Managing dependencies\nIn contrast to the code that we ourselves write and can import or to some built-in modules such as pathlib and json that we can import directly after installing python, there are third-party libraries that we want to use but need to be first installed, such as numpy and pandas.\nThis libraries are also called “packages”. There are several repositories where people publish python packages and from which we can download them, but the official one is PyPI (Python Package Index).\nThese are open-source libraries maintained mostly by voluntary contributions of people of the community – and you can also contribute to them!\nThey are being actively developed and thus in permanent evolution. In order to avoid compatibility problems and to ensure reproducibility, we might want to specify the exact versions of the packages we use. It turns out that is not an easy problem and the reason why need a package manager.\nThe good news is that uv does that for us too.\nThe standard to specify dependencies (and other things) in python projects is to use a file called pyproject.toml that looks like this:\nThe “dependencies” section is the one we care about here. There we list all the third-party libraries that our project requires. Notice that we can specify both exact versions (with “==”) as well as constraints (with “&lt;,&gt;,&gt;=,&lt;=”).\nIn general we don’t want to deal manually with those aspects – that’s the job of a package manager.\nWe will use here the package manager uv. You can read the docs for more details, which I strongly recommend since the documentation is pretty good and constantly being updated. To add a dependency we type:\nFor example:\nThat will add the dependency to our list as well as updating the “lock” file. Read more about this workflow and managing dependencies here.\nTo remove a package from the dependencies of our project we do:\nFor example:",
+    "text": "11.1 Managing dependencies\nIn contrast to our own code that we can import or to some built-in modules such as pathlib that we can import directly after installing python, there are third-party libraries that we want to use but need to be first installed, such as numpy and pandas. This libraries are also called “packages”.\nThere are several repositories (also called “indexes”) where people publish python packages and from which we can download them. The official one is PyPI (Python Package Index).\nThese are open-source libraries maintained mostly by voluntary contributions of people of the community – and you can also contribute to them!\nThese packages are being actively developed and thus in permanent evolution. In order to avoid compatibility problems and to ensure reproducibility, we might want to specify the exact versions of the packages we use. It turns out that is not an easy problem and the reason why need a package manager.\nThe good news is that uv does that for us too.\nThe standard to specify dependencies (and other things) in python projects is to use a file called pyproject.toml that looks like this:\nThe “dependencies” section is the one we care about here. There we list all the third-party libraries that our project requires. Notice that we can specify both exact versions (with “==”) as well as constraints (with “&lt;,&gt;,&gt;=,&lt;=”).\nIn general we don’t want to deal manually with those aspects – that’s the job of a package manager.\nWe will use here the package manager uv. You can read the docs for more details, which I strongly recommend since the documentation is pretty good and constantly being updated. To add a dependency we type:\nFor example:\nThat will add the dependency to our list as well as updating the “lock” file. Read more about this workflow and managing dependencies here.\nThe point is that after installing the dependency we can just import it like any other module.\nTo remove a package from the dependencies of our project we do:\nFor example:",
     "crumbs": [
       "<span class='chapter-number'>11</span>  <span class='chapter-title'>Dependencies</span>"
     ]
@@ -494,7 +494,7 @@
     "href": "061_dependencies.html#managing-dependencies",
     "title": "11  Dependencies",
     "section": "",
-    "text": "[project]\nname = \"example_package_name\"\nversion = \"0.0.1\"\nauthors = [\n  { name=\"Example Author\", email=\"author@example.com\" },\n]\ndescription = \"A small example package\"\nreadme = \"README.md\"\nrequires-python = \"&gt;=3.10,&lt;3.12\"\ndependencies = [\n    \"numpy==1.2.0\",\n    \"pandas&lt;2.0.0\",\n    \"scikit-learn&gt;=1.0,&lt;2.0\"\n]\n\n\n\n\n\n\nNote\n\n\n\nTake a look at the pyproject.toml file in you project, we already have one that uv automatically created for us!\n\n\n\n\n\n\n\n\n\n\nNote\n\n\n\nThe packages usually follow a so-called “Semantic versioning” convention on how to name the versions of the package to avoid compatibility problems. In short: Given a version number MAJOR.MINOR.PATCH.\n\nMAJOR version when you make incompatible API changes\nMINOR version when you add functionality in a backward compatible manner\nPATCH version when you make backward compatible bug fixes\n\nRead more about that here.\n\n\n\nuv add PACKAGE-NAME\n\nuv add numpy\n\n\nuv remove PACKAGE-NAME\n\nuv remove numpy",
+    "text": "[project]\nname = \"example_package_name\"\nversion = \"0.0.1\"\nauthors = [\n  { name=\"Example Author\", email=\"author@example.com\" },\n]\ndescription = \"A small example package\"\nreadme = \"README.md\"\nrequires-python = \"&gt;=3.10,&lt;3.12\"\ndependencies = [\n    \"numpy==1.2.0\",\n    \"pandas&lt;2.0.0\",\n    \"scikit-learn&gt;=1.0,&lt;2.0\"\n]\n\n\n\n\n\n\nNote\n\n\n\nTake a look at the pyproject.toml file in you project, we already have one that uv automatically created for us!\n\n\n\n\n\n\n\n\n\n\nNote\n\n\n\nThe packages usually follow a so-called “Semantic versioning” convention on how to name the versions of the package to avoid compatibility problems. In short: Given a version number MAJOR.MINOR.PATCH.\n\nMAJOR version when you make incompatible API changes\nMINOR version when you add functionality in a backward compatible manner\nPATCH version when you make backward compatible bug fixes\n\nRead more about that here.\n\n\n\nuv add PACKAGE-NAME\n\nuv add numpy\n\n\n\nuv remove PACKAGE-NAME\n\nuv remove numpy",
     "crumbs": [
       "<span class='chapter-number'>11</span>  <span class='chapter-title'>Dependencies</span>"
     ]
@@ -570,53 +570,43 @@
     ]
   },
   {
-    "objectID": "051_oop.html",
-    "href": "051_oop.html",
-    "title": "13  Object Oriented Programming",
+    "objectID": "111_debugging.html",
+    "href": "111_debugging.html",
+    "title": "13  Debugging",
     "section": "",
-    "text": "13.1 Classes and Objects\nIn python we deal with so-called objects. An object is an instance, that is a particular realization, of a class.\nHere’s an analogy: You can think of a class as the instructions to build a car, say a FiatUno:\nclass FiatUno:\n    def __init__(self, color=\"white\", radio=False):\n        self.color = color\n        self.radio = radio\n        self.radio_is_on = False\n    def turn_on_radio(self):\n        self.radio_is_on = True\n        print(f\"Radio is on!\")\n    def turn_off_radio(self):\n        self.radio_is_on = False\n        print(f\"Radio is off!\")\nEach actual car is an object, i.e. an instance of a class:\ncar1 = FiatUno()\nWe can make another car:\ncar2 = FiatUno()\nLike two cars can be the same model and color, they always have different license plates.\nThe same happens in python:\nid(car1)\n\n139856081602784\nid(car2)\n\n139856081603648\nEach object has attributes:\ncar1.color, car1.radio\n\n('white', False)",
+    "text": "13.1 What is a debugger?\nWe are humans, we make mistakes – that’s very much true for coding. Finding errors in our code is fundamental skill to train.\nWe will cover here a few tools that help us find and fix errors more quickly.\nA debugger is a device that allows us to interrupt code execution and jump into the execution context in a interactive mode, so that we can inspect and run code to find out what’s going on.\nWe called that to “set a breakpoint” or “set a trace”.\nThere are a few options to do that natively in python.",
     "crumbs": [
-      "<span class='chapter-number'>13</span>  <span class='chapter-title'>Object Oriented Programming</span>"
+      "<span class='chapter-number'>13</span>  <span class='chapter-title'>Debugging</span>"
     ]
   },
   {
-    "objectID": "051_oop.html#classes-and-objects",
-    "href": "051_oop.html#classes-and-objects",
-    "title": "13  Object Oriented Programming",
-    "section": "",
-    "text": "Note\n\n\n\nBy convention, we use CamelCase to name classes.",
+    "objectID": "111_debugging.html#python-debugger-breakpoints",
+    "href": "111_debugging.html#python-debugger-breakpoints",
+    "title": "13  Debugging",
+    "section": "13.2 Python debugger, breakpoints",
+    "text": "13.2 Python debugger, breakpoints\nThe python standard library includes pdb module.\nimport pdb; pdb.set_trace()",
     "crumbs": [
-      "<span class='chapter-number'>13</span>  <span class='chapter-title'>Object Oriented Programming</span>"
+      "<span class='chapter-number'>13</span>  <span class='chapter-title'>Debugging</span>"
     ]
   },
   {
-    "objectID": "051_oop.html#methods",
-    "href": "051_oop.html#methods",
-    "title": "13  Object Oriented Programming",
-    "section": "13.2 Methods",
-    "text": "13.2 Methods\nDifferent car models have different functionalities, like turning the radio on.\nIn python it’s the same, the functions attached to an object are called methods and we call them with this dot notation:\n\ncar1.turn_on_radio()  # it's just a function, so we call it with ()\n\nRadio is on!\n\n\n\ncar1.turn_off_radio()\n\nRadio is off!\n\n\nWhere is the self argument of the functions?\nThe first argument of a method will be always passed to the method in the call and it is the object itself (thus the convention to call it self).\nThat’s a bit meta an a bit confusing, but don’t worry, you’ll get a feel of it by using the classes/objects.",
+    "objectID": "111_debugging.html#ipython-debugger",
+    "href": "111_debugging.html#ipython-debugger",
+    "title": "13  Debugging",
+    "section": "13.3 IPython debugger",
+    "text": "13.3 IPython debugger",
     "crumbs": [
-      "<span class='chapter-number'>13</span>  <span class='chapter-title'>Object Oriented Programming</span>"
+      "<span class='chapter-number'>13</span>  <span class='chapter-title'>Debugging</span>"
     ]
   },
   {
-    "objectID": "051_oop.html#dunder-methods",
-    "href": "051_oop.html#dunder-methods",
-    "title": "13  Object Oriented Programming",
-    "section": "13.3 Dunder Methods",
-    "text": "13.3 Dunder Methods\nWe saw above the __init__ method. This methods are special and there is a bunch of them already present on all classes:\n\ndir(FiatUno)\n\n['__class__',\n '__delattr__',\n '__dict__',\n '__dir__',\n '__doc__',\n '__eq__',\n '__format__',\n '__ge__',\n '__getattribute__',\n '__gt__',\n '__hash__',\n '__init__',\n '__init_subclass__',\n '__le__',\n '__lt__',\n '__module__',\n '__ne__',\n '__new__',\n '__reduce__',\n '__reduce_ex__',\n '__repr__',\n '__setattr__',\n '__sizeof__',\n '__str__',\n '__subclasshook__',\n '__weakref__',\n 'turn_off_radio',\n 'turn_on_radio']\n\n\nThese “dunder” methods define the behavior of the object in several ways. For example, the __str__ method defines the string representation of the object, which is used when we call print on an object. When we do print(something), python actually goes to the method __str__ of something and calls that one. Let’s see it in action:\n\nclass A:\n    def __init__(self, msg=\"hello\"):\n        self.msg = msg\n    def __str__(self):\n        return self.msg + \", nice to meet you\"\n\n\na = A()\n\n\nprint(a)\n\nhello, nice to meet you\n\n\nIt’s good to know that these dunder methods exist and some libraries will require the user changing them. But in general, you should not worry about them.\n\n\n\n\n\n\nTip\n\n\n\nDon’t overwrite dunder methods unless you really, really need it and you’re sure what you’re doing – it is pretty easy to make mistakes that lead to difficult to debug bugs.",
+    "objectID": "111_debugging.html#notebook-debug",
+    "href": "111_debugging.html#notebook-debug",
+    "title": "13  Debugging",
+    "section": "13.4 Notebook %%debug",
+    "text": "13.4 Notebook %%debug",
     "crumbs": [
-      "<span class='chapter-number'>13</span>  <span class='chapter-title'>Object Oriented Programming</span>"
-    ]
-  },
-  {
-    "objectID": "051_oop.html#inheritance",
-    "href": "051_oop.html#inheritance",
-    "title": "13  Object Oriented Programming",
-    "section": "13.4 Inheritance",
-    "text": "13.4 Inheritance\n\n\n\n\n\n\nTip\n\n\n\nAvoid using inheritance. We show it here just for you to know it exists and that some libraries use it. You can totally live without it.\n\n\nClasses can be organized in a hierarchy:\n\nclass Car:\n    def __init__(self):\n        self.n_wheels = 4 \n        \nclass FiatPalio(Car):\n    def turn_on_radio(self):\n        print(\"Radio is on\")\n        \nclass FiatTipo(Car):\n    def turn_on_ac(self):\n        print(\"Pretty hot in here\")\n\ncar3 = FiatPalio()\ncar4 = FiatTipo()\n\n\ncar3.turn_on_radio()\n\nRadio is on\n\n\n\ncar3.n_wheels\n\n4\n\n\n\ncar4.turn_on_ac()\n\nPretty hot here\n\n\n\ncar4.n_wheels\n\n4\n\n\nIn that case Car is called the “parent” class and the FiatPalio the “child” or “subclass”.\nNotice that both car3 and car4 inherited the attribute n_wheels from Car.\nA class can have more than one parent:\n\nclass Parent1:\n    n_arms = 2\n        \nclass Parent2:\n    n_legs = 2\n        \nclass Parent3:\n    n_eyes = 2\n\nclass Child(Parent1, Parent2, Parent3):\n    def list_body_parts(self):\n        print(\"arms: \", self.n_arms)\n        print(\"legs: \", self.n_legs)\n        print(\"eyes: \", self.n_eyes)\n\n\nchild = Child()\n\n\nchild.list_body_parts()\n\narms:  2\nlegs:  2\neyes:  2\n\n\nMultiple inheritance is also tricky and you should avoid it. It’s just good to know it exists to understand code from out there, for example, the popular scikit-learn library uses this a lot to propagate methods and avoid code duplication.",
-    "crumbs": [
-      "<span class='chapter-number'>13</span>  <span class='chapter-title'>Object Oriented Programming</span>"
+      "<span class='chapter-number'>13</span>  <span class='chapter-title'>Debugging</span>"
     ]
   },
   {
@@ -750,83 +740,103 @@
     ]
   },
   {
-    "objectID": "111_debugging.html",
-    "href": "111_debugging.html",
-    "title": "19  Debugging",
-    "section": "",
-    "text": "19.1 Python debugger, breakpoints\nWe are humans, we make mistakes and that’s very much true for coding. Finding errors in our code is fundamental skill to train since we cannot avoid making mistakes. The goal is to get better at finding and fixing them quickly.",
-    "crumbs": [
-      "<span class='chapter-number'>19</span>  <span class='chapter-title'>Debugging</span>"
-    ]
-  },
-  {
-    "objectID": "111_debugging.html#ipython-debugger",
-    "href": "111_debugging.html#ipython-debugger",
-    "title": "19  Debugging",
-    "section": "19.2 IPython debugger",
-    "text": "19.2 IPython debugger",
-    "crumbs": [
-      "<span class='chapter-number'>19</span>  <span class='chapter-title'>Debugging</span>"
-    ]
-  },
-  {
-    "objectID": "111_debugging.html#notebook-debug",
-    "href": "111_debugging.html#notebook-debug",
-    "title": "19  Debugging",
-    "section": "19.3 Notebook %%debug",
-    "text": "19.3 Notebook %%debug",
-    "crumbs": [
-      "<span class='chapter-number'>19</span>  <span class='chapter-title'>Debugging</span>"
-    ]
-  },
-  {
     "objectID": "13_tools.html",
     "href": "13_tools.html",
-    "title": "20  Useful Tools and Patterns",
+    "title": "19  Useful Tools and Patterns",
     "section": "",
-    "text": "20.1 Generators",
+    "text": "19.1 Generators",
     "crumbs": [
-      "<span class='chapter-number'>20</span>  <span class='chapter-title'>Useful Tools and Patterns</span>"
+      "<span class='chapter-number'>19</span>  <span class='chapter-title'>Useful Tools and Patterns</span>"
     ]
   },
   {
     "objectID": "13_tools.html#decorators",
     "href": "13_tools.html#decorators",
-    "title": "20  Useful Tools and Patterns",
-    "section": "20.2 Decorators",
-    "text": "20.2 Decorators\naka, closure",
+    "title": "19  Useful Tools and Patterns",
+    "section": "19.2 Decorators",
+    "text": "19.2 Decorators\naka, closure",
     "crumbs": [
-      "<span class='chapter-number'>20</span>  <span class='chapter-title'>Useful Tools and Patterns</span>"
+      "<span class='chapter-number'>19</span>  <span class='chapter-title'>Useful Tools and Patterns</span>"
     ]
   },
   {
     "objectID": "13_tools.html#the-functools-module",
     "href": "13_tools.html#the-functools-module",
-    "title": "20  Useful Tools and Patterns",
-    "section": "20.3 The functools module",
-    "text": "20.3 The functools module\n\npartial\ncache\noperator?",
+    "title": "19  Useful Tools and Patterns",
+    "section": "19.3 The functools module",
+    "text": "19.3 The functools module\n\npartial\ncache\noperator?",
     "crumbs": [
-      "<span class='chapter-number'>20</span>  <span class='chapter-title'>Useful Tools and Patterns</span>"
+      "<span class='chapter-number'>19</span>  <span class='chapter-title'>Useful Tools and Patterns</span>"
     ]
   },
   {
     "objectID": "13_tools.html#the-itertools-module",
     "href": "13_tools.html#the-itertools-module",
-    "title": "20  Useful Tools and Patterns",
-    "section": "20.4 The itertools module",
-    "text": "20.4 The itertools module\n\nproduct",
+    "title": "19  Useful Tools and Patterns",
+    "section": "19.4 The itertools module",
+    "text": "19.4 The itertools module\n\nproduct",
     "crumbs": [
-      "<span class='chapter-number'>20</span>  <span class='chapter-title'>Useful Tools and Patterns</span>"
+      "<span class='chapter-number'>19</span>  <span class='chapter-title'>Useful Tools and Patterns</span>"
     ]
   },
   {
     "objectID": "13_tools.html#modules-for-scientific-computing",
     "href": "13_tools.html#modules-for-scientific-computing",
-    "title": "20  Useful Tools and Patterns",
-    "section": "20.5 Modules for Scientific Computing",
-    "text": "20.5 Modules for Scientific Computing\n\nmath\ndecimal",
+    "title": "19  Useful Tools and Patterns",
+    "section": "19.5 Modules for Scientific Computing",
+    "text": "19.5 Modules for Scientific Computing\n\nmath\ndecimal",
     "crumbs": [
-      "<span class='chapter-number'>20</span>  <span class='chapter-title'>Useful Tools and Patterns</span>"
+      "<span class='chapter-number'>19</span>  <span class='chapter-title'>Useful Tools and Patterns</span>"
+    ]
+  },
+  {
+    "objectID": "051_oop.html",
+    "href": "051_oop.html",
+    "title": "20  Object Oriented Programming",
+    "section": "",
+    "text": "20.1 Classes and Objects\nIn python we deal with so-called objects. An object is an instance, that is a particular realization, of a class.\nHere’s an analogy: You can think of a class as the instructions to build a car, say a FiatUno:\nclass FiatUno:\n    def __init__(self, color=\"white\", radio=False):\n        self.color = color\n        self.radio = radio\n        self.radio_is_on = False\n    def turn_on_radio(self):\n        self.radio_is_on = True\n        print(f\"Radio is on!\")\n    def turn_off_radio(self):\n        self.radio_is_on = False\n        print(f\"Radio is off!\")\nEach actual car is an object, i.e. an instance of a class:\ncar1 = FiatUno()\nWe can make another car:\ncar2 = FiatUno()\nLike two cars can be the same model and color, they always have different license plates.\nThe same happens in python:\nid(car1)\n\n139856081602784\nid(car2)\n\n139856081603648\nEach object has attributes:\ncar1.color, car1.radio\n\n('white', False)",
+    "crumbs": [
+      "<span class='chapter-number'>20</span>  <span class='chapter-title'>Object Oriented Programming</span>"
+    ]
+  },
+  {
+    "objectID": "051_oop.html#classes-and-objects",
+    "href": "051_oop.html#classes-and-objects",
+    "title": "20  Object Oriented Programming",
+    "section": "",
+    "text": "Note\n\n\n\nBy convention, we use CamelCase to name classes.",
+    "crumbs": [
+      "<span class='chapter-number'>20</span>  <span class='chapter-title'>Object Oriented Programming</span>"
+    ]
+  },
+  {
+    "objectID": "051_oop.html#methods",
+    "href": "051_oop.html#methods",
+    "title": "20  Object Oriented Programming",
+    "section": "20.2 Methods",
+    "text": "20.2 Methods\nDifferent car models have different functionalities, like turning the radio on.\nIn python it’s the same, the functions attached to an object are called methods and we call them with this dot notation:\n\ncar1.turn_on_radio()  # it's just a function, so we call it with ()\n\nRadio is on!\n\n\n\ncar1.turn_off_radio()\n\nRadio is off!\n\n\nWhere is the self argument of the functions?\nThe first argument of a method will be always passed to the method in the call and it is the object itself (thus the convention to call it self).\nThat’s a bit meta an a bit confusing, but don’t worry, you’ll get a feel of it by using the classes/objects.",
+    "crumbs": [
+      "<span class='chapter-number'>20</span>  <span class='chapter-title'>Object Oriented Programming</span>"
+    ]
+  },
+  {
+    "objectID": "051_oop.html#dunder-methods",
+    "href": "051_oop.html#dunder-methods",
+    "title": "20  Object Oriented Programming",
+    "section": "20.3 Dunder Methods",
+    "text": "20.3 Dunder Methods\nWe saw above the __init__ method. This methods are special and there is a bunch of them already present on all classes:\n\ndir(FiatUno)\n\n['__class__',\n '__delattr__',\n '__dict__',\n '__dir__',\n '__doc__',\n '__eq__',\n '__format__',\n '__ge__',\n '__getattribute__',\n '__gt__',\n '__hash__',\n '__init__',\n '__init_subclass__',\n '__le__',\n '__lt__',\n '__module__',\n '__ne__',\n '__new__',\n '__reduce__',\n '__reduce_ex__',\n '__repr__',\n '__setattr__',\n '__sizeof__',\n '__str__',\n '__subclasshook__',\n '__weakref__',\n 'turn_off_radio',\n 'turn_on_radio']\n\n\nThese “dunder” methods define the behavior of the object in several ways. For example, the __str__ method defines the string representation of the object, which is used when we call print on an object. When we do print(something), python actually goes to the method __str__ of something and calls that one. Let’s see it in action:\n\nclass A:\n    def __init__(self, msg=\"hello\"):\n        self.msg = msg\n    def __str__(self):\n        return self.msg + \", nice to meet you\"\n\n\na = A()\n\n\nprint(a)\n\nhello, nice to meet you\n\n\nIt’s good to know that these dunder methods exist and some libraries will require the user changing them. But in general, you should not worry about them.\n\n\n\n\n\n\nTip\n\n\n\nDon’t overwrite dunder methods unless you really, really need it and you’re sure what you’re doing – it is pretty easy to make mistakes that lead to difficult to debug bugs.",
+    "crumbs": [
+      "<span class='chapter-number'>20</span>  <span class='chapter-title'>Object Oriented Programming</span>"
+    ]
+  },
+  {
+    "objectID": "051_oop.html#inheritance",
+    "href": "051_oop.html#inheritance",
+    "title": "20  Object Oriented Programming",
+    "section": "20.4 Inheritance",
+    "text": "20.4 Inheritance\n\n\n\n\n\n\nTip\n\n\n\nAvoid using inheritance. We show it here just for you to know it exists and that some libraries use it. You can totally live without it.\n\n\nClasses can be organized in a hierarchy:\n\nclass Car:\n    def __init__(self):\n        self.n_wheels = 4 \n        \nclass FiatPalio(Car):\n    def turn_on_radio(self):\n        print(\"Radio is on\")\n        \nclass FiatTipo(Car):\n    def turn_on_ac(self):\n        print(\"Pretty hot in here\")\n\ncar3 = FiatPalio()\ncar4 = FiatTipo()\n\n\ncar3.turn_on_radio()\n\nRadio is on\n\n\n\ncar3.n_wheels\n\n4\n\n\n\ncar4.turn_on_ac()\n\nPretty hot here\n\n\n\ncar4.n_wheels\n\n4\n\n\nIn that case Car is called the “parent” class and the FiatPalio the “child” or “subclass”.\nNotice that both car3 and car4 inherited the attribute n_wheels from Car.\nA class can have more than one parent:\n\nclass Parent1:\n    n_arms = 2\n        \nclass Parent2:\n    n_legs = 2\n        \nclass Parent3:\n    n_eyes = 2\n\nclass Child(Parent1, Parent2, Parent3):\n    def list_body_parts(self):\n        print(\"arms: \", self.n_arms)\n        print(\"legs: \", self.n_legs)\n        print(\"eyes: \", self.n_eyes)\n\n\nchild = Child()\n\n\nchild.list_body_parts()\n\narms:  2\nlegs:  2\neyes:  2\n\n\nMultiple inheritance is also tricky and you should avoid it. It’s just good to know it exists to understand code from out there, for example, the popular scikit-learn library uses this a lot to propagate methods and avoid code duplication.",
+    "crumbs": [
+      "<span class='chapter-number'>20</span>  <span class='chapter-title'>Object Oriented Programming</span>"
     ]
   },
   {

@@ -293,8 +293,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./051_oop.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Object Oriented Programming</span></span></a>
+  <a href="./111_debugging.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Debugging</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -329,14 +329,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./111_debugging.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Debugging</span></span></a>
+  <a href="./13_tools.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Useful Tools and Patterns</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./13_tools.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Useful Tools and Patterns</span></span></a>
+  <a href="./051_oop.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Object Oriented Programming</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -373,7 +373,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#script-vs.-importable-code" id="toc-script-vs.-importable-code" class="nav-link active" data-scroll-target="#script-vs.-importable-code"><span class="header-section-number">9.1</span> Script vs.&nbsp;Importable Code</a></li>
+  <li><a href="#importable-code-vs.-scripting" id="toc-importable-code-vs.-scripting" class="nav-link active" data-scroll-target="#importable-code-vs.-scripting"><span class="header-section-number">9.1</span> Importable Code vs.&nbsp;Scripting</a></li>
   <li><a href="#exercises" id="toc-exercises" class="nav-link" data-scroll-target="#exercises"><span class="header-section-number">9.2</span> Exercises</a></li>
   </ul>
 </nav>
@@ -442,26 +442,30 @@ Let’s bring it in:</p>
 <pre><code>PosixPath('.')</code></pre>
 </div>
 </div>
-<section id="script-vs.-importable-code" class="level2" data-number="9.1">
-<h2 data-number="9.1" class="anchored" data-anchor-id="script-vs.-importable-code"><span class="header-section-number">9.1</span> Script vs.&nbsp;Importable Code</h2>
-<p>We can also import code that we wrote ourselves with the same syntax. For example, if we have a python file called <code>mymodule.py</code> we can import it from another file with:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> mymodule</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>A Python module (any <code>.py</code> file) might contain code that we want to run as a script alongside code that we only want to use somewhere else (importing parts of it).</p>
-<p>We can isolate part of the code that we want to run as a script with a trick that’s easier to show than to explain, so let’s do some exercises.</p>
+<section id="importable-code-vs.-scripting" class="level2" data-number="9.1">
+<h2 data-number="9.1" class="anchored" data-anchor-id="importable-code-vs.-scripting"><span class="header-section-number">9.1</span> Importable Code vs.&nbsp;Scripting</h2>
+<p>We can also import our own code. For example, if we have a python file called <code>mymodule.py</code> we can use it in another file:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># anotherfile.py</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> mymodule</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Sometimes we have a Python module (any <code>.py</code> file) that contain code that we only want to run as a script alongside code that we only want to use somewhere else (importing parts of it).</p>
+<p>We can isolate part of the code that we want to run as a script with a special syntax, let’s do some exercises to show it.</p>
 </section>
 <section id="exercises" class="level2" data-number="9.2">
 <h2 data-number="9.2" class="anchored" data-anchor-id="exercises"><span class="header-section-number">9.2</span> Exercises</h2>
 <p>Create 2 files like these in our working project <code>/pycourse/src/pycourse/data.py</code>, <code>/pycourse/src/pycourse/preprocessing.py</code>:</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># data.py</span></span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>RAWDATA <span class="op">=</span> ...  <span class="co"># 3 dots are called "Ellipsis" and act as placeholder</span></span>
-<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> fetch_data(raw_data):</span>
-<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>    ... </span>
-<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="va">__name__</span> <span class="op">==</span> <span class="st">"__main__"</span>:</span>
-<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"Fetching data"</span>)    </span>
-<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>    data <span class="op">=</span> fetch_data(RAWDATA)</span>
-<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(data)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>RAWDATA <span class="op">=</span> ...  <span class="co"># 3 dots are called "Ellipsis" and act as placeholder</span></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> fetch_data(raw_data):</span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>    ... </span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a><span class="co"># This block will only run when calling `python data.py`</span></span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="va">__name__</span> <span class="op">==</span> <span class="st">"__main__"</span>:</span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"Fetching data"</span>)    </span>
+<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a>    data <span class="op">=</span> fetch_data(RAWDATA)</span>
+<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(data)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># preprocessing.py</span></span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a></span>
