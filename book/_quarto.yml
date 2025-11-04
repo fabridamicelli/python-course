@@ -45,14 +45,14 @@ book:
     - 062_read_and_write.ipynb
     - 061_dependencies.ipynb
     - 063_common_data_formats.ipynb
-    - 051_oop.ipynb
+    - 111_debugging.ipynb
     - 08_numpy.ipynb
     - 081_pandas.ipynb
     - 09_plotting.ipynb
     - 10_tests.ipynb
     - 11_cli.ipynb
-    - 111_debugging.ipynb
     - 13_tools.ipynb
+    - 051_oop.ipynb
     - lab_explore_data_exercises.ipynb
     - notebook_workflow.ipynb
     - 999_glossary.ipynb

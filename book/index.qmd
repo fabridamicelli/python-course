@@ -3,13 +3,11 @@ This is a free, **short introduction** to the Python programming language, empha
 The goal is to get you just enough tools under your belt for you to pursue your own learning path according to your interests. 
 What's in for you:
 
-
 ✅ Core concepts of the language explained in _simple words_  
-✅ Focus on "data-stack" ([numpy](https://numpy.org), [pandas](https://pandas.pydata.org/), [matplotlib](https://matplotlib.org/), etc.)  
 ✅ Software engineering best-practices (project/dependency management, [`uv`](https://docs.astral.sh/uv/), testing with [pytest](https://docs.pytest.org/en/stable/), error handling, etc.)  
-✅ Exercises on each chapter to get comfortable with the new concepts   
-✅ Integrative "Labs" with real-world datasets to put all concepts together  
 ✅ Useful references to deepen your knowledge (talks, books, cheatsheets, etc.)  
+✅ Exercises for each chapter to ramp up your skills with deliberate practice   
+✅ Integrative "Labs" with real-world datasets  
 
 Code notebooks and report any problems on [this GitHub repository](https://www.github.com/fabridamicelli/python-course).
 
@@ -18,6 +16,6 @@ Off we go! 🚀
 
 # About the Author
 Fabrizio Damicelli (PhD, Computational Neuroscience) is a self-taught coder who prefers solid intuitions to unnecessary sophistication and fancy jargon.  
-Open source advocate, creator and maintainer of a few of Python packages.  
+Open source advocate, creator and maintainer of a few of Python packages and Open Source projects.  
 Learn more about him [here](https://fabridamicelli.github.io).
 
