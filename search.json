@@ -574,7 +574,7 @@
     "href": "111_debugging.html",
     "title": "13  Debugging",
     "section": "",
-    "text": "13.1 What is a debugger?\nWe are humans, we make mistakes – that’s very much true for coding. Finding errors in our code is fundamental skill to train.\nWe will cover here a few tools that help us find and fix errors more quickly.\nA debugger is a device that allows us to interrupt code execution and jump into the execution context in a interactive mode, so that we can inspect and run code to find out what’s going on.\nWe called that to “set a breakpoint” or “set a trace”.\nThere are a few options to do that natively in python.",
+    "text": "13.1 What is a debugger?\nWe are humans, we make mistakes – that’s very much true for coding.\nFinding errors in our code is fundamental skill to train so we will cover here a few tools that help us find and fix errors more quickly.\nA debugger is a device that allows us to interrupt code execution and jump into the execution context in a interactive mode, so that we can inspect and run code to find out what’s going on.\nWe called that to “set a breakpoint” or “set a trace”.\nThere are a few options to do that in python.",
     "crumbs": [
       "<span class='chapter-number'>13</span>  <span class='chapter-title'>Debugging</span>"
     ]
@@ -584,7 +584,7 @@
     "href": "111_debugging.html#python-debugger-breakpoints",
     "title": "13  Debugging",
     "section": "13.2 Python debugger, breakpoints",
-    "text": "13.2 Python debugger, breakpoints\nThe python standard library includes pdb module.\nimport pdb; pdb.set_trace()",
+    "text": "13.2 Python debugger, breakpoints\nThe python standard library includes pdb module. If you call this function in your code you will be put into an interactive session exactly at that point.\nAny of the following options would work:\n# your code\n# your code\nimport pdb\npdb.set_trace()\n# your code\n# your code\nbreakpoint()\n# your code\n# your code\n# your code\nOnce in the debugger, we have several functions to proceed with code execution with more granular control.\nThere are several options, but the most commonly used methods are:\n\nn (next): Continue execution one line, stay in the current function (step over)\ns (step): Execute current line and stop in a foreign function if one is called (step into)\nc (continue): Continue whole code execution until a new breakpoint is found",
     "crumbs": [
       "<span class='chapter-number'>13</span>  <span class='chapter-title'>Debugging</span>"
     ]
@@ -594,7 +594,7 @@
     "href": "111_debugging.html#ipython-debugger",
     "title": "13  Debugging",
     "section": "13.3 IPython debugger",
-    "text": "13.3 IPython debugger",
+    "text": "13.3 IPython debugger\nThe standard python debugger is fine but a bit basic, so sometimes the IPython debugger is a friendlier option.\nWe need to install it:\nuv add ipdb\nThen we can do:\nimport ipdb\nipdb.set_trace()",
     "crumbs": [
       "<span class='chapter-number'>13</span>  <span class='chapter-title'>Debugging</span>"
     ]
@@ -603,8 +603,18 @@
     "objectID": "111_debugging.html#notebook-debug",
     "href": "111_debugging.html#notebook-debug",
     "title": "13  Debugging",
-    "section": "13.4 Notebook %%debug",
-    "text": "13.4 Notebook %%debug",
+    "section": "13.4 Notebook %debug",
+    "text": "13.4 Notebook %debug\nInside the jupyter notebook we can directly jump into a debugger when there is an error.\nIf a cell throws an error, you can type this “ipython magic method” in the following cell:\n%debug\n\ndef wrong_func():\n    a = 1\n    assert a == 0\n\nwrong_func()\n\n\n---------------------------------------------------------------------------\nAssertionError                            Traceback (most recent call last)\nCell In[1], line 5\n      2     a = 1\n      3     assert a == 0\n----&gt; 5 wrong_func()\n\nCell In[1], line 3, in wrong_func()\n      1 def wrong_func():\n      2     a = 1\n----&gt; 3     assert a == 0\n\nAssertionError: \n\n\n\n\n%debug\n\n\n&gt; /tmp/ipykernel_81865/3667203143.py(3)wrong_func()\n\n      1 def wrong_func():\n\n      2     a = 1\n\n----&gt; 3     assert a == 0\n\n      4 \n\n      5 wrong_func()\n\n\n\n\n\n\nipdb&gt;  print(a)\n\n\n1\n\n\nipdb&gt;  exit\n\n\nNotice that we typed “exit” to get out of the debugger.",
+    "crumbs": [
+      "<span class='chapter-number'>13</span>  <span class='chapter-title'>Debugging</span>"
+    ]
+  },
+  {
+    "objectID": "111_debugging.html#exercises",
+    "href": "111_debugging.html#exercises",
+    "title": "13  Debugging",
+    "section": "13.5 Exercises",
+    "text": "13.5 Exercises\nHere’s a piece of code that will fail at run-time:\n\ndef f(p):\n    assert p == 0\n    \ndef main():\n    a = 0\n    f(a)\n    b = 1 \n    f(b)\n    c = 0\n    f(c)\n\n\nRun the code to see the error\nSet a breakpoint inside main to use the debugger\nStep through the code using n (next) and another time using s (step)\nSet a second breakpoint inside mainand run again the code but this time use c (continue)\nDownload this public dataset into the folder /pycourse/data/ (create it if you don’t yet have it).\n\nThis dataset was modified and has some problems apparently. Here’s a bit of code to unzip it and read through the files.\n\npath = \"/home/fdamicel/projects/pycourse/data/ds005588-broken-data.zip\"\ntarget = \"/home/fdamicel/projects/pycourse/data\"\n\n\nimport zipfile\n\n\nwith zipfile.ZipFile(path) as file:\n    file.extractall(target)\n\n\n\n\n\n---------------------------------------------------------------------------\nUnicodeDecodeError                        Traceback (most recent call last)\nCell In[15], line 1\n----&gt; 1 lines = f.readlines()\n\nFile &lt;frozen codecs&gt;:325, in decode(self, input, final)\n\nUnicodeDecodeError: 'utf-8' codec can't decode byte 0xb9 in position 10: invalid start byte",
     "crumbs": [
       "<span class='chapter-number'>13</span>  <span class='chapter-title'>Debugging</span>"
     ]

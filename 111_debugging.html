@@ -376,7 +376,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#what-is-a-debugger" id="toc-what-is-a-debugger" class="nav-link active" data-scroll-target="#what-is-a-debugger"><span class="header-section-number">13.1</span> What is a debugger?</a></li>
   <li><a href="#python-debugger-breakpoints" id="toc-python-debugger-breakpoints" class="nav-link" data-scroll-target="#python-debugger-breakpoints"><span class="header-section-number">13.2</span> Python debugger, breakpoints</a></li>
   <li><a href="#ipython-debugger" id="toc-ipython-debugger" class="nav-link" data-scroll-target="#ipython-debugger"><span class="header-section-number">13.3</span> IPython debugger</a></li>
-  <li><a href="#notebook-debug" id="toc-notebook-debug" class="nav-link" data-scroll-target="#notebook-debug"><span class="header-section-number">13.4</span> Notebook %%debug</a></li>
+  <li><a href="#notebook-debug" id="toc-notebook-debug" class="nav-link" data-scroll-target="#notebook-debug"><span class="header-section-number">13.4</span> Notebook %debug</a></li>
+  <li><a href="#exercises" id="toc-exercises" class="nav-link" data-scroll-target="#exercises"><span class="header-section-number">13.5</span> Exercises</a></li>
   </ul>
 </nav>
     </div>
@@ -402,24 +403,155 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<p>We are humans, we make mistakes – that’s very much true for coding. Finding errors in our code is fundamental skill to train.</p>
-<p>We will cover here a few tools that help us find and fix errors more quickly.</p>
+<p>We are humans, we make mistakes – that’s very much true for coding.</p>
+<p>Finding errors in our code is fundamental skill to train so we will cover here a few tools that help us find and fix errors more quickly.</p>
 <section id="what-is-a-debugger" class="level2" data-number="13.1">
 <h2 data-number="13.1" class="anchored" data-anchor-id="what-is-a-debugger"><span class="header-section-number">13.1</span> What is a debugger?</h2>
 <p>A debugger is a device that allows us to interrupt code execution and jump into the execution context in a interactive mode, so that we can inspect and run code to find out what’s going on.<br>
 We called that to “set a breakpoint” or “set a trace”.</p>
-<p>There are a few options to do that natively in python.</p>
+<p>There are a few options to do that in python.</p>
 </section>
 <section id="python-debugger-breakpoints" class="level2" data-number="13.2">
 <h2 data-number="13.2" class="anchored" data-anchor-id="python-debugger-breakpoints"><span class="header-section-number">13.2</span> Python debugger, breakpoints</h2>
-<p>The python standard library includes <code>pdb</code> module.</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pdb<span class="op">;</span> pdb.set_trace()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>The python standard library includes <code>pdb</code> module. If you call this function in your code you will be put into an interactive session exactly at that point.</p>
+<p>Any of the following options would work:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># your code</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="co"># your code</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pdb</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>pdb.set_trace()</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="co"># your code</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="co"># your code</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="bu">breakpoint</span>()</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="co"># your code</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="co"># your code</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="co"># your code</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Once in the debugger, we have several functions to proceed with code execution with more granular control.</p>
+<p>There are several options, but the most commonly used methods are:</p>
+<ul>
+<li>n (next): Continue execution one line, stay in the current function (step over)</li>
+<li>s (step): Execute current line and stop in a foreign function if one is called (step into)</li>
+<li>c (continue): Continue whole code execution until a new breakpoint is found</li>
+</ul>
 </section>
 <section id="ipython-debugger" class="level2" data-number="13.3">
 <h2 data-number="13.3" class="anchored" data-anchor-id="ipython-debugger"><span class="header-section-number">13.3</span> IPython debugger</h2>
+<p>The standard python debugger is fine but a bit basic, so sometimes the IPython debugger is a friendlier option.</p>
+<p>We need to install it:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">uv</span> add ipdb</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Then we can do:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> ipdb</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>ipdb.set_trace()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section id="notebook-debug" class="level2" data-number="13.4">
-<h2 data-number="13.4" class="anchored" data-anchor-id="notebook-debug"><span class="header-section-number">13.4</span> Notebook %%debug</h2>
+<h2 data-number="13.4" class="anchored" data-anchor-id="notebook-debug"><span class="header-section-number">13.4</span> Notebook %debug</h2>
+<p>Inside the jupyter notebook we can directly jump into a debugger when there is an error.</p>
+<p>If a cell throws an error, you can type this “ipython magic method” in the following cell:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="op">%</span>debug</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div id="76c6445c-3cc0-4bc6-b602-97cd5707feee" class="cell" data-execution_count="1">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> wrong_func():</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>    a <span class="op">=</span> <span class="dv">1</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> a <span class="op">==</span> <span class="dv">0</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>wrong_func()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-error">
+<div class="ansi-escaped-output">
+<pre><span class="ansi-red-fg">---------------------------------------------------------------------------</span>
+<span class="ansi-red-fg">AssertionError</span>                            Traceback (most recent call last)
+<span class="ansi-cyan-fg">Cell</span><span class="ansi-cyan-fg"> </span><span class="ansi-green-fg">In[1]</span><span class="ansi-green-fg">, line 5</span>
+<span class="ansi-green-fg">      2</span>     a = <span class="ansi-green-fg">1</span>
+<span class="ansi-green-fg">      3</span>     <span style="font-weight:bold;color:rgb(0,135,0)">assert</span> a == <span class="ansi-green-fg">0</span>
+<span class="ansi-green-fg">----&gt; </span><span class="ansi-green-fg">5</span> <span class="ansi-yellow-bg">wrong_func</span><span class="ansi-yellow-bg">(</span><span class="ansi-yellow-bg">)</span>
+
+<span class="ansi-cyan-fg">Cell</span><span class="ansi-cyan-fg"> </span><span class="ansi-green-fg">In[1]</span><span class="ansi-green-fg">, line 3</span>, in <span class="ansi-cyan-fg">wrong_func</span><span class="ansi-blue-fg">()</span>
+<span class="ansi-green-fg">      1</span> <span style="font-weight:bold;color:rgb(0,135,0)">def</span><span style="color:rgb(188,188,188)"> </span><span class="ansi-blue-fg">wrong_func</span>():
+<span class="ansi-green-fg">      2</span>     a = <span class="ansi-green-fg">1</span>
+<span class="ansi-green-fg">----&gt; </span><span class="ansi-green-fg">3</span>     <span style="font-weight:bold;color:rgb(0,135,0)">assert</span> a == <span class="ansi-green-fg">0</span>
+
+<span class="ansi-red-fg">AssertionError</span>: </pre>
+</div>
+</div>
+</div>
+<div id="9225666f-7cce-4bec-96ac-c5fc1f167968" class="cell" data-execution_count="2">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="op">%</span>debug</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<div class="ansi-escaped-output">
+<pre>&gt; <span class="ansi-green-fg">/tmp/ipykernel_81865/3667203143.py</span>(<span class="ansi-bright-green-fg">3</span>)<span class="ansi-cyan-fg">wrong_func</span><span class="ansi-blue-fg">()</span>
+
+<span class="ansi-green-fg">      1</span> <span style="font-weight:bold;color:rgb(0,135,0)">def</span> wrong_func():
+
+<span class="ansi-green-fg">      2</span>     a = <span class="ansi-green-fg">1</span>
+
+<span class="ansi-green-fg">----&gt; 3</span>     <span style="font-weight:bold;color:rgb(0,135,0)">assert</span> a == <span class="ansi-green-fg">0</span>
+
+<span class="ansi-green-fg">      4</span> 
+
+<span class="ansi-green-fg">      5</span> wrong_func()
+
+
+</pre>
+</div>
+</div>
+<div class="cell-output cell-output-stdin">
+<pre><code>ipdb&gt;  print(a)</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>1</code></pre>
+</div>
+<div class="cell-output cell-output-stdin">
+<pre><code>ipdb&gt;  exit</code></pre>
+</div>
+</div>
+<p>Notice that we typed “exit” to get out of the debugger.</p>
+</section>
+<section id="exercises" class="level2" data-number="13.5">
+<h2 data-number="13.5" class="anchored" data-anchor-id="exercises"><span class="header-section-number">13.5</span> Exercises</h2>
+<p>Here’s a piece of code that will fail at run-time:</p>
+<div id="abb2830e-8f39-4bad-9f1c-cc0dd697f09c" class="cell" data-execution_count="8">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> f(p):</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> p <span class="op">==</span> <span class="dv">0</span></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> main():</span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>    a <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>    f(a)</span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>    b <span class="op">=</span> <span class="dv">1</span> </span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>    f(b)</span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>    c <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a>    f(c)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<ol type="1">
+<li>Run the code to see the error</li>
+<li>Set a breakpoint inside <code>main</code> to use the debugger</li>
+<li>Step through the code using <code>n (next)</code> and another time using <code>s (step)</code></li>
+<li>Set a second breakpoint inside <code>main</code>and run again the code but this time use <code>c (continue)</code></li>
+<li>Download <a href="https://github.com/fabridamicelli/ds005588/archive/refs/heads/broken-data.zip">this public dataset</a> into the folder <code>/pycourse/data/</code> (create it if you don’t yet have it).</li>
+</ol>
+<p>This dataset was modified and has some problems apparently. Here’s a bit of code to unzip it and read through the files.</p>
+<div id="bbe54d2f-f5a4-44f1-a015-8a4d19e1097a" class="cell" data-execution_count="6">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>path <span class="op">=</span> <span class="st">"/home/fdamicel/projects/pycourse/data/ds005588-broken-data.zip"</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>target <span class="op">=</span> <span class="st">"/home/fdamicel/projects/pycourse/data"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div id="e7ad9b30-c041-4edc-83d4-2cfdf984dac7" class="cell" data-execution_count="7">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> zipfile</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div id="123149ab-4410-4444-9348-099cbf067f91" class="cell" data-execution_count="8">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="cf">with</span> zipfile.ZipFile(path) <span class="im">as</span> <span class="bu">file</span>:</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">file</span>.extractall(target)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div id="4fbd3efe-bd52-4414-99a5-42058984a3c8" class="cell" data-execution_count="15">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-error">
+<div class="ansi-escaped-output">
+<pre><span class="ansi-red-fg">---------------------------------------------------------------------------</span>
+<span class="ansi-red-fg">UnicodeDecodeError</span>                        Traceback (most recent call last)
+<span class="ansi-cyan-fg">Cell</span><span class="ansi-cyan-fg"> </span><span class="ansi-green-fg">In[15]</span><span class="ansi-green-fg">, line 1</span>
+<span class="ansi-green-fg">----&gt; </span><span class="ansi-green-fg">1</span> lines = <span class="ansi-yellow-bg">f</span><span class="ansi-yellow-bg">.</span><span class="ansi-yellow-bg">readlines</span><span class="ansi-yellow-bg">(</span><span class="ansi-yellow-bg">)</span>
+
+<span class="ansi-cyan-fg">File </span><span class="ansi-green-fg">&lt;frozen codecs&gt;:325</span>, in <span class="ansi-cyan-fg">decode</span><span class="ansi-blue-fg">(self, input, final)</span>
+
+<span class="ansi-red-fg">UnicodeDecodeError</span>: 'utf-8' codec can't decode byte 0xb9 in position 10: invalid start byte</pre>
+</div>
+</div>
+</div>
 
 
 </section>
