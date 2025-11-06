@@ -523,35 +523,52 @@ We called that to “set a breakpoint” or “set a trace”.</p>
 <li>Set a breakpoint inside <code>main</code> to use the debugger</li>
 <li>Step through the code using <code>n (next)</code> and another time using <code>s (step)</code></li>
 <li>Set a second breakpoint inside <code>main</code>and run again the code but this time use <code>c (continue)</code></li>
-<li>Download <a href="https://github.com/fabridamicelli/ds005588/archive/refs/heads/broken-data.zip">this public dataset</a> into the folder <code>/pycourse/data/</code> (create it if you don’t yet have it).</li>
+<li>Download <a href="https://github.com/OpenNeuroDatasets/ds005588">this public dataset</a> as zip file into the folder <code>/pycourse/data/</code> (create it if you don’t yet have it)</li>
 </ol>
-<p>This dataset was modified and has some problems apparently. Here’s a bit of code to unzip it and read through the files.</p>
-<div id="bbe54d2f-f5a4-44f1-a015-8a4d19e1097a" class="cell" data-execution_count="6">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>path <span class="op">=</span> <span class="st">"/home/fdamicel/projects/pycourse/data/ds005588-broken-data.zip"</span></span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>target <span class="op">=</span> <span class="st">"/home/fdamicel/projects/pycourse/data"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Here’s a bit of code to unzip the file.</p>
+<div id="6ed1ee58-e172-48ca-8d02-735cefc5ec1e" class="cell" data-execution_count="1">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> pathlib <span class="im">import</span> Path</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> zipfile</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> unzip(source_file, target_dir):</span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">with</span> zipfile.ZipFile(source_file) <span class="im">as</span> <span class="bu">file</span>:</span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>        <span class="bu">file</span>.extractall(target_dir)</span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a>project_path <span class="op">=</span> Path(<span class="st">"/home/fdamicel/projects/pycourse"</span>)</span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a>source <span class="op">=</span> project_path<span class="op">/</span><span class="st">"data/ds005588-main.zip"</span></span>
+<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a>target <span class="op">=</span> project_path<span class="op">/</span><span class="st">"data"</span></span>
+<span id="cb11-12"><a href="#cb11-12" aria-hidden="true" tabindex="-1"></a>unzip(source, target)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<div id="e7ad9b30-c041-4edc-83d4-2cfdf984dac7" class="cell" data-execution_count="7">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> zipfile</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Now, your collaborator has written this script to extract the mean value of the “SAR” entry from across all subjects bold data.</p>
+<ol start="6" type="1">
+<li><p>Put this script into the folder (create if it does not yet exist) <code>pycourse/scripts/sar_mean.py</code> and make the necessary modifications to make it run as a script.</p></li>
+<li><p>Run it using <code>uv run scripts/sar_mean.py</code> and see it fail. Set a breakpoint inside the <code>get_subjects_sar_mean</code> function. Run it again and try to find the bug inside the debugger.</p></li>
+<li><p>Add some error handling to make sure the script runs.</p></li>
+</ol>
+<div id="4877305d-66bb-47ab-95c9-ae9377323bef" class="cell" data-execution_count="8">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> json</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> glob <span class="im">import</span> glob</span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> pathlib <span class="im">import</span> Path</span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> get_subjects_sar_mean(data_dir):</span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Grab all files matching this filename pattern</span></span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>    files <span class="op">=</span> glob(<span class="bu">str</span>(data_dir<span class="op">/</span><span class="st">"**/*_bold.json"</span>), recursive<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a>    sar_sum <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a>    n <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> <span class="bu">file</span> <span class="kw">in</span> files:</span>
+<span id="cb12-12"><a href="#cb12-12" aria-hidden="true" tabindex="-1"></a>        content <span class="op">=</span> json.loads(Path(<span class="bu">file</span>).read_text())</span>
+<span id="cb12-13"><a href="#cb12-13" aria-hidden="true" tabindex="-1"></a>        sar_sum <span class="op">+=</span> content[<span class="st">"SAR"</span>]</span>
+<span id="cb12-14"><a href="#cb12-14" aria-hidden="true" tabindex="-1"></a>        n <span class="op">+=</span> <span class="dv">1</span></span>
+<span id="cb12-15"><a href="#cb12-15" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> sar_sum<span class="op">/</span>n</span>
+<span id="cb12-16"><a href="#cb12-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-17"><a href="#cb12-17" aria-hidden="true" tabindex="-1"></a><span class="co"># </span><span class="al">TODO</span><span class="co">: add whatever code you need to make this code a proper script</span></span>
+<span id="cb12-18"><a href="#cb12-18" aria-hidden="true" tabindex="-1"></a><span class="co"># that prints the sar-mean when run</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<div id="123149ab-4410-4444-9348-099cbf067f91" class="cell" data-execution_count="8">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="cf">with</span> zipfile.ZipFile(path) <span class="im">as</span> <span class="bu">file</span>:</span>
-<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">file</span>.extractall(target)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-<div id="4fbd3efe-bd52-4414-99a5-42058984a3c8" class="cell" data-execution_count="15">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-error">
-<div class="ansi-escaped-output">
-<pre><span class="ansi-red-fg">---------------------------------------------------------------------------</span>
-<span class="ansi-red-fg">UnicodeDecodeError</span>                        Traceback (most recent call last)
-<span class="ansi-cyan-fg">Cell</span><span class="ansi-cyan-fg"> </span><span class="ansi-green-fg">In[15]</span><span class="ansi-green-fg">, line 1</span>
-<span class="ansi-green-fg">----&gt; </span><span class="ansi-green-fg">1</span> lines = <span class="ansi-yellow-bg">f</span><span class="ansi-yellow-bg">.</span><span class="ansi-yellow-bg">readlines</span><span class="ansi-yellow-bg">(</span><span class="ansi-yellow-bg">)</span>
-
-<span class="ansi-cyan-fg">File </span><span class="ansi-green-fg">&lt;frozen codecs&gt;:325</span>, in <span class="ansi-cyan-fg">decode</span><span class="ansi-blue-fg">(self, input, final)</span>
-
-<span class="ansi-red-fg">UnicodeDecodeError</span>: 'utf-8' codec can't decode byte 0xb9 in position 10: invalid start byte</pre>
-</div>
-</div>
-</div>
+<p>To recap, so far our project should have these files:</p>
+<p><img src="./images/files.png" class="img-fluid"></p>
+<p><img src="./images/tree-2.png" class="img-fluid"></p>
 
 
 </section>
