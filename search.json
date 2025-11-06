@@ -740,163 +740,163 @@
     ]
   },
   {
-    "objectID": "11_cli.html",
-    "href": "11_cli.html",
-    "title": "18  Command Line Interfaces (CLI)",
-    "section": "",
-    "text": "🚧 Material under construction 🚧",
-    "crumbs": [
-      "<span class='chapter-number'>18</span>  <span class='chapter-title'>Command Line Interfaces (CLI)</span>"
-    ]
-  },
-  {
-    "objectID": "13_tools.html",
-    "href": "13_tools.html",
-    "title": "19  Useful Tools and Patterns",
-    "section": "",
-    "text": "19.1 Generators",
-    "crumbs": [
-      "<span class='chapter-number'>19</span>  <span class='chapter-title'>Useful Tools and Patterns</span>"
-    ]
-  },
-  {
-    "objectID": "13_tools.html#decorators",
-    "href": "13_tools.html#decorators",
-    "title": "19  Useful Tools and Patterns",
-    "section": "19.2 Decorators",
-    "text": "19.2 Decorators\naka, closure",
-    "crumbs": [
-      "<span class='chapter-number'>19</span>  <span class='chapter-title'>Useful Tools and Patterns</span>"
-    ]
-  },
-  {
-    "objectID": "13_tools.html#the-functools-module",
-    "href": "13_tools.html#the-functools-module",
-    "title": "19  Useful Tools and Patterns",
-    "section": "19.3 The functools module",
-    "text": "19.3 The functools module\n\npartial\ncache\noperator?",
-    "crumbs": [
-      "<span class='chapter-number'>19</span>  <span class='chapter-title'>Useful Tools and Patterns</span>"
-    ]
-  },
-  {
-    "objectID": "13_tools.html#the-itertools-module",
-    "href": "13_tools.html#the-itertools-module",
-    "title": "19  Useful Tools and Patterns",
-    "section": "19.4 The itertools module",
-    "text": "19.4 The itertools module\n\nproduct",
-    "crumbs": [
-      "<span class='chapter-number'>19</span>  <span class='chapter-title'>Useful Tools and Patterns</span>"
-    ]
-  },
-  {
-    "objectID": "13_tools.html#modules-for-scientific-computing",
-    "href": "13_tools.html#modules-for-scientific-computing",
-    "title": "19  Useful Tools and Patterns",
-    "section": "19.5 Modules for Scientific Computing",
-    "text": "19.5 Modules for Scientific Computing\n\nmath\ndecimal",
-    "crumbs": [
-      "<span class='chapter-number'>19</span>  <span class='chapter-title'>Useful Tools and Patterns</span>"
-    ]
-  },
-  {
-    "objectID": "051_oop.html",
-    "href": "051_oop.html",
-    "title": "20  Object Oriented Programming",
-    "section": "",
-    "text": "20.1 Classes and Objects\nIn python we deal with so-called objects. An object is an instance, that is a particular realization, of a class.\nHere’s an analogy: You can think of a class as the instructions to build a car, say a FiatUno:\nclass FiatUno:\n    def __init__(self, color=\"white\", radio=False):\n        self.color = color\n        self.radio = radio\n        self.radio_is_on = False\n    def turn_on_radio(self):\n        self.radio_is_on = True\n        print(f\"Radio is on!\")\n    def turn_off_radio(self):\n        self.radio_is_on = False\n        print(f\"Radio is off!\")\nEach actual car is an object, i.e. an instance of a class:\ncar1 = FiatUno()\nWe can make another car:\ncar2 = FiatUno()\nLike two cars can be the same model and color, they always have different license plates.\nThe same happens in python:\nid(car1)\n\n139856081602784\nid(car2)\n\n139856081603648\nEach object has attributes:\ncar1.color, car1.radio\n\n('white', False)",
-    "crumbs": [
-      "<span class='chapter-number'>20</span>  <span class='chapter-title'>Object Oriented Programming</span>"
-    ]
-  },
-  {
-    "objectID": "051_oop.html#classes-and-objects",
-    "href": "051_oop.html#classes-and-objects",
-    "title": "20  Object Oriented Programming",
-    "section": "",
-    "text": "Note\n\n\n\nBy convention, we use CamelCase to name classes.",
-    "crumbs": [
-      "<span class='chapter-number'>20</span>  <span class='chapter-title'>Object Oriented Programming</span>"
-    ]
-  },
-  {
-    "objectID": "051_oop.html#methods",
-    "href": "051_oop.html#methods",
-    "title": "20  Object Oriented Programming",
-    "section": "20.2 Methods",
-    "text": "20.2 Methods\nDifferent car models have different functionalities, like turning the radio on.\nIn python it’s the same, the functions attached to an object are called methods and we call them with this dot notation:\n\ncar1.turn_on_radio()  # it's just a function, so we call it with ()\n\nRadio is on!\n\n\n\ncar1.turn_off_radio()\n\nRadio is off!\n\n\nWhere is the self argument of the functions?\nThe first argument of a method will be always passed to the method in the call and it is the object itself (thus the convention to call it self).\nThat’s a bit meta an a bit confusing, but don’t worry, you’ll get a feel of it by using the classes/objects.",
-    "crumbs": [
-      "<span class='chapter-number'>20</span>  <span class='chapter-title'>Object Oriented Programming</span>"
-    ]
-  },
-  {
-    "objectID": "051_oop.html#dunder-methods",
-    "href": "051_oop.html#dunder-methods",
-    "title": "20  Object Oriented Programming",
-    "section": "20.3 Dunder Methods",
-    "text": "20.3 Dunder Methods\nWe saw above the __init__ method. This methods are special and there is a bunch of them already present on all classes:\n\ndir(FiatUno)\n\n['__class__',\n '__delattr__',\n '__dict__',\n '__dir__',\n '__doc__',\n '__eq__',\n '__format__',\n '__ge__',\n '__getattribute__',\n '__gt__',\n '__hash__',\n '__init__',\n '__init_subclass__',\n '__le__',\n '__lt__',\n '__module__',\n '__ne__',\n '__new__',\n '__reduce__',\n '__reduce_ex__',\n '__repr__',\n '__setattr__',\n '__sizeof__',\n '__str__',\n '__subclasshook__',\n '__weakref__',\n 'turn_off_radio',\n 'turn_on_radio']\n\n\nThese “dunder” methods define the behavior of the object in several ways. For example, the __str__ method defines the string representation of the object, which is used when we call print on an object. When we do print(something), python actually goes to the method __str__ of something and calls that one. Let’s see it in action:\n\nclass A:\n    def __init__(self, msg=\"hello\"):\n        self.msg = msg\n    def __str__(self):\n        return self.msg + \", nice to meet you\"\n\n\na = A()\n\n\nprint(a)\n\nhello, nice to meet you\n\n\nIt’s good to know that these dunder methods exist and some libraries will require the user changing them. But in general, you should not worry about them.\n\n\n\n\n\n\nTip\n\n\n\nDon’t overwrite dunder methods unless you really, really need it and you’re sure what you’re doing – it is pretty easy to make mistakes that lead to difficult to debug bugs.",
-    "crumbs": [
-      "<span class='chapter-number'>20</span>  <span class='chapter-title'>Object Oriented Programming</span>"
-    ]
-  },
-  {
-    "objectID": "051_oop.html#inheritance",
-    "href": "051_oop.html#inheritance",
-    "title": "20  Object Oriented Programming",
-    "section": "20.4 Inheritance",
-    "text": "20.4 Inheritance\n\n\n\n\n\n\nTip\n\n\n\nAvoid using inheritance. We show it here just for you to know it exists and that some libraries use it. You can totally live without it.\n\n\nClasses can be organized in a hierarchy:\n\nclass Car:\n    def __init__(self):\n        self.n_wheels = 4 \n        \nclass FiatPalio(Car):\n    def turn_on_radio(self):\n        print(\"Radio is on\")\n        \nclass FiatTipo(Car):\n    def turn_on_ac(self):\n        print(\"Pretty hot in here\")\n\ncar3 = FiatPalio()\ncar4 = FiatTipo()\n\n\ncar3.turn_on_radio()\n\nRadio is on\n\n\n\ncar3.n_wheels\n\n4\n\n\n\ncar4.turn_on_ac()\n\nPretty hot here\n\n\n\ncar4.n_wheels\n\n4\n\n\nIn that case Car is called the “parent” class and the FiatPalio the “child” or “subclass”.\nNotice that both car3 and car4 inherited the attribute n_wheels from Car.\nA class can have more than one parent:\n\nclass Parent1:\n    n_arms = 2\n        \nclass Parent2:\n    n_legs = 2\n        \nclass Parent3:\n    n_eyes = 2\n\nclass Child(Parent1, Parent2, Parent3):\n    def list_body_parts(self):\n        print(\"arms: \", self.n_arms)\n        print(\"legs: \", self.n_legs)\n        print(\"eyes: \", self.n_eyes)\n\n\nchild = Child()\n\n\nchild.list_body_parts()\n\narms:  2\nlegs:  2\neyes:  2\n\n\nMultiple inheritance is also tricky and you should avoid it. It’s just good to know it exists to understand code from out there, for example, the popular scikit-learn library uses this a lot to propagate methods and avoid code duplication.",
-    "crumbs": [
-      "<span class='chapter-number'>20</span>  <span class='chapter-title'>Object Oriented Programming</span>"
-    ]
-  },
-  {
     "objectID": "lab_explore_data_exercises.html",
     "href": "lab_explore_data_exercises.html",
-    "title": "21  Lab: Exploring a Dataset",
+    "title": "18  Lab: Exploring a Dataset",
     "section": "",
-    "text": "21.1 Exercises 1\nWe want to take a look at this real-world dataset:\nhttps://openneuro.org/datasets/ds005420/versions/1.0.0\nAs we see, there are files, and directories.",
+    "text": "18.1 Exercises 1\nWe want to take a look at this real-world dataset:\nhttps://openneuro.org/datasets/ds005420/versions/1.0.0\nAs we see, there are files, and directories.",
     "crumbs": [
-      "<span class='chapter-number'>21</span>  <span class='chapter-title'>Lab: Exploring a Dataset</span>"
+      "<span class='chapter-number'>18</span>  <span class='chapter-title'>Lab: Exploring a Dataset</span>"
     ]
   },
   {
     "objectID": "lab_explore_data_exercises.html#exercises-1",
     "href": "lab_explore_data_exercises.html#exercises-1",
-    "title": "21  Lab: Exploring a Dataset",
+    "title": "18  Lab: Exploring a Dataset",
     "section": "",
     "text": "List only the sub-directories in path.\n\nList only the sub-directories with subject data.\n\nDelete files: CHANGES and participants.tsv",
     "crumbs": [
-      "<span class='chapter-number'>21</span>  <span class='chapter-title'>Lab: Exploring a Dataset</span>"
+      "<span class='chapter-number'>18</span>  <span class='chapter-title'>Lab: Exploring a Dataset</span>"
     ]
   },
   {
     "objectID": "lab_explore_data_exercises.html#exercises-2",
     "href": "lab_explore_data_exercises.html#exercises-2",
-    "title": "21  Lab: Exploring a Dataset",
-    "section": "21.2 Exercises 2",
-    "text": "21.2 Exercises 2\nWe will start by making sure our data/metadata contains the information we expect at a high level.\n\nVerify that all subject directories have a eeg sub-directory.\n\nVerify that all data in a subject directories matches with the subject number.\n\nAssert that EEG data for all subjects was taken using 20 channels and sampling frequency 500.\n\n(Optional) Write a file (discarded_subjects.txt) with the subject numbers that do not match that criterion.",
+    "title": "18  Lab: Exploring a Dataset",
+    "section": "18.2 Exercises 2",
+    "text": "18.2 Exercises 2\nWe will start by making sure our data/metadata contains the information we expect at a high level.\n\nVerify that all subject directories have a eeg sub-directory.\n\nVerify that all data in a subject directories matches with the subject number.\n\nAssert that EEG data for all subjects was taken using 20 channels and sampling frequency 500.\n\n(Optional) Write a file (discarded_subjects.txt) with the subject numbers that do not match that criterion.",
     "crumbs": [
-      "<span class='chapter-number'>21</span>  <span class='chapter-title'>Lab: Exploring a Dataset</span>"
+      "<span class='chapter-number'>18</span>  <span class='chapter-title'>Lab: Exploring a Dataset</span>"
     ]
   },
   {
     "objectID": "lab_explore_data_exercises.html#exercises-3",
     "href": "lab_explore_data_exercises.html#exercises-3",
-    "title": "21  Lab: Exploring a Dataset",
-    "section": "21.3 Exercises 3",
-    "text": "21.3 Exercises 3\nNow we want to look at the data. We find that the data is in a particular format .edf that we cannot directly read in python.\nHint: We need to install a third-party library mne to read .edf files.\n\nPlot a histogram of RecordingDuration across all subjects.\n\nPlot one time series.\n\nPlot all time series with labels according to channel name.\n\nPlot the channels that start with “T” and “O”.\n\nPlot a correlation plot of the “T” and “O” channels as a heatmap.",
+    "title": "18  Lab: Exploring a Dataset",
+    "section": "18.3 Exercises 3",
+    "text": "18.3 Exercises 3\nNow we want to look at the data. We find that the data is in a particular format .edf that we cannot directly read in python.\nHint: We need to install a third-party library mne to read .edf files.\n\nPlot a histogram of RecordingDuration across all subjects.\n\nPlot one time series.\n\nPlot all time series with labels according to channel name.\n\nPlot the channels that start with “T” and “O”.\n\nPlot a correlation plot of the “T” and “O” channels as a heatmap.",
     "crumbs": [
-      "<span class='chapter-number'>21</span>  <span class='chapter-title'>Lab: Exploring a Dataset</span>"
+      "<span class='chapter-number'>18</span>  <span class='chapter-title'>Lab: Exploring a Dataset</span>"
     ]
   },
   {
     "objectID": "lab_explore_data_exercises.html#exercises-4",
     "href": "lab_explore_data_exercises.html#exercises-4",
-    "title": "21  Lab: Exploring a Dataset",
-    "section": "21.4 Exercises 4",
-    "text": "21.4 Exercises 4\nAfter having taken this quick look at the data, we want to start processing the data.\n\nAdd a column called channel_mean that\n\nSubstract the mean from each channel\n\nPlot correlation matrix of all-vs-all channels",
+    "title": "18  Lab: Exploring a Dataset",
+    "section": "18.4 Exercises 4",
+    "text": "18.4 Exercises 4\nAfter having taken this quick look at the data, we want to start processing the data.\n\nAdd a column called channel_mean that\n\nSubstract the mean from each channel\n\nPlot correlation matrix of all-vs-all channels",
     "crumbs": [
-      "<span class='chapter-number'>21</span>  <span class='chapter-title'>Lab: Exploring a Dataset</span>"
+      "<span class='chapter-number'>18</span>  <span class='chapter-title'>Lab: Exploring a Dataset</span>"
+    ]
+  },
+  {
+    "objectID": "11_cli.html",
+    "href": "11_cli.html",
+    "title": "19  Command Line Interfaces (CLI)",
+    "section": "",
+    "text": "🚧 Material under construction 🚧",
+    "crumbs": [
+      "<span class='chapter-number'>19</span>  <span class='chapter-title'>Command Line Interfaces (CLI)</span>"
+    ]
+  },
+  {
+    "objectID": "13_tools.html",
+    "href": "13_tools.html",
+    "title": "20  Useful Tools and Patterns",
+    "section": "",
+    "text": "20.1 Generators",
+    "crumbs": [
+      "<span class='chapter-number'>20</span>  <span class='chapter-title'>Useful Tools and Patterns</span>"
+    ]
+  },
+  {
+    "objectID": "13_tools.html#decorators",
+    "href": "13_tools.html#decorators",
+    "title": "20  Useful Tools and Patterns",
+    "section": "20.2 Decorators",
+    "text": "20.2 Decorators\naka, closure",
+    "crumbs": [
+      "<span class='chapter-number'>20</span>  <span class='chapter-title'>Useful Tools and Patterns</span>"
+    ]
+  },
+  {
+    "objectID": "13_tools.html#the-functools-module",
+    "href": "13_tools.html#the-functools-module",
+    "title": "20  Useful Tools and Patterns",
+    "section": "20.3 The functools module",
+    "text": "20.3 The functools module\n\npartial\ncache\noperator?",
+    "crumbs": [
+      "<span class='chapter-number'>20</span>  <span class='chapter-title'>Useful Tools and Patterns</span>"
+    ]
+  },
+  {
+    "objectID": "13_tools.html#the-itertools-module",
+    "href": "13_tools.html#the-itertools-module",
+    "title": "20  Useful Tools and Patterns",
+    "section": "20.4 The itertools module",
+    "text": "20.4 The itertools module\n\nproduct",
+    "crumbs": [
+      "<span class='chapter-number'>20</span>  <span class='chapter-title'>Useful Tools and Patterns</span>"
+    ]
+  },
+  {
+    "objectID": "13_tools.html#modules-for-scientific-computing",
+    "href": "13_tools.html#modules-for-scientific-computing",
+    "title": "20  Useful Tools and Patterns",
+    "section": "20.5 Modules for Scientific Computing",
+    "text": "20.5 Modules for Scientific Computing\n\nmath\ndecimal",
+    "crumbs": [
+      "<span class='chapter-number'>20</span>  <span class='chapter-title'>Useful Tools and Patterns</span>"
+    ]
+  },
+  {
+    "objectID": "051_oop.html",
+    "href": "051_oop.html",
+    "title": "21  Object Oriented Programming",
+    "section": "",
+    "text": "21.1 Classes and Objects\nIn python we deal with so-called objects. An object is an instance, that is a particular realization, of a class.\nHere’s an analogy: You can think of a class as the instructions to build a car, say a FiatUno:\nclass FiatUno:\n    def __init__(self, color=\"white\", radio=False):\n        self.color = color\n        self.radio = radio\n        self.radio_is_on = False\n    def turn_on_radio(self):\n        self.radio_is_on = True\n        print(f\"Radio is on!\")\n    def turn_off_radio(self):\n        self.radio_is_on = False\n        print(f\"Radio is off!\")\nEach actual car is an object, i.e. an instance of a class:\ncar1 = FiatUno()\nWe can make another car:\ncar2 = FiatUno()\nLike two cars can be the same model and color, they always have different license plates.\nThe same happens in python:\nid(car1)\n\n139856081602784\nid(car2)\n\n139856081603648\nEach object has attributes:\ncar1.color, car1.radio\n\n('white', False)",
+    "crumbs": [
+      "<span class='chapter-number'>21</span>  <span class='chapter-title'>Object Oriented Programming</span>"
+    ]
+  },
+  {
+    "objectID": "051_oop.html#classes-and-objects",
+    "href": "051_oop.html#classes-and-objects",
+    "title": "21  Object Oriented Programming",
+    "section": "",
+    "text": "Note\n\n\n\nBy convention, we use CamelCase to name classes.",
+    "crumbs": [
+      "<span class='chapter-number'>21</span>  <span class='chapter-title'>Object Oriented Programming</span>"
+    ]
+  },
+  {
+    "objectID": "051_oop.html#methods",
+    "href": "051_oop.html#methods",
+    "title": "21  Object Oriented Programming",
+    "section": "21.2 Methods",
+    "text": "21.2 Methods\nDifferent car models have different functionalities, like turning the radio on.\nIn python it’s the same, the functions attached to an object are called methods and we call them with this dot notation:\n\ncar1.turn_on_radio()  # it's just a function, so we call it with ()\n\nRadio is on!\n\n\n\ncar1.turn_off_radio()\n\nRadio is off!\n\n\nWhere is the self argument of the functions?\nThe first argument of a method will be always passed to the method in the call and it is the object itself (thus the convention to call it self).\nThat’s a bit meta an a bit confusing, but don’t worry, you’ll get a feel of it by using the classes/objects.",
+    "crumbs": [
+      "<span class='chapter-number'>21</span>  <span class='chapter-title'>Object Oriented Programming</span>"
+    ]
+  },
+  {
+    "objectID": "051_oop.html#dunder-methods",
+    "href": "051_oop.html#dunder-methods",
+    "title": "21  Object Oriented Programming",
+    "section": "21.3 Dunder Methods",
+    "text": "21.3 Dunder Methods\nWe saw above the __init__ method. This methods are special and there is a bunch of them already present on all classes:\n\ndir(FiatUno)\n\n['__class__',\n '__delattr__',\n '__dict__',\n '__dir__',\n '__doc__',\n '__eq__',\n '__format__',\n '__ge__',\n '__getattribute__',\n '__gt__',\n '__hash__',\n '__init__',\n '__init_subclass__',\n '__le__',\n '__lt__',\n '__module__',\n '__ne__',\n '__new__',\n '__reduce__',\n '__reduce_ex__',\n '__repr__',\n '__setattr__',\n '__sizeof__',\n '__str__',\n '__subclasshook__',\n '__weakref__',\n 'turn_off_radio',\n 'turn_on_radio']\n\n\nThese “dunder” methods define the behavior of the object in several ways. For example, the __str__ method defines the string representation of the object, which is used when we call print on an object. When we do print(something), python actually goes to the method __str__ of something and calls that one. Let’s see it in action:\n\nclass A:\n    def __init__(self, msg=\"hello\"):\n        self.msg = msg\n    def __str__(self):\n        return self.msg + \", nice to meet you\"\n\n\na = A()\n\n\nprint(a)\n\nhello, nice to meet you\n\n\nIt’s good to know that these dunder methods exist and some libraries will require the user changing them. But in general, you should not worry about them.\n\n\n\n\n\n\nTip\n\n\n\nDon’t overwrite dunder methods unless you really, really need it and you’re sure what you’re doing – it is pretty easy to make mistakes that lead to difficult to debug bugs.",
+    "crumbs": [
+      "<span class='chapter-number'>21</span>  <span class='chapter-title'>Object Oriented Programming</span>"
+    ]
+  },
+  {
+    "objectID": "051_oop.html#inheritance",
+    "href": "051_oop.html#inheritance",
+    "title": "21  Object Oriented Programming",
+    "section": "21.4 Inheritance",
+    "text": "21.4 Inheritance\n\n\n\n\n\n\nTip\n\n\n\nAvoid using inheritance. We show it here just for you to know it exists and that some libraries use it. You can totally live without it.\n\n\nClasses can be organized in a hierarchy:\n\nclass Car:\n    def __init__(self):\n        self.n_wheels = 4 \n        \nclass FiatPalio(Car):\n    def turn_on_radio(self):\n        print(\"Radio is on\")\n        \nclass FiatTipo(Car):\n    def turn_on_ac(self):\n        print(\"Pretty hot in here\")\n\ncar3 = FiatPalio()\ncar4 = FiatTipo()\n\n\ncar3.turn_on_radio()\n\nRadio is on\n\n\n\ncar3.n_wheels\n\n4\n\n\n\ncar4.turn_on_ac()\n\nPretty hot here\n\n\n\ncar4.n_wheels\n\n4\n\n\nIn that case Car is called the “parent” class and the FiatPalio the “child” or “subclass”.\nNotice that both car3 and car4 inherited the attribute n_wheels from Car.\nA class can have more than one parent:\n\nclass Parent1:\n    n_arms = 2\n        \nclass Parent2:\n    n_legs = 2\n        \nclass Parent3:\n    n_eyes = 2\n\nclass Child(Parent1, Parent2, Parent3):\n    def list_body_parts(self):\n        print(\"arms: \", self.n_arms)\n        print(\"legs: \", self.n_legs)\n        print(\"eyes: \", self.n_eyes)\n\n\nchild = Child()\n\n\nchild.list_body_parts()\n\narms:  2\nlegs:  2\neyes:  2\n\n\nMultiple inheritance is also tricky and you should avoid it. It’s just good to know it exists to understand code from out there, for example, the popular scikit-learn library uses this a lot to propagate methods and avoid code duplication.",
+    "crumbs": [
+      "<span class='chapter-number'>21</span>  <span class='chapter-title'>Object Oriented Programming</span>"
     ]
   },
   {
