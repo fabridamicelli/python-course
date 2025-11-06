@@ -50,10 +50,10 @@ book:
     - 081_pandas.ipynb
     - 09_plotting.ipynb
     - 10_tests.ipynb
+    - lab_explore_data_exercises.ipynb
     - 11_cli.ipynb
     - 13_tools.ipynb
     - 051_oop.ipynb
-    - lab_explore_data_exercises.ipynb
     - notebook_workflow.ipynb
     - 999_glossary.ipynb
     - references.qmd
