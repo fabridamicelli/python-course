@@ -465,7 +465,10 @@ We can also do that with our package manager <code>uv</code> passing the <code>-
 <p>First we will put the source code that has our functionality in a file under <code>src/pycourse/square.py</code></p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> square(value):</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> value <span class="op">*</span> value</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>So let’s create a directory (next to <code>src</code>) called <code>tests</code> and make a file called <code>tests/test_square.py</code> including our previous <code>test_square</code> code:</p>
+<p>So let’s create a directory (next to <code>src</code>) called <code>tests</code> and make a file called <code>tests/test_square.py</code> including our previous <code>test_square</code> code.</p>
+<p>If you’ve been following along, your project should look more or less like this:</p>
+<p><img src="./images/tree-3.png" class="img-fluid" width="150"></p>
+<p>Now put this content in <code>test_square.py</code>:</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> pycourse.square <span class="im">import</span> square  <span class="co"># Import function from source code test</span></span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> test_square():</span>
@@ -473,7 +476,6 @@ We can also do that with our package manager <code>uv</code> passing the <code>-
 <span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> square(<span class="dv">1</span>) <span class="op">==</span> <span class="dv">1</span></span>
 <span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> square(<span class="dv">2</span>) <span class="op">==</span> <span class="dv">4</span></span>
 <span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> square(<span class="dv">5</span>) <span class="op">==</span> <span class="dv">25</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Notice that we do not call the function, we just define it.</p>
 <div class="callout callout-style-default callout-important callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -484,7 +486,7 @@ Important
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>The file must be called <code>test_*.py</code> or <code>*_test.py</code> for pytest to discover it and the unit tests must start with <code>test_</code>.</p>
+<p>Notice that we do not call the function, we just define it. The file must be called <code>test_*.py</code> or <code>*_test.py</code> for pytest to discover it and the unit tests must start with <code>test_</code>.</p>
 </div>
 </div>
 <p>We can now run our tests (pytest will discover files and tests following the pattern above mentioned):</p>
@@ -553,7 +555,7 @@ Note
 <h2 data-number="17.4" class="anchored" data-anchor-id="exercises"><span class="header-section-number">17.4</span> Exercises</h2>
 <ol type="1">
 <li>Modify the function <code>square</code> in <code>square.py</code> so that it returns <code>value * value * 2</code> and run the test again. Pay close attention to the error messages and the diffs!</li>
-<li>Write a function called <code>reverse_str</code> that takes a string and returns the reversed version, eg “hola” -&gt; “aloh”. Write a unit test and make sure the tests pass. Think about covering corner cases in your tests.S</li>
+<li>Write a function called <code>reverse_str</code> that takes a string and returns the reversed version, eg “hola” -&gt; “aloh”. Write a unit test and make sure the tests pass. Think about covering corner cases in your tests.</li>
 <li>Make the function <code>reverse_str</code> strict to only accept strings as input and throw an error if another type is passed. Write a unit test that covers both the “happy path” and the “error path”.</li>
 </ol>
 
