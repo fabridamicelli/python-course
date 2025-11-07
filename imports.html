@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>13&nbsp; Debugging – Python Course</title>
+<title>9&nbsp; Importing Code – Python Course</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -65,8 +65,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./08_numpy.html" rel="next">
-<link href="./063_common_data_formats.html" rel="prev">
+<link href="./read_write.html" rel="next">
+<link href="./lab_builtin_for_the_win.html" rel="prev">
 <link href="././favicon.svg" rel="icon" type="image/svg+xml">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
@@ -112,7 +112,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 </head>
 
-<body class="nav-sidebar floating nav-fixed quarto-light">
+<body class="floating nav-fixed quarto-light">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -197,7 +197,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./111_debugging.html"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Debugging</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./imports.html"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Importing Code</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -221,43 +221,43 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./01_1_getting_started.html" class="sidebar-item-text sidebar-link">
+  <a href="./getting_started.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Getting Started</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./01_2_executing_code.html" class="sidebar-item-text sidebar-link">
+  <a href="./executing.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Executing Code</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./02_types_data_structures.html" class="sidebar-item-text sidebar-link">
+  <a href="./basics.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Syntax Basics</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./03_1_flow_control.html" class="sidebar-item-text sidebar-link">
+  <a href="./flow_control.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Flow Control</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./03_2_error_handling.html" class="sidebar-item-text sidebar-link">
+  <a href="./error_handling.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Error Handling</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./04_functions.html" class="sidebar-item-text sidebar-link">
+  <a href="./functions.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Functions</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./05_comprehensions.html" class="sidebar-item-text sidebar-link">
+  <a href="./comprehensions.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Comprehensions</span></span></a>
   </div>
 </li>
@@ -269,13 +269,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./06_imports.html" class="sidebar-item-text sidebar-link">
+  <a href="./imports.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Importing Code</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./062_read_and_write.html" class="sidebar-item-text sidebar-link">
+  <a href="./read_write.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Read/Write Files</span></span></a>
   </div>
 </li>
@@ -287,37 +287,37 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./063_common_data_formats.html" class="sidebar-item-text sidebar-link">
+  <a href="./common_data_formats.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Common Data Formats</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./111_debugging.html" class="sidebar-item-text sidebar-link active">
+  <a href="./debugging.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Debugging</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./08_numpy.html" class="sidebar-item-text sidebar-link">
+  <a href="./numpy.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Numpy</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./081_pandas.html" class="sidebar-item-text sidebar-link">
+  <a href="./pandas.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Pandas</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./09_plotting.html" class="sidebar-item-text sidebar-link">
+  <a href="./plotting.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Plotting</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./10_tests.html" class="sidebar-item-text sidebar-link">
+  <a href="./testing.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Testing</span></span></a>
   </div>
 </li>
@@ -329,19 +329,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./11_cli.html" class="sidebar-item-text sidebar-link">
+  <a href="./cli.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Command Line Interfaces (CLI)</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./13_tools.html" class="sidebar-item-text sidebar-link">
+  <a href="./tools_patterns.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Useful Tools and Patterns</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./051_oop.html" class="sidebar-item-text sidebar-link">
+  <a href="./oop.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Object Oriented Programming</span></span></a>
   </div>
 </li>
@@ -353,7 +353,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./999_glossary.html" class="sidebar-item-text sidebar-link">
+  <a href="./glossary.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">Glossary</span></span></a>
   </div>
 </li>
@@ -373,11 +373,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#what-is-a-debugger" id="toc-what-is-a-debugger" class="nav-link active" data-scroll-target="#what-is-a-debugger"><span class="header-section-number">13.1</span> What is a debugger?</a></li>
-  <li><a href="#python-debugger-breakpoints" id="toc-python-debugger-breakpoints" class="nav-link" data-scroll-target="#python-debugger-breakpoints"><span class="header-section-number">13.2</span> Python debugger, breakpoints</a></li>
-  <li><a href="#ipython-debugger" id="toc-ipython-debugger" class="nav-link" data-scroll-target="#ipython-debugger"><span class="header-section-number">13.3</span> IPython debugger</a></li>
-  <li><a href="#notebook-debug" id="toc-notebook-debug" class="nav-link" data-scroll-target="#notebook-debug"><span class="header-section-number">13.4</span> Notebook %debug</a></li>
-  <li><a href="#exercises" id="toc-exercises" class="nav-link" data-scroll-target="#exercises"><span class="header-section-number">13.5</span> Exercises</a></li>
+  <li><a href="#importable-code-vs.-scripting" id="toc-importable-code-vs.-scripting" class="nav-link active" data-scroll-target="#importable-code-vs.-scripting"><span class="header-section-number">9.1</span> Importable Code vs.&nbsp;Scripting</a></li>
+  <li><a href="#exercises" id="toc-exercises" class="nav-link" data-scroll-target="#exercises"><span class="header-section-number">9.2</span> Exercises</a></li>
   </ul>
 </nav>
     </div>
@@ -386,7 +383,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Debugging</span></h1>
+<h1 class="title"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Importing Code</span></h1>
 </div>
 
 
@@ -403,172 +400,96 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<p>We are humans, we make mistakes – that’s very much true for coding.</p>
-<p>Finding errors in our code is fundamental skill to train so we will cover here a few tools that help us find and fix errors more quickly.</p>
-<section id="what-is-a-debugger" class="level2" data-number="13.1">
-<h2 data-number="13.1" class="anchored" data-anchor-id="what-is-a-debugger"><span class="header-section-number">13.1</span> What is a debugger?</h2>
-<p>A debugger is a device that allows us to interrupt code execution and jump into the execution context in a interactive mode, so that we can inspect and run code to find out what’s going on.<br>
-We called that to “set a breakpoint” or “set a trace”.</p>
-<p>There are a few options to do that in python.</p>
-</section>
-<section id="python-debugger-breakpoints" class="level2" data-number="13.2">
-<h2 data-number="13.2" class="anchored" data-anchor-id="python-debugger-breakpoints"><span class="header-section-number">13.2</span> Python debugger, breakpoints</h2>
-<p>The python standard library includes <code>pdb</code> module. If you call this function in your code you will be put into an interactive session exactly at that point.</p>
-<p>Any of the following options would work:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># your code</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="co"># your code</span></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pdb</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>pdb.set_trace()</span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="co"># your code</span></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="co"># your code</span></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="bu">breakpoint</span>()</span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="co"># your code</span></span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="co"># your code</span></span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="co"># your code</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Once in the debugger, we have several functions to proceed with code execution with more granular control.</p>
-<p>There are several options, but the most commonly used methods are:</p>
-<ul>
-<li>n (next): Continue execution one line, stay in the current function (step over)</li>
-<li>s (step): Execute current line and stop in a foreign function if one is called (step into)</li>
-<li>c (continue): Continue whole code execution until a new breakpoint is found</li>
-</ul>
-</section>
-<section id="ipython-debugger" class="level2" data-number="13.3">
-<h2 data-number="13.3" class="anchored" data-anchor-id="ipython-debugger"><span class="header-section-number">13.3</span> IPython debugger</h2>
-<p>The standard python debugger is fine but a bit basic, so sometimes the IPython debugger is a friendlier option.</p>
-<p>We need to install it:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">uv</span> add ipdb</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Then we can do:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> ipdb</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>ipdb.set_trace()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</section>
-<section id="notebook-debug" class="level2" data-number="13.4">
-<h2 data-number="13.4" class="anchored" data-anchor-id="notebook-debug"><span class="header-section-number">13.4</span> Notebook %debug</h2>
-<p>Inside the jupyter notebook we can directly jump into a debugger when there is an error.</p>
-<p>If a cell throws an error, you can type this “ipython magic method” in the following cell:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="op">%</span>debug</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div id="76c6445c-3cc0-4bc6-b602-97cd5707feee" class="cell" data-execution_count="1">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> wrong_func():</span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>    a <span class="op">=</span> <span class="dv">1</span></span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> a <span class="op">==</span> <span class="dv">0</span></span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>wrong_func()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Every Python installation includes a number of modules by default. They are called collectively the “Python Standard Library” or “built-in” modules.</p>
+<p>Even though these modules are available in our computer, we cannot directly use them, we need to import them into our current namespace to actually use them.</p>
+<p>For example, if we try to use the module <code>pathlib</code>, we get this <code>NameError</code></p>
+<div id="26bdb492-1969-4062-a923-f4845b7d6ebe" class="cell" data-execution_count="2">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>pathlib</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-error">
 <div class="ansi-escaped-output">
 <pre><span class="ansi-red-fg">---------------------------------------------------------------------------</span>
-<span class="ansi-red-fg">AssertionError</span>                            Traceback (most recent call last)
-<span class="ansi-cyan-fg">Cell</span><span class="ansi-cyan-fg"> </span><span class="ansi-green-fg">In[1]</span><span class="ansi-green-fg">, line 5</span>
-<span class="ansi-green-fg">      2</span>     a = <span class="ansi-green-fg">1</span>
-<span class="ansi-green-fg">      3</span>     <span style="font-weight:bold;color:rgb(0,135,0)">assert</span> a == <span class="ansi-green-fg">0</span>
-<span class="ansi-green-fg">----&gt; </span><span class="ansi-green-fg">5</span> <span class="ansi-yellow-bg">wrong_func</span><span class="ansi-yellow-bg">(</span><span class="ansi-yellow-bg">)</span>
+<span class="ansi-red-fg">NameError</span>                                 Traceback (most recent call last)
+Cell <span class="ansi-green-fg">In[2], line 1</span>
+<span class="ansi-green-fg">----&gt; 1</span> <span class="ansi-yellow-bg">pathlib</span>
 
-<span class="ansi-cyan-fg">Cell</span><span class="ansi-cyan-fg"> </span><span class="ansi-green-fg">In[1]</span><span class="ansi-green-fg">, line 3</span>, in <span class="ansi-cyan-fg">wrong_func</span><span class="ansi-blue-fg">()</span>
-<span class="ansi-green-fg">      1</span> <span style="font-weight:bold;color:rgb(0,135,0)">def</span><span style="color:rgb(188,188,188)"> </span><span class="ansi-blue-fg">wrong_func</span>():
-<span class="ansi-green-fg">      2</span>     a = <span class="ansi-green-fg">1</span>
-<span class="ansi-green-fg">----&gt; </span><span class="ansi-green-fg">3</span>     <span style="font-weight:bold;color:rgb(0,135,0)">assert</span> a == <span class="ansi-green-fg">0</span>
-
-<span class="ansi-red-fg">AssertionError</span>: </pre>
+<span class="ansi-red-fg">NameError</span>: name 'pathlib' is not defined</pre>
 </div>
 </div>
 </div>
-<div id="9225666f-7cce-4bec-96ac-c5fc1f167968" class="cell" data-execution_count="2">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="op">%</span>debug</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-stdout">
-<div class="ansi-escaped-output">
-<pre>&gt; <span class="ansi-green-fg">/tmp/ipykernel_81865/3667203143.py</span>(<span class="ansi-bright-green-fg">3</span>)<span class="ansi-cyan-fg">wrong_func</span><span class="ansi-blue-fg">()</span>
-
-<span class="ansi-green-fg">      1</span> <span style="font-weight:bold;color:rgb(0,135,0)">def</span> wrong_func():
-
-<span class="ansi-green-fg">      2</span>     a = <span class="ansi-green-fg">1</span>
-
-<span class="ansi-green-fg">----&gt; 3</span>     <span style="font-weight:bold;color:rgb(0,135,0)">assert</span> a == <span class="ansi-green-fg">0</span>
-
-<span class="ansi-green-fg">      4</span> 
-
-<span class="ansi-green-fg">      5</span> wrong_func()
-
-
-</pre>
+<p>That means that the word pathlib is unknown in this context (namespace).<br>
+Let’s bring it in:</p>
+<div id="9f389b0e-5eb8-4f48-a277-7da3956d4715" class="cell" data-execution_count="3">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pathlib</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>Now we can use it:</p>
+<div id="1658f2ec-a095-496b-83d1-a3d7e9749732" class="cell" data-execution_count="16">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>pathlib.Path(<span class="st">"."</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="16">
+<pre><code>PosixPath('.')</code></pre>
 </div>
 </div>
-<div class="cell-output cell-output-stdin">
-<pre><code>ipdb&gt;  print(a)</code></pre>
+<p>We can also import only specific parts of the module (submodules):</p>
+<div id="15e3f4c3-4509-46b8-8a86-380a2f4131df" class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> pathlib <span class="im">import</span> Path</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<div class="cell-output cell-output-stdout">
-<pre><code>1</code></pre>
+<p>It is also possible to alias these imported names using the keyword <code>as</code>:</p>
+<div id="29fee6ae-cb29-49f8-9741-1aca8b7bf6bc" class="cell" data-execution_count="21">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pathlib <span class="im">as</span> pl</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<div class="cell-output cell-output-stdin">
-<pre><code>ipdb&gt;  exit</code></pre>
+<div id="cd32c047-1d96-40ad-ad09-3756c11332b4" class="cell" data-execution_count="22">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>pl.Path(<span class="st">"."</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="22">
+<pre><code>PosixPath('.')</code></pre>
 </div>
 </div>
-<p>Notice that we typed “exit” to get out of the debugger.</p>
+<section id="importable-code-vs.-scripting" class="level2" data-number="9.1">
+<h2 data-number="9.1" class="anchored" data-anchor-id="importable-code-vs.-scripting"><span class="header-section-number">9.1</span> Importable Code vs.&nbsp;Scripting</h2>
+<p>We can also import our own code. For example, if we have a python file called <code>mymodule.py</code> we can use it in another file:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># anotherfile.py</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> mymodule</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Sometimes we have a Python module (any <code>.py</code> file) that contain code that we only want to run as a script alongside code that we only want to use somewhere else (importing parts of it).</p>
+<p>We can isolate part of the code that we want to run as a script with a special syntax, let’s do some exercises to show it.</p>
 </section>
-<section id="exercises" class="level2" data-number="13.5">
-<h2 data-number="13.5" class="anchored" data-anchor-id="exercises"><span class="header-section-number">13.5</span> Exercises</h2>
-<p>Here’s a piece of code that will fail at run-time:</p>
-<div id="abb2830e-8f39-4bad-9f1c-cc0dd697f09c" class="cell" data-execution_count="8">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> f(p):</span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> p <span class="op">==</span> <span class="dv">0</span></span>
-<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> main():</span>
-<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>    a <span class="op">=</span> <span class="dv">0</span></span>
-<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>    f(a)</span>
-<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>    b <span class="op">=</span> <span class="dv">1</span> </span>
-<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>    f(b)</span>
-<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>    c <span class="op">=</span> <span class="dv">0</span></span>
-<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a>    f(c)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-<ol type="1">
-<li>Run the code to see the error</li>
-<li>Set a breakpoint inside <code>main</code> to use the debugger</li>
-<li>Step through the code using <code>n (next)</code> and another time using <code>s (step)</code></li>
-<li>Set a second breakpoint inside <code>main</code>and run again the code but this time use <code>c (continue)</code></li>
-<li>Download <a href="https://github.com/OpenNeuroDatasets/ds005588">this public dataset</a> as zip file into the folder <code>/pycourse/data/</code> (create it if you don’t yet have it)</li>
-</ol>
-<p>Here’s a bit of code to unzip the file.</p>
-<div id="6ed1ee58-e172-48ca-8d02-735cefc5ec1e" class="cell" data-execution_count="1">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> pathlib <span class="im">import</span> Path</span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> zipfile</span>
+<section id="exercises" class="level2" data-number="9.2">
+<h2 data-number="9.2" class="anchored" data-anchor-id="exercises"><span class="header-section-number">9.2</span> Exercises</h2>
+<p>Create 2 files like these in our working project <code>/pycourse/src/pycourse/data.py</code>, <code>/pycourse/src/pycourse/preprocessing.py</code>:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># data.py</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>RAWDATA <span class="op">=</span> ...  <span class="co"># 3 dots are called "Ellipsis" and act as placeholder</span></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> fetch_data(raw_data):</span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>    ... </span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a><span class="co"># This block will only run when calling `python data.py`</span></span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="va">__name__</span> <span class="op">==</span> <span class="st">"__main__"</span>:</span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"Fetching data"</span>)    </span>
+<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a>    data <span class="op">=</span> fetch_data(RAWDATA)</span>
+<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(data)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># preprocessing.py</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> unzip(source_file, target_dir):</span>
-<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">with</span> zipfile.ZipFile(source_file) <span class="im">as</span> <span class="bu">file</span>:</span>
-<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>        <span class="bu">file</span>.extractall(target_dir)</span>
-<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a>project_path <span class="op">=</span> Path(<span class="st">"pycourse"</span>)</span>
-<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a>source <span class="op">=</span> project_path<span class="op">/</span><span class="st">"data/ds005588-main.zip"</span></span>
-<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a>target <span class="op">=</span> project_path<span class="op">/</span><span class="st">"data"</span></span>
-<span id="cb11-12"><a href="#cb11-12" aria-hidden="true" tabindex="-1"></a>unzip(source, target)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-<p>Now, your collaborator has written this script to extract the mean value of the “SAR” entry from across all subjects bold data.</p>
-<ol start="6" type="1">
-<li><p>Put this script into the folder (create if it does not yet exist) <code>pycourse/scripts/sar_mean.py</code> and make the necessary modifications to make it run as a script.</p></li>
-<li><p>Run it using <code>uv run scripts/sar_mean.py</code> and see it fail. Set a breakpoint inside the <code>get_subjects_sar_mean</code> function. Run it again and try to find the bug inside the debugger.</p></li>
-<li><p>Add some error handling to make sure the script runs.</p></li>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a><span class="co"># </span><span class="al">TODO</span><span class="co">: add missing imports to make it work</span></span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> cleanup(data):</span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>    ... </span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> preprocess_pipeline(raw_data):</span>
+<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a>    data <span class="op">=</span> fetch_data(raw_data)</span>
+<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> cleanup(data)</span>
+<span id="cb11-12"><a href="#cb11-12" aria-hidden="true" tabindex="-1"></a>     </span>
+<span id="cb11-13"><a href="#cb11-13" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="va">__name__</span> <span class="op">==</span> <span class="st">"__main__"</span>:</span>
+<span id="cb11-14"><a href="#cb11-14" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"Running preprocessing"</span>)    </span>
+<span id="cb11-15"><a href="#cb11-15" aria-hidden="true" tabindex="-1"></a>    raw_data <span class="op">=</span> ...</span>
+<span id="cb11-16"><a href="#cb11-16" aria-hidden="true" tabindex="-1"></a>    preprocess_pipeline(raw_data)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<ol type="1">
+<li>Copy the <code>RAWDATA</code> from the previous lab exercises into a file <code>data.py</code></li>
+<li>Create another file called <code>preprocessing.py</code> in the same directory.</li>
+<li>Import the <code>RAWDATA</code> string inside <code>preprocessing.py</code></li>
+<li>Run <code>data.py</code> as a script with <code>uv run src/pycourse/data.py</code>. Pay attention to the printed output</li>
+<li>Run preprocessing as a script with <code>uv run src/pycourse/preprocessing.py</code>. Pay attention to the printed output. What difference do you see compared to the previous point?</li>
 </ol>
-<div id="4877305d-66bb-47ab-95c9-ae9377323bef" class="cell" data-execution_count="8">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> json</span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> glob <span class="im">import</span> glob</span>
-<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> pathlib <span class="im">import</span> Path</span>
-<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> get_subjects_sar_mean(data_dir):</span>
-<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Grab all files matching this filename pattern</span></span>
-<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>    files <span class="op">=</span> glob(<span class="bu">str</span>(data_dir<span class="op">/</span><span class="st">"**/*_bold.json"</span>), recursive<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a>    sar_sum <span class="op">=</span> <span class="dv">0</span></span>
-<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a>    n <span class="op">=</span> <span class="dv">0</span></span>
-<span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> <span class="bu">file</span> <span class="kw">in</span> files:</span>
-<span id="cb12-12"><a href="#cb12-12" aria-hidden="true" tabindex="-1"></a>        content <span class="op">=</span> json.loads(Path(<span class="bu">file</span>).read_text())</span>
-<span id="cb12-13"><a href="#cb12-13" aria-hidden="true" tabindex="-1"></a>        sar_sum <span class="op">+=</span> content[<span class="st">"SAR"</span>]</span>
-<span id="cb12-14"><a href="#cb12-14" aria-hidden="true" tabindex="-1"></a>        n <span class="op">+=</span> <span class="dv">1</span></span>
-<span id="cb12-15"><a href="#cb12-15" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> sar_sum<span class="op">/</span>n</span>
-<span id="cb12-16"><a href="#cb12-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-17"><a href="#cb12-17" aria-hidden="true" tabindex="-1"></a><span class="co"># </span><span class="al">TODO</span><span class="co">: add whatever code you need to make this code a proper script</span></span>
-<span id="cb12-18"><a href="#cb12-18" aria-hidden="true" tabindex="-1"></a><span class="co"># that prints the sar-mean when run</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-<p>To recap, so far our project should have these files:</p>
-<p><img src="./images/files.png" class="img-fluid"></p>
-<p><img src="./images/tree-2.png" class="img-fluid"></p>
+<p>Congratulations! You just ran your first python scripts 🚀</p>
 
 
 </section>
@@ -976,13 +897,13 @@ We called that to “set a breakpoint” or “set a trace”.</p>
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./063_common_data_formats.html" class="pagination-link" aria-label="Common Data Formats">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Common Data Formats</span></span>
+      <a href="./lab_builtin_for_the_win.html" class="pagination-link" aria-label="Lab: Built-in for the Win">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Lab: Built-in for the Win</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./08_numpy.html" class="pagination-link" aria-label="Numpy">
-        <span class="nav-page-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Numpy</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./read_write.html" class="pagination-link" aria-label="Read/Write Files">
+        <span class="nav-page-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Read/Write Files</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

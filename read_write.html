@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>4&nbsp; Flow Control – Python Course</title>
+<title>10&nbsp; Read/Write Files – Python Course</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -65,8 +65,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./03_2_error_handling.html" rel="next">
-<link href="./02_types_data_structures.html" rel="prev">
+<link href="./061_dependencies.html" rel="next">
+<link href="./imports.html" rel="prev">
 <link href="././favicon.svg" rel="icon" type="image/svg+xml">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
@@ -112,7 +112,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 </head>
 
-<body class="nav-sidebar floating nav-fixed quarto-light">
+<body class="floating nav-fixed quarto-light">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -197,7 +197,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./03_1_flow_control.html"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Flow Control</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./read_write.html"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Read/Write Files</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -221,43 +221,43 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./01_1_getting_started.html" class="sidebar-item-text sidebar-link">
+  <a href="./getting_started.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Getting Started</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./01_2_executing_code.html" class="sidebar-item-text sidebar-link">
+  <a href="./executing.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Executing Code</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./02_types_data_structures.html" class="sidebar-item-text sidebar-link">
+  <a href="./basics.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Syntax Basics</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./03_1_flow_control.html" class="sidebar-item-text sidebar-link active">
+  <a href="./flow_control.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Flow Control</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./03_2_error_handling.html" class="sidebar-item-text sidebar-link">
+  <a href="./error_handling.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Error Handling</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./04_functions.html" class="sidebar-item-text sidebar-link">
+  <a href="./functions.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Functions</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./05_comprehensions.html" class="sidebar-item-text sidebar-link">
+  <a href="./comprehensions.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Comprehensions</span></span></a>
   </div>
 </li>
@@ -269,13 +269,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./06_imports.html" class="sidebar-item-text sidebar-link">
+  <a href="./imports.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Importing Code</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./062_read_and_write.html" class="sidebar-item-text sidebar-link">
+  <a href="./read_write.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Read/Write Files</span></span></a>
   </div>
 </li>
@@ -287,37 +287,37 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./063_common_data_formats.html" class="sidebar-item-text sidebar-link">
+  <a href="./common_data_formats.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Common Data Formats</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./111_debugging.html" class="sidebar-item-text sidebar-link">
+  <a href="./debugging.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Debugging</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./08_numpy.html" class="sidebar-item-text sidebar-link">
+  <a href="./numpy.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Numpy</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./081_pandas.html" class="sidebar-item-text sidebar-link">
+  <a href="./pandas.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Pandas</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./09_plotting.html" class="sidebar-item-text sidebar-link">
+  <a href="./plotting.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Plotting</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./10_tests.html" class="sidebar-item-text sidebar-link">
+  <a href="./testing.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Testing</span></span></a>
   </div>
 </li>
@@ -329,19 +329,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./11_cli.html" class="sidebar-item-text sidebar-link">
+  <a href="./cli.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Command Line Interfaces (CLI)</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./13_tools.html" class="sidebar-item-text sidebar-link">
+  <a href="./tools_patterns.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Useful Tools and Patterns</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./051_oop.html" class="sidebar-item-text sidebar-link">
+  <a href="./oop.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Object Oriented Programming</span></span></a>
   </div>
 </li>
@@ -353,7 +353,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./999_glossary.html" class="sidebar-item-text sidebar-link">
+  <a href="./glossary.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">Glossary</span></span></a>
   </div>
 </li>
@@ -373,8 +373,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#loops" id="toc-loops" class="nav-link active" data-scroll-target="#loops"><span class="header-section-number">4.1</span> Loops</a></li>
-  <li><a href="#if-statement" id="toc-if-statement" class="nav-link" data-scroll-target="#if-statement"><span class="header-section-number">4.2</span> If Statement</a></li>
+  <li><a href="#pathlib" id="toc-pathlib" class="nav-link active" data-scroll-target="#pathlib"><span class="header-section-number">10.1</span> Pathlib</a></li>
+  <li><a href="#files-directories" id="toc-files-directories" class="nav-link" data-scroll-target="#files-directories"><span class="header-section-number">10.2</span> Files &amp; Directories</a></li>
+  <li><a href="#shutil" id="toc-shutil" class="nav-link" data-scroll-target="#shutil"><span class="header-section-number">10.3</span> Shutil</a></li>
+  <li><a href="#exercises" id="toc-exercises" class="nav-link" data-scroll-target="#exercises"><span class="header-section-number">10.4</span> Exercises</a></li>
   </ul>
 </nav>
     </div>
@@ -383,7 +385,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Flow Control</span></h1>
+<h1 class="title"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Read/Write Files</span></h1>
 </div>
 
 
@@ -400,186 +402,154 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<p>Let’s take a look at a few syntax aspects that allow us to control how our program flows.</p>
-<section id="loops" class="level2" data-number="4.1">
-<h2 data-number="4.1" class="anchored" data-anchor-id="loops"><span class="header-section-number">4.1</span> Loops</h2>
-<div id="a7c72f91-cec2-4e9e-8ad6-4689df14aad3" class="cell" data-execution_count="13">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> number <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">2</span>, <span class="dv">11</span>, <span class="dv">2</span>):</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(number)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>2
-4
-6
-8
-10</code></pre>
+<section id="pathlib" class="level2" data-number="10.1">
+<h2 data-number="10.1" class="anchored" data-anchor-id="pathlib"><span class="header-section-number">10.1</span> Pathlib</h2>
+<p>We often deal with files stored in our computer (or someone else’s, a.k.a. “the Cloud”). The built-in <code>pathlib</code> is very a useful module. In particular, the <code>Path</code> class simplifies a lot the operations we typically do when working with files.</p>
+<div id="9f389b0e-5eb8-4f48-a277-7da3956d4715" class="cell" data-execution_count="8">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> pathlib <span class="im">import</span> Path</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div id="4ad5f4d2-5769-40e2-ae79-fa5fae660648" class="cell" data-execution_count="9">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>dirname <span class="op">=</span> <span class="st">"./a-new-dir"</span>  <span class="co"># Note: This folder does not yet exist</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>path <span class="op">=</span> Path(dirname)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div id="75852522-81de-4090-af31-f8fc2827c363" class="cell" data-execution_count="10">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>path.exists()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="10">
+<pre><code>False</code></pre>
 </div>
 </div>
-<div id="2c9d921c-9d04-48b4-a5c4-0a109d0d7d84" class="cell" data-execution_count="12">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="bu">range</span>?</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-display">
-<div class="ansi-escaped-output">
-<pre><span class="ansi-red-fg">Init signature:</span> range<span class="ansi-blue-fg">(</span>self<span class="ansi-blue-fg">,</span> <span class="ansi-blue-fg">/</span><span class="ansi-blue-fg">,</span> <span class="ansi-blue-fg">*</span>args<span class="ansi-blue-fg">,</span> <span class="ansi-blue-fg">**</span>kwargs<span class="ansi-blue-fg">)</span>
-<span class="ansi-red-fg">Docstring:</span>     
-range(stop) -&gt; range object
-range(start, stop[, step]) -&gt; range object
-Return an object that produces a sequence of integers from start (inclusive)
-to stop (exclusive) by step.  range(i, j) produces i, i+1, i+2, ..., j-1.
-start defaults to 0, and stop is omitted!  range(4) produces 0, 1, 2, 3.
-These are exactly the valid indices for a list of 4 elements.
-When step is given, it specifies the increment (or decrement).
-<span class="ansi-red-fg">Type:</span>           type
-<span class="ansi-red-fg">Subclasses:</span>     </pre>
+<p>Let’s create it:</p>
+<div id="22aebf1d-9699-435c-91cb-e8af00a09c57" class="cell" data-execution_count="11">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>path.mkdir()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div id="867fb787-0272-4b52-b4b6-3510cd2ad572" class="cell" data-execution_count="12">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>path.exists()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="12">
+<pre><code>True</code></pre>
 </div>
 </div>
+<p>Notice how the <code>Path</code> instance composes very nicely with the rest of the language. For example, it will automatically concatenate the path with this syntax:</p>
+<div id="6cb889d5-1ac7-4b79-bc4b-8a15b564ff15" class="cell" data-execution_count="13">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>filepath <span class="op">=</span> path<span class="op">/</span><span class="st">"a-great-file.txt"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<div id="e7120365-aa49-44be-8cd7-84efa2c95831" class="cell" data-execution_count="2">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>players <span class="op">=</span> [</span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Tilo"</span>,</span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Fiona"</span>,</span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Ray"</span>,</span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-<p>It is a good practice to directly loop over the elements of collections like so:</p>
-<div id="648798b6-bc7e-437d-b967-8d2c0797fb8f" class="cell" data-execution_count="3">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> player <span class="kw">in</span> players:</span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(player)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>Tilo
-Fiona
-Ray</code></pre>
+<div id="11b2f550-13ad-4c4c-aa7b-3ff193b050b7" class="cell" data-execution_count="14">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>filepath</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="14">
+<pre><code>PosixPath('a-new-dir/a-great-file.txt')</code></pre>
 </div>
 </div>
-<p>If you really need the indices to carry out some other operation, you can get them as you go with <code>enumerate</code>, which returns a tuple:</p>
-<div id="a2177c59-df20-4db3-bb8d-da5a9d4ba7bc" class="cell" data-execution_count="4">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i, player <span class="kw">in</span> <span class="bu">enumerate</span>(players):</span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(i, player)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>0 Tilo
-1 Fiona
-2 Ray</code></pre>
+<div id="bfb7b5f5-a7bd-42fe-870f-70e25a069392" class="cell" data-execution_count="15">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>filepath.exists()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="15">
+<pre><code>False</code></pre>
 </div>
 </div>
-<p>Notice: These tuples are just like dictionary items, so we can build a dictionary with them:</p>
-<div id="788ed63b-7ee4-47a1-a786-8a931cebe883" class="cell" data-execution_count="5">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="bu">dict</span>(<span class="bu">enumerate</span>(players))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-display" data-execution_count="5">
-<pre><code>{0: 'Tilo', 1: 'Fiona', 2: 'Ray'}</code></pre>
+<p>Let’s create it:</p>
+<div id="4096981c-0326-4090-8a4e-29193e7517f2" class="cell" data-execution_count="16">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>filepath.touch()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div id="c7c9e098-f9fa-43e6-ae59-9c466e4d55e4" class="cell" data-execution_count="17">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>filepath.exists()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="17">
+<pre><code>True</code></pre>
 </div>
 </div>
-<p>Importantly, Python doesn’t care about <em>what</em> data type we are looping over – all that matters is the data “knows” how to be looped over:</p>
-<div id="ac9d1aef-b65b-48af-a5bf-f8703be34193" class="cell" data-execution_count="7">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> player <span class="kw">in</span> players:</span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(player)</span>
-<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> letter <span class="kw">in</span> player:</span>
-<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(letter)</span>
-<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"-"</span> <span class="op">*</span> <span class="dv">5</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>Tilo
-T
-i
-l
-o
------
-Fiona
-F
-i
-o
-n
-a
------
-Ray
-R
-a
-y
------</code></pre>
+<p>This file is still empty, let’s write a message into it:</p>
+<div id="dce0972c-e561-4dd7-bdf7-c0f2cfcf1482" class="cell" data-execution_count="18">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>filepath.write_text(<span class="st">"Hello world, this is so much fun!"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="18">
+<pre><code>33</code></pre>
 </div>
 </div>
-<p>This is a powerful (and typical for Python) way to reason about the objects we deal with: We care more about how the <em>behave</em> than what they <em>are</em>, a concept related to what people informally call <a href="https://realpython.com/duck-typing-python/">duck typing</a>.</p>
-<p>We also have <code>while</code> loops, that will run as long as the condition is true:</p>
-<div class="callout callout-style-default callout-tip callout-titled" title="Tip: Use while loops sparingly">
+<p>A lot just happened:</p>
+<ul>
+<li>the file was created</li>
+<li>we opened the file</li>
+<li>we wrote the text into it</li>
+<li>we closed the file</li>
+<li>we got back the number of bytes written (33)</li>
+</ul>
+<p>So the <code>Path</code> class is abstracting away a lot of work. Pretty handy, I think.</p>
+<p>Now let’s read in the content of the file:</p>
+<div id="b01e1969-a123-428a-9dad-f5dd768d6dfe" class="cell" data-execution_count="19">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>filepath.read_text()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="19">
+<pre><code>'Hello world, this is so much fun!'</code></pre>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Tip</span>Tip: Use while loops sparingly
+Note
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>It’s very easy to make mistakes and run into infinite loops.</p>
+<p>The classical way to open/close files is actually using the <code>open</code> function. You can google it if you’re curious, but, for now, let’s run with <code>pathlib.Path</code>.</p>
 </div>
 </div>
-<div id="ed368d81-01f9-46b7-b9ec-76bfdbbb08ab" class="cell" data-execution_count="13">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>message, count <span class="op">=</span> <span class="st">"end-of-loop"</span>, <span class="dv">1</span>  <span class="co"># We can do multiple assignment with tuple unpacking</span></span>
-<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="cf">while</span> <span class="va">True</span>:</span>
-<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(count)</span>
-<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>    count <span class="op">+=</span> <span class="dv">1</span>   <span class="co"># equivalent to count = count + 1</span></span>
-<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> count <span class="op">==</span> <span class="dv">4</span>:</span>
-<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(message)</span>
-<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>        <span class="cf">break</span>  <span class="co"># we can interrupt the loop</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>1
-2
-3
-end-of-loop</code></pre>
+<p>We can also delete files/directories:</p>
+<div id="46acd082-fef1-41ea-aa12-d3d54045a913" class="cell" data-execution_count="20">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>filepath</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="20">
+<pre><code>PosixPath('a-new-dir/a-great-file.txt')</code></pre>
 </div>
 </div>
-<p>We say something is “falsy” when it evaluates to <code>False</code>, despite it not being the literal boolean value <code>False</code>.</p>
-<p>For example, the number 0, empty strings, empty collections (lists, tuples, dicts, sets) are “falsy”, which can be handy:</p>
-<div id="72d3a08d-8445-4074-97aa-f38c9acaae1f" class="cell" data-execution_count="9">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="bu">list</span>.pop?</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-display">
-<div class="ansi-escaped-output">
-<pre><span class="ansi-red-fg">Signature:</span> list<span class="ansi-blue-fg">.</span>pop<span class="ansi-blue-fg">(</span>self<span class="ansi-blue-fg">,</span> index<span class="ansi-blue-fg">=</span><span class="ansi-blue-fg">-</span><span class="ansi-cyan-fg">1</span><span class="ansi-blue-fg">,</span> <span class="ansi-blue-fg">/</span><span class="ansi-blue-fg">)</span>
-<span class="ansi-red-fg">Docstring:</span>
-Remove and return item at index (default last).
-Raises IndexError if list is empty or index is out of range.
-<span class="ansi-red-fg">Type:</span>      method_descriptor</pre>
+<div id="542d2c81-72cc-49b5-b7d5-4262c57ca220" class="cell" data-execution_count="21">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>filepath.unlink()  <span class="co"># unlink means remove in this context</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-</div>
-</div>
-<div id="f5f74b27-1973-4755-817e-c98d2d86b4fd" class="cell" data-execution_count="10">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="cf">while</span> players:  <span class="co"># when the list players is empty, it will become falsy</span></span>
-<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>    player <span class="op">=</span> players.pop()</span>
-<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"Removing: </span><span class="sc">{</span>player<span class="sc">}</span><span class="ss">"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>Removing: Ray
-Removing: Fiona
-Removing: Tilo</code></pre>
-</div>
-</div>
-<div id="aea063c4-e43e-4a67-9a9e-4ae77ba83515" class="cell" data-execution_count="11">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>players</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-display" data-execution_count="11">
-<pre><code>[]</code></pre>
+<div id="225324fb-8959-42f9-acb0-f70b687993ee" class="cell" data-execution_count="22">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>filepath.exists()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="22">
+<pre><code>False</code></pre>
 </div>
 </div>
 </section>
-<section id="if-statement" class="level2" data-number="4.2">
-<h2 data-number="4.2" class="anchored" data-anchor-id="if-statement"><span class="header-section-number">4.2</span> If Statement</h2>
-<div id="40b8e08a-c78e-43d2-b2b3-c792549bbc25" class="cell" data-execution_count="1">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="dv">1</span> <span class="op">&gt;</span> <span class="dv">0</span>:</span>
-<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"kind of reasonable"</span>)</span>
-<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a><span class="cf">else</span>:</span>
-<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"not quite"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>kind of reasonable</code></pre>
+<section id="files-directories" class="level2" data-number="10.2">
+<h2 data-number="10.2" class="anchored" data-anchor-id="files-directories"><span class="header-section-number">10.2</span> Files &amp; Directories</h2>
+<p>When manipulating files we sometimes we want to explicitly distinguish between files and directories. <code>pathlib.Path</code> has a few methods that make our life easier:</p>
+<div id="bee451f1-7c97-46f6-9472-70baa6dc80cd" class="cell" data-execution_count="4">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb25"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>current <span class="op">=</span> Path(<span class="st">"."</span>)  <span class="co"># dot means current dir</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div id="3908f734-bbef-4ae0-9452-b5a281482a3e" class="cell" data-execution_count="5">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb26"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>current.is_file()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="5">
+<pre><code>False</code></pre>
 </div>
 </div>
-<div id="caca9dc0-0d75-4237-b102-bc93d8f7a97f" class="cell" data-execution_count="3">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> <span class="dv">1</span></span>
-<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> x <span class="op">&gt;</span> <span class="dv">2</span>:</span>
-<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"kind of crazy"</span>)</span>
-<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a><span class="cf">elif</span> x <span class="op">==</span> <span class="dv">2</span>:</span>
-<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"same"</span>)    </span>
-<span id="cb22-6"><a href="#cb22-6" aria-hidden="true" tabindex="-1"></a><span class="cf">elif</span> x <span class="op">==</span> <span class="dv">3</span>:</span>
-<span id="cb22-7"><a href="#cb22-7" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"say what?"</span>)</span>
-<span id="cb22-8"><a href="#cb22-8" aria-hidden="true" tabindex="-1"></a><span class="cf">else</span>:</span>
-<span id="cb22-9"><a href="#cb22-9" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"I give up"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>I give up</code></pre>
+<div id="1bed4e9b-f5a8-414b-b21d-da3c958b7782" class="cell" data-execution_count="6">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb28"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>current.is_dir()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="6">
+<pre><code>True</code></pre>
 </div>
 </div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Explore the methods of the <code>Path</code> class by creating and object and hitting the Tab key, there are several handy functionalities included.</p>
+</div>
+</div>
+</section>
+<section id="shutil" class="level2" data-number="10.3">
+<h2 data-number="10.3" class="anchored" data-anchor-id="shutil"><span class="header-section-number">10.3</span> Shutil</h2>
+<p>🚧 Material under construction 🚧</p>
+</section>
+<section id="exercises" class="level2" data-number="10.4">
+<h2 data-number="10.4" class="anchored" data-anchor-id="exercises"><span class="header-section-number">10.4</span> Exercises</h2>
+<p>Now that we now how to read files from within python, we can tidy up things a bit from previous chapter.</p>
+<ol type="1">
+<li>Download the data from the repository <a href="https://github.com/OpenNeuroDatasets/ds005588/blob/main/sub-336/func/sub-336_task-respo_run-2_events.tsv">here</a> into a local file on your computer.</li>
+<li>Write a function that takes a path and returns the list of dictionaries from exercise 8.5. Read the file content using <code>pathlib</code>.</li>
+</ol>
 
 
 </section>
@@ -987,13 +957,13 @@ Removing: Tilo</code></pre>
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./02_types_data_structures.html" class="pagination-link" aria-label="Syntax Basics">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Syntax Basics</span></span>
+      <a href="./imports.html" class="pagination-link" aria-label="Importing Code">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Importing Code</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./03_2_error_handling.html" class="pagination-link" aria-label="Error Handling">
-        <span class="nav-page-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Error Handling</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./061_dependencies.html" class="pagination-link" aria-label="Dependencies">
+        <span class="nav-page-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Dependencies</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
