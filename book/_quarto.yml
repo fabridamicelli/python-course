@@ -50,7 +50,7 @@ book:
     - 081_pandas.ipynb
     - 09_plotting.ipynb
     - 10_testing.ipynb
-    - lab_explore_data_exercises.ipynb
+    - lab_explore_data.ipynb
     - 11_cli.ipynb
     - 13_tools.ipynb
     - 051_oop.ipynb
