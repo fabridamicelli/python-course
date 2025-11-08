@@ -112,7 +112,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 </head>
 
-<body class="nav-sidebar floating nav-fixed quarto-light">
+<body class="floating nav-fixed quarto-light">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -197,7 +197,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./lab_explore_data_exercises.html"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Lab: Exploring a Dataset</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./lab_explore_dataset.html"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Lab: Exploring a Dataset</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -323,7 +323,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./lab_explore_data_exercises.html" class="sidebar-item-text sidebar-link active">
+  <a href="./lab_explore_dataset.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Lab: Exploring a Dataset</span></span></a>
   </div>
 </li>
@@ -373,10 +373,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#exercises-1" id="toc-exercises-1" class="nav-link active" data-scroll-target="#exercises-1"><span class="header-section-number">18.1</span> Exercises 1</a></li>
-  <li><a href="#exercises-2" id="toc-exercises-2" class="nav-link" data-scroll-target="#exercises-2"><span class="header-section-number">18.2</span> Exercises 2</a></li>
-  <li><a href="#exercises-3" id="toc-exercises-3" class="nav-link" data-scroll-target="#exercises-3"><span class="header-section-number">18.3</span> Exercises 3</a></li>
-  <li><a href="#exercises-4" id="toc-exercises-4" class="nav-link" data-scroll-target="#exercises-4"><span class="header-section-number">18.4</span> Exercises 4</a></li>
+  <li><a href="#download-data" id="toc-download-data" class="nav-link active" data-scroll-target="#download-data"><span class="header-section-number">18.1</span> Download data</a>
+  <ul class="collapse">
+  <li><a href="#clone-the-repository" id="toc-clone-the-repository" class="nav-link" data-scroll-target="#clone-the-repository"><span class="header-section-number">18.1.1</span> Clone the repository</a></li>
+  <li><a href="#install-git-annex" id="toc-install-git-annex" class="nav-link" data-scroll-target="#install-git-annex"><span class="header-section-number">18.1.2</span> Install <code>git-annex</code></a></li>
+  <li><a href="#pull-the-data" id="toc-pull-the-data" class="nav-link" data-scroll-target="#pull-the-data"><span class="header-section-number">18.1.3</span> Pull the data</a></li>
+  </ul></li>
+  <li><a href="#explore-files" id="toc-explore-files" class="nav-link" data-scroll-target="#explore-files"><span class="header-section-number">18.2</span> Explore files</a></li>
+  <li><a href="#validating-the-data" id="toc-validating-the-data" class="nav-link" data-scroll-target="#validating-the-data"><span class="header-section-number">18.3</span> Validating the data</a></li>
+  <li><a href="#exploratory-data-analysis" id="toc-exploratory-data-analysis" class="nav-link" data-scroll-target="#exploratory-data-analysis"><span class="header-section-number">18.4</span> Exploratory data analysis</a></li>
+  <li><a href="#process-data" id="toc-process-data" class="nav-link" data-scroll-target="#process-data"><span class="header-section-number">18.5</span> Process data</a></li>
   </ul>
 </nav>
     </div>
@@ -402,45 +408,53 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<p>We want to take a look at this real-world dataset:<br>
-https://openneuro.org/datasets/ds005420/versions/1.0.0</p>
-<div id="f7cd8929-a0bf-457d-b05e-4aaaf2783d56" class="cell" data-execution_count="1">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pathlib</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>We want to take a look at this real-world dataset: <a href="https://github.com/OpenNeuroDatasets/ds005420">https://github.com/OpenNeuroDatasets/ds005420</a></p>
+<section id="download-data" class="level2" data-number="18.1">
+<h2 data-number="18.1" class="anchored" data-anchor-id="download-data"><span class="header-section-number">18.1</span> Download data</h2>
+<section id="clone-the-repository" class="level3" data-number="18.1.1">
+<h3 data-number="18.1.1" class="anchored" data-anchor-id="clone-the-repository"><span class="header-section-number">18.1.1</span> Clone the repository</h3>
+<p>Inside the <code>/pycourse/data</code> folder:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> clone https://github.com/OpenNeuroDatasets/ds005420</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="install-git-annex" class="level3" data-number="18.1.2">
+<h3 data-number="18.1.2" class="anchored" data-anchor-id="install-git-annex"><span class="header-section-number">18.1.2</span> Install <code>git-annex</code></h3>
+<p>The files with the actual data are not there, but we have the references to them so that we can pull them down. We will need the tool <a href="https://git-annex.branchable.com/install/">git-annex tool</a>.</p>
+</section>
+<section id="pull-the-data" class="level3" data-number="18.1.3">
+<h3 data-number="18.1.3" class="anchored" data-anchor-id="pull-the-data"><span class="header-section-number">18.1.3</span> Pull the data</h3>
+<p>Open a terminal inside <code>ds005420</code> and run:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">git-annex</span> get .</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>You should see a progress dialog showing <code>...from s3-PUBLIC...</code><br>
+After that, you’re ready to go with the exercises.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
 </div>
-<div id="e061a4d5-66eb-4eb9-b699-48eb55fd90b5" class="cell" data-execution_count="2">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>path <span class="op">=</span> pathlib.Path(<span class="st">"../data/ds005420-download"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-<div id="75888c8d-0000-40c4-9409-05a2dfd45eba" class="cell" data-execution_count="4">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>content <span class="op">=</span> <span class="bu">list</span>(path.iterdir())</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>content[:<span class="dv">10</span>]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-display" data-execution_count="4">
-<pre><code>[PosixPath('../data/ds005420-download/sub-50'),
- PosixPath('../data/ds005420-download/sub-40'),
- PosixPath('../data/ds005420-download/sub-45'),
- PosixPath('../data/ds005420-download/sub-9'),
- PosixPath('../data/ds005420-download/sub-35'),
- PosixPath('../data/ds005420-download/sub-16'),
- PosixPath('../data/ds005420-download/CHANGES'),
- PosixPath('../data/ds005420-download/sub-2'),
- PosixPath('../data/ds005420-download/sub-36'),
- PosixPath('../data/ds005420-download/sub-21')]</code></pre>
+<div class="callout-title-container flex-fill">
+Tip
 </div>
 </div>
-<p>As we see, there are files, and directories.</p>
-<section id="exercises-1" class="level2" data-number="18.1">
-<h2 data-number="18.1" class="anchored" data-anchor-id="exercises-1"><span class="header-section-number">18.1</span> Exercises 1</h2>
-<ol type="a">
+<div class="callout-body-container callout-body">
+<p>Jupyter Notebooks are ideal for this kind of exploratory tasks. Make a directory called <code>/python/notebooks</code> and open there a jupyter lab instance. Having the notebooks there will help us keeping things tidy for later reproducibility of our workflow.</p>
+</div>
+</div>
+</section>
+</section>
+<section id="explore-files" class="level2" data-number="18.2">
+<h2 data-number="18.2" class="anchored" data-anchor-id="explore-files"><span class="header-section-number">18.2</span> Explore files</h2>
+<ol type="1">
 <li>List only the sub-directories in path.<br>
 </li>
-<li>List only the sub-directories with subject data.<br>
-</li>
-<li>Delete files: <code>CHANGES</code> and <code>participants.tsv</code></li>
+<li>List only the sub-directories with subject data.</li>
+<li>Write a function that lists sub-directories with subject data.</li>
 </ol>
 </section>
-<section id="exercises-2" class="level2" data-number="18.2">
-<h2 data-number="18.2" class="anchored" data-anchor-id="exercises-2"><span class="header-section-number">18.2</span> Exercises 2</h2>
+<section id="validating-the-data" class="level2" data-number="18.3">
+<h2 data-number="18.3" class="anchored" data-anchor-id="validating-the-data"><span class="header-section-number">18.3</span> Validating the data</h2>
 <p>We will start by making sure our data/metadata contains the information we expect at a high level.</p>
-<ol type="a">
+<ol type="1">
+<li>Write a unit test (inside <code>/pycourse/tests/test_data.py</code>) to make sure the number of subject sub-directories corresponds to actual the number of subjects. <strong>Hint:</strong> Look at the metadata.</li>
 <li>Verify that all subject directories have a eeg sub-directory.<br>
 </li>
 <li>Verify that all data in a subject directories matches with the subject number.<br>
@@ -450,13 +464,25 @@ https://openneuro.org/datasets/ds005420/versions/1.0.0</p>
 <li>(Optional) Write a file (<code>discarded_subjects.txt</code>) with the subject numbers that do not match that criterion.</li>
 </ol>
 </section>
-<section id="exercises-3" class="level2" data-number="18.3">
-<h2 data-number="18.3" class="anchored" data-anchor-id="exercises-3"><span class="header-section-number">18.3</span> Exercises 3</h2>
+<section id="exploratory-data-analysis" class="level2" data-number="18.4">
+<h2 data-number="18.4" class="anchored" data-anchor-id="exploratory-data-analysis"><span class="header-section-number">18.4</span> Exploratory data analysis</h2>
 <p>Now we want to look at the data. We find that the data is in a particular format <code>.edf</code> that we cannot directly read in python.<br>
-Hint: We need to install a third-party library <code>mne</code> to read <code>.edf</code> files.</p>
-<ol type="a">
-<li>Plot a histogram of RecordingDuration across all subjects.<br>
-</li>
+<strong>Hint:</strong> We need to install a third-party library <code>mne</code> to read <code>.edf</code> files.<br>
+You can check out the <a href="https://mne.tools/dev/">library documentation here</a></p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>It’s a <em>very</em> good idea to first take a look at the documentation of a tool before installing it. Executing someone else’s code is a potential risk so you should try to find out if you can actually trust the source.</p>
+</div>
+</div>
+<ol type="1">
 <li>Plot one time series.<br>
 </li>
 <li>Plot all time series with labels according to channel name.<br>
@@ -464,17 +490,18 @@ Hint: We need to install a third-party library <code>mne</code> to read <code>.e
 <li>Plot the channels that start with “T” and “O”.<br>
 </li>
 <li>Plot a correlation plot of the “T” and “O” channels as a heatmap.</li>
+<li>Plot a histogram of <code>RecordingDuration</code> across all subjects.</li>
 </ol>
 </section>
-<section id="exercises-4" class="level2" data-number="18.4">
-<h2 data-number="18.4" class="anchored" data-anchor-id="exercises-4"><span class="header-section-number">18.4</span> Exercises 4</h2>
+<section id="process-data" class="level2" data-number="18.5">
+<h2 data-number="18.5" class="anchored" data-anchor-id="process-data"><span class="header-section-number">18.5</span> Process data</h2>
 <p>After having taken this quick look at the data, we want to start processing the data.</p>
-<ol type="a">
-<li>Add a column called <code>channel_mean</code> that<br>
-</li>
+<ol type="1">
+<li>Clean the column names removing “EEG”, eg “EEG C4-A1A2” -&gt; “C4-A1A2”</li>
 <li>Substract the mean from each channel<br>
 </li>
-<li>Plot correlation matrix of all-vs-all channels</li>
+<li>Plot correlation matrix of all-vs-all channels. <strong>Hint:</strong> Look at seaborn documentation on heatmaps.</li>
+<li>Save the correlation plot as vector graphics.</li>
 </ol>
 
 
