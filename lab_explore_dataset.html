@@ -109,6 +109,35 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <!-- plausible -->
 <script defer="" data-domain="fabridamicelli.github.io/python-course" src="https://plausible.io/js/script.js"></script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 </head>
 
@@ -382,7 +411,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#explore-files" id="toc-explore-files" class="nav-link" data-scroll-target="#explore-files"><span class="header-section-number">18.2</span> Explore files</a></li>
   <li><a href="#validating-the-data" id="toc-validating-the-data" class="nav-link" data-scroll-target="#validating-the-data"><span class="header-section-number">18.3</span> Validating the data</a></li>
   <li><a href="#exploratory-data-analysis" id="toc-exploratory-data-analysis" class="nav-link" data-scroll-target="#exploratory-data-analysis"><span class="header-section-number">18.4</span> Exploratory data analysis</a></li>
-  <li><a href="#process-data" id="toc-process-data" class="nav-link" data-scroll-target="#process-data"><span class="header-section-number">18.5</span> Process data</a></li>
+  <li><a href="#single-subject-data" id="toc-single-subject-data" class="nav-link" data-scroll-target="#single-subject-data"><span class="header-section-number">18.5</span> Single-subject data</a></li>
+  <li><a href="#multi-subject-data" id="toc-multi-subject-data" class="nav-link" data-scroll-target="#multi-subject-data"><span class="header-section-number">18.6</span> Multi-subject data</a></li>
+  <li><a href="#consolidate-pipeline" id="toc-consolidate-pipeline" class="nav-link" data-scroll-target="#consolidate-pipeline"><span class="header-section-number">18.7</span> Consolidate pipeline</a></li>
   </ul>
 </nav>
     </div>
@@ -408,7 +439,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<p>We want to take a look at this real-world dataset: <a href="https://github.com/OpenNeuroDatasets/ds005420">https://github.com/OpenNeuroDatasets/ds005420</a></p>
+<p>We will work here with this real-world dataset of resting state EEG signals <a href="https://github.com/OpenNeuroDatasets/ds005420">https://github.com/OpenNeuroDatasets/ds005420</a>.</p>
 <section id="download-data" class="level2" data-number="18.1">
 <h2 data-number="18.1" class="anchored" data-anchor-id="download-data"><span class="header-section-number">18.1</span> Download data</h2>
 <section id="clone-the-repository" class="level3" data-number="18.1.1">
@@ -457,18 +488,12 @@ Tip
 <li>Write a unit test (inside <code>/pycourse/tests/test_data.py</code>) to make sure the number of subject sub-directories corresponds to actual the number of subjects. <strong>Hint:</strong> Look at the metadata.</li>
 <li>Verify that all subject directories have a eeg sub-directory.<br>
 </li>
-<li>Verify that all data in a subject directories matches with the subject number.<br>
-</li>
-<li>Assert that EEG data for all subjects was taken using 20 channels and sampling frequency 500.<br>
-</li>
-<li>(Optional) Write a file (<code>discarded_subjects.txt</code>) with the subject numbers that do not match that criterion.</li>
+<li>Assert that EEG data for all subjects was taken using 20 channels and sampling frequency 500.</li>
 </ol>
 </section>
 <section id="exploratory-data-analysis" class="level2" data-number="18.4">
 <h2 data-number="18.4" class="anchored" data-anchor-id="exploratory-data-analysis"><span class="header-section-number">18.4</span> Exploratory data analysis</h2>
-<p>Now we want to look at the data. We find that the data is in a particular format <code>.edf</code> that we cannot directly read in python.<br>
-<strong>Hint:</strong> We need to install a third-party library <code>mne</code> to read <code>.edf</code> files.<br>
-You can check out the <a href="https://mne.tools/dev/">library documentation here</a></p>
+<p>Now we want to look at the data. We find that the data is in a format called <a href="https://en.wikipedia.org/wiki/European_Data_Format">European Data Format</a> (<code>.edf</code>) and we need to install a third-party library, <code>mne</code>, to read it. You can check out the <a href="https://mne.tools/dev/">library documentation here</a></p>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -482,27 +507,53 @@ Tip
 <p>It’s a <em>very</em> good idea to first take a look at the documentation of a tool before installing it. Executing someone else’s code is a potential risk so you should try to find out if you can actually trust the source.</p>
 </div>
 </div>
+<p><strong>Hints:</strong></p>
+<ul>
+<li>Look at function <code>mne.io.read_raw_edf</code> to load data.</li>
+<li>Look at the method <code>.to_data_frame</code> of the loaded data.</li>
+</ul>
 <ol type="1">
-<li>Plot one time series.<br>
+<li>Plot one time series.</li>
+<li>Clean the column names removing “EEG”, eg “EEG C4-A1A2” -&gt; “C4-A1A2”</li>
+<li>Plot all time series with labels according to channel name. <strong>Hint:</strong> Look at <code>melt</code> method of dataframes</li>
+<li>Plot the channels that start with “P”, “T” or “O”.<br>
 </li>
-<li>Plot all time series with labels according to channel name.<br>
-</li>
-<li>Plot the channels that start with “T” and “O”.<br>
-</li>
-<li>Plot a correlation plot of the “T” and “O” channels as a heatmap.</li>
-<li>Plot a histogram of <code>RecordingDuration</code> across all subjects.</li>
+<li>Plot a correlation plot of all-vs-all the “P”, “T” and “O” channels as a heatmap. <strong>Hint:</strong> Look up seaborn’s documentation on heatmaps.</li>
+<li>Save the correlation plot in svg format.</li>
 </ol>
 </section>
-<section id="process-data" class="level2" data-number="18.5">
-<h2 data-number="18.5" class="anchored" data-anchor-id="process-data"><span class="header-section-number">18.5</span> Process data</h2>
-<p>After having taken this quick look at the data, we want to start processing the data.</p>
+<section id="single-subject-data" class="level2" data-number="18.5">
+<h2 data-number="18.5" class="anchored" data-anchor-id="single-subject-data"><span class="header-section-number">18.5</span> Single-subject data</h2>
+<p>After having taken this quick look at the data, we want to start processing the data. So far we are working with data coming from one subject.</p>
 <ol type="1">
-<li>Clean the column names removing “EEG”, eg “EEG C4-A1A2” -&gt; “C4-A1A2”</li>
-<li>Substract the mean from each channel<br>
-</li>
-<li>Plot correlation matrix of all-vs-all channels. <strong>Hint:</strong> Look at seaborn documentation on heatmaps.</li>
-<li>Save the correlation plot as vector graphics.</li>
+<li>Substract the mean from each channel</li>
+<li>Plot the time series with substracted mean for all channels</li>
+<li>Standarize and plot all time series again. Standarization means: <span class="math display">\[
+y = (x - mean) / standardDeviation
+\]</span></li>
 </ol>
+</section>
+<section id="multi-subject-data" class="level2" data-number="18.6">
+<h2 data-number="18.6" class="anchored" data-anchor-id="multi-subject-data"><span class="header-section-number">18.6</span> Multi-subject data</h2>
+<p>Here we are going to work with data of more than one subject at the time.</p>
+<ol type="1">
+<li>Plot a histogram of <code>RecordingDuration</code> across all subjects. <strong>Hint:</strong> assume we want data in “oc_eeg”</li>
+<li>Pick 3 EEG channels and plot the time series (aggregated across all subjects) in one plot. Differentiate the lines by channel. <strong>Hint:</strong> Use seaborn and look up the <code>hue</code> parameter.</li>
+<li>Plot a grid of subplots with each plot representing 1 channel (aggregated across subjects). <strong>Hint:</strong> Adapt <a href="https://seaborn.pydata.org/examples/timeseries_facets.html">this example</a></li>
+<li>Pick 5 channels and only 3 time points. Simulate subjects belong to 3 groups.</li>
+<li>Adapt <a href="https://seaborn.pydata.org/examples/pointplot_anova.html">this example</a> to plot a comparison between channels/subjects/time.</li>
+</ol>
+</section>
+<section id="consolidate-pipeline" class="level2" data-number="18.7">
+<h2 data-number="18.7" class="anchored" data-anchor-id="consolidate-pipeline"><span class="header-section-number">18.7</span> Consolidate pipeline</h2>
+<p>Let’s consolidate our workflow into a pipeline.</p>
+<ul>
+<li>read and assert subfolders</li>
+<li>clean column names</li>
+<li>standarize values</li>
+<li>plot correlations</li>
+<li>run tests</li>
+</ul>
 
 
 </section>
