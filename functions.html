@@ -2,12 +2,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.8.25">
+<meta name="generator" content="quarto-1.8.26">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>6&nbsp; Functions – Python Course</title>
+<title>5&nbsp; Functions – Python Course</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -66,7 +66,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
 <link href="./comprehensions.html" rel="next">
-<link href="./error_handling.html" rel="prev">
+<link href="./flow_control.html" rel="prev">
 <link href="././favicon.svg" rel="icon" type="image/svg+xml">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
@@ -75,7 +75,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-8d579c7e4cb5e38eaddfdf7e7f03f655.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-98597cea2d0351c6feaf4159bb7ae989.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="site_libs/bootstrap/bootstrap-560e00388d6c3931de6d761239f1d17b.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
@@ -119,8 +119,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a href="./index.html" class="navbar-brand navbar-brand-logo">
-    </a>
     <a class="navbar-brand" href="./index.html">
     <span class="navbar-title">Python Course</span>
     </a>
@@ -197,7 +195,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./functions.html"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Functions</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./functions.html"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Functions</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -207,10 +205,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
-    <div class="pt-lg-2 mt-2 text-left sidebar-header sidebar-header-stacked">
-      <a href="./index.html" class="sidebar-logo-link">
-      </a>
-      </div>
     <div class="sidebar-menu-container"> 
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
@@ -245,104 +239,104 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./error_handling.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Error Handling</span></span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
   <a href="./functions.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Functions</span></span></a>
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Functions</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./comprehensions.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Comprehensions</span></span></a>
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Comprehensions</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./lab_builtin_for_the_win.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Lab: Built-in for the Win</span></span></a>
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Lab: Built-in for the Win</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./imports.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Importing Code</span></span></a>
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Importing Code</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./read_write.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Read/Write Files</span></span></a>
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Read/Write Files</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./dependencies.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Dependencies</span></span></a>
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Dependencies</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./common_data_formats.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Common Data Formats</span></span></a>
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Common Data Formats</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./debugging.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Debugging</span></span></a>
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Debugging</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./numpy.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Numpy</span></span></a>
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Numpy</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./pandas.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Pandas</span></span></a>
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Pandas</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./plotting.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Plotting</span></span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./testing.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Testing</span></span></a>
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Plotting</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./lab_explore_dataset.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Lab: Exploring a Dataset</span></span></a>
+ <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Lab: Exploring a Dataset</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./cli.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Command Line Interfaces (CLI)</span></span></a>
+ <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Command Line Interfaces (CLI)</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./tools_patterns.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Useful Tools and Patterns</span></span></a>
+  <a href="./error_handling.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Error Handling</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./oop.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Object Oriented Programming</span></span></a>
+ <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Object Oriented Programming</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./testing.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Testing</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./tools_patterns.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Useful Tools and Patterns</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -373,13 +367,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#basic-syntax" id="toc-basic-syntax" class="nav-link active" data-scroll-target="#basic-syntax"><span class="header-section-number">6.1</span> Basic syntax</a></li>
-  <li><a href="#arbitrary-arguments-args-kwargs" id="toc-arbitrary-arguments-args-kwargs" class="nav-link" data-scroll-target="#arbitrary-arguments-args-kwargs"><span class="header-section-number">6.2</span> Arbitrary arguments: <code>*args</code> &amp; <code>**kwargs</code></a></li>
-  <li><a href="#functions-are-values" id="toc-functions-are-values" class="nav-link" data-scroll-target="#functions-are-values"><span class="header-section-number">6.3</span> Functions are values</a></li>
-  <li><a href="#anonymous-functions" id="toc-anonymous-functions" class="nav-link" data-scroll-target="#anonymous-functions"><span class="header-section-number">6.4</span> Anonymous functions</a></li>
-  <li><a href="#early-return" id="toc-early-return" class="nav-link" data-scroll-target="#early-return"><span class="header-section-number">6.5</span> Early return</a></li>
-  <li><a href="#keyword-only-arguments" id="toc-keyword-only-arguments" class="nav-link" data-scroll-target="#keyword-only-arguments"><span class="header-section-number">6.6</span> Keyword-only arguments</a></li>
-  <li><a href="#exercises" id="toc-exercises" class="nav-link" data-scroll-target="#exercises"><span class="header-section-number">6.7</span> Exercises</a></li>
+  <li><a href="#basic-syntax" id="toc-basic-syntax" class="nav-link active" data-scroll-target="#basic-syntax"><span class="header-section-number">5.1</span> Basic syntax</a></li>
+  <li><a href="#arbitrary-arguments-args-kwargs" id="toc-arbitrary-arguments-args-kwargs" class="nav-link" data-scroll-target="#arbitrary-arguments-args-kwargs"><span class="header-section-number">5.2</span> Arbitrary arguments: <code>*args</code> &amp; <code>**kwargs</code></a></li>
+  <li><a href="#functions-are-values" id="toc-functions-are-values" class="nav-link" data-scroll-target="#functions-are-values"><span class="header-section-number">5.3</span> Functions are values</a></li>
+  <li><a href="#anonymous-functions" id="toc-anonymous-functions" class="nav-link" data-scroll-target="#anonymous-functions"><span class="header-section-number">5.4</span> Anonymous functions</a></li>
+  <li><a href="#early-return" id="toc-early-return" class="nav-link" data-scroll-target="#early-return"><span class="header-section-number">5.5</span> Early return</a></li>
+  <li><a href="#keyword-only-arguments" id="toc-keyword-only-arguments" class="nav-link" data-scroll-target="#keyword-only-arguments"><span class="header-section-number">5.6</span> Keyword-only arguments</a></li>
+  <li><a href="#exercises" id="toc-exercises" class="nav-link" data-scroll-target="#exercises"><span class="header-section-number">5.7</span> Exercises</a></li>
   </ul>
 </nav>
     </div>
@@ -388,7 +382,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Functions</span></h1>
+<h1 class="title"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Functions</span></h1>
 </div>
 
 
@@ -406,8 +400,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 <p>Functions encapsulate pieces of logic that we want to use repeatedly. Also, this encapsulation makes testing our code much easier which is rather useful.</p>
-<section id="basic-syntax" class="level2" data-number="6.1">
-<h2 data-number="6.1" class="anchored" data-anchor-id="basic-syntax"><span class="header-section-number">6.1</span> Basic syntax</h2>
+<section id="basic-syntax" class="level2" data-number="5.1">
+<h2 data-number="5.1" class="anchored" data-anchor-id="basic-syntax"><span class="header-section-number">5.1</span> Basic syntax</h2>
 <div id="a9115bd0-8c03-4e0d-8c0c-fbf511c7dc63" class="cell" data-execution_count="1">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> identity(a, b):  <span class="co"># only positional arguments</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> a, b      <span class="co"># we can return more than one thing</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
@@ -468,8 +462,8 @@ Important
 <span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"hello"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
-<section id="arbitrary-arguments-args-kwargs" class="level2" data-number="6.2">
-<h2 data-number="6.2" class="anchored" data-anchor-id="arbitrary-arguments-args-kwargs"><span class="header-section-number">6.2</span> Arbitrary arguments: <code>*args</code> &amp; <code>**kwargs</code></h2>
+<section id="arbitrary-arguments-args-kwargs" class="level2" data-number="5.2">
+<h2 data-number="5.2" class="anchored" data-anchor-id="arbitrary-arguments-args-kwargs"><span class="header-section-number">5.2</span> Arbitrary arguments: <code>*args</code> &amp; <code>**kwargs</code></h2>
 <p>We can write a function with an arbitrary (undefined) number of arguments. For that, we use the syntax <code>*args</code>. The <code>args</code> will be put into a tuple:</p>
 <div id="7cf691f6-67ef-4dc6-ae3e-b7a729722b0a" class="cell" data-execution_count="8">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> print_args(<span class="op">*</span>args):</span>
@@ -543,8 +537,8 @@ Tip
 </div>
 </div>
 </section>
-<section id="functions-are-values" class="level2" data-number="6.3">
-<h2 data-number="6.3" class="anchored" data-anchor-id="functions-are-values"><span class="header-section-number">6.3</span> Functions are values</h2>
+<section id="functions-are-values" class="level2" data-number="5.3">
+<h2 data-number="5.3" class="anchored" data-anchor-id="functions-are-values"><span class="header-section-number">5.3</span> Functions are values</h2>
 <p>We can assign functions to variables and pass them around, like any other object (people call this to have “<em>functions as first-class citizen</em>” in the language).</p>
 <div id="5b1e8f51-deaa-4769-831f-c21db3a652b3" class="cell" data-execution_count="24">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb25"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> printer(func):</span>
@@ -577,8 +571,8 @@ Tip
 </div>
 </div>
 </section>
-<section id="anonymous-functions" class="level2" data-number="6.4">
-<h2 data-number="6.4" class="anchored" data-anchor-id="anonymous-functions"><span class="header-section-number">6.4</span> Anonymous functions</h2>
+<section id="anonymous-functions" class="level2" data-number="5.4">
+<h2 data-number="5.4" class="anchored" data-anchor-id="anonymous-functions"><span class="header-section-number">5.4</span> Anonymous functions</h2>
 <p>There is a shorthand to define functions with this syntax:</p>
 <pre><code>lambda [optional-args]: [return-values]</code></pre>
 <div id="2f2dae6b-7be5-4535-bb93-2ab034a340df" class="cell" data-execution_count="31">
@@ -629,8 +623,8 @@ Tip
 </div>
 </div>
 </section>
-<section id="early-return" class="level2" data-number="6.5">
-<h2 data-number="6.5" class="anchored" data-anchor-id="early-return"><span class="header-section-number">6.5</span> Early return</h2>
+<section id="early-return" class="level2" data-number="5.5">
+<h2 data-number="5.5" class="anchored" data-anchor-id="early-return"><span class="header-section-number">5.5</span> Early return</h2>
 <p>Python functions have so-called early return, which means a function will exit as soon as it hits the first <code>return</code> statement, for example:</p>
 <div id="27a4af89-4283-4a85-89c0-9f9eb711af6e" class="cell" data-execution_count="41">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb50"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb50-1"><a href="#cb50-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> early():</span>
@@ -679,8 +673,8 @@ Tip
 </div>
 </div>
 </section>
-<section id="keyword-only-arguments" class="level2" data-number="6.6">
-<h2 data-number="6.6" class="anchored" data-anchor-id="keyword-only-arguments"><span class="header-section-number">6.6</span> Keyword-only arguments</h2>
+<section id="keyword-only-arguments" class="level2" data-number="5.6">
+<h2 data-number="5.6" class="anchored" data-anchor-id="keyword-only-arguments"><span class="header-section-number">5.6</span> Keyword-only arguments</h2>
 <p>There’s a way to force the arguments of a function to be keyword-only, which can be useful to avoid mistakes and kindly nudge the users of our code (yes, you yourself too!) to pass the arguments to a function explicitly.</p>
 <p>Everything coming after <code>*</code> must be key-word:</p>
 <div id="74192505-48b1-4834-9df9-b2121d689f4e" class="cell" data-execution_count="3">
@@ -736,8 +730,8 @@ Cell <span class="ansi-green-fg">In[7], line 1</span>
 </div>
 </div>
 </section>
-<section id="exercises" class="level2" data-number="6.7">
-<h2 data-number="6.7" class="anchored" data-anchor-id="exercises"><span class="header-section-number">6.7</span> Exercises</h2>
+<section id="exercises" class="level2" data-number="5.7">
+<h2 data-number="5.7" class="anchored" data-anchor-id="exercises"><span class="header-section-number">5.7</span> Exercises</h2>
 <ol type="1">
 <li>Write a function called <code>intro</code> that takes two positional arguments, name and age, and prints a sentence introducing a person. The function should return nothing.</li>
 <li>Repeat it, but adding an optional argument, city. The function should now return the introducing string and handle the city input too.</li>
@@ -1170,13 +1164,13 @@ Cell <span class="ansi-green-fg">In[7], line 1</span>
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./error_handling.html" class="pagination-link" aria-label="Error Handling">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Error Handling</span></span>
+      <a href="./flow_control.html" class="pagination-link" aria-label="Flow Control">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Flow Control</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
       <a href="./comprehensions.html" class="pagination-link" aria-label="Comprehensions">
-        <span class="nav-page-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Comprehensions</span></span> <i class="bi bi-arrow-right-short"></i>
+        <span class="nav-page-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Comprehensions</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

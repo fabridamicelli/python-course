@@ -2,12 +2,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.8.25">
+<meta name="generator" content="quarto-1.8.26">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>18&nbsp; Lab: Exploring a Dataset – Python Course</title>
+<title>16&nbsp; Lab: Exploring a Dataset – Python Course</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -66,7 +66,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
 <link href="./cli.html" rel="next">
-<link href="./testing.html" rel="prev">
+<link href="./plotting.html" rel="prev">
 <link href="././favicon.svg" rel="icon" type="image/svg+xml">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
@@ -75,7 +75,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-8d579c7e4cb5e38eaddfdf7e7f03f655.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-98597cea2d0351c6feaf4159bb7ae989.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="site_libs/bootstrap/bootstrap-560e00388d6c3931de6d761239f1d17b.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
@@ -148,8 +148,6 @@ window.Quarto = {
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a href="./index.html" class="navbar-brand navbar-brand-logo">
-    </a>
     <a class="navbar-brand" href="./index.html">
     <span class="navbar-title">Python Course</span>
     </a>
@@ -226,7 +224,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./lab_explore_dataset.html"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Lab: Exploring a Dataset</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./lab_explore_dataset.html"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Lab: Exploring a Dataset</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -236,10 +234,6 @@ window.Quarto = {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
-    <div class="pt-lg-2 mt-2 text-left sidebar-header sidebar-header-stacked">
-      <a href="./index.html" class="sidebar-logo-link">
-      </a>
-      </div>
     <div class="sidebar-menu-container"> 
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
@@ -274,104 +268,104 @@ window.Quarto = {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./error_handling.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Error Handling</span></span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
   <a href="./functions.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Functions</span></span></a>
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Functions</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./comprehensions.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Comprehensions</span></span></a>
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Comprehensions</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./lab_builtin_for_the_win.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Lab: Built-in for the Win</span></span></a>
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Lab: Built-in for the Win</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./imports.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Importing Code</span></span></a>
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Importing Code</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./read_write.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Read/Write Files</span></span></a>
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Read/Write Files</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./dependencies.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Dependencies</span></span></a>
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Dependencies</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./common_data_formats.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Common Data Formats</span></span></a>
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Common Data Formats</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./debugging.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Debugging</span></span></a>
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Debugging</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./numpy.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Numpy</span></span></a>
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Numpy</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./pandas.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Pandas</span></span></a>
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Pandas</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./plotting.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Plotting</span></span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./testing.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Testing</span></span></a>
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Plotting</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./lab_explore_dataset.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Lab: Exploring a Dataset</span></span></a>
+ <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Lab: Exploring a Dataset</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./cli.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Command Line Interfaces (CLI)</span></span></a>
+ <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Command Line Interfaces (CLI)</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./tools_patterns.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Useful Tools and Patterns</span></span></a>
+  <a href="./error_handling.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Error Handling</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./oop.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Object Oriented Programming</span></span></a>
+ <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Object Oriented Programming</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./testing.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Testing</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./tools_patterns.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Useful Tools and Patterns</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -402,18 +396,18 @@ window.Quarto = {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#download-data" id="toc-download-data" class="nav-link active" data-scroll-target="#download-data"><span class="header-section-number">18.1</span> Download data</a>
+  <li><a href="#download-data" id="toc-download-data" class="nav-link active" data-scroll-target="#download-data"><span class="header-section-number">16.1</span> Download data</a>
   <ul class="collapse">
-  <li><a href="#clone-the-repository" id="toc-clone-the-repository" class="nav-link" data-scroll-target="#clone-the-repository"><span class="header-section-number">18.1.1</span> Clone the repository</a></li>
-  <li><a href="#install-git-annex" id="toc-install-git-annex" class="nav-link" data-scroll-target="#install-git-annex"><span class="header-section-number">18.1.2</span> Install <code>git-annex</code></a></li>
-  <li><a href="#pull-the-data" id="toc-pull-the-data" class="nav-link" data-scroll-target="#pull-the-data"><span class="header-section-number">18.1.3</span> Pull the data</a></li>
+  <li><a href="#clone-the-repository" id="toc-clone-the-repository" class="nav-link" data-scroll-target="#clone-the-repository"><span class="header-section-number">16.1.1</span> Clone the repository</a></li>
+  <li><a href="#install-git-annex" id="toc-install-git-annex" class="nav-link" data-scroll-target="#install-git-annex"><span class="header-section-number">16.1.2</span> Install <code>git-annex</code></a></li>
+  <li><a href="#pull-the-data" id="toc-pull-the-data" class="nav-link" data-scroll-target="#pull-the-data"><span class="header-section-number">16.1.3</span> Pull the data</a></li>
   </ul></li>
-  <li><a href="#explore-files" id="toc-explore-files" class="nav-link" data-scroll-target="#explore-files"><span class="header-section-number">18.2</span> Explore files</a></li>
-  <li><a href="#validating-the-data" id="toc-validating-the-data" class="nav-link" data-scroll-target="#validating-the-data"><span class="header-section-number">18.3</span> Validating the data</a></li>
-  <li><a href="#exploratory-data-analysis" id="toc-exploratory-data-analysis" class="nav-link" data-scroll-target="#exploratory-data-analysis"><span class="header-section-number">18.4</span> Exploratory data analysis</a></li>
-  <li><a href="#single-subject-data" id="toc-single-subject-data" class="nav-link" data-scroll-target="#single-subject-data"><span class="header-section-number">18.5</span> Single-subject data</a></li>
-  <li><a href="#multi-subject-data" id="toc-multi-subject-data" class="nav-link" data-scroll-target="#multi-subject-data"><span class="header-section-number">18.6</span> Multi-subject data</a></li>
-  <li><a href="#consolidate-pipeline" id="toc-consolidate-pipeline" class="nav-link" data-scroll-target="#consolidate-pipeline"><span class="header-section-number">18.7</span> Consolidate pipeline</a></li>
+  <li><a href="#explore-files" id="toc-explore-files" class="nav-link" data-scroll-target="#explore-files"><span class="header-section-number">16.2</span> Explore files</a></li>
+  <li><a href="#validating-the-data" id="toc-validating-the-data" class="nav-link" data-scroll-target="#validating-the-data"><span class="header-section-number">16.3</span> Validating the data</a></li>
+  <li><a href="#exploratory-data-analysis" id="toc-exploratory-data-analysis" class="nav-link" data-scroll-target="#exploratory-data-analysis"><span class="header-section-number">16.4</span> Exploratory data analysis</a></li>
+  <li><a href="#single-subject-data" id="toc-single-subject-data" class="nav-link" data-scroll-target="#single-subject-data"><span class="header-section-number">16.5</span> Single-subject data</a></li>
+  <li><a href="#multi-subject-data" id="toc-multi-subject-data" class="nav-link" data-scroll-target="#multi-subject-data"><span class="header-section-number">16.6</span> Multi-subject data</a></li>
+  <li><a href="#consolidate-pipeline" id="toc-consolidate-pipeline" class="nav-link" data-scroll-target="#consolidate-pipeline"><span class="header-section-number">16.7</span> Consolidate pipeline</a></li>
   </ul>
 </nav>
     </div>
@@ -422,7 +416,7 @@ window.Quarto = {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Lab: Exploring a Dataset</span></h1>
+<h1 class="title"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Lab: Exploring a Dataset</span></h1>
 </div>
 
 
@@ -440,21 +434,22 @@ window.Quarto = {
 
 
 <p>We will work here with this real-world dataset of resting state EEG signals <a href="https://github.com/OpenNeuroDatasets/ds005420">https://github.com/OpenNeuroDatasets/ds005420</a>.</p>
-<section id="download-data" class="level2" data-number="18.1">
-<h2 data-number="18.1" class="anchored" data-anchor-id="download-data"><span class="header-section-number">18.1</span> Download data</h2>
-<section id="clone-the-repository" class="level3" data-number="18.1.1">
-<h3 data-number="18.1.1" class="anchored" data-anchor-id="clone-the-repository"><span class="header-section-number">18.1.1</span> Clone the repository</h3>
+<section id="download-data" class="level2" data-number="16.1">
+<h2 data-number="16.1" class="anchored" data-anchor-id="download-data"><span class="header-section-number">16.1</span> Download data</h2>
+<section id="clone-the-repository" class="level3" data-number="16.1.1">
+<h3 data-number="16.1.1" class="anchored" data-anchor-id="clone-the-repository"><span class="header-section-number">16.1.1</span> Clone the repository</h3>
 <p>Inside the <code>/pycourse/data</code> folder:</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> clone https://github.com/OpenNeuroDatasets/ds005420</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
-<section id="install-git-annex" class="level3" data-number="18.1.2">
-<h3 data-number="18.1.2" class="anchored" data-anchor-id="install-git-annex"><span class="header-section-number">18.1.2</span> Install <code>git-annex</code></h3>
+<section id="install-git-annex" class="level3" data-number="16.1.2">
+<h3 data-number="16.1.2" class="anchored" data-anchor-id="install-git-annex"><span class="header-section-number">16.1.2</span> Install <code>git-annex</code></h3>
 <p>The files with the actual data are not there, but we have the references to them so that we can pull them down. We will need the tool <a href="https://git-annex.branchable.com/install/">git-annex tool</a>.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">uv</span> tool install git-annex</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
-<section id="pull-the-data" class="level3" data-number="18.1.3">
-<h3 data-number="18.1.3" class="anchored" data-anchor-id="pull-the-data"><span class="header-section-number">18.1.3</span> Pull the data</h3>
+<section id="pull-the-data" class="level3" data-number="16.1.3">
+<h3 data-number="16.1.3" class="anchored" data-anchor-id="pull-the-data"><span class="header-section-number">16.1.3</span> Pull the data</h3>
 <p>Open a terminal inside <code>ds005420</code> and run:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">git-annex</span> get .</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">git-annex</span> get .</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>You should see a progress dialog showing <code>...from s3-PUBLIC...</code><br>
 After that, you’re ready to go with the exercises.</p>
 <div class="callout callout-style-default callout-tip callout-titled">
@@ -472,8 +467,8 @@ Tip
 </div>
 </section>
 </section>
-<section id="explore-files" class="level2" data-number="18.2">
-<h2 data-number="18.2" class="anchored" data-anchor-id="explore-files"><span class="header-section-number">18.2</span> Explore files</h2>
+<section id="explore-files" class="level2" data-number="16.2">
+<h2 data-number="16.2" class="anchored" data-anchor-id="explore-files"><span class="header-section-number">16.2</span> Explore files</h2>
 <ol type="1">
 <li>List only the sub-directories in path.<br>
 </li>
@@ -481,8 +476,8 @@ Tip
 <li>Write a function that lists sub-directories with subject data.</li>
 </ol>
 </section>
-<section id="validating-the-data" class="level2" data-number="18.3">
-<h2 data-number="18.3" class="anchored" data-anchor-id="validating-the-data"><span class="header-section-number">18.3</span> Validating the data</h2>
+<section id="validating-the-data" class="level2" data-number="16.3">
+<h2 data-number="16.3" class="anchored" data-anchor-id="validating-the-data"><span class="header-section-number">16.3</span> Validating the data</h2>
 <p>We will start by making sure our data/metadata contains the information we expect at a high level.</p>
 <ol type="1">
 <li>Write a unit test (inside <code>/pycourse/tests/test_data.py</code>) to make sure the number of subject sub-directories corresponds to actual the number of subjects. <strong>Hint:</strong> Look at the metadata.</li>
@@ -491,8 +486,8 @@ Tip
 <li>Assert that EEG data for all subjects was taken using 20 channels and sampling frequency 500.</li>
 </ol>
 </section>
-<section id="exploratory-data-analysis" class="level2" data-number="18.4">
-<h2 data-number="18.4" class="anchored" data-anchor-id="exploratory-data-analysis"><span class="header-section-number">18.4</span> Exploratory data analysis</h2>
+<section id="exploratory-data-analysis" class="level2" data-number="16.4">
+<h2 data-number="16.4" class="anchored" data-anchor-id="exploratory-data-analysis"><span class="header-section-number">16.4</span> Exploratory data analysis</h2>
 <p>Now we want to look at the data. We find that the data is in a format called <a href="https://en.wikipedia.org/wiki/European_Data_Format">European Data Format</a> (<code>.edf</code>) and we need to install a third-party library, <code>mne</code>, to read it. You can check out the <a href="https://mne.tools/dev/">library documentation here</a></p>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -522,8 +517,8 @@ Tip
 <li>Save the correlation plot in svg format.</li>
 </ol>
 </section>
-<section id="single-subject-data" class="level2" data-number="18.5">
-<h2 data-number="18.5" class="anchored" data-anchor-id="single-subject-data"><span class="header-section-number">18.5</span> Single-subject data</h2>
+<section id="single-subject-data" class="level2" data-number="16.5">
+<h2 data-number="16.5" class="anchored" data-anchor-id="single-subject-data"><span class="header-section-number">16.5</span> Single-subject data</h2>
 <p>After having taken this quick look at the data, we want to start processing the data. So far we are working with data coming from one subject.</p>
 <ol type="1">
 <li>Substract the mean from each channel</li>
@@ -533,8 +528,8 @@ y = (x - mean) / standardDeviation
 \]</span></li>
 </ol>
 </section>
-<section id="multi-subject-data" class="level2" data-number="18.6">
-<h2 data-number="18.6" class="anchored" data-anchor-id="multi-subject-data"><span class="header-section-number">18.6</span> Multi-subject data</h2>
+<section id="multi-subject-data" class="level2" data-number="16.6">
+<h2 data-number="16.6" class="anchored" data-anchor-id="multi-subject-data"><span class="header-section-number">16.6</span> Multi-subject data</h2>
 <p>Here we are going to work with data of more than one subject at the time.</p>
 <ol type="1">
 <li>Plot a histogram of <code>RecordingDuration</code> across all subjects. <strong>Hint:</strong> assume we want data in “oc_eeg”</li>
@@ -544,15 +539,15 @@ y = (x - mean) / standardDeviation
 <li>Adapt <a href="https://seaborn.pydata.org/examples/pointplot_anova.html">this example</a> to plot a comparison between channels/subjects/time.</li>
 </ol>
 </section>
-<section id="consolidate-pipeline" class="level2" data-number="18.7">
-<h2 data-number="18.7" class="anchored" data-anchor-id="consolidate-pipeline"><span class="header-section-number">18.7</span> Consolidate pipeline</h2>
-<p>Let’s consolidate our workflow into a pipeline.</p>
+<section id="consolidate-pipeline" class="level2" data-number="16.7">
+<h2 data-number="16.7" class="anchored" data-anchor-id="consolidate-pipeline"><span class="header-section-number">16.7</span> Consolidate pipeline</h2>
+<p>Let’s consolidate our workflow into a pipeline to:</p>
 <ul>
-<li>read and assert subfolders</li>
-<li>clean column names</li>
-<li>standarize values</li>
-<li>plot correlations</li>
-<li>run tests</li>
+<li>Read and assert subfolders</li>
+<li>Clean column names</li>
+<li>Standarize values</li>
+<li>Plot and save correlations</li>
+<li>Run tests</li>
 </ul>
 
 
@@ -961,13 +956,13 @@ y = (x - mean) / standardDeviation
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./testing.html" class="pagination-link" aria-label="Testing">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Testing</span></span>
+      <a href="./plotting.html" class="pagination-link" aria-label="Plotting">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Plotting</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
       <a href="./cli.html" class="pagination-link" aria-label="Command Line Interfaces (CLI)">
-        <span class="nav-page-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Command Line Interfaces (CLI)</span></span> <i class="bi bi-arrow-right-short"></i>
+        <span class="nav-page-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Command Line Interfaces (CLI)</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

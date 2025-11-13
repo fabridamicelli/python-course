@@ -200,733 +200,733 @@
     ]
   },
   {
-    "objectID": "error_handling.html",
-    "href": "error_handling.html",
-    "title": "5  Error Handling",
-    "section": "",
-    "text": "5.1 Exceptions\nWhen our program runs into an error, the execution stops and Python throws a so-called Exception.\nThere several different types of exceptions and they work as a way to communicate what went wrong. Sometimes we simply want to let the program crash because the problem is completely unexpected or because we do not have a good solution to deal with it, for example we divide by 0.\nBut some other times we want to handle it differently, for example if we are getting data from a website that is transiently unavailable we might want to retry after a few seconds.\nOne of the language constructs to deal with errors in Python is try-except, which has this structure:\ntry:\n    1 / 0\nexcept Exception as err:\n    print(\"something went wrong:\", err)\nfinally:\n    print(\"Cleaning up the mess, no matter what\")\n\nsomething went wrong: division by zero\nCleaning up the mess, no matter what\ntry:\n    1 / 1\n    print(\"all good\")\nexcept Exception as err:\n    print(\"something went wrong:\", err)\nfinally:\n    print(\"Cleaning up the mess, no matter what\")\n\nall good\nCleaning up the mess, no matter what\nWe can catch explicit exceptions:\ntry:\n    1 / 0\n    print(\"all good\")\nexcept ZeroDivisionError as err:\n    print(\"yeap, it sometimes happens, show must go on..\")\n\nyeap, it sometimes happens, show must go on..",
-    "crumbs": [
-      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Error Handling</span>"
-    ]
-  },
-  {
-    "objectID": "error_handling.html#exceptions",
-    "href": "error_handling.html#exceptions",
-    "title": "5  Error Handling",
-    "section": "",
-    "text": "try:\n    # do something\nexcept SomeException:\n    # handle the error\nfinally:\n    # Optionally to something (always executed)\n\n\n\n\n\n\n\n\nTipGood practice Tip\n\n\n\nBe as explicit as possible with your exceptions to avoid letting unexpected errors slip through.\n\n\n\n\n\n\n\n\n\n\nNote\n\n\n\nExceptions are also used beyond errors as a more general kind of means of communication in the python language, for example, to signal that a generator has been used up.",
-    "crumbs": [
-      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Error Handling</span>"
-    ]
-  },
-  {
-    "objectID": "error_handling.html#assertions",
-    "href": "error_handling.html#assertions",
-    "title": "5  Error Handling",
-    "section": "5.2 Assertions",
-    "text": "5.2 Assertions\nA common way to verify that our code is actually implementing the logic we have in mind is adding so-called “assertions”. Assertions are like checkpoints that will make our code fail (and interrupt the program execution) if a condition is not met.\nIt is common to use assertions to check intermediate steps as well as for writing tests (as we will see later).\nHere’s the basic syntax:\nassert some-contition, \"message if condition is false\"\nFor example:\n\nassert 1 &gt; 0, \"This should never happen\"\nprint(\"We got to this point\")\n\nWe got to this point\n\n\n\nassert 0 &gt; 1, \"0 &gt; 1? in which world do you live?\"\n\nprint(\"We got to this point\")\n\n\n---------------------------------------------------------------------------\nAssertionError                            Traceback (most recent call last)\nCell In[5], line 1\n----&gt; 1 assert 0 &gt; 1, \"0 &gt; 1? in which world do you live?\"\n      3 print(\"We got to this point\")\n\nAssertionError: 0 &gt; 1? in which world do you live?\n\n\n\nNotice two things:\nFirst, we didn’t get to the print statement – the program execution was interrupted.\nSecond, we got an AssertionError, a particular type of exception that python uses to communicate we didn’t meet the assertion, which means we could handle it like any other exception:\n\ntry:\n    assert 0 &gt; 1, \"0 &gt; 1? in which world do you live?\"\nexcept AssertionError:\n    print(\"No idea, but fine, carry on...\")\n    \nprint(\"We got to this point\")\n\nNo idea, but fine, carry on...\nWe got to this point",
-    "crumbs": [
-      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Error Handling</span>"
-    ]
-  },
-  {
-    "objectID": "error_handling.html#exercises",
-    "href": "error_handling.html#exercises",
-    "title": "5  Error Handling",
-    "section": "5.3 Exercises",
-    "text": "5.3 Exercises\nTake this dictionary:\nages = {\n    \"mark\": 12,\n    \"lua\": 32,\n    \"martin\": 8,\n    \"mette\": 41,\n    \"malte\": 27\n}\nAnd this names:\nnames = \"mark\", \"lua\", \"juan\", \"marco\", \"anna\"\nWrite a program that iterates over the names and prints each name and age.\nIf the name is not present in the ages dictionary, print this message “name: NAME is missing”. At the end of the program, print the number of not found names and a list with the found names.",
-    "crumbs": [
-      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Error Handling</span>"
-    ]
-  },
-  {
     "objectID": "functions.html",
     "href": "functions.html",
-    "title": "6  Functions",
+    "title": "5  Functions",
     "section": "",
-    "text": "6.1 Basic syntax\nFunctions encapsulate pieces of logic that we want to use repeatedly. Also, this encapsulation makes testing our code much easier which is rather useful.\ndef identity(a, b):  # only positional arguments\n    return a, b      # we can return more than one thing\nidentity(1,2)\n\n(1, 2)\ndef identity_with_default(a, b=1):  # b is a so called \"keyword-argument\"\n    return a, b\nidentity_with_default(\"hello\") # argument b is optional, if not passed, the default is used\n\n('hello', 1)\ndef implicit_return():\n    pass # do literally nothing\nout = implicit_return()\nout, type(out)\n\n(None, NoneType)\nThese three definitions are equivalent:\ndef g():\n    print(\"hello\")\n    return None\n    \ndef h():\n    print(\"hello\")\n    return\n    \ndef f():\n    print(\"hello\")",
+    "text": "5.1 Basic syntax\nFunctions encapsulate pieces of logic that we want to use repeatedly. Also, this encapsulation makes testing our code much easier which is rather useful.\ndef identity(a, b):  # only positional arguments\n    return a, b      # we can return more than one thing\nidentity(1,2)\n\n(1, 2)\ndef identity_with_default(a, b=1):  # b is a so called \"keyword-argument\"\n    return a, b\nidentity_with_default(\"hello\") # argument b is optional, if not passed, the default is used\n\n('hello', 1)\ndef implicit_return():\n    pass # do literally nothing\nout = implicit_return()\nout, type(out)\n\n(None, NoneType)\nThese three definitions are equivalent:\ndef g():\n    print(\"hello\")\n    return None\n    \ndef h():\n    print(\"hello\")\n    return\n    \ndef f():\n    print(\"hello\")",
     "crumbs": [
-      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Functions</span>"
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Functions</span>"
     ]
   },
   {
     "objectID": "functions.html#basic-syntax",
     "href": "functions.html#basic-syntax",
-    "title": "6  Functions",
+    "title": "5  Functions",
     "section": "",
     "text": "Important\n\n\n\nPython functions always return a value, even without a return statement, in which case the return value will be None.",
     "crumbs": [
-      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Functions</span>"
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Functions</span>"
     ]
   },
   {
     "objectID": "functions.html#arbitrary-arguments-args-kwargs",
     "href": "functions.html#arbitrary-arguments-args-kwargs",
-    "title": "6  Functions",
-    "section": "6.2 Arbitrary arguments: *args & **kwargs",
-    "text": "6.2 Arbitrary arguments: *args & **kwargs\nWe can write a function with an arbitrary (undefined) number of arguments. For that, we use the syntax *args. The args will be put into a tuple:\n\ndef print_args(*args):\n    print(type(args))\n    for arg in args:\n        print(arg)\n\n\nprint_args(1,2)\n\n&lt;class 'tuple'&gt;\n1\n2\n\n\n\nprint_args(1, 2, 3, 4)  # we can pass as many as we want!\n\n&lt;class 'tuple'&gt;\n1\n2\n3\n4\n\n\nThis logic extends to key-word arguments. We use the syntax **kwargs for that. Since key-words are pairs, they are put into a dictionary (instead of a tuple):\n\ndef print_kwargs(**kwargs):  # only positional arguments\n    for k, v in kwargs.items(): # it's just a dict!\n        print(k, \"-&gt;\", v)\n\n\nprint_kwargs(street=\"martinistraße\", number=\"52\")\n\nstreet -&gt; martinistraße\nnumber -&gt; 52\n\n\n\nprint_kwargs(street=\"martinistraße\", number=\"52\", coolness=\"very-high\")\n\nstreet -&gt; martinistraße\nnumber -&gt; 52\ncoolness -&gt; very-high\n\n\nWe can combine both *args and **kwargs. This function will take any arguments we pass:\n\ndef general(*args, **kwargs):\n    print(args)\n    print(kwargs)\n\n\ngeneral(1, 2, first=\"hello\", second=\"world\")\n\n(1, 2)\n{'first': 'hello', 'second': 'world'}\n\n\n\n\n\n\n\n\nTip\n\n\n\nUse key-word (named) arguments by default, it will make your code much more readable, maintainable and easier to debug.",
+    "title": "5  Functions",
+    "section": "5.2 Arbitrary arguments: *args & **kwargs",
+    "text": "5.2 Arbitrary arguments: *args & **kwargs\nWe can write a function with an arbitrary (undefined) number of arguments. For that, we use the syntax *args. The args will be put into a tuple:\n\ndef print_args(*args):\n    print(type(args))\n    for arg in args:\n        print(arg)\n\n\nprint_args(1,2)\n\n&lt;class 'tuple'&gt;\n1\n2\n\n\n\nprint_args(1, 2, 3, 4)  # we can pass as many as we want!\n\n&lt;class 'tuple'&gt;\n1\n2\n3\n4\n\n\nThis logic extends to key-word arguments. We use the syntax **kwargs for that. Since key-words are pairs, they are put into a dictionary (instead of a tuple):\n\ndef print_kwargs(**kwargs):  # only positional arguments\n    for k, v in kwargs.items(): # it's just a dict!\n        print(k, \"-&gt;\", v)\n\n\nprint_kwargs(street=\"martinistraße\", number=\"52\")\n\nstreet -&gt; martinistraße\nnumber -&gt; 52\n\n\n\nprint_kwargs(street=\"martinistraße\", number=\"52\", coolness=\"very-high\")\n\nstreet -&gt; martinistraße\nnumber -&gt; 52\ncoolness -&gt; very-high\n\n\nWe can combine both *args and **kwargs. This function will take any arguments we pass:\n\ndef general(*args, **kwargs):\n    print(args)\n    print(kwargs)\n\n\ngeneral(1, 2, first=\"hello\", second=\"world\")\n\n(1, 2)\n{'first': 'hello', 'second': 'world'}\n\n\n\n\n\n\n\n\nTip\n\n\n\nUse key-word (named) arguments by default, it will make your code much more readable, maintainable and easier to debug.",
     "crumbs": [
-      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Functions</span>"
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Functions</span>"
     ]
   },
   {
     "objectID": "functions.html#functions-are-values",
     "href": "functions.html#functions-are-values",
-    "title": "6  Functions",
-    "section": "6.3 Functions are values",
-    "text": "6.3 Functions are values\nWe can assign functions to variables and pass them around, like any other object (people call this to have “functions as first-class citizen” in the language).\n\ndef printer(func):\n    out = func() # call whatever function we pass\n    print(out) # print the output\n\n\ndef greeting():\n    return \"hello from greeting func\"\n\n\nprinter(greeting)\n\nhello from greeting func\n\n\n\nf = greeting  # Notice we are not calling it with ()\n\n\nf\n\n&lt;function __main__.greeting()&gt;\n\n\n\nprinter(f)\n\nhello from greeting func",
+    "title": "5  Functions",
+    "section": "5.3 Functions are values",
+    "text": "5.3 Functions are values\nWe can assign functions to variables and pass them around, like any other object (people call this to have “functions as first-class citizen” in the language).\n\ndef printer(func):\n    out = func() # call whatever function we pass\n    print(out) # print the output\n\n\ndef greeting():\n    return \"hello from greeting func\"\n\n\nprinter(greeting)\n\nhello from greeting func\n\n\n\nf = greeting  # Notice we are not calling it with ()\n\n\nf\n\n&lt;function __main__.greeting()&gt;\n\n\n\nprinter(f)\n\nhello from greeting func",
     "crumbs": [
-      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Functions</span>"
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Functions</span>"
     ]
   },
   {
     "objectID": "functions.html#anonymous-functions",
     "href": "functions.html#anonymous-functions",
-    "title": "6  Functions",
-    "section": "6.4 Anonymous functions",
-    "text": "6.4 Anonymous functions\nThere is a shorthand to define functions with this syntax:\nlambda [optional-args]: [return-values]\n\nlambda: \"say hello\"\n\n&lt;function __main__.&lt;lambda&gt;()&gt;\n\n\n\nprinter(lambda: \"hello course\")\n\nhello course\n\n\nIt can also take arguments:\n\nf = lambda x: x+1\n\n\nf(1)\n\n2\n\n\nA typical use case of anonymous functions:\n\nnames = [\"anna\", \"lui\", \"marco\", \"ramiro\", \"tim\"]\n\n\nsorted(names, key=lambda name: name[-1])\n\n['anna', 'lui', 'tim', 'marco', 'ramiro']\n\n\n\nsorted(names, key=lambda name: len(name))\n\n['lui', 'tim', 'anna', 'marco', 'ramiro']\n\n\n\nages = [(\"anna\", 93), (\"lui\", 19), (\"marco\", 11), (\"ramiro\", 83)]\n\n\nsorted(ages, key=lambda name_age: name_age[1])  # name_age is a tuple\n\n[('marco', 11), ('lui', 19), ('ramiro', 83), ('anna', 93)]",
+    "title": "5  Functions",
+    "section": "5.4 Anonymous functions",
+    "text": "5.4 Anonymous functions\nThere is a shorthand to define functions with this syntax:\nlambda [optional-args]: [return-values]\n\nlambda: \"say hello\"\n\n&lt;function __main__.&lt;lambda&gt;()&gt;\n\n\n\nprinter(lambda: \"hello course\")\n\nhello course\n\n\nIt can also take arguments:\n\nf = lambda x: x+1\n\n\nf(1)\n\n2\n\n\nA typical use case of anonymous functions:\n\nnames = [\"anna\", \"lui\", \"marco\", \"ramiro\", \"tim\"]\n\n\nsorted(names, key=lambda name: name[-1])\n\n['anna', 'lui', 'tim', 'marco', 'ramiro']\n\n\n\nsorted(names, key=lambda name: len(name))\n\n['lui', 'tim', 'anna', 'marco', 'ramiro']\n\n\n\nages = [(\"anna\", 93), (\"lui\", 19), (\"marco\", 11), (\"ramiro\", 83)]\n\n\nsorted(ages, key=lambda name_age: name_age[1])  # name_age is a tuple\n\n[('marco', 11), ('lui', 19), ('ramiro', 83), ('anna', 93)]",
     "crumbs": [
-      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Functions</span>"
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Functions</span>"
     ]
   },
   {
     "objectID": "functions.html#early-return",
     "href": "functions.html#early-return",
-    "title": "6  Functions",
-    "section": "6.5 Early return",
-    "text": "6.5 Early return\nPython functions have so-called early return, which means a function will exit as soon as it hits the first return statement, for example:\n\ndef early():\n    if 1 &gt; 0:\n        return \"first condition\"\n    if 2 &gt; 0:  # This code will never be reached \n        return \"second condition\"\n\n\nearly()\n\n'first condition'\n\n\nThis can help us to simplify code, for example, this two definitions are equivalent:\n\ndef f(x):\n    if x == 1:\n        return \"it's 1\"\n    elif x == 2:\n        return \"it's 2\"\n    elif x == 3:\n        return \"it's 3\"\n    else:\n        return \"not 1,2,3\"\n\ndef ff(x):\n    if x == 1:\n        return \"it's 1\"\n    if x == 2:\n        return \"it's 2\"\n    if x == 3:\n        return \"it's 3\"\n    return \"not 1,2,3\"\n\n\nf(2), f(4)\n\n(\"it's 2\", 'not 1,2,3')\n\n\n\nff(2), ff(4)\n\n(\"it's 2\", 'not 1,2,3')",
+    "title": "5  Functions",
+    "section": "5.5 Early return",
+    "text": "5.5 Early return\nPython functions have so-called early return, which means a function will exit as soon as it hits the first return statement, for example:\n\ndef early():\n    if 1 &gt; 0:\n        return \"first condition\"\n    if 2 &gt; 0:  # This code will never be reached \n        return \"second condition\"\n\n\nearly()\n\n'first condition'\n\n\nThis can help us to simplify code, for example, this two definitions are equivalent:\n\ndef f(x):\n    if x == 1:\n        return \"it's 1\"\n    elif x == 2:\n        return \"it's 2\"\n    elif x == 3:\n        return \"it's 3\"\n    else:\n        return \"not 1,2,3\"\n\ndef ff(x):\n    if x == 1:\n        return \"it's 1\"\n    if x == 2:\n        return \"it's 2\"\n    if x == 3:\n        return \"it's 3\"\n    return \"not 1,2,3\"\n\n\nf(2), f(4)\n\n(\"it's 2\", 'not 1,2,3')\n\n\n\nff(2), ff(4)\n\n(\"it's 2\", 'not 1,2,3')",
     "crumbs": [
-      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Functions</span>"
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Functions</span>"
     ]
   },
   {
     "objectID": "functions.html#keyword-only-arguments",
     "href": "functions.html#keyword-only-arguments",
-    "title": "6  Functions",
-    "section": "6.6 Keyword-only arguments",
-    "text": "6.6 Keyword-only arguments\nThere’s a way to force the arguments of a function to be keyword-only, which can be useful to avoid mistakes and kindly nudge the users of our code (yes, you yourself too!) to pass the arguments to a function explicitly.\nEverything coming after * must be key-word:\n\ndef func(a, b, *, c, d):\n    print(a, b, c, d)\n\nThis will not work (pay attention to the error message):\n\nfunc(\"hi\", \"there\")\n\n\n---------------------------------------------------------------------------\nTypeError                                 Traceback (most recent call last)\nCell In[4], line 1\n----&gt; 1 func(\"hi\", \"there\")\n\nTypeError: func() missing 2 required keyword-only arguments: 'c' and 'd'\n\n\n\nNeither will this:\n\nfunc(\"hi\", \"there\", \"dear\", \"students\") \n\n\n---------------------------------------------------------------------------\nTypeError                                 Traceback (most recent call last)\nCell In[5], line 1\n----&gt; 1 func(\"hi\", \"there\", \"dear\", \"students\") \n\nTypeError: func() takes 2 positional arguments but 4 were given\n\n\n\n\nfunc(\"hi\", \"there\", \"dear\", d=\"students\") \n\n\n---------------------------------------------------------------------------\nTypeError                                 Traceback (most recent call last)\nCell In[7], line 1\n----&gt; 1 func(\"hi\", \"there\", \"dear\", d=\"students\") \n\nTypeError: func() takes 2 positional arguments but 3 positional arguments (and 1 keyword-only argument) were given\n\n\n\nOnly passing c and d explicitly will do:\n\nfunc(\"hi\", \"there\", c=\"dear\", d=\"students\") \n\nhi there dear students",
+    "title": "5  Functions",
+    "section": "5.6 Keyword-only arguments",
+    "text": "5.6 Keyword-only arguments\nThere’s a way to force the arguments of a function to be keyword-only, which can be useful to avoid mistakes and kindly nudge the users of our code (yes, you yourself too!) to pass the arguments to a function explicitly.\nEverything coming after * must be key-word:\n\ndef func(a, b, *, c, d):\n    print(a, b, c, d)\n\nThis will not work (pay attention to the error message):\n\nfunc(\"hi\", \"there\")\n\n\n---------------------------------------------------------------------------\nTypeError                                 Traceback (most recent call last)\nCell In[4], line 1\n----&gt; 1 func(\"hi\", \"there\")\n\nTypeError: func() missing 2 required keyword-only arguments: 'c' and 'd'\n\n\n\nNeither will this:\n\nfunc(\"hi\", \"there\", \"dear\", \"students\") \n\n\n---------------------------------------------------------------------------\nTypeError                                 Traceback (most recent call last)\nCell In[5], line 1\n----&gt; 1 func(\"hi\", \"there\", \"dear\", \"students\") \n\nTypeError: func() takes 2 positional arguments but 4 were given\n\n\n\n\nfunc(\"hi\", \"there\", \"dear\", d=\"students\") \n\n\n---------------------------------------------------------------------------\nTypeError                                 Traceback (most recent call last)\nCell In[7], line 1\n----&gt; 1 func(\"hi\", \"there\", \"dear\", d=\"students\") \n\nTypeError: func() takes 2 positional arguments but 3 positional arguments (and 1 keyword-only argument) were given\n\n\n\nOnly passing c and d explicitly will do:\n\nfunc(\"hi\", \"there\", c=\"dear\", d=\"students\") \n\nhi there dear students",
     "crumbs": [
-      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Functions</span>"
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Functions</span>"
     ]
   },
   {
     "objectID": "functions.html#exercises",
     "href": "functions.html#exercises",
-    "title": "6  Functions",
-    "section": "6.7 Exercises",
-    "text": "6.7 Exercises\n\nWrite a function called intro that takes two positional arguments, name and age, and prints a sentence introducing a person. The function should return nothing.\nRepeat it, but adding an optional argument, city. The function should now return the introducing string and handle the city input too.\nWrite a function called sort_dict_by_value that takes a dictionary and returns a dictionary sorted by value.\nWrite a function that takes an arbitrary number of key-word only arguments representing pairs (name, age) and returns a list of tuples sorted by age. For example:\n\n# For this pairs\nyour_function(lua=32, mark=12)\n# Should output:\n[(\"mark\", 12), (\"lua\", 32)]\nThe very same function should be able to deal with other number of arguments, eg:\nyour_function(lua=32, mark=12, anna=42)\n# Should output:\n[(\"mark\", 12), (\"lua\", 32), (\"anna\", 42)]\nHint: Try to use the function sort_dict that you wrote in the previous point.\n\nWrite a function that takes 2 arguments items (a container of elements,no matter what they are) and sorting_func (a function that will somehow sort the elements of items) and returns the result of the sorting function applied to items. For example, your function should behave like this:\n\nyour_function([3, 2, 1], sorted)\n# Should output:\n[1, 2, 3]\n\nyour_function({\"a\": 2, \"b\": 1}, sort_dict)\n# Should output:\n{\"b\": 1, \"a\": 2}",
+    "title": "5  Functions",
+    "section": "5.7 Exercises",
+    "text": "5.7 Exercises\n\nWrite a function called intro that takes two positional arguments, name and age, and prints a sentence introducing a person. The function should return nothing.\nRepeat it, but adding an optional argument, city. The function should now return the introducing string and handle the city input too.\nWrite a function called sort_dict_by_value that takes a dictionary and returns a dictionary sorted by value.\nWrite a function that takes an arbitrary number of key-word only arguments representing pairs (name, age) and returns a list of tuples sorted by age. For example:\n\n# For this pairs\nyour_function(lua=32, mark=12)\n# Should output:\n[(\"mark\", 12), (\"lua\", 32)]\nThe very same function should be able to deal with other number of arguments, eg:\nyour_function(lua=32, mark=12, anna=42)\n# Should output:\n[(\"mark\", 12), (\"lua\", 32), (\"anna\", 42)]\nHint: Try to use the function sort_dict that you wrote in the previous point.\n\nWrite a function that takes 2 arguments items (a container of elements,no matter what they are) and sorting_func (a function that will somehow sort the elements of items) and returns the result of the sorting function applied to items. For example, your function should behave like this:\n\nyour_function([3, 2, 1], sorted)\n# Should output:\n[1, 2, 3]\n\nyour_function({\"a\": 2, \"b\": 1}, sort_dict)\n# Should output:\n{\"b\": 1, \"a\": 2}",
     "crumbs": [
-      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Functions</span>"
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Functions</span>"
     ]
   },
   {
     "objectID": "comprehensions.html",
     "href": "comprehensions.html",
-    "title": "7  Comprehensions",
+    "title": "6  Comprehensions",
     "section": "",
-    "text": "7.1 List comprehensions\nA commonly used language construct are comprehensions.\nThey can have performance advantages and improve readability if properly used.\nThis code of block shows a common pattern that can be simplified:\nresult = []\nfor n in range(10):\n    if n &gt; 2:\n        result.append(n)\nresult\n\n[3, 4, 5, 6, 7, 8, 9]\nTo this:\n[n for n in range(10) if n&gt;2]\n\n[3, 4, 5, 6, 7, 8, 9]\nThe logic can also be extended:\nresult = [n if n&gt;2 else \"too-small\" for n in range(10)]\nresult\n\n['too-small', 'too-small', 'too-small', 3, 4, 5, 6, 7, 8, 9]\nWe can have also nested structures:\nresults = []\nfor m in range(2):\n    for n in range(3):\n        results.append((m,n))\nresults \n\n[(0, 0), (0, 1), (0, 2), (1, 0), (1, 1), (1, 2)]\nresults = [(m,n) for m in range(2) for n in range(3)]\nresults\n\n[(0, 0), (0, 1), (0, 2), (1, 0), (1, 1), (1, 2)]\nAlthough lists are the most commonly used, comprehensions also extend to other collections beyond lists.",
+    "text": "6.1 List comprehensions\nA commonly used language construct are comprehensions.\nThey can have performance advantages and improve readability if properly used.\nThis code of block shows a common pattern that can be simplified:\nresult = []\nfor n in range(10):\n    if n &gt; 2:\n        result.append(n)\nresult\n\n[3, 4, 5, 6, 7, 8, 9]\nTo this:\n[n for n in range(10) if n&gt;2]\n\n[3, 4, 5, 6, 7, 8, 9]\nThe logic can also be extended:\nresult = [n if n&gt;2 else \"too-small\" for n in range(10)]\nresult\n\n['too-small', 'too-small', 'too-small', 3, 4, 5, 6, 7, 8, 9]\nWe can have also nested structures:\nresults = []\nfor m in range(2):\n    for n in range(3):\n        results.append((m,n))\nresults \n\n[(0, 0), (0, 1), (0, 2), (1, 0), (1, 1), (1, 2)]\nresults = [(m,n) for m in range(2) for n in range(3)]\nresults\n\n[(0, 0), (0, 1), (0, 2), (1, 0), (1, 1), (1, 2)]\nAlthough lists are the most commonly used, comprehensions also extend to other collections beyond lists.",
     "crumbs": [
-      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Comprehensions</span>"
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Comprehensions</span>"
     ]
   },
   {
     "objectID": "comprehensions.html#list-comprehensions",
     "href": "comprehensions.html#list-comprehensions",
-    "title": "7  Comprehensions",
+    "title": "6  Comprehensions",
     "section": "",
     "text": "Tip\n\n\n\nNested comprehension are difficult to read and debug. As a rule of thumb, do not use comprehensions for nested logic beyond 2 levels and, in general, do not add too much logic to comprehensions. If in doubt, just write the loop(s) out.",
     "crumbs": [
-      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Comprehensions</span>"
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Comprehensions</span>"
     ]
   },
   {
     "objectID": "comprehensions.html#tuple-comprehensions",
     "href": "comprehensions.html#tuple-comprehensions",
-    "title": "7  Comprehensions",
-    "section": "7.2 Tuple comprehensions",
-    "text": "7.2 Tuple comprehensions\n\ntuple(n for n in range(10))\n\n(0, 1, 2, 3, 4, 5, 6, 7, 8, 9)",
+    "title": "6  Comprehensions",
+    "section": "6.2 Tuple comprehensions",
+    "text": "6.2 Tuple comprehensions\n\ntuple(n for n in range(10))\n\n(0, 1, 2, 3, 4, 5, 6, 7, 8, 9)",
     "crumbs": [
-      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Comprehensions</span>"
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Comprehensions</span>"
     ]
   },
   {
     "objectID": "comprehensions.html#set-comprehensions",
     "href": "comprehensions.html#set-comprehensions",
-    "title": "7  Comprehensions",
-    "section": "7.3 Set comprehensions",
-    "text": "7.3 Set comprehensions\n\nresults = set()\nfor n in range(10):\n    if n &gt; 2:\n        results.add(n)\nresults\n\n{3, 4, 5, 6, 7, 8, 9}\n\n\n\nresults = {n for n in range(10) if n &gt; 2}\nresults\n\n{3, 4, 5, 6, 7, 8, 9}",
+    "title": "6  Comprehensions",
+    "section": "6.3 Set comprehensions",
+    "text": "6.3 Set comprehensions\n\nresults = set()\nfor n in range(10):\n    if n &gt; 2:\n        results.add(n)\nresults\n\n{3, 4, 5, 6, 7, 8, 9}\n\n\n\nresults = {n for n in range(10) if n &gt; 2}\nresults\n\n{3, 4, 5, 6, 7, 8, 9}",
     "crumbs": [
-      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Comprehensions</span>"
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Comprehensions</span>"
     ]
   },
   {
     "objectID": "comprehensions.html#dictionary-comprehensions",
     "href": "comprehensions.html#dictionary-comprehensions",
-    "title": "7  Comprehensions",
-    "section": "7.4 Dictionary comprehensions",
-    "text": "7.4 Dictionary comprehensions\n\nresults = {}\nfor n in range(10):\n    if n &gt; 2:\n        results[f\"number_{n}_is\"] = n\nresults\n\n{'number_3_is': 3,\n 'number_4_is': 4,\n 'number_5_is': 5,\n 'number_6_is': 6,\n 'number_7_is': 7,\n 'number_8_is': 8,\n 'number_9_is': 9}\n\n\n\nresults = {f\"number_{n}_is\": n for n in range(10) if n &gt; 2}\nresults\n\n{'number_3_is': 3,\n 'number_4_is': 4,\n 'number_5_is': 5,\n 'number_6_is': 6,\n 'number_7_is': 7,\n 'number_8_is': 8,\n 'number_9_is': 9}",
+    "title": "6  Comprehensions",
+    "section": "6.4 Dictionary comprehensions",
+    "text": "6.4 Dictionary comprehensions\n\nresults = {}\nfor n in range(10):\n    if n &gt; 2:\n        results[f\"number_{n}_is\"] = n\nresults\n\n{'number_3_is': 3,\n 'number_4_is': 4,\n 'number_5_is': 5,\n 'number_6_is': 6,\n 'number_7_is': 7,\n 'number_8_is': 8,\n 'number_9_is': 9}\n\n\n\nresults = {f\"number_{n}_is\": n for n in range(10) if n &gt; 2}\nresults\n\n{'number_3_is': 3,\n 'number_4_is': 4,\n 'number_5_is': 5,\n 'number_6_is': 6,\n 'number_7_is': 7,\n 'number_8_is': 8,\n 'number_9_is': 9}",
     "crumbs": [
-      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Comprehensions</span>"
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Comprehensions</span>"
     ]
   },
   {
     "objectID": "comprehensions.html#exercises",
     "href": "comprehensions.html#exercises",
-    "title": "7  Comprehensions",
-    "section": "7.5 Exercises",
-    "text": "7.5 Exercises\nUse this ages dictionary:\nages = {\n    \"mark\": 12,\n    \"lua\": 32,\n    \"martin\": 8,\n    \"mette\": 41,\n    \"malte\": 27,\n    \"anna\": 19,\n    \"junior\": 53,\n    \"juan\": 98,\n}\n\nUsing a list comprehension, create a new list containing the first letter of each name in ages.\nRepeat it, excluding names that start with the letter “a” or “m”.\nRepeat it, replacing names starting with “j” with “starts-with-j”, eg “john” -&gt; “starts-with-j”.\nCreate a set containing the last letter of the each name.\nRepeat it, but only consider names with more than 4 letters.\nCreate a new dictionary using a comprehension that has items (“age_of_NAME”: AGE), reading NAME and AGE from the ages dictionary.",
+    "title": "6  Comprehensions",
+    "section": "6.5 Exercises",
+    "text": "6.5 Exercises\nUse this ages dictionary:\nages = {\n    \"mark\": 12,\n    \"lua\": 32,\n    \"martin\": 8,\n    \"mette\": 41,\n    \"malte\": 27,\n    \"anna\": 19,\n    \"junior\": 53,\n    \"juan\": 98,\n}\n\nUsing a list comprehension, create a new list containing the first letter of each name in ages.\nRepeat it, excluding names that start with the letter “a” or “m”.\nRepeat it, replacing names starting with “j” with “starts-with-j”, eg “john” -&gt; “starts-with-j”.\nCreate a set containing the last letter of the each name.\nRepeat it, but only consider names with more than 4 letters.\nCreate a new dictionary using a comprehension that has items (“age_of_NAME”: AGE), reading NAME and AGE from the ages dictionary.",
     "crumbs": [
-      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Comprehensions</span>"
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Comprehensions</span>"
     ]
   },
   {
     "objectID": "lab_builtin_for_the_win.html",
     "href": "lab_builtin_for_the_win.html",
-    "title": "8  Lab: Built-in for the Win",
+    "title": "7  Lab: Built-in for the Win",
     "section": "",
-    "text": "8.1 Exercises 1\nIn this lab we’re going to apply all we’ve learnt so far about the built-in data types and basic language features with some real-world data from the OpenNeuroDatasets.\nHere’s some data from a public experiment.\nCode\nRAWDATA = \"\"\"\\\nonset   duration    trial_type  rewards\n13  0   options_partner  n/a\n16  0   decision_risky_partner    25\n20.072093   0   outcome_other_neg_partner      0\n27.661415   0   options_solo       0\n33.796415   0   decision_safe_solo     0\n42.856121   0   outcome_safe_solo      0\n45.391388   0   happiness_rating      34\n56.883578   0   options_social   n/a\n65.835578   0   decision_risky_social     21\n74.897329   0   outcome_other_pos_social       0\n85.472048   0   options_solo       0\n95.852048   0   decision_safe_solo     0\n108.889945  0   outcome_safe_solo      0\n111.425148  0   happiness_rating      32\n125.419236  0   options_partner   20\n128.419236  0   decision_safe_partner     20\n132.457838  0   outcome_safe_partner      20\n142.032034  0   options_social    10\n145.179034  0   decision_safe_social      10\n152.239768  0   outcome_safe_social   10\n154.774905  0   happiness_rating      36\n170.170194  0   options_solo       0\n182.227194  0   decision_safe_solo     0\n190.285498  0   outcome_safe_solo      0\n197.857785  0   options_social   -25\n212.906785  0   decision_safe_social     -25\n218.957288  0   outcome_safe_social  -25\n221.492477  0   happiness_rating      34\n232.567507  0   options_social    15\n242.986507  0   decision_safe_social      15\n250.031015  0   outcome_safe_social   15\n257.603337  0   options_partner  n/a\n260.603337  0   decision_risky_partner  18.5\n265.909711  0   outcome_other_pos_partner      0\n268.444998  0   happiness_rating      34\n277.402022  0   options_partner  n/a\n280.402022  0   decision_risky_partner     7\n284.30704   0   outcome_other_neg_partner      0\n290.878961  0   options_solo     n/a\n299.346961  0   decision_risky_solo 12.5\n306.390476  0   outcome_self_neg_solo      0\n308.925866  0   happiness_rating      34\n319.617418  0   options_solo      30\n329.170418  0   decision_safe_solo    30\n336.230193  0   outcome_safe_solo     30\n348.806325  0   options_social   n/a\n352.850325  0   decision_risky_social     10\n362.900485  0   outcome_other_neg_social       0\n365.43567   0   happiness_rating      36\n378.229089  0   options_partner  -15\n381.229089  0   decision_safe_partner    -15\n387.035498  0   outcome_safe_partner     -15\n395.608814  0   options_solo     -20\n400.666814  0   decision_safe_solo   -20\n409.71943   0   outcome_safe_solo    -20\n412.254679  0   happiness_rating      36\n425.698328  0   options_partner  -10\n428.698328  0   decision_safe_partner    -10\n432.586891  0   outcome_safe_partner     -10\n441.160085  0   options_solo      10\n450.962085  0   decision_safe_solo    10\n462.009382  0   outcome_safe_solo     10\n464.544614  0   happiness_rating      36\n475.570105  0   options_partner    0\n478.570105  0   decision_safe_partner      0\n484.826744  0   outcome_safe_partner       0\n497.386636  0   options_partner  n/a\n500.386636  0   decision_risky_partner  24.5\n505.04221   0   outcome_other_neg_partner      0\n507.577445  0   happiness_rating      38\n523.506321  0   options_solo     -25\n533.417321  0   decision_safe_solo   -25\n546.457133  0   outcome_safe_solo    -25\n554.029535  0   options_partner   10\n557.029535  0   decision_safe_partner     10\n560.934817  0   outcome_safe_partner      10\n563.470099  0   happiness_rating      38\n580.800034  0   options_partner    0\n583.800034  0   decision_safe_partner      0\n588.005449  0   outcome_safe_partner       0\n597.579626  0   options_partner  n/a\n600.579626  0   decision_risky_partner    27\n604.401331  0   outcome_other_neg_partner      0\n606.936571  0   happiness_rating      36\n618.979118  0   options_solo       0\n625.361118  0   decision_safe_solo     0\n633.406885  0   outcome_safe_solo      0\n639.978503  0   options_social   n/a\n646.360503  0   decision_risky_social    8.5\n652.404718  0   outcome_other_neg_social       0\n654.939858  0   happiness_rating      40\n668.467306  0   options_partner  -30\n671.467306  0   decision_safe_partner    -30\n676.439628  0   outcome_safe_partner     -30\n684.012275  0   options_partner  n/a\n687.012275  0   decision_risky_partner    42\n692.068261  0   outcome_other_neg_partner      0\n694.603454  0   happiness_rating      38\n707.663534  0   options_social   n/a\n712.080534  0   decision_risky_social    4.5\n725.126869  0   outcome_other_pos_social       0\n732.699192  0   options_solo     -25\n739.904192  0   decision_safe_solo   -25\n749.962459  0   outcome_safe_solo    -25\n752.497674  0   happiness_rating      36\n764.590285  0   options_partner  -20\n767.590285  0   decision_safe_partner    -20\n771.662329  0   outcome_safe_partner     -20\n779.234763  0   options_solo     -25\n785.175763  0   decision_safe_solo   -25\n792.228033  0   outcome_safe_solo    -25\n794.763228  0   happiness_rating      36\n809.024403  0   options_partner  n/a\n812.024403  0   decision_risky_partner  13.5\n816.046131  0   outcome_other_neg_partner      0\n822.61811   0   options_social   n/a\n827.36811   0   decision_risky_social     54\n836.428364  0   outcome_other_pos_social       0\n838.963641  0   happiness_rating      34\n857.444384  0   options_social   -20\n868.535384  0   decision_safe_social     -20\n877.5931    0   outcome_safe_social  -20\n886.166317  0   options_solo     -10\n894.735317  0   decision_safe_solo   -10\n902.795647  0   outcome_safe_solo    -10\n905.330966  0   happiness_rating      34\n919.60851   0   options_partner  -30\n922.60851   0   decision_safe_partner    -30\n928.932253  0   outcome_safe_partner     -30\n936.504693  0   options_social   -30\n939.278693  0   decision_safe_social     -30\n949.331248  0   outcome_safe_social  -30\n951.866476  0   happiness_rating      34\n963.108331  0   options_social   -20\n973.383331  0   decision_safe_social     -20\n984.441376  0   outcome_safe_social  -20\n995.01607   0   options_social   n/a\n1001.53507  0   decision_risky_social     21\n1009.593852 0   outcome_other_pos_social       0\n1012.129125 0   happiness_rating      36\n1027.791092 0   options_social   -15\n1032.734092 0   decision_safe_social     -15\n1043.786732 0   outcome_safe_social  -15\n1054.361298 0   options_social    30\n1061.830298 0   decision_safe_social      30\n1070.890669 0   outcome_safe_social   30\n1073.425867 0   happiness_rating      38\n1083.566977 0   options_social   n/a\n1090.877977 0   decision_risky_social     21\n1101.93096  0   outcome_other_neg_social       0\n1115.490485 0   options_partner  -30\n1118.490485 0   decision_safe_partner    -30\n1122.89696  0   outcome_safe_partner     -30\n1125.432252 0   happiness_rating      38\n1136.907599 0   options_solo       0\n1141.245599 0   decision_safe_solo     0\n1150.301231 0   outcome_safe_solo      0\n1161.876605 0   options_solo       0\n1167.021605 0   decision_safe_solo     0\n1177.071675 0   outcome_safe_solo      0\n1179.606882 0   happiness_rating      36\n1192.600313 0   options_solo     n/a\n1200.694313 0   decision_risky_solo -7.5\n1211.748317 0   outcome_self_pos_solo      0\n1217.318979 0   options_social   n/a\n1225.156979 0   decision_risky_social      0\n1233.214511 0   outcome_other_pos_social       0\n1235.749697 0   happiness_rating      34\n1253.413602 0   options_solo      30\n1265.045602 0   decision_safe_solo    30\n1273.095128 0   outcome_safe_solo     30\n1280.667331 0   options_partner    0\n1283.667331 0   decision_safe_partner      0\n1291.525599 0   outcome_safe_partner       0\n1294.060885 0   happiness_rating      34\n1301.933544 0   options_social   n/a\n1307.381544 0   decision_risky_social      9\n1317.42882  0   outcome_other_pos_social       0\n1326.001946 0   options_solo      25\n1332.868946 0   decision_safe_solo    25\n1339.929323 0   outcome_safe_solo     25\n1342.464466 0   happiness_rating      32\n1355.758003 0   options_partner   30\n1358.758003 0   decision_safe_partner     30\n1367.350136 0   outcome_safe_partner      30\n1373.921441 0   options_solo     -25\n1380.220441 0   decision_safe_solo   -25\n1388.266282 0   outcome_safe_solo    -25\n1390.801237 0   happiness_rating      34\n1408.081464 0   options_partner  -15\n1411.081464 0   decision_safe_partner    -15\n1417.688532 0   outcome_safe_partner     -15\n1427.263315 0   options_solo       0\n1431.404315 0   decision_safe_solo     0\n1439.455158 0   outcome_safe_solo      0\n1441.990402 0   happiness_rating      34\n1453.349179 0   options_social   -15\n1457.004179 0   decision_safe_social     -15\n1463.056746 0   outcome_safe_social  -15\n1471.629709 0   options_social   n/a\n1475.652709 0   decision_risky_social      6\n1485.707198 0   outcome_other_neg_social       0\n1488.24238  0   happiness_rating      36\n1499.9513   0   options_solo     -25\n1504.8203   0   decision_safe_solo   -25\n1510.87643  0   outcome_safe_solo    -25\n1523.452588 0   options_social    10\n1530.307588 0   decision_safe_social      10\n1539.364813 0   outcome_safe_social   10\n1541.89997  0   happiness_rating      36\n\"\"\"",
+    "text": "7.1 Exercises 1\nIn this lab we’re going to apply all we’ve learnt so far about the built-in data types and basic language features with some real-world data from the OpenNeuroDatasets.\nHere’s some data from a public experiment.\nCode\nRAWDATA = \"\"\"\\\nonset   duration    trial_type  rewards\n13  0   options_partner  n/a\n16  0   decision_risky_partner    25\n20.072093   0   outcome_other_neg_partner      0\n27.661415   0   options_solo       0\n33.796415   0   decision_safe_solo     0\n42.856121   0   outcome_safe_solo      0\n45.391388   0   happiness_rating      34\n56.883578   0   options_social   n/a\n65.835578   0   decision_risky_social     21\n74.897329   0   outcome_other_pos_social       0\n85.472048   0   options_solo       0\n95.852048   0   decision_safe_solo     0\n108.889945  0   outcome_safe_solo      0\n111.425148  0   happiness_rating      32\n125.419236  0   options_partner   20\n128.419236  0   decision_safe_partner     20\n132.457838  0   outcome_safe_partner      20\n142.032034  0   options_social    10\n145.179034  0   decision_safe_social      10\n152.239768  0   outcome_safe_social   10\n154.774905  0   happiness_rating      36\n170.170194  0   options_solo       0\n182.227194  0   decision_safe_solo     0\n190.285498  0   outcome_safe_solo      0\n197.857785  0   options_social   -25\n212.906785  0   decision_safe_social     -25\n218.957288  0   outcome_safe_social  -25\n221.492477  0   happiness_rating      34\n232.567507  0   options_social    15\n242.986507  0   decision_safe_social      15\n250.031015  0   outcome_safe_social   15\n257.603337  0   options_partner  n/a\n260.603337  0   decision_risky_partner  18.5\n265.909711  0   outcome_other_pos_partner      0\n268.444998  0   happiness_rating      34\n277.402022  0   options_partner  n/a\n280.402022  0   decision_risky_partner     7\n284.30704   0   outcome_other_neg_partner      0\n290.878961  0   options_solo     n/a\n299.346961  0   decision_risky_solo 12.5\n306.390476  0   outcome_self_neg_solo      0\n308.925866  0   happiness_rating      34\n319.617418  0   options_solo      30\n329.170418  0   decision_safe_solo    30\n336.230193  0   outcome_safe_solo     30\n348.806325  0   options_social   n/a\n352.850325  0   decision_risky_social     10\n362.900485  0   outcome_other_neg_social       0\n365.43567   0   happiness_rating      36\n378.229089  0   options_partner  -15\n381.229089  0   decision_safe_partner    -15\n387.035498  0   outcome_safe_partner     -15\n395.608814  0   options_solo     -20\n400.666814  0   decision_safe_solo   -20\n409.71943   0   outcome_safe_solo    -20\n412.254679  0   happiness_rating      36\n425.698328  0   options_partner  -10\n428.698328  0   decision_safe_partner    -10\n432.586891  0   outcome_safe_partner     -10\n441.160085  0   options_solo      10\n450.962085  0   decision_safe_solo    10\n462.009382  0   outcome_safe_solo     10\n464.544614  0   happiness_rating      36\n475.570105  0   options_partner    0\n478.570105  0   decision_safe_partner      0\n484.826744  0   outcome_safe_partner       0\n497.386636  0   options_partner  n/a\n500.386636  0   decision_risky_partner  24.5\n505.04221   0   outcome_other_neg_partner      0\n507.577445  0   happiness_rating      38\n523.506321  0   options_solo     -25\n533.417321  0   decision_safe_solo   -25\n546.457133  0   outcome_safe_solo    -25\n554.029535  0   options_partner   10\n557.029535  0   decision_safe_partner     10\n560.934817  0   outcome_safe_partner      10\n563.470099  0   happiness_rating      38\n580.800034  0   options_partner    0\n583.800034  0   decision_safe_partner      0\n588.005449  0   outcome_safe_partner       0\n597.579626  0   options_partner  n/a\n600.579626  0   decision_risky_partner    27\n604.401331  0   outcome_other_neg_partner      0\n606.936571  0   happiness_rating      36\n618.979118  0   options_solo       0\n625.361118  0   decision_safe_solo     0\n633.406885  0   outcome_safe_solo      0\n639.978503  0   options_social   n/a\n646.360503  0   decision_risky_social    8.5\n652.404718  0   outcome_other_neg_social       0\n654.939858  0   happiness_rating      40\n668.467306  0   options_partner  -30\n671.467306  0   decision_safe_partner    -30\n676.439628  0   outcome_safe_partner     -30\n684.012275  0   options_partner  n/a\n687.012275  0   decision_risky_partner    42\n692.068261  0   outcome_other_neg_partner      0\n694.603454  0   happiness_rating      38\n707.663534  0   options_social   n/a\n712.080534  0   decision_risky_social    4.5\n725.126869  0   outcome_other_pos_social       0\n732.699192  0   options_solo     -25\n739.904192  0   decision_safe_solo   -25\n749.962459  0   outcome_safe_solo    -25\n752.497674  0   happiness_rating      36\n764.590285  0   options_partner  -20\n767.590285  0   decision_safe_partner    -20\n771.662329  0   outcome_safe_partner     -20\n779.234763  0   options_solo     -25\n785.175763  0   decision_safe_solo   -25\n792.228033  0   outcome_safe_solo    -25\n794.763228  0   happiness_rating      36\n809.024403  0   options_partner  n/a\n812.024403  0   decision_risky_partner  13.5\n816.046131  0   outcome_other_neg_partner      0\n822.61811   0   options_social   n/a\n827.36811   0   decision_risky_social     54\n836.428364  0   outcome_other_pos_social       0\n838.963641  0   happiness_rating      34\n857.444384  0   options_social   -20\n868.535384  0   decision_safe_social     -20\n877.5931    0   outcome_safe_social  -20\n886.166317  0   options_solo     -10\n894.735317  0   decision_safe_solo   -10\n902.795647  0   outcome_safe_solo    -10\n905.330966  0   happiness_rating      34\n919.60851   0   options_partner  -30\n922.60851   0   decision_safe_partner    -30\n928.932253  0   outcome_safe_partner     -30\n936.504693  0   options_social   -30\n939.278693  0   decision_safe_social     -30\n949.331248  0   outcome_safe_social  -30\n951.866476  0   happiness_rating      34\n963.108331  0   options_social   -20\n973.383331  0   decision_safe_social     -20\n984.441376  0   outcome_safe_social  -20\n995.01607   0   options_social   n/a\n1001.53507  0   decision_risky_social     21\n1009.593852 0   outcome_other_pos_social       0\n1012.129125 0   happiness_rating      36\n1027.791092 0   options_social   -15\n1032.734092 0   decision_safe_social     -15\n1043.786732 0   outcome_safe_social  -15\n1054.361298 0   options_social    30\n1061.830298 0   decision_safe_social      30\n1070.890669 0   outcome_safe_social   30\n1073.425867 0   happiness_rating      38\n1083.566977 0   options_social   n/a\n1090.877977 0   decision_risky_social     21\n1101.93096  0   outcome_other_neg_social       0\n1115.490485 0   options_partner  -30\n1118.490485 0   decision_safe_partner    -30\n1122.89696  0   outcome_safe_partner     -30\n1125.432252 0   happiness_rating      38\n1136.907599 0   options_solo       0\n1141.245599 0   decision_safe_solo     0\n1150.301231 0   outcome_safe_solo      0\n1161.876605 0   options_solo       0\n1167.021605 0   decision_safe_solo     0\n1177.071675 0   outcome_safe_solo      0\n1179.606882 0   happiness_rating      36\n1192.600313 0   options_solo     n/a\n1200.694313 0   decision_risky_solo -7.5\n1211.748317 0   outcome_self_pos_solo      0\n1217.318979 0   options_social   n/a\n1225.156979 0   decision_risky_social      0\n1233.214511 0   outcome_other_pos_social       0\n1235.749697 0   happiness_rating      34\n1253.413602 0   options_solo      30\n1265.045602 0   decision_safe_solo    30\n1273.095128 0   outcome_safe_solo     30\n1280.667331 0   options_partner    0\n1283.667331 0   decision_safe_partner      0\n1291.525599 0   outcome_safe_partner       0\n1294.060885 0   happiness_rating      34\n1301.933544 0   options_social   n/a\n1307.381544 0   decision_risky_social      9\n1317.42882  0   outcome_other_pos_social       0\n1326.001946 0   options_solo      25\n1332.868946 0   decision_safe_solo    25\n1339.929323 0   outcome_safe_solo     25\n1342.464466 0   happiness_rating      32\n1355.758003 0   options_partner   30\n1358.758003 0   decision_safe_partner     30\n1367.350136 0   outcome_safe_partner      30\n1373.921441 0   options_solo     -25\n1380.220441 0   decision_safe_solo   -25\n1388.266282 0   outcome_safe_solo    -25\n1390.801237 0   happiness_rating      34\n1408.081464 0   options_partner  -15\n1411.081464 0   decision_safe_partner    -15\n1417.688532 0   outcome_safe_partner     -15\n1427.263315 0   options_solo       0\n1431.404315 0   decision_safe_solo     0\n1439.455158 0   outcome_safe_solo      0\n1441.990402 0   happiness_rating      34\n1453.349179 0   options_social   -15\n1457.004179 0   decision_safe_social     -15\n1463.056746 0   outcome_safe_social  -15\n1471.629709 0   options_social   n/a\n1475.652709 0   decision_risky_social      6\n1485.707198 0   outcome_other_neg_social       0\n1488.24238  0   happiness_rating      36\n1499.9513   0   options_solo     -25\n1504.8203   0   decision_safe_solo   -25\n1510.87643  0   outcome_safe_solo    -25\n1523.452588 0   options_social    10\n1530.307588 0   decision_safe_social      10\n1539.364813 0   outcome_safe_social   10\n1541.89997  0   happiness_rating      36\n\"\"\"",
     "crumbs": [
-      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Lab: Built-in for the Win</span>"
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Lab: Built-in for the Win</span>"
     ]
   },
   {
     "objectID": "lab_builtin_for_the_win.html#exercises-1",
     "href": "lab_builtin_for_the_win.html#exercises-1",
-    "title": "8  Lab: Built-in for the Win",
+    "title": "7  Lab: Built-in for the Win",
     "section": "",
     "text": "Copy the data into a python file\nTraverse and print the lines. Hint: Look at strings methods\nMake a list of all the lines\nSplit each line into a tuple of 4 elements (representing onset, duration, trial_type and rewards)\nDo the same but with dictionaries, that is, for each line you should get a dictionary that looks like this\n\n{\n    \"onset\": some-value,\n    \"duration\": some-value,\n    \"trial_type\": some-value,\n    \"rewards\": some-value,\n}\n\nSort the list of dictionaries according to the rewards value . Hint: Discard missing reward values.\nRepeat the same but in descendant order (larger values first).\nMake a list of the unique “trial_type” values that appear in the data.\nMake a dictionary that counts the number of appearances of each “trial_type”.\nMake a list of only the entries where “trial_type” is of type “decision_SOMETHING”\nPrint for each line a string that follows this pattern:\n\n\"For the trial type: &lt;TRIAL-TYPE&gt; the reward is &lt;REWARD-VALUE&gt;\"\n\nWrite a function called cleanup that takes the raw input string and returns a list of dictionaries (like exercise item 5)",
     "crumbs": [
-      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Lab: Built-in for the Win</span>"
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Lab: Built-in for the Win</span>"
     ]
   },
   {
     "objectID": "imports.html",
     "href": "imports.html",
-    "title": "9  Importing Code",
+    "title": "8  Importing Code",
     "section": "",
-    "text": "9.1 Importable Code vs. Scripting\nEvery Python installation includes a number of modules by default. They are called collectively the “Python Standard Library” or “built-in” modules.\nEven though these modules are available in our computer, we cannot directly use them, we need to import them into our current namespace to actually use them.\nFor example, if we try to use the module pathlib, we get this NameError\nThat means that the word pathlib is unknown in this context (namespace).\nLet’s bring it in:\nNow we can use it:\nWe can also import only specific parts of the module (submodules):\nIt is also possible to alias these imported names using the keyword as:\nWe can also import our own code. For example, if we have a python file called mymodule.py we can use it in another file:\nSometimes we have a Python module (any .py file) that contain code that we only want to run as a script alongside code that we only want to use somewhere else (importing parts of it).\nWe can isolate part of the code that we want to run as a script with a special syntax, let’s do some exercises to show it.",
+    "text": "8.1 Importable Code vs. Scripting\nEvery Python installation includes a number of modules by default. They are called collectively the “Python Standard Library” or “built-in” modules.\nEven though these modules are available in our computer, we cannot directly use them, we need to import them into our current namespace to actually use them.\nFor example, if we try to use the module pathlib, we get this NameError\nThat means that the word pathlib is unknown in this context (namespace).\nLet’s bring it in:\nNow we can use it:\nWe can also import only specific parts of the module (submodules):\nIt is also possible to alias these imported names using the keyword as:\nWe can also import our own code. For example, if we have a python file called mymodule.py we can use it in another file:\nSometimes we have a Python module (any .py file) that contain code that we only want to run as a script alongside code that we only want to use somewhere else (importing parts of it).\nWe can isolate part of the code that we want to run as a script with a special syntax, let’s do some exercises to show it.",
     "crumbs": [
-      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Importing Code</span>"
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Importing Code</span>"
     ]
   },
   {
     "objectID": "imports.html#importable-code-vs.-scripting",
     "href": "imports.html#importable-code-vs.-scripting",
-    "title": "9  Importing Code",
+    "title": "8  Importing Code",
     "section": "",
     "text": "# anotherfile.py\n\nimport mymodule",
     "crumbs": [
-      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Importing Code</span>"
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Importing Code</span>"
     ]
   },
   {
     "objectID": "imports.html#exercises",
     "href": "imports.html#exercises",
-    "title": "9  Importing Code",
-    "section": "9.2 Exercises",
-    "text": "9.2 Exercises\nCreate 2 files like these in our working project /pycourse/src/pycourse/data.py, /pycourse/src/pycourse/preprocessing.py:\n# data.py\n\nRAWDATA = ...  # 3 dots are called \"Ellipsis\" and act as placeholder\n\ndef fetch_data(raw_data):\n    ... \n\n# This block will only run when calling `python data.py`\nif __name__ == \"__main__\":\n    print(\"Fetching data\")    \n    data = fetch_data(RAWDATA)\n    print(data)\n# preprocessing.py\n\n\n# TODO: add missing imports to make it work\n\ndef cleanup(data):\n    ... \n    \ndef preprocess_pipeline(raw_data):\n    data = fetch_data(raw_data)\n    return cleanup(data)\n     \nif __name__ == \"__main__\":\n    print(\"Running preprocessing\")    \n    raw_data = ...\n    preprocess_pipeline(raw_data)\n\nCopy the RAWDATA from the previous lab exercises into a file data.py\nCreate another file called preprocessing.py in the same directory.\nImport the RAWDATA string inside preprocessing.py\nRun data.py as a script with uv run src/pycourse/data.py. Pay attention to the printed output\nRun preprocessing as a script with uv run src/pycourse/preprocessing.py. Pay attention to the printed output. What difference do you see compared to the previous point?\n\nCongratulations! You just ran your first python scripts 🚀",
+    "title": "8  Importing Code",
+    "section": "8.2 Exercises",
+    "text": "8.2 Exercises\nCreate 2 files like these in our working project /pycourse/src/pycourse/data.py, /pycourse/src/pycourse/preprocessing.py:\n# data.py\n\nRAWDATA = ...  # 3 dots are called \"Ellipsis\" and act as placeholder\n\ndef fetch_data(raw_data):\n    ... \n\n# This block will only run when calling `python data.py`\nif __name__ == \"__main__\":\n    print(\"Fetching data\")    \n    data = fetch_data(RAWDATA)\n    print(data)\n# preprocessing.py\n\n\n# TODO: add missing imports to make it work\n\ndef cleanup(data):\n    ... \n    \ndef preprocess_pipeline(raw_data):\n    data = fetch_data(raw_data)\n    return cleanup(data)\n     \nif __name__ == \"__main__\":\n    print(\"Running preprocessing\")    \n    raw_data = ...\n    preprocess_pipeline(raw_data)\n\nCopy the RAWDATA from the previous lab exercises into a file data.py\nCreate another file called preprocessing.py in the same directory.\nImport the RAWDATA string inside preprocessing.py\nRun data.py as a script with uv run src/pycourse/data.py. Pay attention to the printed output\nRun preprocessing as a script with uv run src/pycourse/preprocessing.py. Pay attention to the printed output. What difference do you see compared to the previous point?\n\nCongratulations! You just ran your first python scripts 🚀",
     "crumbs": [
-      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Importing Code</span>"
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Importing Code</span>"
     ]
   },
   {
     "objectID": "read_write.html",
     "href": "read_write.html",
-    "title": "10  Read/Write Files",
+    "title": "9  Read/Write Files",
     "section": "",
-    "text": "10.1 Pathlib\nWe often deal with files stored in our computer (or someone else’s, a.k.a. “the Cloud”). The built-in pathlib is very a useful module. In particular, the Path class simplifies a lot the operations we typically do when working with files.\nfrom pathlib import Path\ndirname = \"./a-new-dir\"  # Note: This folder does not yet exist\npath = Path(dirname)\npath.exists()\n\nFalse\nLet’s create it:\npath.mkdir()\npath.exists()\n\nTrue\nNotice how the Path instance composes very nicely with the rest of the language. For example, it will automatically concatenate the path with this syntax:\nfilepath = path/\"a-great-file.txt\"\nfilepath\n\nPosixPath('a-new-dir/a-great-file.txt')\nfilepath.exists()\n\nFalse\nLet’s create it:\nfilepath.touch()\nfilepath.exists()\n\nTrue\nThis file is still empty, let’s write a message into it:\nfilepath.write_text(\"Hello world, this is so much fun!\")\n\n33\nA lot just happened:\nSo the Path class is abstracting away a lot of work. Pretty handy, I think.\nNow let’s read in the content of the file:\nfilepath.read_text()\n\n'Hello world, this is so much fun!'\nWe can also delete files/directories:\nfilepath\n\nPosixPath('a-new-dir/a-great-file.txt')\nfilepath.unlink()  # unlink means remove in this context\nfilepath.exists()\n\nFalse",
+    "text": "9.1 Pathlib\nWe often deal with files stored in our computer (or someone else’s, a.k.a. “the Cloud”). The built-in pathlib is very a useful module. In particular, the Path class simplifies a lot the operations we typically do when working with files.\nfrom pathlib import Path\ndirname = \"./a-new-dir\"  # Note: This folder does not yet exist\npath = Path(dirname)\npath.exists()\n\nFalse\nLet’s create it:\npath.mkdir()\npath.exists()\n\nTrue\nNotice how the Path instance composes very nicely with the rest of the language. For example, it will automatically concatenate the path with this syntax:\nfilepath = path/\"a-great-file.txt\"\nfilepath\n\nPosixPath('a-new-dir/a-great-file.txt')\nfilepath.exists()\n\nFalse\nLet’s create it:\nfilepath.touch()\nfilepath.exists()\n\nTrue\nThis file is still empty, let’s write a message into it:\nfilepath.write_text(\"Hello world, this is so much fun!\")\n\n33\nA lot just happened:\nSo the Path class is abstracting away a lot of work. Pretty handy, I think.\nNow let’s read in the content of the file:\nfilepath.read_text()\n\n'Hello world, this is so much fun!'\nWe can also delete files/directories:\nfilepath\n\nPosixPath('a-new-dir/a-great-file.txt')\nfilepath.unlink()  # unlink means remove in this context\nfilepath.exists()\n\nFalse",
     "crumbs": [
-      "<span class='chapter-number'>10</span>  <span class='chapter-title'>Read/Write Files</span>"
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Read/Write Files</span>"
     ]
   },
   {
     "objectID": "read_write.html#pathlib",
     "href": "read_write.html#pathlib",
-    "title": "10  Read/Write Files",
+    "title": "9  Read/Write Files",
     "section": "",
     "text": "the file was created\nwe opened the file\nwe wrote the text into it\nwe closed the file\nwe got back the number of bytes written (33)\n\n\n\n\n\n\n\n\n\n\nNote\n\n\n\nThe classical way to open/close files is actually using the open function. You can google it if you’re curious, but, for now, let’s run with pathlib.Path.",
     "crumbs": [
-      "<span class='chapter-number'>10</span>  <span class='chapter-title'>Read/Write Files</span>"
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Read/Write Files</span>"
     ]
   },
   {
     "objectID": "read_write.html#files-directories",
     "href": "read_write.html#files-directories",
-    "title": "10  Read/Write Files",
-    "section": "10.2 Files & Directories",
-    "text": "10.2 Files & Directories\nWhen manipulating files we sometimes we want to explicitly distinguish between files and directories. pathlib.Path has a few methods that make our life easier:\n\ncurrent = Path(\".\")  # dot means current dir\n\n\ncurrent.is_file()\n\nFalse\n\n\n\ncurrent.is_dir()\n\nTrue\n\n\n\n\n\n\n\n\nTip\n\n\n\nExplore the methods of the Path class by creating and object and hitting the Tab key, there are several handy functionalities included.",
+    "title": "9  Read/Write Files",
+    "section": "9.2 Files & Directories",
+    "text": "9.2 Files & Directories\nWhen manipulating files we sometimes we want to explicitly distinguish between files and directories. pathlib.Path has a few methods that make our life easier:\n\ncurrent = Path(\".\")  # dot means current dir\n\n\ncurrent.is_file()\n\nFalse\n\n\n\ncurrent.is_dir()\n\nTrue\n\n\n\n\n\n\n\n\nTip\n\n\n\nExplore the methods of the Path class by creating and object and hitting the Tab key, there are several handy functionalities included.",
     "crumbs": [
-      "<span class='chapter-number'>10</span>  <span class='chapter-title'>Read/Write Files</span>"
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Read/Write Files</span>"
     ]
   },
   {
     "objectID": "read_write.html#shutil",
     "href": "read_write.html#shutil",
-    "title": "10  Read/Write Files",
-    "section": "10.3 Shutil",
-    "text": "10.3 Shutil\n🚧 Material under construction 🚧",
+    "title": "9  Read/Write Files",
+    "section": "9.3 Shutil",
+    "text": "9.3 Shutil\n🚧 Material under construction 🚧",
     "crumbs": [
-      "<span class='chapter-number'>10</span>  <span class='chapter-title'>Read/Write Files</span>"
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Read/Write Files</span>"
     ]
   },
   {
     "objectID": "read_write.html#exercises",
     "href": "read_write.html#exercises",
-    "title": "10  Read/Write Files",
-    "section": "10.4 Exercises",
-    "text": "10.4 Exercises\nNow that we now how to read files from within python, we can tidy up things a bit from previous chapter.\n\nDownload the data from the repository here into a local file on your computer.\nWrite a function that takes a path and returns the list of dictionaries from exercise 8.5. Read the file content using pathlib.",
+    "title": "9  Read/Write Files",
+    "section": "9.4 Exercises",
+    "text": "9.4 Exercises\nNow that we now how to read files from within python, we can tidy up things a bit from previous chapter.\n\nDownload the data from the repository here into a local file on your computer.\nWrite a function that takes a path and returns the list of dictionaries from exercise 8.5. Read the file content using pathlib.",
     "crumbs": [
-      "<span class='chapter-number'>10</span>  <span class='chapter-title'>Read/Write Files</span>"
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Read/Write Files</span>"
     ]
   },
   {
     "objectID": "dependencies.html",
     "href": "dependencies.html",
-    "title": "11  Dependencies",
+    "title": "10  Dependencies",
     "section": "",
-    "text": "11.1 Managing dependencies\nIn contrast to our own code that we can import or to some built-in modules such as pathlib that we can import directly after installing python, there are third-party libraries that we want to use but need to be first installed, such as numpy and pandas. This libraries are also called “packages”.\nThere are several repositories (also called “indexes”) where people publish python packages and from which we can download them. The official one is PyPI (Python Package Index).\nThese are open-source libraries maintained mostly by voluntary contributions of people of the community – and you can also contribute to them!\nThese packages are being actively developed and thus in permanent evolution. In order to avoid compatibility problems and to ensure reproducibility, we might want to specify the exact versions of the packages we use. It turns out that is not an easy problem and the reason why need a package manager.\nThe good news is that uv does that for us too.\nThe standard to specify dependencies (and other things) in python projects is to use a file called pyproject.toml that looks like this:\nThe “dependencies” section is the one we care about here. There we list all the third-party libraries that our project requires. Notice that we can specify both exact versions (with “==”) as well as constraints (with “&lt;,&gt;,&gt;=,&lt;=”).\nIn general we don’t want to deal manually with those aspects – that’s the job of a package manager.\nWe will use here the package manager uv. You can read the docs for more details, which I strongly recommend since the documentation is pretty good and constantly being updated. To add a dependency we type:\nFor example:\nThat will add the dependency to our list as well as updating the “lock” file. Read more about this workflow and managing dependencies here.\nThe point is that after installing the dependency we can just import it like any other module.\nTo remove a package from the dependencies of our project we do:\nFor example:",
+    "text": "10.1 Managing dependencies\nIn contrast to our own code that we can import or to some built-in modules such as pathlib that we can import directly after installing python, there are third-party libraries that we want to use but need to be first installed, such as numpy and pandas. This libraries are also called “packages”.\nThere are several repositories (also called “indexes”) where people publish python packages and from which we can download them. The official one is PyPI (Python Package Index).\nThese are open-source libraries maintained mostly by voluntary contributions of people of the community – and you can also contribute to them!\nThese packages are being actively developed and thus in permanent evolution. In order to avoid compatibility problems and to ensure reproducibility, we might want to specify the exact versions of the packages we use. It turns out that is not an easy problem and the reason why need a package manager.\nThe good news is that uv does that for us too.\nThe standard to specify dependencies (and other things) in python projects is to use a file called pyproject.toml that looks like this:\nThe “dependencies” section is the one we care about here. There we list all the third-party libraries that our project requires. Notice that we can specify both exact versions (with “==”) as well as constraints (with “&lt;,&gt;,&gt;=,&lt;=”).\nIn general we don’t want to deal manually with those aspects – that’s the job of a package manager.\nWe will use here the package manager uv. You can read the docs for more details, which I strongly recommend since the documentation is pretty good and constantly being updated. To add a dependency we type:\nFor example:\nThat will add the dependency to our list as well as updating the “lock” file. Read more about this workflow and managing dependencies here.\nThe point is that after installing the dependency we can just import it like any other module.\nTo remove a package from the dependencies of our project we do:\nFor example:",
     "crumbs": [
-      "<span class='chapter-number'>11</span>  <span class='chapter-title'>Dependencies</span>"
+      "<span class='chapter-number'>10</span>  <span class='chapter-title'>Dependencies</span>"
     ]
   },
   {
     "objectID": "dependencies.html#managing-dependencies",
     "href": "dependencies.html#managing-dependencies",
-    "title": "11  Dependencies",
+    "title": "10  Dependencies",
     "section": "",
     "text": "[project]\nname = \"example_package_name\"\nversion = \"0.0.1\"\nauthors = [\n  { name=\"Example Author\", email=\"author@example.com\" },\n]\ndescription = \"A small example package\"\nreadme = \"README.md\"\nrequires-python = \"&gt;=3.10,&lt;3.12\"\ndependencies = [\n    \"numpy==1.2.0\",\n    \"pandas&lt;2.0.0\",\n    \"scikit-learn&gt;=1.0,&lt;2.0\"\n]\n\n\n\n\n\n\nNote\n\n\n\nTake a look at the pyproject.toml file in you project, we already have one that uv automatically created for us!\n\n\n\n\n\n\n\n\n\n\nNote\n\n\n\nThe packages usually follow a so-called “Semantic versioning” convention on how to name the versions of the package to avoid compatibility problems. In short: Given a version number MAJOR.MINOR.PATCH.\n\nMAJOR version when you make incompatible API changes\nMINOR version when you add functionality in a backward compatible manner\nPATCH version when you make backward compatible bug fixes\n\nRead more about that here.\n\n\n\nuv add PACKAGE-NAME\n\nuv add numpy\n\n\n\nuv remove PACKAGE-NAME\n\nuv remove numpy",
     "crumbs": [
-      "<span class='chapter-number'>11</span>  <span class='chapter-title'>Dependencies</span>"
+      "<span class='chapter-number'>10</span>  <span class='chapter-title'>Dependencies</span>"
     ]
   },
   {
     "objectID": "common_data_formats.html",
     "href": "common_data_formats.html",
-    "title": "12  Common Data Formats",
+    "title": "11  Common Data Formats",
     "section": "",
-    "text": "12.1 CSV\nComma Separated Values\nCode\ndata = \"\"\"\\\ndate,id,age\n2020-01-01,x12,19\n2020-01-02,x11,23\n2020-01-02,x3,22\n2020-01-03,x19,28\n\"\"\"\nprint(data)\n\n\ndate,id,age\n2020-01-01,x12,19\n2020-01-02,x11,23\n2020-01-02,x3,22\n2020-01-03,x19,28\nCode\nfrom pathlib import Path\nfilepath = \"/tmp/data.csv\"\nPath(filepath).write_text(data)\nLoading data into a dataframe is not the only but one the most common ways to to load this data. We will use here pandas, a very popular library for data wrangling in python.\nInstall pandas:\nimport pandas as pd\n\ndf = pd.read_csv(filepath)\ndf\n\n\n\n\n\n\n\n\ndate\nid\nage\n\n\n\n\n0\n2020-01-01\nx12\n19\n\n\n1\n2020-01-02\nx11\n23\n\n\n2\n2020-01-02\nx3\n22\n\n\n3\n2020-01-03\nx19\n28\nWe can also save a dataframe as csv:\ndf.to_csv(\"/tmp/data.csv\", index=None)\n!cat /tmp/data.csv\n\ndate,id,age\n2020-01-01,x12,19\n2020-01-02,x11,23\n2020-01-02,x3,22\n2020-01-03,x19,28\nCode\ndf.to_csv(\"/tmp/data.tsv\", sep=\"\\t\", index=None)",
+    "text": "11.1 CSV\nComma Separated Values\nCode\ndata = \"\"\"\\\ndate,id,age\n2020-01-01,x12,19\n2020-01-02,x11,23\n2020-01-02,x3,22\n2020-01-03,x19,28\n\"\"\"\nprint(data)\n\n\ndate,id,age\n2020-01-01,x12,19\n2020-01-02,x11,23\n2020-01-02,x3,22\n2020-01-03,x19,28\nCode\nfrom pathlib import Path\nfilepath = \"/tmp/data.csv\"\nPath(filepath).write_text(data)\nLoading data into a dataframe is not the only but one the most common ways to to load this data. We will use here pandas, a very popular library for data wrangling in python.\nInstall pandas:\nimport pandas as pd\n\ndf = pd.read_csv(filepath)\ndf\n\n\n\n\n\n\n\n\ndate\nid\nage\n\n\n\n\n0\n2020-01-01\nx12\n19\n\n\n1\n2020-01-02\nx11\n23\n\n\n2\n2020-01-02\nx3\n22\n\n\n3\n2020-01-03\nx19\n28\nWe can also save a dataframe as csv:\ndf.to_csv(\"/tmp/data.csv\", index=None)\n!cat /tmp/data.csv\n\ndate,id,age\n2020-01-01,x12,19\n2020-01-02,x11,23\n2020-01-02,x3,22\n2020-01-03,x19,28\nCode\ndf.to_csv(\"/tmp/data.tsv\", sep=\"\\t\", index=None)",
     "crumbs": [
-      "<span class='chapter-number'>12</span>  <span class='chapter-title'>Common Data Formats</span>"
+      "<span class='chapter-number'>11</span>  <span class='chapter-title'>Common Data Formats</span>"
     ]
   },
   {
     "objectID": "common_data_formats.html#csv",
     "href": "common_data_formats.html#csv",
-    "title": "12  Common Data Formats",
+    "title": "11  Common Data Formats",
     "section": "",
     "text": "uv add pandas",
     "crumbs": [
-      "<span class='chapter-number'>12</span>  <span class='chapter-title'>Common Data Formats</span>"
+      "<span class='chapter-number'>11</span>  <span class='chapter-title'>Common Data Formats</span>"
     ]
   },
   {
     "objectID": "common_data_formats.html#tsv",
     "href": "common_data_formats.html#tsv",
-    "title": "12  Common Data Formats",
-    "section": "12.2 TSV",
-    "text": "12.2 TSV\nSimilar to CSV, Tab Separated Values format uses Tabs instead of comma to separate values of each line.\n\n!cat /tmp/data.tsv\n\ndate    id  age\n2020-01-01  x12 19\n2020-01-02  x11 23\n2020-01-02  x3  22\n2020-01-03  x19 28\n\n\nLuckily pandas can handle that too.\n\ndf = pd.read_csv(\"/tmp/data.tsv\", sep=\"\\t\")\ndf\n\n\n\n\n\n\n\n\ndate\nid\nage\n\n\n\n\n0\n2020-01-01\nx12\n19\n\n\n1\n2020-01-02\nx11\n23\n\n\n2\n2020-01-02\nx3\n22\n\n\n3\n2020-01-03\nx19\n28",
+    "title": "11  Common Data Formats",
+    "section": "11.2 TSV",
+    "text": "11.2 TSV\nSimilar to CSV, Tab Separated Values format uses Tabs instead of comma to separate values of each line.\n\n!cat /tmp/data.tsv\n\ndate    id  age\n2020-01-01  x12 19\n2020-01-02  x11 23\n2020-01-02  x3  22\n2020-01-03  x19 28\n\n\nLuckily pandas can handle that too.\n\ndf = pd.read_csv(\"/tmp/data.tsv\", sep=\"\\t\")\ndf\n\n\n\n\n\n\n\n\ndate\nid\nage\n\n\n\n\n0\n2020-01-01\nx12\n19\n\n\n1\n2020-01-02\nx11\n23\n\n\n2\n2020-01-02\nx3\n22\n\n\n3\n2020-01-03\nx19\n28",
     "crumbs": [
-      "<span class='chapter-number'>12</span>  <span class='chapter-title'>Common Data Formats</span>"
+      "<span class='chapter-number'>11</span>  <span class='chapter-title'>Common Data Formats</span>"
     ]
   },
   {
     "objectID": "common_data_formats.html#excel",
     "href": "common_data_formats.html#excel",
-    "title": "12  Common Data Formats",
-    "section": "12.3 Excel",
-    "text": "12.3 Excel\nWe can also read in data coming from an excel spreadsheet.\n\ndf.to_excel(\"/tmp/data.xlsx\", index=None)\n\n\npd.read_excel(\"/tmp/data.xlsx\")\n\n\n\n\n\n\n\n\ndate\nid\nage\n\n\n\n\n0\n2020-01-01\nx12\n19\n\n\n1\n2020-01-02\nx11\n23\n\n\n2\n2020-01-02\nx3\n22\n\n\n3\n2020-01-03\nx19\n28",
+    "title": "11  Common Data Formats",
+    "section": "11.3 Excel",
+    "text": "11.3 Excel\nWe can also read in data coming from an excel spreadsheet.\n\ndf.to_excel(\"/tmp/data.xlsx\", index=None)\n\n\npd.read_excel(\"/tmp/data.xlsx\")\n\n\n\n\n\n\n\n\ndate\nid\nage\n\n\n\n\n0\n2020-01-01\nx12\n19\n\n\n1\n2020-01-02\nx11\n23\n\n\n2\n2020-01-02\nx3\n22\n\n\n3\n2020-01-03\nx19\n28",
     "crumbs": [
-      "<span class='chapter-number'>12</span>  <span class='chapter-title'>Common Data Formats</span>"
+      "<span class='chapter-number'>11</span>  <span class='chapter-title'>Common Data Formats</span>"
     ]
   },
   {
     "objectID": "common_data_formats.html#json",
     "href": "common_data_formats.html#json",
-    "title": "12  Common Data Formats",
-    "section": "12.4 JSON",
-    "text": "12.4 JSON\nJSON (JavaScript Object Notation) is by far one of the most used data formats, nowadays the default format to transfer data over the internet. It is also very commonly used for configuration files and logging.\n\nflat = {\n  \"name\": \"John Doe\",\n  \"age\": 25\n}\n\nnested = {\n  \"name\": {\n    \"firstName\": \"John\",\n    \"lastName\": \"Doe\",\n    \"middleName\": \"Smith\"\n  },\n  \"age\": 25,\n  \"hobbies\": [\"reading\", \"writing\"]\n}\n\n\n12.4.1 Encoding\nAlso called “serialization”.\n\nimport json\n\nflat_str = json.dumps(flat)\nflat_str\n\n'{\"name\": \"John Doe\", \"age\": 25}'\n\n\n\nnested_str = json.dumps(nested)\nnested_str\n\n'{\"name\": {\"firstName\": \"John\", \"lastName\": \"Doe\", \"middleName\": \"Smith\"}, \"age\": 25, \"hobbies\": [\"reading\", \"writing\"]}'\n\n\n\narr_str = json.dumps(arr)\narr_str\n\n'{\"name\": \"John Doe\", \"age\": 25, \"hobbies\": [\"reading\", \"writing\"]}'\n\n\n\nPath(\"/tmp/flat.json\").write_text(flat_str)\nPath(\"/tmp/nested.json\").write_text(nested_str)\n\n\n\n12.4.2 Decoding\nAlso called “deserialization”.\n\njson.load(\n    Path(\"/tmp/flat.json\").open()\n)\n\n{'name': 'John Doe', 'age': 25}\n\n\n\njson.loads(\n    Path(\"/tmp/flat.json\").read_text()\n)\n\n{'name': 'John Doe', 'age': 25}\n\n\n\njson.load(\n    Path(\"/tmp/nested.json\").open()\n)\n\n{'name': {'firstName': 'John', 'lastName': 'Doe', 'middleName': 'Smith'},\n 'age': 25,\n 'hobbies': ['reading', 'writing']}\n\n\n\njson.loads(\n    Path(\"/tmp/nested.json\").read_text()\n)\n\n{'name': {'firstName': 'John', 'lastName': 'Doe', 'middleName': 'Smith'},\n 'age': 25,\n 'hobbies': ['reading', 'writing']}\n\n\nNotice we load the data into a python dictionary:\n\nout = json.loads(\n    Path(\"/tmp/nested.json\").read_text()\n)\ntype(out)\n\ndict\n\n\nWe can also store a list as JSON array:\n\nPath(\"/tmp/arr.json\").write_text(\n    json.dumps([\n        {\"a\": 1},\n        {\"b\": 2},\n    ])\n)\n\n\nout = json.load(Path(\"/tmp/arr.json\").open())\nprint(type(out))\nout\n\n&lt;class 'list'&gt;\n\n\n[{'a': 1}, {'b': 2}]",
+    "title": "11  Common Data Formats",
+    "section": "11.4 JSON",
+    "text": "11.4 JSON\nJSON (JavaScript Object Notation) is by far one of the most used data formats, nowadays the default format to transfer data over the internet. It is also very commonly used for configuration files and logging.\n\nflat = {\n  \"name\": \"John Doe\",\n  \"age\": 25\n}\n\nnested = {\n  \"name\": {\n    \"firstName\": \"John\",\n    \"lastName\": \"Doe\",\n    \"middleName\": \"Smith\"\n  },\n  \"age\": 25,\n  \"hobbies\": [\"reading\", \"writing\"]\n}\n\n\n11.4.1 Encoding\nAlso called “serialization”.\n\nimport json\n\nflat_str = json.dumps(flat)\nflat_str\n\n'{\"name\": \"John Doe\", \"age\": 25}'\n\n\n\nnested_str = json.dumps(nested)\nnested_str\n\n'{\"name\": {\"firstName\": \"John\", \"lastName\": \"Doe\", \"middleName\": \"Smith\"}, \"age\": 25, \"hobbies\": [\"reading\", \"writing\"]}'\n\n\n\narr_str = json.dumps(arr)\narr_str\n\n'{\"name\": \"John Doe\", \"age\": 25, \"hobbies\": [\"reading\", \"writing\"]}'\n\n\n\nPath(\"/tmp/flat.json\").write_text(flat_str)\nPath(\"/tmp/nested.json\").write_text(nested_str)\n\n\n\n11.4.2 Decoding\nAlso called “deserialization”.\n\njson.load(\n    Path(\"/tmp/flat.json\").open()\n)\n\n{'name': 'John Doe', 'age': 25}\n\n\n\njson.loads(\n    Path(\"/tmp/flat.json\").read_text()\n)\n\n{'name': 'John Doe', 'age': 25}\n\n\n\njson.load(\n    Path(\"/tmp/nested.json\").open()\n)\n\n{'name': {'firstName': 'John', 'lastName': 'Doe', 'middleName': 'Smith'},\n 'age': 25,\n 'hobbies': ['reading', 'writing']}\n\n\n\njson.loads(\n    Path(\"/tmp/nested.json\").read_text()\n)\n\n{'name': {'firstName': 'John', 'lastName': 'Doe', 'middleName': 'Smith'},\n 'age': 25,\n 'hobbies': ['reading', 'writing']}\n\n\nNotice we load the data into a python dictionary:\n\nout = json.loads(\n    Path(\"/tmp/nested.json\").read_text()\n)\ntype(out)\n\ndict\n\n\nWe can also store a list as JSON array:\n\nPath(\"/tmp/arr.json\").write_text(\n    json.dumps([\n        {\"a\": 1},\n        {\"b\": 2},\n    ])\n)\n\n\nout = json.load(Path(\"/tmp/arr.json\").open())\nprint(type(out))\nout\n\n&lt;class 'list'&gt;\n\n\n[{'a': 1}, {'b': 2}]",
     "crumbs": [
-      "<span class='chapter-number'>12</span>  <span class='chapter-title'>Common Data Formats</span>"
+      "<span class='chapter-number'>11</span>  <span class='chapter-title'>Common Data Formats</span>"
     ]
   },
   {
     "objectID": "common_data_formats.html#parquet",
     "href": "common_data_formats.html#parquet",
-    "title": "12  Common Data Formats",
-    "section": "12.5 Parquet",
-    "text": "12.5 Parquet\nParquet is a column oriented format. For a number of reasons, this format is much more efficient than csv and other formats.\n\ndf\n\n\n\n\n\n\n\n\ndate\nid\nage\n\n\n\n\n0\n2020-01-01\nx12\n19\n\n\n1\n2020-01-02\nx11\n23\n\n\n2\n2020-01-02\nx3\n22\n\n\n3\n2020-01-03\nx19\n28\n\n\n\n\n\n\n\nWith pandas we can save data to a parquet file:\n\ndf.to_parquet(\"/tmp/data.parquet\")\n\nAnd read in:\n\npd.read_parquet(\"/tmp/data.parquet\")\n\n\n\n\n\n\n\n\ndate\nid\nage\n\n\n\n\n0\n2020-01-01\nx12\n19\n\n\n1\n2020-01-02\nx11\n23\n\n\n2\n2020-01-02\nx3\n22\n\n\n3\n2020-01-03\nx19\n28\n\n\n\n\n\n\n\n\n\n\n\n\n\nTip\n\n\n\nPrefer parquet format when possible. It is faster to read and it stores metadata that can be used by libraries for optimization, for example, applying some filters.",
+    "title": "11  Common Data Formats",
+    "section": "11.5 Parquet",
+    "text": "11.5 Parquet\nParquet is a column oriented format. For a number of reasons, this format is much more efficient than csv and other formats.\n\ndf\n\n\n\n\n\n\n\n\ndate\nid\nage\n\n\n\n\n0\n2020-01-01\nx12\n19\n\n\n1\n2020-01-02\nx11\n23\n\n\n2\n2020-01-02\nx3\n22\n\n\n3\n2020-01-03\nx19\n28\n\n\n\n\n\n\n\nWith pandas we can save data to a parquet file:\n\ndf.to_parquet(\"/tmp/data.parquet\")\n\nAnd read in:\n\npd.read_parquet(\"/tmp/data.parquet\")\n\n\n\n\n\n\n\n\ndate\nid\nage\n\n\n\n\n0\n2020-01-01\nx12\n19\n\n\n1\n2020-01-02\nx11\n23\n\n\n2\n2020-01-02\nx3\n22\n\n\n3\n2020-01-03\nx19\n28\n\n\n\n\n\n\n\n\n\n\n\n\n\nTip\n\n\n\nPrefer parquet format when possible. It is faster to read and it stores metadata that can be used by libraries for optimization, for example, applying some filters.",
     "crumbs": [
-      "<span class='chapter-number'>12</span>  <span class='chapter-title'>Common Data Formats</span>"
+      "<span class='chapter-number'>11</span>  <span class='chapter-title'>Common Data Formats</span>"
     ]
   },
   {
     "objectID": "common_data_formats.html#exercises",
     "href": "common_data_formats.html#exercises",
-    "title": "12  Common Data Formats",
-    "section": "12.6 Exercises",
-    "text": "12.6 Exercises\nDownload from this public repo the files dataset_description.json, participants.tsv.\n\nRead in the file dataset_description.json and print the field Description.\nRead in the file participants.tsv and print the mean of all the values of the column age.",
+    "title": "11  Common Data Formats",
+    "section": "11.6 Exercises",
+    "text": "11.6 Exercises\nDownload from this public repo the files dataset_description.json, participants.tsv.\n\nRead in the file dataset_description.json and print the field Description.\nRead in the file participants.tsv and print the mean of all the values of the column age.",
     "crumbs": [
-      "<span class='chapter-number'>12</span>  <span class='chapter-title'>Common Data Formats</span>"
+      "<span class='chapter-number'>11</span>  <span class='chapter-title'>Common Data Formats</span>"
     ]
   },
   {
     "objectID": "debugging.html",
     "href": "debugging.html",
-    "title": "13  Debugging",
+    "title": "12  Debugging",
     "section": "",
-    "text": "13.1 What is a debugger?\nWe are humans, we make mistakes – that’s very much true for coding.\nFinding errors in our code is fundamental skill to train so we will cover here a few tools that help us find and fix errors more quickly.\nA debugger is a device that allows us to interrupt code execution and jump into the execution context in a interactive mode, so that we can inspect and run code to find out what’s going on.\nWe called that to “set a breakpoint” or “set a trace”.\nThere are a few options to do that in python.",
+    "text": "12.1 What is a debugger?\nWe are humans, we make mistakes – that’s very much true for coding.\nFinding errors in our code is fundamental skill to train so we will cover here a few tools that help us find and fix errors more quickly.\nA debugger is a device that allows us to interrupt code execution and jump into the execution context in a interactive mode, so that we can inspect and run code to find out what’s going on.\nWe called that to “set a breakpoint” or “set a trace”.\nThere are a few options to do that in python.",
     "crumbs": [
-      "<span class='chapter-number'>13</span>  <span class='chapter-title'>Debugging</span>"
+      "<span class='chapter-number'>12</span>  <span class='chapter-title'>Debugging</span>"
     ]
   },
   {
     "objectID": "debugging.html#python-debugger-breakpoints",
     "href": "debugging.html#python-debugger-breakpoints",
-    "title": "13  Debugging",
-    "section": "13.2 Python debugger, breakpoints",
-    "text": "13.2 Python debugger, breakpoints\nThe python standard library includes pdb module. If you call this function in your code you will be put into an interactive session exactly at that point.\nAny of the following options would work:\n# your code\n# your code\nimport pdb\npdb.set_trace()\n# your code\n# your code\nbreakpoint()\n# your code\n# your code\n# your code\nOnce in the debugger, we have several functions to proceed with code execution with more granular control.\nThere are several options, but the most commonly used methods are:\n\nn (next): Continue execution one line, stay in the current function (step over)\ns (step): Execute current line and stop in a foreign function if one is called (step into)\nc (continue): Continue whole code execution until a new breakpoint is found",
+    "title": "12  Debugging",
+    "section": "12.2 Python debugger, breakpoints",
+    "text": "12.2 Python debugger, breakpoints\nThe python standard library includes pdb module. If you call this function in your code you will be put into an interactive session exactly at that point.\nAny of the following options would work:\n# your code\n# your code\nimport pdb\npdb.set_trace()\n# your code\n# your code\nbreakpoint()\n# your code\n# your code\n# your code\nOnce in the debugger, we have several functions to proceed with code execution with more granular control.\nThere are several options, but the most commonly used methods are:\n\nn (next): Continue execution one line, stay in the current function (step over)\ns (step): Execute current line and stop in a foreign function if one is called (step into)\nc (continue): Continue whole code execution until a new breakpoint is found",
     "crumbs": [
-      "<span class='chapter-number'>13</span>  <span class='chapter-title'>Debugging</span>"
+      "<span class='chapter-number'>12</span>  <span class='chapter-title'>Debugging</span>"
     ]
   },
   {
     "objectID": "debugging.html#ipython-debugger",
     "href": "debugging.html#ipython-debugger",
-    "title": "13  Debugging",
-    "section": "13.3 IPython debugger",
-    "text": "13.3 IPython debugger\nThe standard python debugger is fine but a bit basic, so sometimes the IPython debugger is a friendlier option.\nWe need to install it:\nuv add ipdb\nThen we can do:\nimport ipdb\nipdb.set_trace()",
+    "title": "12  Debugging",
+    "section": "12.3 IPython debugger",
+    "text": "12.3 IPython debugger\nThe standard python debugger is fine but a bit basic, so sometimes the IPython debugger is a friendlier option.\nWe need to install it:\nuv add ipdb\nThen we can do:\nimport ipdb\nipdb.set_trace()",
     "crumbs": [
-      "<span class='chapter-number'>13</span>  <span class='chapter-title'>Debugging</span>"
+      "<span class='chapter-number'>12</span>  <span class='chapter-title'>Debugging</span>"
     ]
   },
   {
     "objectID": "debugging.html#notebook-debug",
     "href": "debugging.html#notebook-debug",
-    "title": "13  Debugging",
-    "section": "13.4 Notebook %debug",
-    "text": "13.4 Notebook %debug\nInside the jupyter notebook we can directly jump into a debugger when there is an error.\nIf a cell throws an error, you can type this “ipython magic method” in the following cell:\n%debug\n\ndef wrong_func():\n    a = 1\n    assert a == 0\n\nwrong_func()\n\n\n---------------------------------------------------------------------------\nAssertionError                            Traceback (most recent call last)\nCell In[1], line 5\n      2     a = 1\n      3     assert a == 0\n----&gt; 5 wrong_func()\n\nCell In[1], line 3, in wrong_func()\n      1 def wrong_func():\n      2     a = 1\n----&gt; 3     assert a == 0\n\nAssertionError: \n\n\n\n\n%debug\n\n\n&gt; /tmp/ipykernel_81865/3667203143.py(3)wrong_func()\n\n      1 def wrong_func():\n\n      2     a = 1\n\n----&gt; 3     assert a == 0\n\n      4 \n\n      5 wrong_func()\n\n\n\n\n\n\nipdb&gt;  print(a)\n\n\n1\n\n\nipdb&gt;  exit\n\n\nNotice that we typed “exit” to get out of the debugger.",
+    "title": "12  Debugging",
+    "section": "12.4 Notebook %debug",
+    "text": "12.4 Notebook %debug\nInside the jupyter notebook we can directly jump into a debugger when there is an error.\nIf a cell throws an error, you can type this “ipython magic method” in the following cell:\n%debug\n\ndef wrong_func():\n    a = 1\n    assert a == 0\n\nwrong_func()\n\n\n---------------------------------------------------------------------------\nAssertionError                            Traceback (most recent call last)\nCell In[1], line 5\n      2     a = 1\n      3     assert a == 0\n----&gt; 5 wrong_func()\n\nCell In[1], line 3, in wrong_func()\n      1 def wrong_func():\n      2     a = 1\n----&gt; 3     assert a == 0\n\nAssertionError: \n\n\n\n\n%debug\n\n\n&gt; /tmp/ipykernel_81865/3667203143.py(3)wrong_func()\n\n      1 def wrong_func():\n\n      2     a = 1\n\n----&gt; 3     assert a == 0\n\n      4 \n\n      5 wrong_func()\n\n\n\n\n\n\nipdb&gt;  print(a)\n\n\n1\n\n\nipdb&gt;  exit\n\n\nNotice that we typed “exit” to get out of the debugger.",
     "crumbs": [
-      "<span class='chapter-number'>13</span>  <span class='chapter-title'>Debugging</span>"
+      "<span class='chapter-number'>12</span>  <span class='chapter-title'>Debugging</span>"
     ]
   },
   {
     "objectID": "debugging.html#exercises",
     "href": "debugging.html#exercises",
-    "title": "13  Debugging",
-    "section": "13.5 Exercises",
-    "text": "13.5 Exercises\nHere’s a piece of code that will fail at run-time:\n\ndef f(p):\n    assert p == 0\n    \ndef main():\n    a = 0\n    f(a)\n    b = 1 \n    f(b)\n    c = 0\n    f(c)\n\n\nRun the code to see the error\nSet a breakpoint inside main to use the debugger\nStep through the code using n (next) and another time using s (step)\nSet a second breakpoint inside mainand run again the code but this time use c (continue)\nDownload this public dataset as zip file into the folder /pycourse/data/ (create it if you don’t yet have it)\n\nHere’s a bit of code to unzip the file.\n\nfrom pathlib import Path\nimport zipfile\n\ndef unzip(source_file, target_dir):\n    with zipfile.ZipFile(source_file) as file:\n        file.extractall(target_dir)\n\nproject_path = Path(\"pycourse\")\n\nsource = project_path/\"data/ds005588-main.zip\"\ntarget = project_path/\"data\"\nunzip(source, target)\n\nNow, your collaborator has written this script to extract the mean value of the “SAR” entry from across all subjects bold data.\n\nPut this script into the folder (create if it does not yet exist) pycourse/scripts/sar_mean.py and make the necessary modifications to make it run as a script.\n\n\nimport json\nfrom glob import glob\nfrom pathlib import Path\n\ndef get_subjects_sar_mean(data_dir):\n    # Grab all files matching this filename pattern\n    files = glob(str(data_dir/\"**/*_bold.json\"), recursive=True)\n    \n    sar_sum = 0\n    n = 0\n    for file in files:\n        content = json.loads(Path(file).read_text())\n        sar_sum += content[\"SAR\"]\n        n += 1\n    return sar_sum/n\n\n# TODO: add whatever code you need to make this code a proper script\n# that prints the sar-mean when run\n\n\nRun it using uv run scripts/sar_mean.py and see it fail. Set a breakpoint inside the get_subjects_sar_mean function. Run it again and try to find the bug inside the debugger.\nAdd some error handling to make sure the script runs.\n\nTo recap, so far our project should look more or less like this:\n\nAnd if we expand the folders:",
+    "title": "12  Debugging",
+    "section": "12.5 Exercises",
+    "text": "12.5 Exercises\nHere’s a piece of code that will fail at run-time:\n\ndef f(p):\n    assert p == 0\n    \ndef main():\n    a = 0\n    f(a)\n    b = 1 \n    f(b)\n    c = 0\n    f(c)\n\n\nRun the code to see the error\nSet a breakpoint inside main to use the debugger\nStep through the code using n (next) and another time using s (step)\nSet a second breakpoint inside mainand run again the code but this time use c (continue)\nDownload this public dataset as zip file into the folder /pycourse/data/ (create it if you don’t yet have it)\n\nHere’s a bit of code to unzip the file.\n\nfrom pathlib import Path\nimport zipfile\n\ndef unzip(source_file, target_dir):\n    with zipfile.ZipFile(source_file) as file:\n        file.extractall(target_dir)\n\nproject_path = Path(\"pycourse\")\n\nsource = project_path/\"data/ds005588-main.zip\"\ntarget = project_path/\"data\"\nunzip(source, target)\n\nNow, your collaborator has written this script to extract the mean value of the “SAR” entry from across all subjects bold data.\n\nPut this script into the folder (create if it does not yet exist) pycourse/scripts/sar_mean.py and make the necessary modifications to make it run as a script.\n\n\nimport json\nfrom glob import glob\nfrom pathlib import Path\n\ndef get_subjects_sar_mean(data_dir):\n    # Grab all files matching this filename pattern\n    files = glob(str(data_dir/\"**/*_bold.json\"), recursive=True)\n    \n    sar_sum = 0\n    n = 0\n    for file in files:\n        content = json.loads(Path(file).read_text())\n        sar_sum += content[\"SAR\"]\n        n += 1\n    return sar_sum/n\n\n# TODO: add whatever code you need to make this code a proper script\n# that prints the sar-mean when run\n\n\nRun it using uv run scripts/sar_mean.py and see it fail. Set a breakpoint inside the get_subjects_sar_mean function. Run it again and try to find the bug inside the debugger.\nAdd some error handling to make sure the script runs.\n\nTo recap, so far our project should look more or less like this:\n\nAnd if we expand the folders:",
     "crumbs": [
-      "<span class='chapter-number'>13</span>  <span class='chapter-title'>Debugging</span>"
+      "<span class='chapter-number'>12</span>  <span class='chapter-title'>Debugging</span>"
     ]
   },
   {
     "objectID": "numpy.html",
     "href": "numpy.html",
-    "title": "14  Numpy",
+    "title": "13  Numpy",
     "section": "",
-    "text": "14.1 Slicing Arrays\nWe will follow here this excellent chapter from Wes MacKinney’s book.\nIn particular the subtitles:\nSlicing works as with, for example, range, with systax (start, [stop], [step]). We treat each dimension separately with ,.\nLet’s see:\nimport numpy as np\narr = np.arange(12).reshape(3,4)\narr\n\narray([[ 0,  1,  2,  3],\n       [ 4,  5,  6,  7],\n       [ 8,  9, 10, 11]])\n# Take first row\narr[0]\n\narray([0, 1, 2, 3])\n# Take first column\narr[:, 0]\n\narray([0, 4, 8])\n# Take every second element of second row\narr[1, ::2]\n\narray([4, 6])\n# Take every second element of third column\narr[::2, 2]\n\narray([ 2, 10])\nOne special thing about numpy slices: We can use lists to index. Each element of the list is interpreted as an index to get:\n# Take second and third columns\narr[:, [1, 2]]\n\narray([[ 1,  2],\n       [ 5,  6],\n       [ 9, 10]])\n# Take first and third rows\narr[[0, 2], :]\n\narray([[ 0,  1,  2,  3],\n       [ 8,  9, 10, 11]])",
+    "text": "13.1 Slicing Arrays\nWe will follow here this excellent chapter from Wes MacKinney’s book.\nIn particular the subtitles:\nSlicing works as with, for example, range, with systax (start, [stop], [step]). We treat each dimension separately with ,.\nLet’s see:\nimport numpy as np\narr = np.arange(12).reshape(3,4)\narr\n\narray([[ 0,  1,  2,  3],\n       [ 4,  5,  6,  7],\n       [ 8,  9, 10, 11]])\n# Take first row\narr[0]\n\narray([0, 1, 2, 3])\n# Take first column\narr[:, 0]\n\narray([0, 4, 8])\n# Take every second element of second row\narr[1, ::2]\n\narray([4, 6])\n# Take every second element of third column\narr[::2, 2]\n\narray([ 2, 10])\nOne special thing about numpy slices: We can use lists to index. Each element of the list is interpreted as an index to get:\n# Take second and third columns\narr[:, [1, 2]]\n\narray([[ 1,  2],\n       [ 5,  6],\n       [ 9, 10]])\n# Take first and third rows\narr[[0, 2], :]\n\narray([[ 0,  1,  2,  3],\n       [ 8,  9, 10, 11]])",
     "crumbs": [
-      "<span class='chapter-number'>14</span>  <span class='chapter-title'>Numpy</span>"
+      "<span class='chapter-number'>13</span>  <span class='chapter-title'>Numpy</span>"
     ]
   },
   {
     "objectID": "numpy.html#numpy-built-in-functions",
     "href": "numpy.html#numpy-built-in-functions",
-    "title": "14  Numpy",
-    "section": "14.2 Numpy Built-in Functions",
-    "text": "14.2 Numpy Built-in Functions\nNumpy implements many useful functions often used when working with numerical/scientific data. For example the random submodule exposes several useful functions for stochastic modelling and statistical analysis.",
+    "title": "13  Numpy",
+    "section": "13.2 Numpy Built-in Functions",
+    "text": "13.2 Numpy Built-in Functions\nNumpy implements many useful functions often used when working with numerical/scientific data. For example the random submodule exposes several useful functions for stochastic modelling and statistical analysis.",
     "crumbs": [
-      "<span class='chapter-number'>14</span>  <span class='chapter-title'>Numpy</span>"
+      "<span class='chapter-number'>13</span>  <span class='chapter-title'>Numpy</span>"
     ]
   },
   {
     "objectID": "numpy.html#exercises",
     "href": "numpy.html#exercises",
-    "title": "14  Numpy",
-    "section": "14.3 Exercises",
-    "text": "14.3 Exercises\n\narr = np.arange(25)\narr\n\narray([ 0,  1,  2,  3,  4,  5,  6,  7,  8,  9, 10, 11, 12, 13, 14, 15, 16,\n       17, 18, 19, 20, 21, 22, 23, 24])\n\n\n\narr.reshape(5,5)\n\narray([[ 0,  1,  2,  3,  4],\n       [ 5,  6,  7,  8,  9],\n       [10, 11, 12, 13, 14],\n       [15, 16, 17, 18, 19],\n       [20, 21, 22, 23, 24]])\n\n\n\nReshape arr to be a square matrix, call it arr_sq.\nExtract the values at this coordinates [(0, 3), (2, 4), (3, 2)].\nExtract one index operation the elements 1, 4, 9, 11, 21.\nCreate a boolean mask that will extract the odd numbers from the arr_sq.\nFind the indices of the even elements off arr_sq.\nFlatten arr_sq into 1 dimension.\nGet the third column of arr_sq.\nGet the second and the fourth rows of arr_sq.\nCompute the dot product between arr_sq and arr_sq transposed.\nExtract the upper right triangle values (including the diagonal.\nCreate a square matrix of 25 elements filled only with the value 100 along the main diagonal\nCreate a square matrix of 25 elements filled only with the value 1 the counter-diagonal.",
+    "title": "13  Numpy",
+    "section": "13.3 Exercises",
+    "text": "13.3 Exercises\n\narr = np.arange(25)\narr\n\narray([ 0,  1,  2,  3,  4,  5,  6,  7,  8,  9, 10, 11, 12, 13, 14, 15, 16,\n       17, 18, 19, 20, 21, 22, 23, 24])\n\n\n\narr.reshape(5,5)\n\narray([[ 0,  1,  2,  3,  4],\n       [ 5,  6,  7,  8,  9],\n       [10, 11, 12, 13, 14],\n       [15, 16, 17, 18, 19],\n       [20, 21, 22, 23, 24]])\n\n\n\nReshape arr to be a square matrix, call it arr_sq.\nExtract the values at this coordinates [(0, 3), (2, 4), (3, 2)].\nExtract one index operation the elements 1, 4, 9, 11, 21.\nCreate a boolean mask that will extract the odd numbers from the arr_sq.\nFind the indices of the even elements off arr_sq.\nFlatten arr_sq into 1 dimension.\nGet the third column of arr_sq.\nGet the second and the fourth rows of arr_sq.\nCompute the dot product between arr_sq and arr_sq transposed.\nExtract the upper right triangle values (including the diagonal.\nCreate a square matrix of 25 elements filled only with the value 100 along the main diagonal\nCreate a square matrix of 25 elements filled only with the value 1 the counter-diagonal.",
     "crumbs": [
-      "<span class='chapter-number'>14</span>  <span class='chapter-title'>Numpy</span>"
+      "<span class='chapter-number'>13</span>  <span class='chapter-title'>Numpy</span>"
     ]
   },
   {
     "objectID": "pandas.html",
     "href": "pandas.html",
-    "title": "15  Pandas",
+    "title": "14  Pandas",
     "section": "",
     "text": "Here’s the introductory chapter of the book, by the original author of the library pandas Wes McKinney. In particular, we’ll look at subtitles:\n\n5.1. Introduction to pandas Data Structures\n5.2. Essential Functionality\n\nIndexing, selection and filtering\nFunction application and mapping\nSorting and ranking\n\n7.1. Handling missing data\n7.2. Replacing values\n7.4. String functions in pandas\n10.1. How to think about group operations\n\nThese are useful cheatsheets.\nCheck out the pandas getting-started documentation here\nHere’s short introduction by the very author of the library:",
     "crumbs": [
-      "<span class='chapter-number'>15</span>  <span class='chapter-title'>Pandas</span>"
+      "<span class='chapter-number'>14</span>  <span class='chapter-title'>Pandas</span>"
     ]
   },
   {
     "objectID": "plotting.html",
     "href": "plotting.html",
-    "title": "16  Plotting",
+    "title": "15  Plotting",
     "section": "",
-    "text": "16.1 Matplotlib",
+    "text": "15.1 Matplotlib",
     "crumbs": [
-      "<span class='chapter-number'>16</span>  <span class='chapter-title'>Plotting</span>"
+      "<span class='chapter-number'>15</span>  <span class='chapter-title'>Plotting</span>"
     ]
   },
   {
     "objectID": "plotting.html#matplotlib",
     "href": "plotting.html#matplotlib",
-    "title": "16  Plotting",
+    "title": "15  Plotting",
     "section": "",
-    "text": "16.1.1 Anatomy of a Figure\nThe most common plotting library in python is matplotlib. matplotlib is very comprehensive and brings many idiomatic choices that sometimes can make it a bit cumbersome to wrap our heads around, so don’t worry if you struggle with it a bit at first.\nWe will look at the most basic forms of plotting to try to understand the basic building blocks. To go beyond that you will for sure need to look up more things, but the good news is that matplotlib is a decently old and very mature project, which facilitates searching for information on the internet and its official documentation is pretty good too. To discover functionalities and for searching information, it is useful to take a look at the components of a plot:\n\n\n\n\n\nHere’s the code behind this figure in the matplotlib documentation.\n\n\n\n\n\n\nTip\n\n\n\nTake a look at the examples gallery to reach for inspiration and guidance to plot your data.\nAlso, even free Large Language Models (LLMs) such as (bing.com’s or brave’s built-in copilots) are pretty good at generating plotting instructions, especially when given the precise terminology regarding the plot – give them a try if you feel stuck making a figure.\n\n\n\n\n16.1.2 Install matplotlib\nuv add matplotlib\n\n\n16.1.3 Basic Plotting\nThe official documentation has a nice quick intro to matplotlib concepts, let’s take a look at that here.\nYou can find some nice cheatsheets here.\nOne quick way to plot is calling functions from the pyplot module.\nThese are some of the most of the commonly used functions:\n\nimport matplotlib.pyplot as plt\nimport numpy as np\n\n\nx = np.linspace(0, 10)\ny = x * 2 + 1\n\n\nplt.plot(x, y)\n\n\n\n\n\n\n\n\n\nplt.scatter(x, y)\n\n\n\n\n\n\n\n\n\nplt.hist(x, bins=15);\n\n\n\n\n\n\n\n\nThat is fine and can take us far, especially for rapid exploration. But it has some limitations. There is a more powerful and extensive API way to plot:\n\n\n\n\n\n\nNote\n\n\n\nAPI means Application Programming Interface. More details in the glossary.\n\n\n\nfig, ax = plt.subplots()  # Create a figure containing a single Axes\nax.plot(x, y)             # Plot on that Axes\n\n\n\n\n\n\n\n\n\nplt.polar(x, y)\n\n\n\n\n\n\n\n\n\nfig, (ax1, ax2) = plt.subplots(ncols=2, figsize=(8, 3.5))  # Create a figure containing 2 Axes\nax1.plot(x, y)\nax2.scatter(x, y)\nfig.tight_layout()\n\n\n\n\n\n\n\n\nNotice that fig also contains the axes and that axes are a numpy array!\n\nfig, axes = plt.subplots(ncols=2);\nfig.delaxes(axes[0])\nfig.delaxes(axes[1])\ntype(axes)\n\nnumpy.ndarray\n\n\n&lt;Figure size 640x480 with 0 Axes&gt;\n\n\nThis numpy array grid generalizes and indeed how this objects compose nicely with the python language in general:\n\nfig, axes = plt.subplots(ncols=2, nrows=2)\n((ax1, ax2), (ax3, ax4)) = axes\nax1.plot(x, y, color=\"red\")\nax2.scatter(x, y, color=\"red\", marker=\".\")\nax3.plot(x, y)\nax4.scatter(x, y, marker=\".\")\n\nfor i, ax in enumerate(axes.flatten(), start=1):\n    ax.set_title(f\"This is plot number {i}\")\n    ax.set_xlabel(\"x-variable\")\n    ax.set_ylabel(\"y-variable\")\nfig.suptitle(\"What a Figure!\")  # Yeah, set_suptitle would be nicer\nfig.tight_layout()\n\n\n\n\n\n\n\n\n\ndata = np.outer(x, x)\n\ndef plot_images(data):\n    fig, (ax1, ax2) = plt.subplots(ncols=2, figsize=(8, 5))\n    img1 = ax1.imshow(data)\n    img2 = ax2.imshow(data, origin=\"lower\", cmap=\"Oranges\")\n    ax2.set_xticks([])\n    ax2.set_yticks([])\n    plt.colorbar(img1, shrink=.5)\n    plt.colorbar(img2, shrink=.5)\n    fig.tight_layout()\n\nplot_images(data)\n\n\n\n\n\n\n\n\n\n\n16.1.4 Saving Figures\nWe can save the figure in different formats (the file extensions serves as guide):\n\nfig.savefig(\"fig.png\")\nfig.savefig(\"fig.svg\")  # Vector graphics are supported out of the box!\n\nIf you want a more in-depth introduction to the matplotlib library, take a look at this talk.",
+    "text": "15.1.1 Anatomy of a Figure\nThe most common plotting library in python is matplotlib. matplotlib is very comprehensive and brings many idiomatic choices that sometimes can make it a bit cumbersome to wrap our heads around, so don’t worry if you struggle with it a bit at first.\nWe will look at the most basic forms of plotting to try to understand the basic building blocks. To go beyond that you will for sure need to look up more things, but the good news is that matplotlib is a decently old and very mature project, which facilitates searching for information on the internet and its official documentation is pretty good too. To discover functionalities and for searching information, it is useful to take a look at the components of a plot:\n\n\n\n\n\nHere’s the code behind this figure in the matplotlib documentation.\n\n\n\n\n\n\nTip\n\n\n\nTake a look at the examples gallery to reach for inspiration and guidance to plot your data.\nAlso, even free Large Language Models (LLMs) such as (bing.com’s or brave’s built-in copilots) are pretty good at generating plotting instructions, especially when given the precise terminology regarding the plot – give them a try if you feel stuck making a figure.\n\n\n\n\n15.1.2 Install matplotlib\nuv add matplotlib\n\n\n15.1.3 Basic Plotting\nThe official documentation has a nice quick intro to matplotlib concepts, let’s take a look at that here.\nYou can find some nice cheatsheets here.\nOne quick way to plot is calling functions from the pyplot module.\nThese are some of the most of the commonly used functions:\n\nimport matplotlib.pyplot as plt\nimport numpy as np\n\n\nx = np.linspace(0, 10)\ny = x * 2 + 1\n\n\nplt.plot(x, y)\n\n\n\n\n\n\n\n\n\nplt.scatter(x, y)\n\n\n\n\n\n\n\n\n\nplt.hist(x, bins=15);\n\n\n\n\n\n\n\n\nThat is fine and can take us far, especially for rapid exploration. But it has some limitations. There is a more powerful and extensive API way to plot:\n\n\n\n\n\n\nNote\n\n\n\nAPI means Application Programming Interface. More details in the glossary.\n\n\n\nfig, ax = plt.subplots()  # Create a figure containing a single Axes\nax.plot(x, y)             # Plot on that Axes\n\n\n\n\n\n\n\n\n\nplt.polar(x, y)\n\n\n\n\n\n\n\n\n\nfig, (ax1, ax2) = plt.subplots(ncols=2, figsize=(8, 3.5))  # Create a figure containing 2 Axes\nax1.plot(x, y)\nax2.scatter(x, y)\nfig.tight_layout()\n\n\n\n\n\n\n\n\nNotice that fig also contains the axes and that axes are a numpy array!\n\nfig, axes = plt.subplots(ncols=2);\nfig.delaxes(axes[0])\nfig.delaxes(axes[1])\ntype(axes)\n\nnumpy.ndarray\n\n\n&lt;Figure size 640x480 with 0 Axes&gt;\n\n\nThis numpy array grid generalizes and indeed how this objects compose nicely with the python language in general:\n\nfig, axes = plt.subplots(ncols=2, nrows=2)\n((ax1, ax2), (ax3, ax4)) = axes\nax1.plot(x, y, color=\"red\")\nax2.scatter(x, y, color=\"red\", marker=\".\")\nax3.plot(x, y)\nax4.scatter(x, y, marker=\".\")\n\nfor i, ax in enumerate(axes.flatten(), start=1):\n    ax.set_title(f\"This is plot number {i}\")\n    ax.set_xlabel(\"x-variable\")\n    ax.set_ylabel(\"y-variable\")\nfig.suptitle(\"What a Figure!\")  # Yeah, set_suptitle would be nicer\nfig.tight_layout()\n\n\n\n\n\n\n\n\n\ndata = np.outer(x, x)\n\ndef plot_images(data):\n    fig, (ax1, ax2) = plt.subplots(ncols=2, figsize=(8, 5))\n    img1 = ax1.imshow(data)\n    img2 = ax2.imshow(data, origin=\"lower\", cmap=\"Oranges\")\n    ax2.set_xticks([])\n    ax2.set_yticks([])\n    plt.colorbar(img1, shrink=.5)\n    plt.colorbar(img2, shrink=.5)\n    fig.tight_layout()\n\nplot_images(data)\n\n\n\n\n\n\n\n\n\n\n15.1.4 Saving Figures\nWe can save the figure in different formats (the file extensions serves as guide):\n\nfig.savefig(\"fig.png\")\nfig.savefig(\"fig.svg\")  # Vector graphics are supported out of the box!\n\nIf you want a more in-depth introduction to the matplotlib library, take a look at this talk.",
     "crumbs": [
-      "<span class='chapter-number'>16</span>  <span class='chapter-title'>Plotting</span>"
+      "<span class='chapter-number'>15</span>  <span class='chapter-title'>Plotting</span>"
     ]
   },
   {
     "objectID": "plotting.html#seaborn",
     "href": "plotting.html#seaborn",
-    "title": "16  Plotting",
-    "section": "16.2 Seaborn",
-    "text": "16.2 Seaborn\n\n\n\n\n\nseaborn is a data visualization library built on top of matplotlib.\nIt implements a high-level interface for plotting statistical graphics. Seaborn integrates very well with pandas dataframes as input data and abstracts away some of the common data pre-processing steps.\nInstall seaborn:\nuv add seaborn\n\nimport seaborn as sns\n\nFor the sake of the example we can repeat the figure from above, but we will execute this one line of code that sets up some defaults for us:\n\nsns.set_theme(style=\"dark\", font_scale=1.4)  # this has global effects\n\n\nimport seaborn as sns\n\n\ndf = sns.load_dataset(\"fmri\")\ndf.head()\n\n\n\n\n\n\n\n\nsubject\ntimepoint\nevent\nregion\nsignal\n\n\n\n\n0\ns13\n18\nstim\nparietal\n-0.017552\n\n\n1\ns5\n14\nstim\nparietal\n-0.080883\n\n\n2\ns12\n18\nstim\nparietal\n-0.081033\n\n\n3\ns11\n18\nstim\nparietal\n-0.046134\n\n\n4\ns10\n18\nstim\nparietal\n-0.037970\n\n\n\n\n\n\n\n\nsns.lineplot(df, x=\"timepoint\", y=\"signal\", marker=\".\", hue=\"region\")\n\n\n\n\n\n\n\n\n\nplot_images(data)\n\n\n\n\n\n\n\n\nThere are many great plot examples in the example gallery.\nHere are a few interesting ones – click on figure to open documentation website with code.\n\n\nMultiple Regression\n\n\n\n\n\n\nTime Series\n\n\n\n\n\n\n\n\n\nHeat Scatter of Brain Networks Correlations\n\n\n\n\n\n\nAnnotated Heatmap\n\n\n\n\n\n\n\n\n\nSmall multiple time series\n\n\n\n\n\n\nScatterplot with categorical variables\n\n\n\n\n\n\n\n\n\nViolin Plot",
+    "title": "15  Plotting",
+    "section": "15.2 Seaborn",
+    "text": "15.2 Seaborn\n\n\n\n\n\nseaborn is a data visualization library built on top of matplotlib.\nIt implements a high-level interface for plotting statistical graphics. Seaborn integrates very well with pandas dataframes as input data and abstracts away some of the common data pre-processing steps.\nInstall seaborn:\nuv add seaborn\n\nimport seaborn as sns\n\nFor the sake of the example we can repeat the figure from above, but we will execute this one line of code that sets up some defaults for us:\n\nsns.set_theme(style=\"dark\", font_scale=1.4)  # this has global effects\n\n\nimport seaborn as sns\n\n\ndf = sns.load_dataset(\"fmri\")\ndf.head()\n\n\n\n\n\n\n\n\nsubject\ntimepoint\nevent\nregion\nsignal\n\n\n\n\n0\ns13\n18\nstim\nparietal\n-0.017552\n\n\n1\ns5\n14\nstim\nparietal\n-0.080883\n\n\n2\ns12\n18\nstim\nparietal\n-0.081033\n\n\n3\ns11\n18\nstim\nparietal\n-0.046134\n\n\n4\ns10\n18\nstim\nparietal\n-0.037970\n\n\n\n\n\n\n\n\nsns.lineplot(df, x=\"timepoint\", y=\"signal\", marker=\".\", hue=\"region\")\n\n\n\n\n\n\n\n\n\nplot_images(data)\n\n\n\n\n\n\n\n\nThere are many great plot examples in the example gallery.\nHere are a few interesting ones – click on figure to open documentation website with code.\n\n\nMultiple Regression\n\n\n\n\n\n\nTime Series\n\n\n\n\n\n\n\n\n\nHeat Scatter of Brain Networks Correlations\n\n\n\n\n\n\nAnnotated Heatmap\n\n\n\n\n\n\n\n\n\nSmall multiple time series\n\n\n\n\n\n\nScatterplot with categorical variables\n\n\n\n\n\n\n\n\n\nViolin Plot",
     "crumbs": [
-      "<span class='chapter-number'>16</span>  <span class='chapter-title'>Plotting</span>"
+      "<span class='chapter-number'>15</span>  <span class='chapter-title'>Plotting</span>"
     ]
   },
   {
     "objectID": "plotting.html#exercises",
     "href": "plotting.html#exercises",
-    "title": "16  Plotting",
-    "section": "16.3 Exercises",
-    "text": "16.3 Exercises\n\nUse numpy to create 4 arrays of numbers drawn from 4 different distributions: uniform, normal, lognormal and exponential. Each array should have of 100000 samples. Use matplotlib to plot a grid of 2x2 subplots, with one histogram on each subplot. Each histogram should have a different color. Hint: Look at numpy’s submodule random.\nPick one interesting example of the Seaborn gallery and reproduce it on your computer. Change 1 or 2 parameters of the plot, for example, some color or order of variables, remove/add a variable. If you have own data with a similar shape, plot those!",
+    "title": "15  Plotting",
+    "section": "15.3 Exercises",
+    "text": "15.3 Exercises\n\nUse numpy to create 4 arrays of numbers drawn from 4 different distributions: uniform, normal, lognormal and exponential. Each array should have of 100000 samples. Use matplotlib to plot a grid of 2x2 subplots, with one histogram on each subplot. Each histogram should have a different color. Hint: Look at numpy’s submodule random.\nPick one interesting example of the Seaborn gallery and reproduce it on your computer. Change 1 or 2 parameters of the plot, for example, some color or order of variables, remove/add a variable. If you have own data with a similar shape, plot those!",
     "crumbs": [
-      "<span class='chapter-number'>16</span>  <span class='chapter-title'>Plotting</span>"
-    ]
-  },
-  {
-    "objectID": "testing.html",
-    "href": "testing.html",
-    "title": "17  Testing",
-    "section": "",
-    "text": "17.1 Why bother writing tests?\nCorrectness\nIncorrect code is arguably useless. By incorrect we do not mean proper business logic nor being statistically sound.\nWe mean something much simpler: The code does what we think it is doing.\nOne way to build some confidence about the correctness of our code is to write tests. Here we’ll be looking at so-called unit tests.\nThese tests target atomic pieces (units) of code that we can test isolated. For example, here’s a simple function that computes the square of a number and a unit test:\ndef square(value):\n    return value * value\n\ndef test_square():\n    assert square(-1) == 1\n    assert square(1) == 1\n    assert square(2) == 4\n    assert square(5) == 25\nRefactoring\nWhen we want to modify working code, since tests can give us some degree of confidence that we are not breaking the functionality, for example, while optimizing running time.\nDocumentation\nTests can serve as a way to communicate other people (our ourselves) the expected behaviour of our code.",
-    "crumbs": [
-      "<span class='chapter-number'>17</span>  <span class='chapter-title'>Testing</span>"
-    ]
-  },
-  {
-    "objectID": "testing.html#what-to-test",
-    "href": "testing.html#what-to-test",
-    "title": "17  Testing",
-    "section": "17.2 What to test",
-    "text": "17.2 What to test\nIn a way writing tests is the easy part. The much more challenging questions are what to test and how. Those are of course questions that depend on the context and the system we are testing.\nWe will focus on two aspects that are important in the context of working with data: Verifying assumptions about the data (content, shape, etc.) and checking that transformations in a data processing pipeline are doing the right thing. Further examples of aspects to be tested include: Verifying responses from an API, check that a machine learning model can deal with a given input, etc.\nTesting software is in itself a whole field in itself, there are even dedicated testing conferences!\n\n\n\n\n\n\nTip\n\n\n\nTake a look at the test suite of popular open source libraries to learn how testing looks like in the “real world”.\n\n\nAs we saw above we can write the assertions about our code in a function that we then call. Calling each test manually is a bit cumbersome and error prone. We will use instead a testing framework that will do this automatically for us (plus, it’s going to provide us with a whole bunch of handy functionalities out of the box).",
-    "crumbs": [
-      "<span class='chapter-number'>17</span>  <span class='chapter-title'>Testing</span>"
-    ]
-  },
-  {
-    "objectID": "testing.html#pytest",
-    "href": "testing.html#pytest",
-    "title": "17  Testing",
-    "section": "17.3 Pytest",
-    "text": "17.3 Pytest\nAlthough python has a built-in module for unit tests, we will use pytest, a third-party library which is much more convenient and very well developed and maintained.\nLet’s add that dependency to our project. Testing dependencies are usually included under “development” dependencies. That means, dependencies that will be used during development but not later on (for example when running the application code in production).\nWe can also do that with our package manager uv passing the --dev flag:\nuv add --dev pytest\nAfter executing that line, you can verify that the dependency where the dependency is listed by looking into the pyproject.toml file, which should look like this:\n[tool.uv]\ndev-dependencies = [\n    \"pytest&gt;=8.3.3\",\n]\n\n17.3.1 Basic Testing\nIn the python ecosystem it is rather common to have a separated directory for tests, but that is just an implicit convention and no hard requirement at all. But to keep things tidy we’ll follow that.\nFirst we will put the source code that has our functionality in a file under src/pycourse/square.py\ndef square(value):\n    return value * value\nSo let’s create a directory (next to src) called tests and make a file called tests/test_square.py including our previous test_square code.\nIf you’ve been following along, your project should look more or less like this:\n\nNow put this content in test_square.py:\nfrom pycourse.square import square  # Import function from source code test\n\ndef test_square():\n    assert square(-1) == 1\n    assert square(1) == 1\n    assert square(2) == 4\n    assert square(5) == 25\n\n\n\n\n\n\nImportant\n\n\n\nNotice that we do not call the function, we just define it. The file must be called test_*.py or *_test.py for pytest to discover it and the unit tests must start with test_.\n\n\nWe can now run our tests (pytest will discover files and tests following the pattern above mentioned):\nuv run pytest tests\nYou should see something like this:\ntests/test_square.py .                          [100%]\n\n================== 1 passed in 0.01s =================\nThat’s our first test, we’re cruising! :D\n\n\n17.3.2 Make sure something fails\nSometimes we want to make sure our program fails given a certain input. For example, let’s say we want to check the input of our square function is a float or integer. We could add that logic to the function and handle the case:\n\ndef square(value):\n    if not isinstance(value, (float, int)):\n        raise ValueError(f\"Invalid input. Expected float, got {type(value)}\")\n    return value * value\n\n\n\nCode\nimport ipytest\nipytest.autoconfig()\n\n\n\n%%ipytest\n\nimport pytest\n\ndef test_square():\n    assert square(-1) == 1\n    assert square(1) == 1\n    assert square(2) == 4\n    assert square(5) == 25  \n    with pytest.raises(ValueError):\n        square(\"foo\")\n    with pytest.raises(ValueError):\n        square(None)\n\n\n.                                                                                            [100%]\n\n1 passed in 0.01s\n\n\n\n\n\n\n\n\n\n\nNote\n\n\n\nChecking the types of the functions explicitly like in the example is not a very “pythonic” thing to do, as we tend to care more about the behaviour than about the types (duck typing). Also it is a relatively inefficient way to do it. But sometimes we do trade some purity and efficiency for correctness, for example in data pipelines where errors can go unattended because they do not lead to syntax errors.",
-    "crumbs": [
-      "<span class='chapter-number'>17</span>  <span class='chapter-title'>Testing</span>"
-    ]
-  },
-  {
-    "objectID": "testing.html#exercises",
-    "href": "testing.html#exercises",
-    "title": "17  Testing",
-    "section": "17.4 Exercises",
-    "text": "17.4 Exercises\n\nModify the function square in square.py so that it returns value * value * 2 and run the test again. Pay close attention to the error messages and the diffs!\nWrite a function called reverse_str that takes a string and returns the reversed version, eg “hola” -&gt; “aloh”. Write a unit test and make sure the tests pass. Think about covering corner cases in your tests.\nMake the function reverse_str strict to only accept strings as input and throw an error if another type is passed. Write a unit test that covers both the “happy path” and the “error path”.",
-    "crumbs": [
-      "<span class='chapter-number'>17</span>  <span class='chapter-title'>Testing</span>"
+      "<span class='chapter-number'>15</span>  <span class='chapter-title'>Plotting</span>"
     ]
   },
   {
     "objectID": "lab_explore_dataset.html",
     "href": "lab_explore_dataset.html",
-    "title": "18  Lab: Exploring a Dataset",
+    "title": "16  Lab: Exploring a Dataset",
     "section": "",
-    "text": "18.1 Download data\nWe will work here with this real-world dataset of resting state EEG signals https://github.com/OpenNeuroDatasets/ds005420.",
+    "text": "16.1 Download data\nWe will work here with this real-world dataset of resting state EEG signals https://github.com/OpenNeuroDatasets/ds005420.",
     "crumbs": [
-      "<span class='chapter-number'>18</span>  <span class='chapter-title'>Lab: Exploring a Dataset</span>"
+      "<span class='chapter-number'>16</span>  <span class='chapter-title'>Lab: Exploring a Dataset</span>"
     ]
   },
   {
     "objectID": "lab_explore_dataset.html#download-data",
     "href": "lab_explore_dataset.html#download-data",
-    "title": "18  Lab: Exploring a Dataset",
+    "title": "16  Lab: Exploring a Dataset",
     "section": "",
-    "text": "18.1.1 Clone the repository\nInside the /pycourse/data folder:\ngit clone https://github.com/OpenNeuroDatasets/ds005420\n\n\n18.1.2 Install git-annex\nThe files with the actual data are not there, but we have the references to them so that we can pull them down. We will need the tool git-annex tool.\n\n\n18.1.3 Pull the data\nOpen a terminal inside ds005420 and run:\ngit-annex get .\nYou should see a progress dialog showing ...from s3-PUBLIC...\nAfter that, you’re ready to go with the exercises.\n\n\n\n\n\n\nTip\n\n\n\nJupyter Notebooks are ideal for this kind of exploratory tasks. Make a directory called /python/notebooks and open there a jupyter lab instance. Having the notebooks there will help us keeping things tidy for later reproducibility of our workflow.",
+    "text": "16.1.1 Clone the repository\nInside the /pycourse/data folder:\ngit clone https://github.com/OpenNeuroDatasets/ds005420\n\n\n16.1.2 Install git-annex\nThe files with the actual data are not there, but we have the references to them so that we can pull them down. We will need the tool git-annex tool.\nuv tool install git-annex\n\n\n16.1.3 Pull the data\nOpen a terminal inside ds005420 and run:\ngit-annex get .\nYou should see a progress dialog showing ...from s3-PUBLIC...\nAfter that, you’re ready to go with the exercises.\n\n\n\n\n\n\nTip\n\n\n\nJupyter Notebooks are ideal for this kind of exploratory tasks. Make a directory called /python/notebooks and open there a jupyter lab instance. Having the notebooks there will help us keeping things tidy for later reproducibility of our workflow.",
     "crumbs": [
-      "<span class='chapter-number'>18</span>  <span class='chapter-title'>Lab: Exploring a Dataset</span>"
+      "<span class='chapter-number'>16</span>  <span class='chapter-title'>Lab: Exploring a Dataset</span>"
     ]
   },
   {
     "objectID": "lab_explore_dataset.html#explore-files",
     "href": "lab_explore_dataset.html#explore-files",
-    "title": "18  Lab: Exploring a Dataset",
-    "section": "18.2 Explore files",
-    "text": "18.2 Explore files\n\nList only the sub-directories in path.\n\nList only the sub-directories with subject data.\nWrite a function that lists sub-directories with subject data.",
+    "title": "16  Lab: Exploring a Dataset",
+    "section": "16.2 Explore files",
+    "text": "16.2 Explore files\n\nList only the sub-directories in path.\n\nList only the sub-directories with subject data.\nWrite a function that lists sub-directories with subject data.",
     "crumbs": [
-      "<span class='chapter-number'>18</span>  <span class='chapter-title'>Lab: Exploring a Dataset</span>"
+      "<span class='chapter-number'>16</span>  <span class='chapter-title'>Lab: Exploring a Dataset</span>"
     ]
   },
   {
     "objectID": "lab_explore_dataset.html#validating-the-data",
     "href": "lab_explore_dataset.html#validating-the-data",
-    "title": "18  Lab: Exploring a Dataset",
-    "section": "18.3 Validating the data",
-    "text": "18.3 Validating the data\nWe will start by making sure our data/metadata contains the information we expect at a high level.\n\nWrite a unit test (inside /pycourse/tests/test_data.py) to make sure the number of subject sub-directories corresponds to actual the number of subjects. Hint: Look at the metadata.\nVerify that all subject directories have a eeg sub-directory.\n\nAssert that EEG data for all subjects was taken using 20 channels and sampling frequency 500.",
+    "title": "16  Lab: Exploring a Dataset",
+    "section": "16.3 Validating the data",
+    "text": "16.3 Validating the data\nWe will start by making sure our data/metadata contains the information we expect at a high level.\n\nWrite a unit test (inside /pycourse/tests/test_data.py) to make sure the number of subject sub-directories corresponds to actual the number of subjects. Hint: Look at the metadata.\nVerify that all subject directories have a eeg sub-directory.\n\nAssert that EEG data for all subjects was taken using 20 channels and sampling frequency 500.",
     "crumbs": [
-      "<span class='chapter-number'>18</span>  <span class='chapter-title'>Lab: Exploring a Dataset</span>"
+      "<span class='chapter-number'>16</span>  <span class='chapter-title'>Lab: Exploring a Dataset</span>"
     ]
   },
   {
     "objectID": "lab_explore_dataset.html#exploratory-data-analysis",
     "href": "lab_explore_dataset.html#exploratory-data-analysis",
-    "title": "18  Lab: Exploring a Dataset",
-    "section": "18.4 Exploratory data analysis",
-    "text": "18.4 Exploratory data analysis\nNow we want to look at the data. We find that the data is in a format called European Data Format (.edf) and we need to install a third-party library, mne, to read it. You can check out the library documentation here\n\n\n\n\n\n\nTip\n\n\n\nIt’s a very good idea to first take a look at the documentation of a tool before installing it. Executing someone else’s code is a potential risk so you should try to find out if you can actually trust the source.\n\n\nHints:\n\nLook at function mne.io.read_raw_edf to load data.\nLook at the method .to_data_frame of the loaded data.\n\n\nPlot one time series.\nClean the column names removing “EEG”, eg “EEG C4-A1A2” -&gt; “C4-A1A2”\nPlot all time series with labels according to channel name. Hint: Look at melt method of dataframes\nPlot the channels that start with “P”, “T” or “O”.\n\nPlot a correlation plot of all-vs-all the “P”, “T” and “O” channels as a heatmap. Hint: Look up seaborn’s documentation on heatmaps.\nSave the correlation plot in svg format.",
+    "title": "16  Lab: Exploring a Dataset",
+    "section": "16.4 Exploratory data analysis",
+    "text": "16.4 Exploratory data analysis\nNow we want to look at the data. We find that the data is in a format called European Data Format (.edf) and we need to install a third-party library, mne, to read it. You can check out the library documentation here\n\n\n\n\n\n\nTip\n\n\n\nIt’s a very good idea to first take a look at the documentation of a tool before installing it. Executing someone else’s code is a potential risk so you should try to find out if you can actually trust the source.\n\n\nHints:\n\nLook at function mne.io.read_raw_edf to load data.\nLook at the method .to_data_frame of the loaded data.\n\n\nPlot one time series.\nClean the column names removing “EEG”, eg “EEG C4-A1A2” -&gt; “C4-A1A2”\nPlot all time series with labels according to channel name. Hint: Look at melt method of dataframes\nPlot the channels that start with “P”, “T” or “O”.\n\nPlot a correlation plot of all-vs-all the “P”, “T” and “O” channels as a heatmap. Hint: Look up seaborn’s documentation on heatmaps.\nSave the correlation plot in svg format.",
     "crumbs": [
-      "<span class='chapter-number'>18</span>  <span class='chapter-title'>Lab: Exploring a Dataset</span>"
+      "<span class='chapter-number'>16</span>  <span class='chapter-title'>Lab: Exploring a Dataset</span>"
     ]
   },
   {
     "objectID": "lab_explore_dataset.html#single-subject-data",
     "href": "lab_explore_dataset.html#single-subject-data",
-    "title": "18  Lab: Exploring a Dataset",
-    "section": "18.5 Single-subject data",
-    "text": "18.5 Single-subject data\nAfter having taken this quick look at the data, we want to start processing the data. So far we are working with data coming from one subject.\n\nSubstract the mean from each channel\nPlot the time series with substracted mean for all channels\nStandarize and plot all time series again. Standarization means: \\[\ny = (x - mean) / standardDeviation\n\\]",
+    "title": "16  Lab: Exploring a Dataset",
+    "section": "16.5 Single-subject data",
+    "text": "16.5 Single-subject data\nAfter having taken this quick look at the data, we want to start processing the data. So far we are working with data coming from one subject.\n\nSubstract the mean from each channel\nPlot the time series with substracted mean for all channels\nStandarize and plot all time series again. Standarization means: \\[\ny = (x - mean) / standardDeviation\n\\]",
     "crumbs": [
-      "<span class='chapter-number'>18</span>  <span class='chapter-title'>Lab: Exploring a Dataset</span>"
+      "<span class='chapter-number'>16</span>  <span class='chapter-title'>Lab: Exploring a Dataset</span>"
     ]
   },
   {
     "objectID": "lab_explore_dataset.html#multi-subject-data",
     "href": "lab_explore_dataset.html#multi-subject-data",
-    "title": "18  Lab: Exploring a Dataset",
-    "section": "18.6 Multi-subject data",
-    "text": "18.6 Multi-subject data\nHere we are going to work with data of more than one subject at the time.\n\nPlot a histogram of RecordingDuration across all subjects. Hint: assume we want data in “oc_eeg”\nPick 3 EEG channels and plot the time series (aggregated across all subjects) in one plot. Differentiate the lines by channel. Hint: Use seaborn and look up the hue parameter.\nPlot a grid of subplots with each plot representing 1 channel (aggregated across subjects). Hint: Adapt this example\nPick 5 channels and only 3 time points. Simulate subjects belong to 3 groups.\nAdapt this example to plot a comparison between channels/subjects/time.",
+    "title": "16  Lab: Exploring a Dataset",
+    "section": "16.6 Multi-subject data",
+    "text": "16.6 Multi-subject data\nHere we are going to work with data of more than one subject at the time.\n\nPlot a histogram of RecordingDuration across all subjects. Hint: assume we want data in “oc_eeg”\nPick 3 EEG channels and plot the time series (aggregated across all subjects) in one plot. Differentiate the lines by channel. Hint: Use seaborn and look up the hue parameter.\nPlot a grid of subplots with each plot representing 1 channel (aggregated across subjects). Hint: Adapt this example\nPick 5 channels and only 3 time points. Simulate subjects belong to 3 groups.\nAdapt this example to plot a comparison between channels/subjects/time.",
     "crumbs": [
-      "<span class='chapter-number'>18</span>  <span class='chapter-title'>Lab: Exploring a Dataset</span>"
+      "<span class='chapter-number'>16</span>  <span class='chapter-title'>Lab: Exploring a Dataset</span>"
     ]
   },
   {
     "objectID": "lab_explore_dataset.html#consolidate-pipeline",
     "href": "lab_explore_dataset.html#consolidate-pipeline",
-    "title": "18  Lab: Exploring a Dataset",
-    "section": "18.7 Consolidate pipeline",
-    "text": "18.7 Consolidate pipeline\nLet’s consolidate our workflow into a pipeline.\n\nread and assert subfolders\nclean column names\nstandarize values\nplot correlations\nrun tests",
+    "title": "16  Lab: Exploring a Dataset",
+    "section": "16.7 Consolidate pipeline",
+    "text": "16.7 Consolidate pipeline\nLet’s consolidate our workflow into a pipeline to:\n\nRead and assert subfolders\nClean column names\nStandarize values\nPlot and save correlations\nRun tests",
     "crumbs": [
-      "<span class='chapter-number'>18</span>  <span class='chapter-title'>Lab: Exploring a Dataset</span>"
+      "<span class='chapter-number'>16</span>  <span class='chapter-title'>Lab: Exploring a Dataset</span>"
     ]
   },
   {
     "objectID": "cli.html",
     "href": "cli.html",
-    "title": "19  Command Line Interfaces (CLI)",
+    "title": "17  Command Line Interfaces (CLI)",
     "section": "",
     "text": "🚧 Material under construction 🚧",
     "crumbs": [
-      "<span class='chapter-number'>19</span>  <span class='chapter-title'>Command Line Interfaces (CLI)</span>"
+      "<span class='chapter-number'>17</span>  <span class='chapter-title'>Command Line Interfaces (CLI)</span>"
     ]
   },
   {
-    "objectID": "tools_patterns.html",
-    "href": "tools_patterns.html",
-    "title": "20  Useful Tools and Patterns",
+    "objectID": "error_handling.html",
+    "href": "error_handling.html",
+    "title": "18  Error Handling",
     "section": "",
-    "text": "20.1 Generators",
+    "text": "18.1 Exceptions\nWhen our program runs into an error, the execution stops and Python throws a so-called Exception.\nThere several different types of exceptions and they work as a way to communicate what went wrong. Sometimes we simply want to let the program crash because the problem is completely unexpected or because we do not have a good solution to deal with it, for example we divide by 0.\nBut some other times we want to handle it differently, for example if we are getting data from a website that is transiently unavailable we might want to retry after a few seconds.\nOne of the language constructs to deal with errors in Python is try-except, which has this structure:\ntry:\n    1 / 0\nexcept Exception as err:\n    print(\"something went wrong:\", err)\nfinally:\n    print(\"Cleaning up the mess, no matter what\")\n\nsomething went wrong: division by zero\nCleaning up the mess, no matter what\ntry:\n    1 / 1\n    print(\"all good\")\nexcept Exception as err:\n    print(\"something went wrong:\", err)\nfinally:\n    print(\"Cleaning up the mess, no matter what\")\n\nall good\nCleaning up the mess, no matter what\nWe can catch explicit exceptions:\ntry:\n    1 / 0\n    print(\"all good\")\nexcept ZeroDivisionError as err:\n    print(\"yeap, it sometimes happens, show must go on..\")\n\nyeap, it sometimes happens, show must go on..",
     "crumbs": [
-      "<span class='chapter-number'>20</span>  <span class='chapter-title'>Useful Tools and Patterns</span>"
+      "<span class='chapter-number'>18</span>  <span class='chapter-title'>Error Handling</span>"
     ]
   },
   {
-    "objectID": "tools_patterns.html#decorators",
-    "href": "tools_patterns.html#decorators",
-    "title": "20  Useful Tools and Patterns",
-    "section": "20.2 Decorators",
-    "text": "20.2 Decorators\naka, closure",
+    "objectID": "error_handling.html#exceptions",
+    "href": "error_handling.html#exceptions",
+    "title": "18  Error Handling",
+    "section": "",
+    "text": "try:\n    # do something\nexcept SomeException:\n    # handle the error\nfinally:\n    # Optionally to something (always executed)\n\n\n\n\n\n\n\n\nTipGood practice Tip\n\n\n\nBe as explicit as possible with your exceptions to avoid letting unexpected errors slip through.\n\n\n\n\n\n\n\n\n\n\nNote\n\n\n\nExceptions are also used beyond errors as a more general kind of means of communication in the python language, for example, to signal that a generator has been used up.",
     "crumbs": [
-      "<span class='chapter-number'>20</span>  <span class='chapter-title'>Useful Tools and Patterns</span>"
+      "<span class='chapter-number'>18</span>  <span class='chapter-title'>Error Handling</span>"
     ]
   },
   {
-    "objectID": "tools_patterns.html#the-functools-module",
-    "href": "tools_patterns.html#the-functools-module",
-    "title": "20  Useful Tools and Patterns",
-    "section": "20.3 The functools module",
-    "text": "20.3 The functools module\n\npartial\ncache\noperator?",
+    "objectID": "error_handling.html#assertions",
+    "href": "error_handling.html#assertions",
+    "title": "18  Error Handling",
+    "section": "18.2 Assertions",
+    "text": "18.2 Assertions\nA common way to verify that our code is actually implementing the logic we have in mind is adding so-called “assertions”. Assertions are like checkpoints that will make our code fail (and interrupt the program execution) if a condition is not met.\nIt is common to use assertions to check intermediate steps as well as for writing tests (as we will see later).\nHere’s the basic syntax:\nassert some-contition, \"message if condition is false\"\nFor example:\n\nassert 1 &gt; 0, \"This should never happen\"\nprint(\"We got to this point\")\n\nWe got to this point\n\n\n\nassert 0 &gt; 1, \"0 &gt; 1? in which world do you live?\"\n\nprint(\"We got to this point\")\n\n\n---------------------------------------------------------------------------\nAssertionError                            Traceback (most recent call last)\nCell In[5], line 1\n----&gt; 1 assert 0 &gt; 1, \"0 &gt; 1? in which world do you live?\"\n      3 print(\"We got to this point\")\n\nAssertionError: 0 &gt; 1? in which world do you live?\n\n\n\nNotice two things:\nFirst, we didn’t get to the print statement – the program execution was interrupted.\nSecond, we got an AssertionError, a particular type of exception that python uses to communicate we didn’t meet the assertion, which means we could handle it like any other exception:\n\ntry:\n    assert 0 &gt; 1, \"0 &gt; 1? in which world do you live?\"\nexcept AssertionError:\n    print(\"No idea, but fine, carry on...\")\n    \nprint(\"We got to this point\")\n\nNo idea, but fine, carry on...\nWe got to this point",
     "crumbs": [
-      "<span class='chapter-number'>20</span>  <span class='chapter-title'>Useful Tools and Patterns</span>"
+      "<span class='chapter-number'>18</span>  <span class='chapter-title'>Error Handling</span>"
     ]
   },
   {
-    "objectID": "tools_patterns.html#the-itertools-module",
-    "href": "tools_patterns.html#the-itertools-module",
-    "title": "20  Useful Tools and Patterns",
-    "section": "20.4 The itertools module",
-    "text": "20.4 The itertools module\n\nproduct",
+    "objectID": "error_handling.html#exercises",
+    "href": "error_handling.html#exercises",
+    "title": "18  Error Handling",
+    "section": "18.3 Exercises",
+    "text": "18.3 Exercises\nTake this dictionary:\nages = {\n    \"mark\": 12,\n    \"lua\": 32,\n    \"martin\": 8,\n    \"mette\": 41,\n    \"malte\": 27\n}\nAnd this names:\nnames = \"mark\", \"lua\", \"juan\", \"marco\", \"anna\"\nWrite a program that iterates over the names and prints each name and age.\nIf the name is not present in the ages dictionary, print this message “name: NAME is missing”. At the end of the program, print the number of not found names and a list with the found names.",
     "crumbs": [
-      "<span class='chapter-number'>20</span>  <span class='chapter-title'>Useful Tools and Patterns</span>"
-    ]
-  },
-  {
-    "objectID": "tools_patterns.html#modules-for-scientific-computing",
-    "href": "tools_patterns.html#modules-for-scientific-computing",
-    "title": "20  Useful Tools and Patterns",
-    "section": "20.5 Modules for Scientific Computing",
-    "text": "20.5 Modules for Scientific Computing\n\nmath\ndecimal",
-    "crumbs": [
-      "<span class='chapter-number'>20</span>  <span class='chapter-title'>Useful Tools and Patterns</span>"
+      "<span class='chapter-number'>18</span>  <span class='chapter-title'>Error Handling</span>"
     ]
   },
   {
     "objectID": "oop.html",
     "href": "oop.html",
-    "title": "21  Object Oriented Programming",
+    "title": "19  Object Oriented Programming",
     "section": "",
-    "text": "21.1 Classes and Objects\nIn python we deal with so-called objects. An object is an instance, that is a particular realization, of a class.\nHere’s an analogy: You can think of a class as the instructions to build a car, say a FiatUno:\nclass FiatUno:\n    def __init__(self, color=\"white\", radio=False):\n        self.color = color\n        self.radio = radio\n        self.radio_is_on = False\n    def turn_on_radio(self):\n        self.radio_is_on = True\n        print(f\"Radio is on!\")\n    def turn_off_radio(self):\n        self.radio_is_on = False\n        print(f\"Radio is off!\")\nEach actual car is an object, i.e. an instance of a class:\ncar1 = FiatUno()\nWe can make another car:\ncar2 = FiatUno()\nLike two cars can be the same model and color, they always have different license plates.\nThe same happens in python:\nid(car1)\n\n139856081602784\nid(car2)\n\n139856081603648\nEach object has attributes:\ncar1.color, car1.radio\n\n('white', False)",
+    "text": "19.1 Classes and Objects\nIn python we deal with so-called objects. An object is an instance, that is a particular realization, of a class.\nHere’s an analogy: You can think of a class as the instructions to build a car, say a FiatUno:\nclass FiatUno:\n    def __init__(self, color=\"white\", radio=False):\n        self.color = color\n        self.radio = radio\n        self.radio_is_on = False\n    def turn_on_radio(self):\n        self.radio_is_on = True\n        print(f\"Radio is on!\")\n    def turn_off_radio(self):\n        self.radio_is_on = False\n        print(f\"Radio is off!\")\nEach actual car is an object, i.e. an instance of a class:\ncar1 = FiatUno()\nWe can make another car:\ncar2 = FiatUno()\nLike two cars can be the same model and color, they always have different license plates.\nThe same happens in python:\nid(car1)\n\n139856081602784\nid(car2)\n\n139856081603648\nEach object has attributes:\ncar1.color, car1.radio\n\n('white', False)",
     "crumbs": [
-      "<span class='chapter-number'>21</span>  <span class='chapter-title'>Object Oriented Programming</span>"
+      "<span class='chapter-number'>19</span>  <span class='chapter-title'>Object Oriented Programming</span>"
     ]
   },
   {
     "objectID": "oop.html#classes-and-objects",
     "href": "oop.html#classes-and-objects",
-    "title": "21  Object Oriented Programming",
+    "title": "19  Object Oriented Programming",
     "section": "",
     "text": "Note\n\n\n\nBy convention, we use CamelCase to name classes.",
     "crumbs": [
-      "<span class='chapter-number'>21</span>  <span class='chapter-title'>Object Oriented Programming</span>"
+      "<span class='chapter-number'>19</span>  <span class='chapter-title'>Object Oriented Programming</span>"
     ]
   },
   {
     "objectID": "oop.html#methods",
     "href": "oop.html#methods",
-    "title": "21  Object Oriented Programming",
-    "section": "21.2 Methods",
-    "text": "21.2 Methods\nDifferent car models have different functionalities, like turning the radio on.\nIn python it’s the same, the functions attached to an object are called methods and we call them with this dot notation:\n\ncar1.turn_on_radio()  # it's just a function, so we call it with ()\n\nRadio is on!\n\n\n\ncar1.turn_off_radio()\n\nRadio is off!\n\n\nWhere is the self argument of the functions?\nThe first argument of a method will be always passed to the method in the call and it is the object itself (thus the convention to call it self).\nThat’s a bit meta an a bit confusing, but don’t worry, you’ll get a feel of it by using the classes/objects.",
+    "title": "19  Object Oriented Programming",
+    "section": "19.2 Methods",
+    "text": "19.2 Methods\nDifferent car models have different functionalities, like turning the radio on.\nIn python it’s the same, the functions attached to an object are called methods and we call them with this dot notation:\n\ncar1.turn_on_radio()  # it's just a function, so we call it with ()\n\nRadio is on!\n\n\n\ncar1.turn_off_radio()\n\nRadio is off!\n\n\nWhere is the self argument of the functions?\nThe first argument of a method will be always passed to the method in the call and it is the object itself (thus the convention to call it self).\nThat’s a bit meta an a bit confusing, but don’t worry, you’ll get a feel of it by using the classes/objects.",
     "crumbs": [
-      "<span class='chapter-number'>21</span>  <span class='chapter-title'>Object Oriented Programming</span>"
+      "<span class='chapter-number'>19</span>  <span class='chapter-title'>Object Oriented Programming</span>"
     ]
   },
   {
     "objectID": "oop.html#dunder-methods",
     "href": "oop.html#dunder-methods",
-    "title": "21  Object Oriented Programming",
-    "section": "21.3 Dunder Methods",
-    "text": "21.3 Dunder Methods\nWe saw above the __init__ method. This methods are special and there is a bunch of them already present on all classes:\n\ndir(FiatUno)\n\n['__class__',\n '__delattr__',\n '__dict__',\n '__dir__',\n '__doc__',\n '__eq__',\n '__format__',\n '__ge__',\n '__getattribute__',\n '__gt__',\n '__hash__',\n '__init__',\n '__init_subclass__',\n '__le__',\n '__lt__',\n '__module__',\n '__ne__',\n '__new__',\n '__reduce__',\n '__reduce_ex__',\n '__repr__',\n '__setattr__',\n '__sizeof__',\n '__str__',\n '__subclasshook__',\n '__weakref__',\n 'turn_off_radio',\n 'turn_on_radio']\n\n\nThese “dunder” methods define the behavior of the object in several ways. For example, the __str__ method defines the string representation of the object, which is used when we call print on an object. When we do print(something), python actually goes to the method __str__ of something and calls that one. Let’s see it in action:\n\nclass A:\n    def __init__(self, msg=\"hello\"):\n        self.msg = msg\n    def __str__(self):\n        return self.msg + \", nice to meet you\"\n\n\na = A()\n\n\nprint(a)\n\nhello, nice to meet you\n\n\nIt’s good to know that these dunder methods exist and some libraries will require the user changing them. But in general, you should not worry about them.\n\n\n\n\n\n\nTip\n\n\n\nDon’t overwrite dunder methods unless you really, really need it and you’re sure what you’re doing – it is pretty easy to make mistakes that lead to difficult to debug bugs.",
+    "title": "19  Object Oriented Programming",
+    "section": "19.3 Dunder Methods",
+    "text": "19.3 Dunder Methods\nWe saw above the __init__ method. This methods are special and there is a bunch of them already present on all classes:\n\ndir(FiatUno)\n\n['__class__',\n '__delattr__',\n '__dict__',\n '__dir__',\n '__doc__',\n '__eq__',\n '__format__',\n '__ge__',\n '__getattribute__',\n '__gt__',\n '__hash__',\n '__init__',\n '__init_subclass__',\n '__le__',\n '__lt__',\n '__module__',\n '__ne__',\n '__new__',\n '__reduce__',\n '__reduce_ex__',\n '__repr__',\n '__setattr__',\n '__sizeof__',\n '__str__',\n '__subclasshook__',\n '__weakref__',\n 'turn_off_radio',\n 'turn_on_radio']\n\n\nThese “dunder” methods define the behavior of the object in several ways. For example, the __str__ method defines the string representation of the object, which is used when we call print on an object. When we do print(something), python actually goes to the method __str__ of something and calls that one. Let’s see it in action:\n\nclass A:\n    def __init__(self, msg=\"hello\"):\n        self.msg = msg\n    def __str__(self):\n        return self.msg + \", nice to meet you\"\n\n\na = A()\n\n\nprint(a)\n\nhello, nice to meet you\n\n\nIt’s good to know that these dunder methods exist and some libraries will require the user changing them. But in general, you should not worry about them.\n\n\n\n\n\n\nTip\n\n\n\nDon’t overwrite dunder methods unless you really, really need it and you’re sure what you’re doing – it is pretty easy to make mistakes that lead to difficult to debug bugs.",
     "crumbs": [
-      "<span class='chapter-number'>21</span>  <span class='chapter-title'>Object Oriented Programming</span>"
+      "<span class='chapter-number'>19</span>  <span class='chapter-title'>Object Oriented Programming</span>"
     ]
   },
   {
     "objectID": "oop.html#inheritance",
     "href": "oop.html#inheritance",
-    "title": "21  Object Oriented Programming",
-    "section": "21.4 Inheritance",
-    "text": "21.4 Inheritance\n\n\n\n\n\n\nTip\n\n\n\nAvoid using inheritance. We show it here just for you to know it exists and that some libraries use it. You can totally live without it.\n\n\nClasses can be organized in a hierarchy:\n\nclass Car:\n    def __init__(self):\n        self.n_wheels = 4 \n        \nclass FiatPalio(Car):\n    def turn_on_radio(self):\n        print(\"Radio is on\")\n        \nclass FiatTipo(Car):\n    def turn_on_ac(self):\n        print(\"Pretty hot in here\")\n\ncar3 = FiatPalio()\ncar4 = FiatTipo()\n\n\ncar3.turn_on_radio()\n\nRadio is on\n\n\n\ncar3.n_wheels\n\n4\n\n\n\ncar4.turn_on_ac()\n\nPretty hot here\n\n\n\ncar4.n_wheels\n\n4\n\n\nIn that case Car is called the “parent” class and the FiatPalio the “child” or “subclass”.\nNotice that both car3 and car4 inherited the attribute n_wheels from Car.\nA class can have more than one parent:\n\nclass Parent1:\n    n_arms = 2\n        \nclass Parent2:\n    n_legs = 2\n        \nclass Parent3:\n    n_eyes = 2\n\nclass Child(Parent1, Parent2, Parent3):\n    def list_body_parts(self):\n        print(\"arms: \", self.n_arms)\n        print(\"legs: \", self.n_legs)\n        print(\"eyes: \", self.n_eyes)\n\n\nchild = Child()\n\n\nchild.list_body_parts()\n\narms:  2\nlegs:  2\neyes:  2\n\n\nMultiple inheritance is also tricky and you should avoid it. It’s just good to know it exists to understand code from out there, for example, the popular scikit-learn library uses this a lot to propagate methods and avoid code duplication.",
+    "title": "19  Object Oriented Programming",
+    "section": "19.4 Inheritance",
+    "text": "19.4 Inheritance\n\n\n\n\n\n\nTip\n\n\n\nAvoid using inheritance. We show it here just for you to know it exists and that some libraries use it. You can totally live without it.\n\n\nClasses can be organized in a hierarchy:\n\nclass Car:\n    def __init__(self):\n        self.n_wheels = 4 \n        \nclass FiatPalio(Car):\n    def turn_on_radio(self):\n        print(\"Radio is on\")\n        \nclass FiatTipo(Car):\n    def turn_on_ac(self):\n        print(\"Pretty hot in here\")\n\ncar3 = FiatPalio()\ncar4 = FiatTipo()\n\n\ncar3.turn_on_radio()\n\nRadio is on\n\n\n\ncar3.n_wheels\n\n4\n\n\n\ncar4.turn_on_ac()\n\nPretty hot here\n\n\n\ncar4.n_wheels\n\n4\n\n\nIn that case Car is called the “parent” class and the FiatPalio the “child” or “subclass”.\nNotice that both car3 and car4 inherited the attribute n_wheels from Car.\nA class can have more than one parent:\n\nclass Parent1:\n    n_arms = 2\n        \nclass Parent2:\n    n_legs = 2\n        \nclass Parent3:\n    n_eyes = 2\n\nclass Child(Parent1, Parent2, Parent3):\n    def list_body_parts(self):\n        print(\"arms: \", self.n_arms)\n        print(\"legs: \", self.n_legs)\n        print(\"eyes: \", self.n_eyes)\n\n\nchild = Child()\n\n\nchild.list_body_parts()\n\narms:  2\nlegs:  2\neyes:  2\n\n\nMultiple inheritance is also tricky and you should avoid it. It’s just good to know it exists to understand code from out there, for example, the popular scikit-learn library uses this a lot to propagate methods and avoid code duplication.",
     "crumbs": [
-      "<span class='chapter-number'>21</span>  <span class='chapter-title'>Object Oriented Programming</span>"
+      "<span class='chapter-number'>19</span>  <span class='chapter-title'>Object Oriented Programming</span>"
+    ]
+  },
+  {
+    "objectID": "testing.html",
+    "href": "testing.html",
+    "title": "20  Testing",
+    "section": "",
+    "text": "20.1 Why bother writing tests?\nCorrectness\nIncorrect code is arguably useless. By incorrect we do not mean proper business logic nor being statistically sound.\nWe mean something much simpler: The code does what we think it is doing.\nOne way to build some confidence about the correctness of our code is to write tests. Here we’ll be looking at so-called unit tests.\nThese tests target atomic pieces (units) of code that we can test isolated. For example, here’s a simple function that computes the square of a number and a unit test:\ndef square(value):\n    return value * value\n\ndef test_square():\n    assert square(-1) == 1\n    assert square(1) == 1\n    assert square(2) == 4\n    assert square(5) == 25\nRefactoring\nWhen we want to modify working code, since tests can give us some degree of confidence that we are not breaking the functionality, for example, while optimizing running time.\nDocumentation\nTests can serve as a way to communicate other people (our ourselves) the expected behaviour of our code.",
+    "crumbs": [
+      "<span class='chapter-number'>20</span>  <span class='chapter-title'>Testing</span>"
+    ]
+  },
+  {
+    "objectID": "testing.html#what-to-test",
+    "href": "testing.html#what-to-test",
+    "title": "20  Testing",
+    "section": "20.2 What to test",
+    "text": "20.2 What to test\nIn a way writing tests is the easy part. The much more challenging questions are what to test and how. Those are of course questions that depend on the context and the system we are testing.\nWe will focus on two aspects that are important in the context of working with data: Verifying assumptions about the data (content, shape, etc.) and checking that transformations in a data processing pipeline are doing the right thing. Further examples of aspects to be tested include: Verifying responses from an API, check that a machine learning model can deal with a given input, etc.\nTesting software is in itself a whole field in itself, there are even dedicated testing conferences!\n\n\n\n\n\n\nTip\n\n\n\nTake a look at the test suite of popular open source libraries to learn how testing looks like in the “real world”.\n\n\nAs we saw above we can write the assertions about our code in a function that we then call. Calling each test manually is a bit cumbersome and error prone. We will use instead a testing framework that will do this automatically for us (plus, it’s going to provide us with a whole bunch of handy functionalities out of the box).",
+    "crumbs": [
+      "<span class='chapter-number'>20</span>  <span class='chapter-title'>Testing</span>"
+    ]
+  },
+  {
+    "objectID": "testing.html#pytest",
+    "href": "testing.html#pytest",
+    "title": "20  Testing",
+    "section": "20.3 Pytest",
+    "text": "20.3 Pytest\nAlthough python has a built-in module for unit tests, we will use pytest, a third-party library which is much more convenient and very well developed and maintained.\nLet’s add that dependency to our project. Testing dependencies are usually included under “development” dependencies. That means, dependencies that will be used during development but not later on (for example when running the application code in production).\nWe can also do that with our package manager uv passing the --dev flag:\nuv add --dev pytest\nAfter executing that line, you can verify that the dependency where the dependency is listed by looking into the pyproject.toml file, which should look like this:\n[tool.uv]\ndev-dependencies = [\n    \"pytest&gt;=8.3.3\",\n]\n\n20.3.1 Basic Testing\nIn the python ecosystem it is rather common to have a separated directory for tests, but that is just an implicit convention and no hard requirement at all. But to keep things tidy we’ll follow that.\nFirst we will put the source code that has our functionality in a file under src/pycourse/square.py\ndef square(value):\n    return value * value\nSo let’s create a directory (next to src) called tests and make a file called tests/test_square.py including our previous test_square code.\nIf you’ve been following along, your project should look more or less like this:\n\nNow put this content in test_square.py:\nfrom pycourse.square import square  # Import function from source code test\n\ndef test_square():\n    assert square(-1) == 1\n    assert square(1) == 1\n    assert square(2) == 4\n    assert square(5) == 25\n\n\n\n\n\n\nImportant\n\n\n\nNotice that we do not call the function, we just define it. The file must be called test_*.py or *_test.py for pytest to discover it and the unit tests must start with test_.\n\n\nWe can now run our tests (pytest will discover files and tests following the pattern above mentioned):\nuv run pytest tests\nYou should see something like this:\ntests/test_square.py .                          [100%]\n\n================== 1 passed in 0.01s =================\nThat’s our first test, we’re cruising! :D\n\n\n20.3.2 Make sure something fails\nSometimes we want to make sure our program fails given a certain input. For example, let’s say we want to check the input of our square function is a float or integer. We could add that logic to the function and handle the case:\n\ndef square(value):\n    if not isinstance(value, (float, int)):\n        raise ValueError(f\"Invalid input. Expected float, got {type(value)}\")\n    return value * value\n\n\n\nCode\nimport ipytest\nipytest.autoconfig()\n\n\n\n%%ipytest\n\nimport pytest\n\ndef test_square():\n    assert square(-1) == 1\n    assert square(1) == 1\n    assert square(2) == 4\n    assert square(5) == 25  \n    with pytest.raises(ValueError):\n        square(\"foo\")\n    with pytest.raises(ValueError):\n        square(None)\n\n\n.                                                                                            [100%]\n\n1 passed in 0.01s\n\n\n\n\n\n\n\n\n\n\nNote\n\n\n\nChecking the types of the functions explicitly like in the example is not a very “pythonic” thing to do, as we tend to care more about the behaviour than about the types (duck typing). Also it is a relatively inefficient way to do it. But sometimes we do trade some purity and efficiency for correctness, for example in data pipelines where errors can go unattended because they do not lead to syntax errors.",
+    "crumbs": [
+      "<span class='chapter-number'>20</span>  <span class='chapter-title'>Testing</span>"
+    ]
+  },
+  {
+    "objectID": "testing.html#exercises",
+    "href": "testing.html#exercises",
+    "title": "20  Testing",
+    "section": "20.4 Exercises",
+    "text": "20.4 Exercises\n\nModify the function square in square.py so that it returns value * value * 2 and run the test again. Pay close attention to the error messages and the diffs!\nWrite a function called reverse_str that takes a string and returns the reversed version, eg “hola” -&gt; “aloh”. Write a unit test and make sure the tests pass. Think about covering corner cases in your tests.\nMake the function reverse_str strict to only accept strings as input and throw an error if another type is passed. Write a unit test that covers both the “happy path” and the “error path”.",
+    "crumbs": [
+      "<span class='chapter-number'>20</span>  <span class='chapter-title'>Testing</span>"
+    ]
+  },
+  {
+    "objectID": "tools_patterns.html",
+    "href": "tools_patterns.html",
+    "title": "21  Useful Tools and Patterns",
+    "section": "",
+    "text": "21.1 Generators",
+    "crumbs": [
+      "<span class='chapter-number'>21</span>  <span class='chapter-title'>Useful Tools and Patterns</span>"
+    ]
+  },
+  {
+    "objectID": "tools_patterns.html#decorators",
+    "href": "tools_patterns.html#decorators",
+    "title": "21  Useful Tools and Patterns",
+    "section": "21.2 Decorators",
+    "text": "21.2 Decorators\naka, closure",
+    "crumbs": [
+      "<span class='chapter-number'>21</span>  <span class='chapter-title'>Useful Tools and Patterns</span>"
+    ]
+  },
+  {
+    "objectID": "tools_patterns.html#the-functools-module",
+    "href": "tools_patterns.html#the-functools-module",
+    "title": "21  Useful Tools and Patterns",
+    "section": "21.3 The functools module",
+    "text": "21.3 The functools module\n\npartial\ncache\noperator?",
+    "crumbs": [
+      "<span class='chapter-number'>21</span>  <span class='chapter-title'>Useful Tools and Patterns</span>"
+    ]
+  },
+  {
+    "objectID": "tools_patterns.html#the-itertools-module",
+    "href": "tools_patterns.html#the-itertools-module",
+    "title": "21  Useful Tools and Patterns",
+    "section": "21.4 The itertools module",
+    "text": "21.4 The itertools module\n\nproduct",
+    "crumbs": [
+      "<span class='chapter-number'>21</span>  <span class='chapter-title'>Useful Tools and Patterns</span>"
+    ]
+  },
+  {
+    "objectID": "tools_patterns.html#modules-for-scientific-computing",
+    "href": "tools_patterns.html#modules-for-scientific-computing",
+    "title": "21  Useful Tools and Patterns",
+    "section": "21.5 Modules for Scientific Computing",
+    "text": "21.5 Modules for Scientific Computing\n\nmath\ndecimal",
+    "crumbs": [
+      "<span class='chapter-number'>21</span>  <span class='chapter-title'>Useful Tools and Patterns</span>"
     ]
   },
   {
