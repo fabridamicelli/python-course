@@ -36,7 +36,6 @@ book:
     - 01_2_executing_code.ipynb
     - 02_types_data_structures.ipynb
     - 03_1_flow_control.ipynb
-    - 03_2_error_handling.ipynb
     - 04_functions.ipynb
     # - 041_scope.ipynb
     - 05_comprehensions.ipynb
@@ -49,11 +48,12 @@ book:
     - 08_numpy.ipynb
     - 081_pandas.ipynb
     - 09_plotting.ipynb
-    - 10_testing.ipynb
     - lab_explore_data.ipynb
     - 11_cli.ipynb
-    - 13_tools.ipynb
+    - 03_2_error_handling.ipynb
     - 051_oop.ipynb
+    - 10_testing.ipynb
+    - 13_tools.ipynb
     - notebook_workflow.ipynb
     - 999_glossary.ipynb
     - references.qmd
