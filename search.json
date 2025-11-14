@@ -740,213 +740,153 @@
     ]
   },
   {
-    "objectID": "cli.html",
-    "href": "cli.html",
-    "title": "17  Command Line Interfaces (CLI)",
-    "section": "",
-    "text": "🚧 Material under construction 🚧",
-    "crumbs": [
-      "<span class='chapter-number'>17</span>  <span class='chapter-title'>Command Line Interfaces (CLI)</span>"
-    ]
-  },
-  {
     "objectID": "error_handling.html",
     "href": "error_handling.html",
-    "title": "18  Error Handling",
+    "title": "17  Error Handling",
     "section": "",
-    "text": "18.1 Exceptions\nWhen our program runs into an error, the execution stops and Python throws a so-called Exception.\nThere several different types of exceptions and they work as a way to communicate what went wrong. Sometimes we simply want to let the program crash because the problem is completely unexpected or because we do not have a good solution to deal with it, for example we divide by 0.\nBut some other times we want to handle it differently, for example if we are getting data from a website that is transiently unavailable we might want to retry after a few seconds.\nOne of the language constructs to deal with errors in Python is try-except, which has this structure:\ntry:\n    1 / 0\nexcept Exception as err:\n    print(\"something went wrong:\", err)\nfinally:\n    print(\"Cleaning up the mess, no matter what\")\n\nsomething went wrong: division by zero\nCleaning up the mess, no matter what\ntry:\n    1 / 1\n    print(\"all good\")\nexcept Exception as err:\n    print(\"something went wrong:\", err)\nfinally:\n    print(\"Cleaning up the mess, no matter what\")\n\nall good\nCleaning up the mess, no matter what\nWe can catch explicit exceptions:\ntry:\n    1 / 0\n    print(\"all good\")\nexcept ZeroDivisionError as err:\n    print(\"yeap, it sometimes happens, show must go on..\")\n\nyeap, it sometimes happens, show must go on..",
+    "text": "17.1 Exceptions\nWhen our program runs into an error, the execution stops and Python throws a so-called Exception.\nThere several different types of exceptions and they work as a way to communicate what went wrong. Sometimes we simply want to let the program crash because the problem is completely unexpected or because we do not have a good solution to deal with it, for example we divide by 0.\nBut some other times we want to handle it differently, for example if we are getting data from a website that is transiently unavailable we might want to retry after a few seconds.\nOne of the language constructs to deal with errors in Python is try-except, which has this structure:\ntry:\n    1 / 0\nexcept Exception as err:\n    print(\"something went wrong:\", err)\nfinally:\n    print(\"Cleaning up the mess, no matter what\")\n\nsomething went wrong: division by zero\nCleaning up the mess, no matter what\ntry:\n    1 / 1\n    print(\"all good\")\nexcept Exception as err:\n    print(\"something went wrong:\", err)\nfinally:\n    print(\"Cleaning up the mess, no matter what\")\n\nall good\nCleaning up the mess, no matter what\nWe can catch explicit exceptions:\ntry:\n    1 / 0\n    print(\"all good\")\nexcept ZeroDivisionError as err:\n    print(\"yeap, it sometimes happens, show must go on..\")\n\nyeap, it sometimes happens, show must go on..",
     "crumbs": [
-      "<span class='chapter-number'>18</span>  <span class='chapter-title'>Error Handling</span>"
+      "<span class='chapter-number'>17</span>  <span class='chapter-title'>Error Handling</span>"
     ]
   },
   {
     "objectID": "error_handling.html#exceptions",
     "href": "error_handling.html#exceptions",
-    "title": "18  Error Handling",
+    "title": "17  Error Handling",
     "section": "",
     "text": "try:\n    # do something\nexcept SomeException:\n    # handle the error\nfinally:\n    # Optionally to something (always executed)\n\n\n\n\n\n\n\n\nTipGood practice Tip\n\n\n\nBe as explicit as possible with your exceptions to avoid letting unexpected errors slip through.\n\n\n\n\n\n\n\n\n\n\nNote\n\n\n\nExceptions are also used beyond errors as a more general kind of means of communication in the python language, for example, to signal that a generator has been used up.",
     "crumbs": [
-      "<span class='chapter-number'>18</span>  <span class='chapter-title'>Error Handling</span>"
+      "<span class='chapter-number'>17</span>  <span class='chapter-title'>Error Handling</span>"
     ]
   },
   {
     "objectID": "error_handling.html#assertions",
     "href": "error_handling.html#assertions",
-    "title": "18  Error Handling",
-    "section": "18.2 Assertions",
-    "text": "18.2 Assertions\nA common way to verify that our code is actually implementing the logic we have in mind is adding so-called “assertions”. Assertions are like checkpoints that will make our code fail (and interrupt the program execution) if a condition is not met.\nIt is common to use assertions to check intermediate steps as well as for writing tests (as we will see later).\nHere’s the basic syntax:\nassert some-contition, \"message if condition is false\"\nFor example:\n\nassert 1 &gt; 0, \"This should never happen\"\nprint(\"We got to this point\")\n\nWe got to this point\n\n\n\nassert 0 &gt; 1, \"0 &gt; 1? in which world do you live?\"\n\nprint(\"We got to this point\")\n\n\n---------------------------------------------------------------------------\nAssertionError                            Traceback (most recent call last)\nCell In[5], line 1\n----&gt; 1 assert 0 &gt; 1, \"0 &gt; 1? in which world do you live?\"\n      3 print(\"We got to this point\")\n\nAssertionError: 0 &gt; 1? in which world do you live?\n\n\n\nNotice two things:\nFirst, we didn’t get to the print statement – the program execution was interrupted.\nSecond, we got an AssertionError, a particular type of exception that python uses to communicate we didn’t meet the assertion, which means we could handle it like any other exception:\n\ntry:\n    assert 0 &gt; 1, \"0 &gt; 1? in which world do you live?\"\nexcept AssertionError:\n    print(\"No idea, but fine, carry on...\")\n    \nprint(\"We got to this point\")\n\nNo idea, but fine, carry on...\nWe got to this point",
+    "title": "17  Error Handling",
+    "section": "17.2 Assertions",
+    "text": "17.2 Assertions\nA common way to verify that our code is actually implementing the logic we have in mind is adding so-called “assertions”. Assertions are like checkpoints that will make our code fail (and interrupt the program execution) if a condition is not met.\nIt is common to use assertions to check intermediate steps as well as for writing tests (as we will see later).\nHere’s the basic syntax:\nassert some-contition, \"message if condition is false\"\nFor example:\n\nassert 1 &gt; 0, \"This should never happen\"\nprint(\"We got to this point\")\n\nWe got to this point\n\n\n\nassert 0 &gt; 1, \"0 &gt; 1? in which world do you live?\"\n\nprint(\"We got to this point\")\n\n\n---------------------------------------------------------------------------\nAssertionError                            Traceback (most recent call last)\nCell In[5], line 1\n----&gt; 1 assert 0 &gt; 1, \"0 &gt; 1? in which world do you live?\"\n      3 print(\"We got to this point\")\n\nAssertionError: 0 &gt; 1? in which world do you live?\n\n\n\nNotice two things:\nFirst, we didn’t get to the print statement – the program execution was interrupted.\nSecond, we got an AssertionError, a particular type of exception that python uses to communicate we didn’t meet the assertion, which means we could handle it like any other exception:\n\ntry:\n    assert 0 &gt; 1, \"0 &gt; 1? in which world do you live?\"\nexcept AssertionError:\n    print(\"No idea, but fine, carry on...\")\n    \nprint(\"We got to this point\")\n\nNo idea, but fine, carry on...\nWe got to this point",
     "crumbs": [
-      "<span class='chapter-number'>18</span>  <span class='chapter-title'>Error Handling</span>"
+      "<span class='chapter-number'>17</span>  <span class='chapter-title'>Error Handling</span>"
     ]
   },
   {
     "objectID": "error_handling.html#exercises",
     "href": "error_handling.html#exercises",
-    "title": "18  Error Handling",
-    "section": "18.3 Exercises",
-    "text": "18.3 Exercises\nTake this dictionary:\nages = {\n    \"mark\": 12,\n    \"lua\": 32,\n    \"martin\": 8,\n    \"mette\": 41,\n    \"malte\": 27\n}\nAnd this names:\nnames = \"mark\", \"lua\", \"juan\", \"marco\", \"anna\"\nWrite a program that iterates over the names and prints each name and age.\nIf the name is not present in the ages dictionary, print this message “name: NAME is missing”. At the end of the program, print the number of not found names and a list with the found names.",
+    "title": "17  Error Handling",
+    "section": "17.3 Exercises",
+    "text": "17.3 Exercises\nTake this dictionary:\nages = {\n    \"mark\": 12,\n    \"lua\": 32,\n    \"martin\": 8,\n    \"mette\": 41,\n    \"malte\": 27\n}\nAnd this names:\nnames = \"mark\", \"lua\", \"juan\", \"marco\", \"anna\"\nWrite a program that iterates over the names and prints each name and age.\nIf the name is not present in the ages dictionary, print this message “name: NAME is missing”. At the end of the program, print the number of not found names and a list with the found names.",
     "crumbs": [
-      "<span class='chapter-number'>18</span>  <span class='chapter-title'>Error Handling</span>"
+      "<span class='chapter-number'>17</span>  <span class='chapter-title'>Error Handling</span>"
     ]
   },
   {
     "objectID": "oop.html",
     "href": "oop.html",
-    "title": "19  Object Oriented Programming",
+    "title": "18  Object Oriented Programming",
     "section": "",
-    "text": "19.1 Classes and Objects\nIn python we deal with so-called objects. An object is an instance, that is a particular realization, of a class.\nHere’s an analogy: You can think of a class as the instructions to build a car, say a FiatUno:\nclass FiatUno:\n    def __init__(self, color=\"white\", radio=False):\n        self.color = color\n        self.radio = radio\n        self.radio_is_on = False\n    def turn_on_radio(self):\n        self.radio_is_on = True\n        print(f\"Radio is on!\")\n    def turn_off_radio(self):\n        self.radio_is_on = False\n        print(f\"Radio is off!\")\nEach actual car is an object, i.e. an instance of a class:\ncar1 = FiatUno()\nWe can make another car:\ncar2 = FiatUno()\nLike two cars can be the same model and color, they always have different license plates.\nThe same happens in python:\nid(car1)\n\n139856081602784\nid(car2)\n\n139856081603648\nEach object has attributes:\ncar1.color, car1.radio\n\n('white', False)",
+    "text": "18.1 Classes and Objects\nIn python we deal with so-called objects. An object is an instance, that is a particular realization, of a class.\nHere’s an analogy: You can think of a class as the instructions to build a car, say a FiatUno:\nclass FiatUno:\n    def __init__(self, color=\"white\", radio=False):\n        self.color = color\n        self.radio = radio\n        self.radio_is_on = False\n    def turn_on_radio(self):\n        self.radio_is_on = True\n        print(f\"Radio is on!\")\n    def turn_off_radio(self):\n        self.radio_is_on = False\n        print(f\"Radio is off!\")\nEach actual car is an object, i.e. an instance of a class:\ncar1 = FiatUno()\nWe can make another car:\ncar2 = FiatUno()\nLike two cars can be the same model and color, they always have different license plates.\nThe same happens in python:\nid(car1)\n\n139856081602784\nid(car2)\n\n139856081603648\nEach object has attributes:\ncar1.color, car1.radio\n\n('white', False)",
     "crumbs": [
-      "<span class='chapter-number'>19</span>  <span class='chapter-title'>Object Oriented Programming</span>"
+      "<span class='chapter-number'>18</span>  <span class='chapter-title'>Object Oriented Programming</span>"
     ]
   },
   {
     "objectID": "oop.html#classes-and-objects",
     "href": "oop.html#classes-and-objects",
-    "title": "19  Object Oriented Programming",
+    "title": "18  Object Oriented Programming",
     "section": "",
     "text": "Note\n\n\n\nBy convention, we use CamelCase to name classes.",
     "crumbs": [
-      "<span class='chapter-number'>19</span>  <span class='chapter-title'>Object Oriented Programming</span>"
+      "<span class='chapter-number'>18</span>  <span class='chapter-title'>Object Oriented Programming</span>"
     ]
   },
   {
     "objectID": "oop.html#methods",
     "href": "oop.html#methods",
-    "title": "19  Object Oriented Programming",
-    "section": "19.2 Methods",
-    "text": "19.2 Methods\nDifferent car models have different functionalities, like turning the radio on.\nIn python it’s the same, the functions attached to an object are called methods and we call them with this dot notation:\n\ncar1.turn_on_radio()  # it's just a function, so we call it with ()\n\nRadio is on!\n\n\n\ncar1.turn_off_radio()\n\nRadio is off!\n\n\nWhere is the self argument of the functions?\nThe first argument of a method will be always passed to the method in the call and it is the object itself (thus the convention to call it self).\nThat’s a bit meta an a bit confusing, but don’t worry, you’ll get a feel of it by using the classes/objects.",
+    "title": "18  Object Oriented Programming",
+    "section": "18.2 Methods",
+    "text": "18.2 Methods\nDifferent car models have different functionalities, like turning the radio on.\nIn python it’s the same, the functions attached to an object are called methods and we call them with this dot notation:\n\ncar1.turn_on_radio()  # it's just a function, so we call it with ()\n\nRadio is on!\n\n\n\ncar1.turn_off_radio()\n\nRadio is off!\n\n\nWhere is the self argument of the functions?\nThe first argument of a method will be always passed to the method in the call and it is the object itself (thus the convention to call it self).\nThat’s a bit meta an a bit confusing, but don’t worry, you’ll get a feel of it by using the classes/objects.",
     "crumbs": [
-      "<span class='chapter-number'>19</span>  <span class='chapter-title'>Object Oriented Programming</span>"
+      "<span class='chapter-number'>18</span>  <span class='chapter-title'>Object Oriented Programming</span>"
     ]
   },
   {
     "objectID": "oop.html#dunder-methods",
     "href": "oop.html#dunder-methods",
-    "title": "19  Object Oriented Programming",
-    "section": "19.3 Dunder Methods",
-    "text": "19.3 Dunder Methods\nWe saw above the __init__ method. This methods are special and there is a bunch of them already present on all classes:\n\ndir(FiatUno)\n\n['__class__',\n '__delattr__',\n '__dict__',\n '__dir__',\n '__doc__',\n '__eq__',\n '__format__',\n '__ge__',\n '__getattribute__',\n '__gt__',\n '__hash__',\n '__init__',\n '__init_subclass__',\n '__le__',\n '__lt__',\n '__module__',\n '__ne__',\n '__new__',\n '__reduce__',\n '__reduce_ex__',\n '__repr__',\n '__setattr__',\n '__sizeof__',\n '__str__',\n '__subclasshook__',\n '__weakref__',\n 'turn_off_radio',\n 'turn_on_radio']\n\n\nThese “dunder” methods define the behavior of the object in several ways. For example, the __str__ method defines the string representation of the object, which is used when we call print on an object. When we do print(something), python actually goes to the method __str__ of something and calls that one. Let’s see it in action:\n\nclass A:\n    def __init__(self, msg=\"hello\"):\n        self.msg = msg\n    def __str__(self):\n        return self.msg + \", nice to meet you\"\n\n\na = A()\n\n\nprint(a)\n\nhello, nice to meet you\n\n\nIt’s good to know that these dunder methods exist and some libraries will require the user changing them. But in general, you should not worry about them.\n\n\n\n\n\n\nTip\n\n\n\nDon’t overwrite dunder methods unless you really, really need it and you’re sure what you’re doing – it is pretty easy to make mistakes that lead to difficult to debug bugs.",
+    "title": "18  Object Oriented Programming",
+    "section": "18.3 Dunder Methods",
+    "text": "18.3 Dunder Methods\nWe saw above the __init__ method. This methods are special and there is a bunch of them already present on all classes:\n\ndir(FiatUno)\n\n['__class__',\n '__delattr__',\n '__dict__',\n '__dir__',\n '__doc__',\n '__eq__',\n '__format__',\n '__ge__',\n '__getattribute__',\n '__gt__',\n '__hash__',\n '__init__',\n '__init_subclass__',\n '__le__',\n '__lt__',\n '__module__',\n '__ne__',\n '__new__',\n '__reduce__',\n '__reduce_ex__',\n '__repr__',\n '__setattr__',\n '__sizeof__',\n '__str__',\n '__subclasshook__',\n '__weakref__',\n 'turn_off_radio',\n 'turn_on_radio']\n\n\nThese “dunder” methods define the behavior of the object in several ways. For example, the __str__ method defines the string representation of the object, which is used when we call print on an object. When we do print(something), python actually goes to the method __str__ of something and calls that one. Let’s see it in action:\n\nclass A:\n    def __init__(self, msg=\"hello\"):\n        self.msg = msg\n    def __str__(self):\n        return self.msg + \", nice to meet you\"\n\n\na = A()\n\n\nprint(a)\n\nhello, nice to meet you\n\n\nIt’s good to know that these dunder methods exist and some libraries will require the user changing them. But in general, you should not worry about them.\n\n\n\n\n\n\nTip\n\n\n\nDon’t overwrite dunder methods unless you really, really need it and you’re sure what you’re doing – it is pretty easy to make mistakes that lead to difficult to debug bugs.",
     "crumbs": [
-      "<span class='chapter-number'>19</span>  <span class='chapter-title'>Object Oriented Programming</span>"
+      "<span class='chapter-number'>18</span>  <span class='chapter-title'>Object Oriented Programming</span>"
     ]
   },
   {
     "objectID": "oop.html#inheritance",
     "href": "oop.html#inheritance",
-    "title": "19  Object Oriented Programming",
-    "section": "19.4 Inheritance",
-    "text": "19.4 Inheritance\n\n\n\n\n\n\nTip\n\n\n\nAvoid using inheritance. We show it here just for you to know it exists and that some libraries use it. You can totally live without it.\n\n\nClasses can be organized in a hierarchy:\n\nclass Car:\n    def __init__(self):\n        self.n_wheels = 4 \n        \nclass FiatPalio(Car):\n    def turn_on_radio(self):\n        print(\"Radio is on\")\n        \nclass FiatTipo(Car):\n    def turn_on_ac(self):\n        print(\"Pretty hot in here\")\n\ncar3 = FiatPalio()\ncar4 = FiatTipo()\n\n\ncar3.turn_on_radio()\n\nRadio is on\n\n\n\ncar3.n_wheels\n\n4\n\n\n\ncar4.turn_on_ac()\n\nPretty hot here\n\n\n\ncar4.n_wheels\n\n4\n\n\nIn that case Car is called the “parent” class and the FiatPalio the “child” or “subclass”.\nNotice that both car3 and car4 inherited the attribute n_wheels from Car.\nA class can have more than one parent:\n\nclass Parent1:\n    n_arms = 2\n        \nclass Parent2:\n    n_legs = 2\n        \nclass Parent3:\n    n_eyes = 2\n\nclass Child(Parent1, Parent2, Parent3):\n    def list_body_parts(self):\n        print(\"arms: \", self.n_arms)\n        print(\"legs: \", self.n_legs)\n        print(\"eyes: \", self.n_eyes)\n\n\nchild = Child()\n\n\nchild.list_body_parts()\n\narms:  2\nlegs:  2\neyes:  2\n\n\nMultiple inheritance is also tricky and you should avoid it. It’s just good to know it exists to understand code from out there, for example, the popular scikit-learn library uses this a lot to propagate methods and avoid code duplication.",
+    "title": "18  Object Oriented Programming",
+    "section": "18.4 Inheritance",
+    "text": "18.4 Inheritance\n\n\n\n\n\n\nTip\n\n\n\nAvoid using inheritance. We show it here just for you to know it exists and that some libraries use it. You can totally live without it.\n\n\nClasses can be organized in a hierarchy:\n\nclass Car:\n    def __init__(self):\n        self.n_wheels = 4 \n        \nclass FiatPalio(Car):\n    def turn_on_radio(self):\n        print(\"Radio is on\")\n        \nclass FiatTipo(Car):\n    def turn_on_ac(self):\n        print(\"Pretty hot in here\")\n\ncar3 = FiatPalio()\ncar4 = FiatTipo()\n\n\ncar3.turn_on_radio()\n\nRadio is on\n\n\n\ncar3.n_wheels\n\n4\n\n\n\ncar4.turn_on_ac()\n\nPretty hot here\n\n\n\ncar4.n_wheels\n\n4\n\n\nIn that case Car is called the “parent” class and the FiatPalio the “child” or “subclass”.\nNotice that both car3 and car4 inherited the attribute n_wheels from Car.\nA class can have more than one parent:\n\nclass Parent1:\n    n_arms = 2\n        \nclass Parent2:\n    n_legs = 2\n        \nclass Parent3:\n    n_eyes = 2\n\nclass Child(Parent1, Parent2, Parent3):\n    def list_body_parts(self):\n        print(\"arms: \", self.n_arms)\n        print(\"legs: \", self.n_legs)\n        print(\"eyes: \", self.n_eyes)\n\n\nchild = Child()\n\n\nchild.list_body_parts()\n\narms:  2\nlegs:  2\neyes:  2\n\n\nMultiple inheritance is also tricky and you should avoid it. It’s just good to know it exists to understand code from out there, for example, the popular scikit-learn library uses this a lot to propagate methods and avoid code duplication.",
     "crumbs": [
-      "<span class='chapter-number'>19</span>  <span class='chapter-title'>Object Oriented Programming</span>"
+      "<span class='chapter-number'>18</span>  <span class='chapter-title'>Object Oriented Programming</span>"
     ]
   },
   {
     "objectID": "testing.html",
     "href": "testing.html",
-    "title": "20  Testing",
+    "title": "19  Testing",
     "section": "",
-    "text": "20.1 Why bother writing tests?\nCorrectness\nIncorrect code is arguably useless. By incorrect we do not mean proper business logic nor being statistically sound.\nWe mean something much simpler: The code does what we think it is doing.\nOne way to build some confidence about the correctness of our code is to write tests. Here we’ll be looking at so-called unit tests.\nThese tests target atomic pieces (units) of code that we can test isolated. For example, here’s a simple function that computes the square of a number and a unit test:\ndef square(value):\n    return value * value\n\ndef test_square():\n    assert square(-1) == 1\n    assert square(1) == 1\n    assert square(2) == 4\n    assert square(5) == 25\nRefactoring\nWhen we want to modify working code, since tests can give us some degree of confidence that we are not breaking the functionality, for example, while optimizing running time.\nDocumentation\nTests can serve as a way to communicate other people (our ourselves) the expected behaviour of our code.",
+    "text": "19.1 Why bother writing tests?\nCorrectness\nIncorrect code is arguably useless. By incorrect we do not mean proper business logic nor being statistically sound.\nWe mean something much simpler: The code does what we think it is doing.\nOne way to build some confidence about the correctness of our code is to write tests. Here we’ll be looking at so-called unit tests.\nThese tests target atomic pieces (units) of code that we can test isolated. For example, here’s a simple function that computes the square of a number and a unit test:\ndef square(value):\n    return value * value\n\ndef test_square():\n    assert square(-1) == 1\n    assert square(1) == 1\n    assert square(2) == 4\n    assert square(5) == 25\nRefactoring\nWhen we want to modify working code, since tests can give us some degree of confidence that we are not breaking the functionality, for example, while optimizing running time.\nDocumentation\nTests can serve as a way to communicate other people (our ourselves) the expected behaviour of our code.",
     "crumbs": [
-      "<span class='chapter-number'>20</span>  <span class='chapter-title'>Testing</span>"
+      "<span class='chapter-number'>19</span>  <span class='chapter-title'>Testing</span>"
     ]
   },
   {
     "objectID": "testing.html#what-to-test",
     "href": "testing.html#what-to-test",
-    "title": "20  Testing",
-    "section": "20.2 What to test",
-    "text": "20.2 What to test\nIn a way writing tests is the easy part. The much more challenging questions are what to test and how. Those are of course questions that depend on the context and the system we are testing.\nWe will focus on two aspects that are important in the context of working with data: Verifying assumptions about the data (content, shape, etc.) and checking that transformations in a data processing pipeline are doing the right thing. Further examples of aspects to be tested include: Verifying responses from an API, check that a machine learning model can deal with a given input, etc.\nTesting software is in itself a whole field in itself, there are even dedicated testing conferences!\n\n\n\n\n\n\nTip\n\n\n\nTake a look at the test suite of popular open source libraries to learn how testing looks like in the “real world”.\n\n\nAs we saw above we can write the assertions about our code in a function that we then call. Calling each test manually is a bit cumbersome and error prone. We will use instead a testing framework that will do this automatically for us (plus, it’s going to provide us with a whole bunch of handy functionalities out of the box).",
+    "title": "19  Testing",
+    "section": "19.2 What to test",
+    "text": "19.2 What to test\nIn a way writing tests is the easy part. The much more challenging questions are what to test and how. Those are of course questions that depend on the context and the system we are testing.\nWe will focus on two aspects that are important in the context of working with data: Verifying assumptions about the data (content, shape, etc.) and checking that transformations in a data processing pipeline are doing the right thing. Further examples of aspects to be tested include: Verifying responses from an API, check that a machine learning model can deal with a given input, etc.\nTesting software is in itself a whole field in itself, there are even dedicated testing conferences!\n\n\n\n\n\n\nTip\n\n\n\nTake a look at the test suite of popular open source libraries to learn how testing looks like in the “real world”.\n\n\nAs we saw above we can write the assertions about our code in a function that we then call. Calling each test manually is a bit cumbersome and error prone. We will use instead a testing framework that will do this automatically for us (plus, it’s going to provide us with a whole bunch of handy functionalities out of the box).",
     "crumbs": [
-      "<span class='chapter-number'>20</span>  <span class='chapter-title'>Testing</span>"
+      "<span class='chapter-number'>19</span>  <span class='chapter-title'>Testing</span>"
     ]
   },
   {
     "objectID": "testing.html#pytest",
     "href": "testing.html#pytest",
-    "title": "20  Testing",
-    "section": "20.3 Pytest",
-    "text": "20.3 Pytest\nAlthough python has a built-in module for unit tests, we will use pytest, a third-party library which is much more convenient and very well developed and maintained.\nLet’s add that dependency to our project. Testing dependencies are usually included under “development” dependencies. That means, dependencies that will be used during development but not later on (for example when running the application code in production).\nWe can also do that with our package manager uv passing the --dev flag:\nuv add --dev pytest\nAfter executing that line, you can verify that the dependency where the dependency is listed by looking into the pyproject.toml file, which should look like this:\n[tool.uv]\ndev-dependencies = [\n    \"pytest&gt;=8.3.3\",\n]\n\n20.3.1 Basic Testing\nIn the python ecosystem it is rather common to have a separated directory for tests, but that is just an implicit convention and no hard requirement at all. But to keep things tidy we’ll follow that.\nFirst we will put the source code that has our functionality in a file under src/pycourse/square.py\ndef square(value):\n    return value * value\nSo let’s create a directory (next to src) called tests and make a file called tests/test_square.py including our previous test_square code.\nIf you’ve been following along, your project should look more or less like this:\n\nNow put this content in test_square.py:\nfrom pycourse.square import square  # Import function from source code test\n\ndef test_square():\n    assert square(-1) == 1\n    assert square(1) == 1\n    assert square(2) == 4\n    assert square(5) == 25\n\n\n\n\n\n\nImportant\n\n\n\nNotice that we do not call the function, we just define it. The file must be called test_*.py or *_test.py for pytest to discover it and the unit tests must start with test_.\n\n\nWe can now run our tests (pytest will discover files and tests following the pattern above mentioned):\nuv run pytest tests\nYou should see something like this:\ntests/test_square.py .                          [100%]\n\n================== 1 passed in 0.01s =================\nThat’s our first test, we’re cruising! :D\n\n\n20.3.2 Make sure something fails\nSometimes we want to make sure our program fails given a certain input. For example, let’s say we want to check the input of our square function is a float or integer. We could add that logic to the function and handle the case:\n\ndef square(value):\n    if not isinstance(value, (float, int)):\n        raise ValueError(f\"Invalid input. Expected float, got {type(value)}\")\n    return value * value\n\n\n\nCode\nimport ipytest\nipytest.autoconfig()\n\n\n\n%%ipytest\n\nimport pytest\n\ndef test_square():\n    assert square(-1) == 1\n    assert square(1) == 1\n    assert square(2) == 4\n    assert square(5) == 25  \n    with pytest.raises(ValueError):\n        square(\"foo\")\n    with pytest.raises(ValueError):\n        square(None)\n\n\n.                                                                                            [100%]\n\n1 passed in 0.01s\n\n\n\n\n\n\n\n\n\n\nNote\n\n\n\nChecking the types of the functions explicitly like in the example is not a very “pythonic” thing to do, as we tend to care more about the behaviour than about the types (duck typing). Also it is a relatively inefficient way to do it. But sometimes we do trade some purity and efficiency for correctness, for example in data pipelines where errors can go unattended because they do not lead to syntax errors.",
+    "title": "19  Testing",
+    "section": "19.3 Pytest",
+    "text": "19.3 Pytest\nAlthough python has a built-in module for unit tests, we will use pytest, a third-party library which is much more convenient and very well developed and maintained.\nLet’s add that dependency to our project. Testing dependencies are usually included under “development” dependencies. That means, dependencies that will be used during development but not later on (for example when running the application code in production).\nWe can also do that with our package manager uv passing the --dev flag:\nuv add --dev pytest\nAfter executing that line, you can verify that the dependency where the dependency is listed by looking into the pyproject.toml file, which should look like this:\n[tool.uv]\ndev-dependencies = [\n    \"pytest&gt;=8.3.3\",\n]\n\n19.3.1 Basic Testing\nIn the python ecosystem it is rather common to have a separated directory for tests, but that is just an implicit convention and no hard requirement at all. But to keep things tidy we’ll follow that.\nFirst we will put the source code that has our functionality in a file under src/pycourse/square.py\ndef square(value):\n    return value * value\nSo let’s create a directory (next to src) called tests and make a file called tests/test_square.py including our previous test_square code.\nIf you’ve been following along, your project should look more or less like this:\n\nNow put this content in test_square.py:\nfrom pycourse.square import square  # Import function from source code test\n\ndef test_square():\n    assert square(-1) == 1\n    assert square(1) == 1\n    assert square(2) == 4\n    assert square(5) == 25\n\n\n\n\n\n\nImportant\n\n\n\nNotice that we do not call the function, we just define it. The file must be called test_*.py or *_test.py for pytest to discover it and the unit tests must start with test_.\n\n\nWe can now run our tests (pytest will discover files and tests following the pattern above mentioned):\nuv run pytest tests\nYou should see something like this:\ntests/test_square.py .                          [100%]\n\n================== 1 passed in 0.01s =================\nThat’s our first test, we’re cruising! :D\n\n\n19.3.2 Make sure something fails\nSometimes we want to make sure our program fails given a certain input. For example, let’s say we want to check the input of our square function is a float or integer. We could add that logic to the function and handle the case:\n\ndef square(value):\n    if not isinstance(value, (float, int)):\n        raise ValueError(f\"Invalid input. Expected float, got {type(value)}\")\n    return value * value\n\n\n\nCode\nimport ipytest\nipytest.autoconfig()\n\n\n\n%%ipytest\n\nimport pytest\n\ndef test_square():\n    assert square(-1) == 1\n    assert square(1) == 1\n    assert square(2) == 4\n    assert square(5) == 25  \n    with pytest.raises(ValueError):\n        square(\"foo\")\n    with pytest.raises(ValueError):\n        square(None)\n\n\n.                                                                                            [100%]\n\n1 passed in 0.01s\n\n\n\n\n\n\n\n\n\n\nNote\n\n\n\nChecking the types of the functions explicitly like in the example is not a very “pythonic” thing to do, as we tend to care more about the behaviour than about the types (duck typing). Also it is a relatively inefficient way to do it. But sometimes we do trade some purity and efficiency for correctness, for example in data pipelines where errors can go unattended because they do not lead to syntax errors.",
     "crumbs": [
-      "<span class='chapter-number'>20</span>  <span class='chapter-title'>Testing</span>"
+      "<span class='chapter-number'>19</span>  <span class='chapter-title'>Testing</span>"
     ]
   },
   {
     "objectID": "testing.html#exercises",
     "href": "testing.html#exercises",
-    "title": "20  Testing",
-    "section": "20.4 Exercises",
-    "text": "20.4 Exercises\n\nModify the function square in square.py so that it returns value * value * 2 and run the test again. Pay close attention to the error messages and the diffs!\nWrite a function called reverse_str that takes a string and returns the reversed version, eg “hola” -&gt; “aloh”. Write a unit test and make sure the tests pass. Think about covering corner cases in your tests.\nMake the function reverse_str strict to only accept strings as input and throw an error if another type is passed. Write a unit test that covers both the “happy path” and the “error path”.",
+    "title": "19  Testing",
+    "section": "19.4 Exercises",
+    "text": "19.4 Exercises\n\nModify the function square in square.py so that it returns value * value * 2 and run the test again. Pay close attention to the error messages and the diffs!\nWrite a function called reverse_str that takes a string and returns the reversed version, eg “hola” -&gt; “aloh”. Write a unit test and make sure the tests pass. Think about covering corner cases in your tests.\nMake the function reverse_str strict to only accept strings as input and throw an error if another type is passed. Write a unit test that covers both the “happy path” and the “error path”.",
     "crumbs": [
-      "<span class='chapter-number'>20</span>  <span class='chapter-title'>Testing</span>"
-    ]
-  },
-  {
-    "objectID": "tools_patterns.html",
-    "href": "tools_patterns.html",
-    "title": "21  Useful Tools and Patterns",
-    "section": "",
-    "text": "21.1 Generators",
-    "crumbs": [
-      "<span class='chapter-number'>21</span>  <span class='chapter-title'>Useful Tools and Patterns</span>"
-    ]
-  },
-  {
-    "objectID": "tools_patterns.html#decorators",
-    "href": "tools_patterns.html#decorators",
-    "title": "21  Useful Tools and Patterns",
-    "section": "21.2 Decorators",
-    "text": "21.2 Decorators\naka, closure",
-    "crumbs": [
-      "<span class='chapter-number'>21</span>  <span class='chapter-title'>Useful Tools and Patterns</span>"
-    ]
-  },
-  {
-    "objectID": "tools_patterns.html#the-functools-module",
-    "href": "tools_patterns.html#the-functools-module",
-    "title": "21  Useful Tools and Patterns",
-    "section": "21.3 The functools module",
-    "text": "21.3 The functools module\n\npartial\ncache\noperator?",
-    "crumbs": [
-      "<span class='chapter-number'>21</span>  <span class='chapter-title'>Useful Tools and Patterns</span>"
-    ]
-  },
-  {
-    "objectID": "tools_patterns.html#the-itertools-module",
-    "href": "tools_patterns.html#the-itertools-module",
-    "title": "21  Useful Tools and Patterns",
-    "section": "21.4 The itertools module",
-    "text": "21.4 The itertools module\n\nproduct",
-    "crumbs": [
-      "<span class='chapter-number'>21</span>  <span class='chapter-title'>Useful Tools and Patterns</span>"
-    ]
-  },
-  {
-    "objectID": "tools_patterns.html#modules-for-scientific-computing",
-    "href": "tools_patterns.html#modules-for-scientific-computing",
-    "title": "21  Useful Tools and Patterns",
-    "section": "21.5 Modules for Scientific Computing",
-    "text": "21.5 Modules for Scientific Computing\n\nmath\ndecimal",
-    "crumbs": [
-      "<span class='chapter-number'>21</span>  <span class='chapter-title'>Useful Tools and Patterns</span>"
+      "<span class='chapter-number'>19</span>  <span class='chapter-title'>Testing</span>"
     ]
   },
   {
     "objectID": "notebook_workflow.html",
     "href": "notebook_workflow.html",
-    "title": "22  Appendix: Notebook Workflow",
+    "title": "20  Appendix: Notebook Workflow",
     "section": "",
     "text": "Notebooks are an invaluable tool when working with data in python and as any tool, they come with some caveats on how they work and the kind of workflow that one might easily fall into when not following some best practices.\nRather than enumerating an exhaustive list of best practices, I think it is more useful to have a more holistic view about the general mindset and how to structure the workflow with notebooks in order be productive while avoiding shooting ourselves in the foot.\nHere are two pieces of content that I recommend you to watch when you have a few spare minutes.\nThis is a relatively comprehensive series of short videos covering multiple aspects of a notebook-centric workflow, making them play nicely with some general software development best practices:\n\nAlong the same lines, this is a bit more specific and opinionated conference talk oriented to data wrangling workflows:",
     "crumbs": [
-      "<span class='chapter-number'>22</span>  <span class='chapter-title'>Appendix: Notebook Workflow</span>"
+      "<span class='chapter-number'>20</span>  <span class='chapter-title'>Appendix: Notebook Workflow</span>"
     ]
   },
   {
     "objectID": "glossary.html",
     "href": "glossary.html",
-    "title": "23  Glossary",
+    "title": "21  Glossary",
     "section": "",
     "text": "This is a somehow arbitrary compendium of explanations in layman words of terms that you will commonly find in the Python jargon.\n\n\nCode\nimport pathlib\n\n\nStandard library: All the modules that come with the python language out of the box. These are the so-called “batteries included”. For example, the modules pathlib or json. We can import these without need of installing anything else:\n\nimport json\nimport pathlib\n\nMethod: A function attached to an object. This means we can call the function using dot notation on the object like this:\n\nmypath = pathlib.Path(\".\")  # Create object \"mypath\"\nmypath.is_dir()  # Call the method (function) \"is_dir\"\n\nTrue\n\n\nAPI: This stands for application programming interface. That refers to the functionalities exposed to the user by a program. For example, which objects a user is supposed to instanciate, which methods this object will have, etc. This surface of contact between the user and the software is in contrast to the inner workings of the program which are not supposed to be understood or used by the user. Read more here.",
     "crumbs": [
-      "<span class='chapter-number'>23</span>  <span class='chapter-title'>Glossary</span>"
+      "<span class='chapter-number'>21</span>  <span class='chapter-title'>Glossary</span>"
     ]
   }
 ]

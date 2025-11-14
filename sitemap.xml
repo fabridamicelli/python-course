@@ -2,102 +2,94 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://fabridamicelli.github.io/python-course/index.html</loc>
-    <lastmod>2025-11-13T12:42:40.404Z</lastmod>
+    <lastmod>2025-11-14T15:41:50.661Z</lastmod>
   </url>
   <url>
     <loc>https://fabridamicelli.github.io/python-course/getting_started.html</loc>
-    <lastmod>2025-11-13T12:42:40.398Z</lastmod>
+    <lastmod>2025-11-14T15:41:50.655Z</lastmod>
   </url>
   <url>
     <loc>https://fabridamicelli.github.io/python-course/executing.html</loc>
-    <lastmod>2025-11-13T12:42:40.398Z</lastmod>
+    <lastmod>2025-11-14T15:41:50.655Z</lastmod>
   </url>
   <url>
     <loc>https://fabridamicelli.github.io/python-course/basics.html</loc>
-    <lastmod>2025-11-13T12:42:40.398Z</lastmod>
+    <lastmod>2025-11-14T15:41:50.655Z</lastmod>
   </url>
   <url>
     <loc>https://fabridamicelli.github.io/python-course/flow_control.html</loc>
-    <lastmod>2025-11-13T12:42:40.399Z</lastmod>
+    <lastmod>2025-11-14T15:41:50.655Z</lastmod>
   </url>
   <url>
     <loc>https://fabridamicelli.github.io/python-course/functions.html</loc>
-    <lastmod>2025-11-13T12:42:40.399Z</lastmod>
+    <lastmod>2025-11-14T15:41:50.656Z</lastmod>
   </url>
   <url>
     <loc>https://fabridamicelli.github.io/python-course/comprehensions.html</loc>
-    <lastmod>2025-11-13T12:42:40.399Z</lastmod>
+    <lastmod>2025-11-14T15:41:50.656Z</lastmod>
   </url>
   <url>
     <loc>https://fabridamicelli.github.io/python-course/lab_builtin_for_the_win.html</loc>
-    <lastmod>2025-11-13T12:42:40.404Z</lastmod>
+    <lastmod>2025-11-14T15:41:50.661Z</lastmod>
   </url>
   <url>
     <loc>https://fabridamicelli.github.io/python-course/imports.html</loc>
-    <lastmod>2025-11-13T12:42:40.399Z</lastmod>
+    <lastmod>2025-11-14T15:41:50.656Z</lastmod>
   </url>
   <url>
     <loc>https://fabridamicelli.github.io/python-course/read_write.html</loc>
-    <lastmod>2025-11-13T12:42:40.399Z</lastmod>
+    <lastmod>2025-11-14T15:41:50.656Z</lastmod>
   </url>
   <url>
     <loc>https://fabridamicelli.github.io/python-course/dependencies.html</loc>
-    <lastmod>2025-11-13T12:42:40.399Z</lastmod>
+    <lastmod>2025-11-14T15:41:50.656Z</lastmod>
   </url>
   <url>
     <loc>https://fabridamicelli.github.io/python-course/common_data_formats.html</loc>
-    <lastmod>2025-11-13T12:42:40.399Z</lastmod>
+    <lastmod>2025-11-14T15:41:50.656Z</lastmod>
   </url>
   <url>
     <loc>https://fabridamicelli.github.io/python-course/debugging.html</loc>
-    <lastmod>2025-11-13T12:42:40.402Z</lastmod>
+    <lastmod>2025-11-14T15:41:50.659Z</lastmod>
   </url>
   <url>
     <loc>https://fabridamicelli.github.io/python-course/numpy.html</loc>
-    <lastmod>2025-11-13T12:42:40.400Z</lastmod>
+    <lastmod>2025-11-14T15:41:50.657Z</lastmod>
   </url>
   <url>
     <loc>https://fabridamicelli.github.io/python-course/pandas.html</loc>
-    <lastmod>2025-11-13T12:42:40.400Z</lastmod>
+    <lastmod>2025-11-14T15:41:50.657Z</lastmod>
   </url>
   <url>
     <loc>https://fabridamicelli.github.io/python-course/plotting.html</loc>
-    <lastmod>2025-11-13T12:42:40.402Z</lastmod>
+    <lastmod>2025-11-14T15:41:50.659Z</lastmod>
   </url>
   <url>
     <loc>https://fabridamicelli.github.io/python-course/lab_explore_dataset.html</loc>
-    <lastmod>2025-11-13T12:42:40.405Z</lastmod>
-  </url>
-  <url>
-    <loc>https://fabridamicelli.github.io/python-course/cli.html</loc>
-    <lastmod>2025-11-13T12:42:40.403Z</lastmod>
+    <lastmod>2025-11-14T15:41:50.662Z</lastmod>
   </url>
   <url>
     <loc>https://fabridamicelli.github.io/python-course/error_handling.html</loc>
-    <lastmod>2025-11-13T12:42:40.399Z</lastmod>
+    <lastmod>2025-11-14T15:41:50.656Z</lastmod>
   </url>
   <url>
     <loc>https://fabridamicelli.github.io/python-course/oop.html</loc>
-    <lastmod>2025-11-13T12:42:40.399Z</lastmod>
+    <lastmod>2025-11-14T15:41:50.656Z</lastmod>
   </url>
   <url>
     <loc>https://fabridamicelli.github.io/python-course/testing.html</loc>
-    <lastmod>2025-11-13T12:42:40.402Z</lastmod>
-  </url>
-  <url>
-    <loc>https://fabridamicelli.github.io/python-course/tools_patterns.html</loc>
-    <lastmod>2025-11-13T12:42:40.403Z</lastmod>
+    <lastmod>2025-11-14T15:41:50.659Z</lastmod>
   </url>
   <url>
     <loc>https://fabridamicelli.github.io/python-course/notebook_workflow.html</loc>
-    <lastmod>2025-11-13T12:42:40.413Z</lastmod>
+    <lastmod>2025-11-14T15:41:50.669Z</lastmod>
   </url>
   <url>
     <loc>https://fabridamicelli.github.io/python-course/glossary.html</loc>
-    <lastmod>2025-11-13T12:42:40.403Z</lastmod>
+    <lastmod>2025-11-14T15:41:50.660Z</lastmod>
   </url>
   <url>
     <loc>https://fabridamicelli.github.io/python-course/references.html</loc>
-    <lastmod>2025-11-13T12:42:40.413Z</lastmod>
+    <lastmod>2025-11-14T15:41:50.670Z</lastmod>
   </url>
 </urlset>
