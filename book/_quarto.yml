@@ -49,11 +49,11 @@ book:
     - 081_pandas.ipynb
     - 09_plotting.ipynb
     - lab_explore_data.ipynb
-    - 11_cli.ipynb
+    # - 11_cli.ipynb
     - 03_2_error_handling.ipynb
     - 051_oop.ipynb
     - 10_testing.ipynb
-    - 13_tools.ipynb
+    # - 13_tools.ipynb
     - notebook_workflow.ipynb
     - 999_glossary.ipynb
     - references.qmd
