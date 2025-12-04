@@ -1,11 +1,11 @@
 # About the Course {.unnumbered}
 This is a free, **short introduction** to the Python programming language, emphasizing practical over theoretical aspects and with a focus on data-related tasks.  
-The goal is to get you just enough tools under your belt for you to pursue your own learning path according to your interests. 
+Goal: Get you just enough tools under your belt to pursue your own learning path.  
 What's in for you:
 
-✅ Core concepts of the language explained in _simple words_  
-✅ Software engineering best-practices (project/dependency management, [`uv`](https://docs.astral.sh/uv/), testing with [pytest](https://docs.pytest.org/en/stable/), error handling, etc.)  
-✅ Useful references to deepen your knowledge (talks, books, cheatsheets, etc.)  
+✅ Core concepts explained in _simple words_  
+✅ Software engineering best-practices (project/dependency management, testing etc.)  
+✅ References to talks, books, cheatsheets, etc. to deepen your knowledge  
 ✅ Exercises for each chapter to ramp up your skills with deliberate practice   
 ✅ Integrative "Labs" with real-world datasets  
 
@@ -15,7 +15,10 @@ Off we go! 🚀
 
 
 # About the Author
-Fabrizio Damicelli (PhD, Computational Neuroscience) is a self-taught coder who prefers solid intuitions to unnecessary sophistication and fancy jargon.  
-Open source advocate, creator and maintainer of a few of Python packages and Open Source projects.  
+[Fabrizio Damicelli](https://fabridamicelli.com/) (PhD, Computational Neuroscience) is a coder who prefers solid intuitions to unnecessary sophistication and fancy jargon.  
+Open source advocate, creator and maintainer of a few Open Source projects, including several [Python Packages](https://pypi.org/user/fabridamicelli/).  
 Learn more about him [here](https://fabridamicelli.github.io).
+
+You can hire the author to teach this course on-site at your company or university.  
+Reach out by email: fabridamicelli at gmail dot com.
 
